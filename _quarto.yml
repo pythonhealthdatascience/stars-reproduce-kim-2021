@@ -1,0 +1,65 @@
+project:
+  type: website
+  preview:
+    browser: true
+
+website:
+  # Name of site in navbar
+  # TODO: Amend to refer to the first author and year of the original study
+  title: "Reproducing Author et al. Year"
+  # Favicon image for site
+  favicon: "quarto_site/stars_logo_blue.png"
+  # Adds edit and issue buttons to footer
+  # TODO: Correct URL
+  repo-url: https://github.com/pythonhealthdatascience/stars_reproduction_template
+  repo-actions: [edit, issue]
+  # Settings for navbar across top of page
+  navbar:
+    logo: "quarto_site/stars_logo_blue.png"
+    # Left-aligned within navbar...
+    left:
+      - text: Original study
+        href: quarto_site/study_publication.qmd
+      - text: Reproduction
+        menu:
+          - text: README
+            href: quarto_site/reproduction_readme.qmd
+          # TODO: Add link to reproduction notebook (as in example below)
+          # - text: Notebook
+          #   href: reproduction/reproduction.ipynb
+      - text: Evaluation
+        menu:
+          - evaluation/scope.qmd
+          - evaluation/reproduction_success.qmd
+          - evaluation/badges.qmd
+          - evaluation/artefacts.qmd
+          - evaluation/reporting.qmd
+      - logbook/logbook.qmd
+      - text: Summary
+        href: evaluation/reproduction_report.qmd
+      - text: Reflections
+        href: evaluation/reflections.qmd
+    # Right-aligned within navbar...
+    # TODO: Correct URL
+    right:
+      - icon: github
+        href: https://github.com/pythonhealthdatascience/stars_reproduction_template
+  page-footer:
+    left: |
+      [![](https://raw.githubusercontent.com/pythonhealthdatascience/stars-logo/main/stars_logo_blue_text.png){fig-alt="STARS" width=300px}](https://github.com/pythonhealthdatascience)
+    center:
+      - text: "Changelog"
+        href: CHANGELOG.md
+      - text: "License"
+        href: quarto_site/license.qmd
+      - text: "Contributing"
+        href: CONTRIBUTING.md
+    # TODO: Correct URL
+    right:
+      - icon: github
+        href: https://github.com/pythonhealthdatascience/stars_reproduction_template
+
+format:
+  html:
+    theme: cosmo
+    toc: true

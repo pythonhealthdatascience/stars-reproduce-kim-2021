@@ -1,0 +1,62 @@
+---
+title: "Reproduction success"
+echo: False
+bibliography: ../quarto_site/references.bib
+---
+
+<!-- TODO: Remove this warning once completed assessment -->
+**Please note: This is a template page and has not yet been completed**
+
+<!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
+
+Of the X items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
+
+As cited throughout, images on this page are sourced from
+<!-- Add @reference -->
+
+## Time-to-completion
+
+```{python}
+import numpy as np
+import pandas as pd
+from time_to_complete import process_times, success_static, success_interactive
+
+# List of time to complete each item
+# TODO: Change to actual items and times for this project
+time_list = [
+    [100, 'In-text result 1'],
+    [200, 'In-text result 2'],
+    [400, 'Figure 2'], # Finished work, not completed, adjust to set to NaN
+    [np.nan, 'Figure 3'],
+    [np.nan, 'Figure 4'],
+    [300, 'Figure 5'],
+    [np.nan, 'Supplementary figure'],
+    [np.nan, 'In-text result 3']]
+times_df = process_times(time_list, adjust='Figure 2')
+display(times_df)
+```
+
+Non-interactive plot:
+
+```{python}
+success_static(times_df)
+```
+
+Interactive plot:
+
+```{python}
+success_interactive(times_df)
+```
+
+## Figure X
+
+**Consensus: Not reproduced / Successfully reproduced**
+
+Original (citation):
+
+<!-- Image, e.g.
+![](../original_study/fig2.jpg){width=80% fig-align="center" .lightbox} -->
+
+Reproduction:
+
+<!-- Image -->

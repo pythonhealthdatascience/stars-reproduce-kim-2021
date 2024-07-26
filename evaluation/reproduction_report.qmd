@@ -1,0 +1,122 @@
+---
+title: "Summary report"
+subtitle: "For computational reproducibility assessment of Author et al. Year"
+format:
+  html:
+    page-layout: full
+echo: False
+bibliography: ../quarto_site/references.bib
+---
+
+<!-- TODO: Remove this warning once filled out report -->
+**Please note: This is a template page and has not yet been completed**
+
+<!-- TODO: Use this skeleton to create a summary report -->
+
+## Study
+
+> [Authors]. **[Title]**. *[Journal]* [Volume], [Edition] ([Year]). <[URL]>.
+
+[Paragraph summarising model]
+
+## Computational reproducibility
+
+Successfully reproduced **X out of X (X%)** of items from the scope in **Xh Xm (X%)**.
+
+Required troubleshooting:
+
+* [List of required changes to code]
+
+::: {.panel-tabset}
+
+## Item X
+
+[One sentence description of item X]
+
+[Display side-by-side]
+<!-- Example:
+![Original](../original_study/article_fig2.png){width=49% .lightbox}
+![Reproduction](../reproduction/output/patients_base_3_month.png){width=49% .lightbox} -->
+
+## Item Y
+
+[Set-up as for Item X]
+
+## Figure 4
+
+[Set-up as for Item X]
+
+:::
+
+## Evaluation against guidelines
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Create dataframe of results
+col = ['fully', 'partially', 'not', 'na']
+eval_dict = {
+  'STARS (essential)': [1, 1, 1, 1],
+  'STARS (optional)': [1, 1, 1, 1],
+  'Badges (criteria)': [1, 1, 1, 1],
+  'Badges (badges)': [1, 1, 1, 1],
+  'STRESS-DES': [1, 1, 1, 1],
+  'ISPOR-SDM': [1, 1, 1, 1]
+}
+eval_wide = pd.DataFrame(eval_dict, index=col).T
+eval = (eval_wide
+        .melt(ignore_index=False)
+        .reset_index()
+        .rename(columns={'index': 'guideline',
+                         'variable': 'result',
+                         'value': 'count'}))
+
+# Add percentages
+eval['total'] = eval['count'].groupby(eval['guideline']).transform('sum')
+eval['percent'] = eval['count'] / eval['total']
+eval['percentage'] = round(eval['percent']*100, 1).astype(str) + '%'
+
+# Create stacked bar visualisation
+fig = px.bar(
+  eval,
+  x='percent',
+  y='guideline',
+  color='result',
+  color_discrete_map={'fully': '#06a94d',
+                      'partially': '#ffd68c',
+                      'not': '#ff9999',
+                      'na': '#d1dcea'},
+  orientation='h',
+  hover_data={
+    'count': True,
+    'percent': False,
+    'percentage': True,
+    'guideline': False,
+    'result': False})
+  
+# Amend x axis label and ticks
+fig.update_layout(xaxis = dict(
+  range=[0,1],
+  tickmode='array',
+  tickvals=[0, 0.2, 0.4, 0.6, 0.8, 1],
+  ticktext=['0%', '20%', '40%', '60%', '80%', '100%'],
+  title=''))
+
+# Amend y axis label and order, and add space between ticks and plot
+fig.update_layout(yaxis=dict(
+  autorange='reversed',
+  title=''))
+fig.update_yaxes(ticksuffix = '  ')
+
+# Relabel legend
+fig.update_layout(legend_title_text='Result')
+newnames = {'fully': 'Fully met', 'partially': 'Partially met',
+            'not': 'Not met', 'na': 'Not applicable'}
+fig.for_each_trace(lambda t: t.update(name = newnames[t.name]))
+
+# Show without toolbar
+fig.show(config={'displayModeBar': False})
+```
+
+<sup>Context: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM.</sup>

@@ -1,0 +1,64 @@
+---
+authors:
+  - name: [Reproduction Researcher Name]
+    url: [GitHub URL]
+    orcid: 0000-0000-0000-0000
+    affiliation: University of Exeter
+---
+<!-- TODO: Update author above -->
+
+## About
+
+This book captures the reproduction of:
+
+<!-- TODO: Amend to citation for the original study -->
+> [Authors]. **[Title]**. *[Journal]* [Volume], [Edition] ([Year]). <[URL]>.
+
+Use the navigation bar above to view:
+
+* **Original study** - the original study article and associated artefacts.
+* **Reproduction** - code and documentation from reproduction of the model.
+* **Evaluation** - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.
+* **Logbook** - chronological entries detailing reproduction work.
+* **Summary** - summary of the computational reproducibility assessment.
+
+## Project team
+
+<!-- ORCID icon CC 1.0 from https://figshare.com/articles/figure/ORCID_iD_icon_graphics/5008697/4 -->
+
+<!-- TODO: Moved authors conducting and supporting reproduction out of the list and into the appropriate section -->
+Conducting this reproduction:
+
+* [Name + Link + ORCID]
+
+Providing support during the reproduction:
+
+* [Name + Link + ORCID]
+
+Other members of the team on STARS:
+
+* [Amy Heather](https://github.com/amyheather) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0002-6596-3479)
+* [Thomas Monks](https://github.com/TomMonks) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0003-2631-4481)
+* [Alison Harper](https://github.com/AliHarp) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0001-5274-5037)
+* [Navonil Mustafee](https://github.com/NavonilNM) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0002-2204-8924)
+* [Andrew Mayne](https://github.com/andy-mayne) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0003-1263-2286)
+
+## Protocol
+
+
+The protocol for this work is summarised in the diagram below and archived on Zenodo:
+
+> Heather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. <https://doi.org/10.5281/zenodo.12179846>.
+
+![Workflow for computational reproducibility assessment](./quarto_site/stars_wp1_workflow.png)
+
+## Citation
+
+**APA:**
+{{< include citation_apalike.apa >}}
+
+See `CITATION.cff` and `citation_bibtex.bib` for alternative formats.
+
+## License
+
+See [License page](./quarto_site/license.qmd).

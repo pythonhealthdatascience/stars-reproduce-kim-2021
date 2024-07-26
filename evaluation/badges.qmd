@@ -1,0 +1,271 @@
+---
+title: "Journal badges"
+format:
+  html:
+    code-fold: true
+bibliography: ../quarto_site/references.bib
+---
+
+<!-- TODO: Remove this warning once completed assessment -->
+**Please note: This is a template page and has not yet been completed, so all criteria are currently set as unmet (❌)**
+
+This page evaluates the extent to which the author-published research artefacts meet the criteria of badges related to reproducibility from various organisations and journals.
+
+*Caveat: Please note that these criteria are based on available information about each badge online, and that we have likely differences in our procedure (e.g. allowed troubleshooting for execution and reproduction, not under tight time pressure to complete). Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals.*
+
+## Criteria
+
+```{python}
+from IPython.display import display, Markdown
+import numpy as np
+import pandas as pd
+
+# Criteria and their definitions
+criteria = {
+    'archive': 'Stored in a permanent archive that is publicly and openly accessible',
+    'id': 'Has a persistent identifier',
+    'license': 'Includes an open license',
+    'relevant': '''Artefacts are relevant to and contribute to the article's results''',
+    'complete': 'Complete set of materials shared (as would be needed to fully reproduce article)',
+    'structure': 'Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)',
+    'documentation_sufficient': 'Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)',
+    'documentation_careful': 'Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)',
+    # This criteria is kept seperate to documentation_careful, as it specifically requires a README file
+    'documentation_readme': 'Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript',
+    'execute': 'Scripts can be successfully executed',
+    'regenerated': 'Independent party regenerated results using the authors research artefacts',
+    'hour': 'Reproduced within approximately one hour (excluding compute time)',
+}
+
+# Evaluation for this study
+# TODO: Complete evaluate for each criteria
+eval = pd.Series({
+    'archive': 0,
+    'id': 0,
+    'license': 0,
+    'relevant': 0,
+    'complete': 0,
+    'structure': 0,
+    'documentation_sufficient': 0,
+    'documentation_careful': 0,
+    'documentation_readme': 0,
+    'execute': 0,
+    'regenerated': 0,
+    'hour': 0,
+})
+
+# Get list of criteria met (True/False) overall
+eval_list = list(eval)
+
+# Define function for creating the markdown formatted list of criteria met
+def create_criteria_list(criteria_dict):
+    '''
+    Creates a string which contains a Markdown formatted list with icons to
+    indicate whether each criteria was met
+
+    Parameters:
+    -----------
+    criteria_dict : dict
+        Dictionary where keys are the criteria (variable name) and values are
+        Boolean (True/False of whether this study met the criteria)
+
+    Returns:
+    --------
+    formatted_list : string
+        Markdown formatted list
+    '''
+    callout_icon = {True: '✅',
+                    False: '❌'}
+    # Create list with...
+    formatted_list = ''.join([
+        '* ' +
+        callout_icon[eval[key]] + # Icon based on whether it met criteria
+        ' ' +
+        value + # Full text description of criteria
+        '\n' for key, value in criteria_dict.items()])
+    return(formatted_list)
+
+# Define groups of criteria
+criteria_share_how = ['archive', 'id', 'license']
+criteria_share_what = ['relevant', 'complete']
+criteria_doc_struc = ['structure', 'documentation_sufficient', 'documentation_careful', 'documentation_readme']
+criteria_run = ['execute', 'regenerated', 'hour']
+
+# Create text section
+display(Markdown(f'''
+To assess whether the author's materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.
+
+This study met **{sum(eval_list)} of the {len(eval_list)}** unique criteria items. These were as follows:
+
+Criteria related to how artefacts are shared -
+
+{create_criteria_list({k: criteria[k] for k in criteria_share_how})}
+
+Criteria related to what artefacts are shared -
+
+{create_criteria_list({k: criteria[k] for k in criteria_share_what})}
+
+Criteria related to the structure and documentation of the artefacts -
+
+{create_criteria_list({k: criteria[k] for k in criteria_doc_struc})}
+
+Criteria related to running and reproducing results -
+
+{create_criteria_list({k: criteria[k] for k in criteria_run})}
+'''))
+
+```
+
+## Badges
+```{python}
+
+# Full badge names
+badge_names = {
+    # Open objects
+    'open_niso': 'NISO "Open Research Objects (ORO)"',
+    'open_niso_all': 'NISO "Open Research Objects - All (ORO-A)"',
+    'open_acm': 'ACM "Artifacts Available"',
+    'open_cos': 'COS "Open Code"',
+    'open_ieee': 'IEEE "Code Available"',
+    # Object review
+    'review_acm_functional': 'ACM "Artifacts Evaluated - Functional"',
+    'review_acm_reusable': 'ACM "Artifacts Evaluated - Reusable"',
+    'review_ieee': 'IEEE "Code Reviewed"',
+    # Results reproduced
+    'reproduce_niso': 'NISO "Results Reproduced (ROR-R)"',
+    'reproduce_acm': 'ACM "Results Reproduced"',
+    'reproduce_ieee': 'IEEE "Code Reproducible"',
+    'reproduce_psy': 'Psychological Science "Computational Reproducibility"'
+}
+
+# Criteria required by each badge
+badges = {
+    # Open objects
+    'open_niso': ['archive', 'id', 'license'],
+    'open_niso_all': ['archive', 'id', 'license', 'complete'],
+    'open_acm': ['archive', 'id'],
+    'open_cos': ['archive', 'id', 'license', 'complete', 'documentation_sufficient'],
+    'open_ieee': ['complete'],
+    # Object review
+    'review_acm_functional': ['documentation_sufficient', 'relevant', 'complete', 'execute'],
+    'review_acm_reusable': ['documentation_sufficient', 'documentation_careful', 'relevant', 'complete', 'execute', 'structure'],
+    'review_ieee': ['complete', 'execute'],
+    # Results reproduced
+    'reproduce_niso': ['regenerated'],
+    'reproduce_acm': ['regenerated'],
+    'reproduce_ieee': ['regenerated'],
+    'reproduce_psy': ['regenerated', 'hour', 'structure', 'documentation_readme'],
+}
+
+# Identify which badges would be awarded based on criteria
+# Get list of badges met (True/False) overall
+award = {}
+for badge in badges:
+    award[badge] = all([eval[key] == 1 for key in badges[badge]])
+award_list = list(award.values())
+
+# Write introduction
+# Get list of badges met (True/False) by category
+award_open = [v for k,v in award.items() if k.startswith('open_')]
+award_review = [v for k,v in award.items() if k.startswith('review_')]
+award_reproduce = [v for k,v in award.items() if k.startswith('reproduce_')]
+
+# Create and display text for introduction
+display(Markdown(f'''
+In total, the original study met the criteria for **{sum(award_list)} of the {len(award_list)} badges**. This included:
+
+* **{sum(award_open)} of the {len(award_open)}** “open objects” badges
+* **{sum(award_review)} of the {len(award_review)}** “object review” badges
+* **{sum(award_reproduce)} of the {len(award_reproduce)}** “reproduced” badges
+'''))
+
+# Make function that creates collapsible callouts for each badge
+def create_badge_callout(award_dict):
+    '''
+    Displays Markdown callouts created for each badge in the dictionary, showing
+    whether the criteria for that badge was met.
+
+    Parameters:
+    -----------
+    award_dict : dict
+        Dictionary where key is badge (as variable name), and value is Boolean
+        (whether badge is awarded)
+    '''
+    callout_appearance = {True: 'tip',
+                          False: 'warning'}
+    callout_icon = {True: '✅',
+                    False: '❌'}
+    callout_text = {True: 'Meets all criteria:',
+                    False: 'Does not meet all criteria:'}
+
+    for key, value in award_dict.items():
+        # Create Markdown list with...
+        criteria_list = ''.join([
+            '* ' +
+            callout_icon[eval[k]] + # Icon based on whether it met criteria
+            ' ' +
+            criteria[k] + # Full text description of criteria
+            '\n' for k in badges[key]])
+        # Create the callout and display it
+        display(Markdown(f'''
+::: {{.callout-{callout_appearance[value]} appearance="minimal" collapse=true}}
+
+## {callout_icon[value]} {badge_names[key]}
+
+{callout_text[value]}
+
+{criteria_list}
+:::
+'''))
+
+# Create badge functions with introductions and callouts
+display(Markdown('''
+### "Open objects" badges
+
+These badges relate to research artefacts being made openly available.
+'''))
+create_badge_callout({k: v for (k, v) in award.items() if k.startswith('open_')})
+
+display(Markdown('''
+### "Object review" badges
+
+These badges relate to the research artefacts being reviewed against criteria of the badge issuer.
+'''))
+create_badge_callout({k: v for (k, v) in award.items() if k.startswith('review_')})
+
+display(Markdown('''
+### "Reproduced" badges
+
+These badges relate to an independent party regenerating the reuslts of the article using the author objects.
+'''))
+create_badge_callout({k: v for (k, v) in award.items() if k.startswith('reproduce_')})
+```
+
+## Sources
+
+**National Information Standards Organisation (NISO)** (@niso_reproducibility_badging_and_definitions_working_group_reproducibility_2021)
+
+* "Open Research Objects (ORO)"
+* "Open Research Objects - All (ORO-A)"
+* "Results Reproduced (ROR-R)"
+
+**Association for Computing Machinery (ACM)** (@association_for_computing_machinery_acm_artifact_2020)
+
+* "Artifacts Available"
+* "Artifacts Evaluated - Functional"
+* "Artifacts Evaluated - Resuable"
+* "Results Reproduced"
+
+**Center for Open Science (COS)** (@blohowiak_badges_2023)
+
+* "Open Code"
+
+**Institute of Electrical and Electronics Engineers (IEEE)** (@institute_of_electrical_and_electronics_engineers_ieee_about_nodate)
+
+* "Code Available"
+* "Code Reviewed"
+* "Code Reproducible"
+
+**Psychological Science** (@hardwicke_transparency_2023 and @association_for_psychological_science_aps_psychological_2023)
+
+* "Computational Reproducibility"

@@ -1,0 +1,29 @@
+---
+title: "Publication"
+bibliography: references.bib
+---
+
+<!-- TODO: Remove this warning once filled out page -->
+**Please note: This is a template page and has not yet been completed**
+
+<!-- TODO: Add citation from .bib file i.e. @study_word_year -->
+
+## Code and data
+
+<!-- TODO: Add link to folder in repository -->
+View at: <[Link]>
+
+## Journal article
+
+<!-- TODO: Embed article PDF - e.g.
+<iframe width="100%" height="800" src="../original_study/article.pdf"></iframe>
+
+Unless the article is behind the paywall and no open-access version is available - in which case, just provide link to it -->
+
+## Supplementary materials
+
+<!-- TODO: Embed supplementary PDF (if relevant) -->
+
+## Sources
+
+<!-- TODO: Add links for where the above were sourced from -->

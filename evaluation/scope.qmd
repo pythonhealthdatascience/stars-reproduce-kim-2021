@@ -1,0 +1,40 @@
+---
+title: "Scope"
+echo: False
+bibliography: ../quarto_site/references.bib
+---
+
+<!-- TODO: Remove this warning once filled out page -->
+**Please note: This is a template page and has not yet been completed**
+
+<!-- TODO: Use skeleton to create page describing scope -->
+
+<!-- NOTE: If you do not have a license allowing you to upload and reuse images from the article, then you should describe them below, and direct the reader to a link to the article -->
+
+This page outlines the parts of the journal article which we will attempt to reproduce.
+
+All images and quotes on this page are sourced from <!-- TODO: Add citation to original study -->
+
+## Within scope
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure X
+
+[Figure with full legend from paper]
+<!-- e.g.
+![Figure 2. "Patient state over time by unit. The patient population progresses through infection over three months (with 80% infected). The bold line shows the median results of 30 trials, and the fainter lines show the minimum and maximum from the 30 trials." @allen_simulation_2020](../original_study/article_fig2.png){width=80%}-->
+
+:::
+
+## Outside scope
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table X
+
+[Explanation of why it is outside scope]
+
+[Display table, including full legend from paper]
+
+:::

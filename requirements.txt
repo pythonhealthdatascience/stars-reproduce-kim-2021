@@ -1,0 +1,7 @@
+# Environment file for creation of Quarto site
+# This is seperate from the environment used in reproduction/
+jupyter==1.0.0
+pandas==2.2.2
+plotly==5.22.0
+tenacity==8.3.0
+matplotlib==3.9.1

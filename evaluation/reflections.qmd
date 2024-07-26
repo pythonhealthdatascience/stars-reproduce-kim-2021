@@ -1,0 +1,34 @@
+---
+title: "Reflections"
+---
+
+<!-- TODO: Remove this warning once completed assessment -->
+**Please note: This is a template page and has not yet been completed**
+
+This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work.
+
+## What would have helped facilitate this reproduction?
+
+<!-- TODO: Add reflections. Example:
+**Provide environment (packages and versions)**
+
+* Not all packages needed will be listed in the imports (e.g. greenlet, pathlib)
+* Didn't work with latest package versions, had to backdate it for it to work
+-->
+
+## Full list of troubleshooting steps
+
+::: {.callout-note appearance="minimal" collapse=true}
+## View list
+
+Troubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.
+
+<!-- TODO: Add full list of troubleshooting steps. Example:
+
+### Environment
+
+* No environment file, and no versions for Python or Salabim in paper (2)
+* Dependencies based on PHC.py and package versions on or prior to 14th March 2021 (2)
+-->
+
+:::
