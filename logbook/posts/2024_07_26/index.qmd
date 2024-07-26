@@ -2,7 +2,7 @@
 title: "Day 1"
 author: "Amy Heather"
 date: "2024-07-26"
-categories: [setup, read, scope, reproduce, guidelines, report, compendium]
+categories: [setup]
 bibliography: ../../../quarto_site/references.bib
 ---
 
@@ -33,6 +33,20 @@ It is available under an LGPL-3.0 license, so I updated this repository to use t
 * Include source code when distribute derivative work
 * License derivative work under same license
 
+## 16.43-16.56: Upload journal article
+
+The article is published with PLoS ONE and has a permissive copyright statement:
+
+> "Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+
+<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327>
+
+Hence, uploaded article, figures, tables and supplementary materials to `original_study/`. Converted `.tif` files to `.png` (e.g. `convert sup3.tif sup3.png`). Converted `.docx` to `.pdf` (`libreoffice --headless --convert-to pdf sup1.docx --outdir sup1.pdf`).
+
+Amended `study_publication.qmd` to display these.
+
+Add the study to `references.bib`.
+
 ## Timings
 
 ```{python}
@@ -47,7 +61,8 @@ used_to_date = 0
 times = [
     ('15.58', '16.03'),
     ('16.21', '16.30'),
-    ('16.36', '16.41')]
+    ('16.36', '16.41'),
+    ('16.43', '16.56')]
 
 calculate_times(used_to_date, times)
 ```
