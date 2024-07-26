@@ -241,7 +241,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#set-up-repository" id="toc-set-up-repository" class="nav-link active" data-scroll-target="#set-up-repository">15.58-16.03, 16.21-: Set-up repository</a></li>
+  <li><a href="#set-up-repository" id="toc-set-up-repository" class="nav-link active" data-scroll-target="#set-up-repository">15.58-16.03, 16.21-16.30: Set-up repository</a></li>
+  <li><a href="#upload-code-and-update-license" id="toc-upload-code-and-update-license" class="nav-link" data-scroll-target="#upload-code-and-update-license">16.36-16.41: Upload code and update license</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_26/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -267,7 +268,7 @@ Note
 </div>
 </div>
 <section id="set-up-repository" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-repository">15.58-16.03, 16.21-: Set-up repository</h2>
+<h2 class="anchored" data-anchor-id="set-up-repository">15.58-16.03, 16.21-16.30: Set-up repository</h2>
 <ul>
 <li>Create repository from template</li>
 <li>Set up environment</li>
@@ -281,9 +282,19 @@ Note
 <li>Set up site on GitHub pages (<code>quarto publish gh-pages</code>)</li>
 </ul>
 </section>
+<section id="upload-code-and-update-license" class="level2">
+<h2 class="anchored" data-anchor-id="upload-code-and-update-license">16.36-16.41: Upload code and update license</h2>
+<p>Model code is available at: <a href="https://github.com/mikesweeting/AAA_DES_model" class="uri">https://github.com/mikesweeting/AAA_DES_model</a></p>
+<p>It is available under an LGPL-3.0 license, so I updated this repository to use the same license (GNU LESSER GENERAL PUBLIC LICENSE Version 3). <a href="https://fossa.com/blog/open-source-software-licenses-101-lgpl-license/">This license requires</a>:</p>
+<ul>
+<li>Copy of full license and original copyright notice</li>
+<li>Include source code when distribute derivative work</li>
+<li>License derivative work under same license</li>
+</ul>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="a99b070c" class="cell" data-execution_count="1">
+<div id="4772da1c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -293,14 +304,16 @@ Note
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.58'</span>, <span class="st">'16.03'</span>)]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.58'</span>, <span class="st">'16.03'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.21'</span>, <span class="st">'16.30'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.36'</span>, <span class="st">'16.41'</span>)]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 5m, or 0h 5m
-Total used to date: 5m, or 0h 5m
-Time remaining: 2395m, or 39h 55m
-Used 0.2% of 40 hours max</code></pre>
+<pre><code>Time spent today: 19m, or 0h 19m
+Total used to date: 19m, or 0h 19m
+Time remaining: 2381m, or 39h 41m
+Used 0.8% of 40 hours max</code></pre>
 </div>
 </div>
 
