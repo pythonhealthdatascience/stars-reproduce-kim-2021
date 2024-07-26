@@ -12,7 +12,7 @@ X. Total time used: Xh Xm (X%)
 
 :::
 
-## 15.58-16.03, 16.21-: Set-up repository
+## 15.58-16.03, 16.21-16.30: Set-up repository
 
 * Create repository from template
 * Set up environment
@@ -21,8 +21,17 @@ X. Total time used: Xh Xm (X%)
     * quarto site `index.qmd`
     * `CITATION.cff`
     * `_quarto.yml`
-
 * Set up site on GitHub pages (`quarto publish gh-pages`)
+
+## 16.36-16.41: Upload code and update license
+
+Model code is available at: <https://github.com/mikesweeting/AAA_DES_model>
+
+It is available under an LGPL-3.0 license, so I updated this repository to use the same license (GNU LESSER GENERAL PUBLIC LICENSE Version 3). [This license requires](https://fossa.com/blog/open-source-software-licenses-101-lgpl-license/):
+
+* Copy of full license and original copyright notice
+* Include source code when distribute derivative work
+* License derivative work under same license
 
 ## Timings
 
@@ -36,7 +45,9 @@ used_to_date = 0
 
 # Times from today
 times = [
-    ('15.58', '16.03')]
+    ('15.58', '16.03'),
+    ('16.21', '16.30'),
+    ('16.36', '16.41')]
 
 calculate_times(used_to_date, times)
 ```
