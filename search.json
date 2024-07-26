@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning. Dates formatted as YYYY-MM-DD as per ISO standard.\n\n\n\nContributors: Amy Heather\nMinor improvements following the third reproducibility assessment (Lim et al. 2020).\n\n\n\nAdd references to .yaml header in reproduction_report.qmd, reproduction_success.qmd and study_publication.qmd and set echo as false for scope.qmd\nAmended grammar in reporting.qmd bullet list\nUpdated references.bib\n\n\n\n\n\nContributors: Amy Heather\nMinor improvements following the second reproducibility assessment (Huang et al. 2019).\n\n\n\nInteractive and non-interactive time-to-completion figures add to reproduction_success.qmd, with time_to_complete.py producing figures\nAdd R-related items to .gitignore\nAdd option to not show limit on time from calculate_times()\n\n\n\n\n\nCorrected spelling of “artefacts” in badges.qmd and add sentence to cite original study in scope.qmd\nUpdated references.bib\nAdd matplotlib to requirements.txt\n\n\n\n\n\nContributors: Amy Heather\nMinor improvements following the first reproducibility assessment (Shoaib and Ramamohan 2022).\n\n\n\nTemplate page (reflections.qmd) for reflections on facilitators and barriers to reproduction, and for full list of troubleshooting steps\n\n\n\n\n\nAdd .vscode/ to .gitignore\nAdd citation to protocol on quarto site home page\nOrder of criteria in badges.qmd (so it is a consistent order between the dictionary of criteria names and results, making it easier when conducting the assessment to look between the two)\nAmended TODO: comments in CHANGELOG and GHCR GitHub action\nAdd missing &lt;!--- --&gt; marker in artefacts.qmd\nImproved the “succesfully reproduced” template sentence in reproduction_report.qmd\n\n\n\n\n\nContributors: Amy Heather\nFix to citation file to prevent error on Zenodo.\n\n\n\nCompleted CITATION.cff to reflect this repository (rather than to be a blank example), to prevent error when syncing with Zenodo\n\n\n\n\n\nContributors: Amy Heather, with review of the protocol and associated artefacts (such as this template) from Tom Monks, Alison Harper and Nav Mustafee\nInitial release of template repository. 🌱"
+  },
+  {
+    "objectID": "CHANGELOG.html#v1.0.4---2024-07-26",
+    "href": "CHANGELOG.html#v1.0.4---2024-07-26",
+    "title": "Changelog",
+    "section": "",
+    "text": "Contributors: Amy Heather\nMinor improvements following the third reproducibility assessment (Lim et al. 2020).\n\n\n\nAdd references to .yaml header in reproduction_report.qmd, reproduction_success.qmd and study_publication.qmd and set echo as false for scope.qmd\nAmended grammar in reporting.qmd bullet list\nUpdated references.bib"
+  },
+  {
+    "objectID": "CHANGELOG.html#v1.0.3---2024-07-19",
+    "href": "CHANGELOG.html#v1.0.3---2024-07-19",
+    "title": "Changelog",
+    "section": "",
+    "text": "Contributors: Amy Heather\nMinor improvements following the second reproducibility assessment (Huang et al. 2019).\n\n\n\nInteractive and non-interactive time-to-completion figures add to reproduction_success.qmd, with time_to_complete.py producing figures\nAdd R-related items to .gitignore\nAdd option to not show limit on time from calculate_times()\n\n\n\n\n\nCorrected spelling of “artefacts” in badges.qmd and add sentence to cite original study in scope.qmd\nUpdated references.bib\nAdd matplotlib to requirements.txt"
+  },
+  {
+    "objectID": "CHANGELOG.html#v1.0.2---2024-07-03",
+    "href": "CHANGELOG.html#v1.0.2---2024-07-03",
+    "title": "Changelog",
+    "section": "",
+    "text": "Contributors: Amy Heather\nMinor improvements following the first reproducibility assessment (Shoaib and Ramamohan 2022).\n\n\n\nTemplate page (reflections.qmd) for reflections on facilitators and barriers to reproduction, and for full list of troubleshooting steps\n\n\n\n\n\nAdd .vscode/ to .gitignore\nAdd citation to protocol on quarto site home page\nOrder of criteria in badges.qmd (so it is a consistent order between the dictionary of criteria names and results, making it easier when conducting the assessment to look between the two)\nAmended TODO: comments in CHANGELOG and GHCR GitHub action\nAdd missing &lt;!--- --&gt; marker in artefacts.qmd\nImproved the “succesfully reproduced” template sentence in reproduction_report.qmd"
+  },
+  {
+    "objectID": "CHANGELOG.html#v1.0.1---2024-06-19",
+    "href": "CHANGELOG.html#v1.0.1---2024-06-19",
+    "title": "Changelog",
+    "section": "",
+    "text": "Contributors: Amy Heather\nFix to citation file to prevent error on Zenodo.\n\n\n\nCompleted CITATION.cff to reflect this repository (rather than to be a blank example), to prevent error when syncing with Zenodo"
+  },
+  {
+    "objectID": "CHANGELOG.html#v1.0.0-0-2024-06-19",
+    "href": "CHANGELOG.html#v1.0.0-0-2024-06-19",
+    "title": "Changelog",
+    "section": "",
+    "text": "Contributors: Amy Heather, with review of the protocol and associated artefacts (such as this template) from Tom Monks, Alison Harper and Nav Mustafee\nInitial release of template repository. 🌱"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_26/index.html",
+    "href": "logbook/posts/2024_07_26/index.html",
+    "title": "Day 1",
+    "section": "",
+    "text": "Note\n\n\n\nX. Total time used: Xh Xm (X%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_26/index.html#set-up-repository",
+    "href": "logbook/posts/2024_07_26/index.html#set-up-repository",
+    "title": "Day 1",
+    "section": "15.58-16.03, 16.21-: Set-up repository",
+    "text": "15.58-16.03, 16.21-: Set-up repository\n\nCreate repository from template\nSet up environment\nModified template files:\n\nREADME.md\nquarto site index.qmd\nCITATION.cff\n_quarto.yml\n\nSet up site on GitHub pages (quarto publish gh-pages)"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_26/index.html#timings",
+    "href": "logbook/posts/2024_07_26/index.html#timings",
+    "title": "Day 1",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('15.58', '16.03')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 5m, or 0h 5m\nTotal used to date: 5m, or 0h 5m\nTime remaining: 2395m, or 39h 55m\nUsed 0.2% of 40 hours max"
+  },
+  {
     "objectID": "CONTRIBUTING.html",
     "href": "CONTRIBUTING.html",
     "title": "Contributing",
@@ -21,32 +84,32 @@
     "text": "If you spot an issue, you are welcome to raise this either by:\n\nUsing GitHub Issues.\nForking the repository, make your changes and submit a pull request for review."
   },
   {
-    "objectID": "logbook/logbook.html",
-    "href": "logbook/logbook.html",
-    "title": "Logbook",
+    "objectID": "evaluation/scope.html",
+    "href": "evaluation/scope.html",
+    "title": "Scope",
     "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\nreproduce\n\n\nguidelines\n\n\nreport\n\n\ncompendium\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+    "text": "Please note: This is a template page and has not yet been completed\nThis page outlines the parts of the journal article which we will attempt to reproduce.\nAll images and quotes on this page are sourced from"
   },
   {
-    "objectID": "evaluation/reflections.html",
-    "href": "evaluation/reflections.html",
-    "title": "Reflections",
+    "objectID": "evaluation/scope.html#within-scope",
+    "href": "evaluation/scope.html#within-scope",
+    "title": "Scope",
+    "section": "Within scope",
+    "text": "Within scope\n\n\n\n\n\n\nFigure X\n\n\n\n\n\n[Figure with full legend from paper]"
+  },
+  {
+    "objectID": "evaluation/scope.html#outside-scope",
+    "href": "evaluation/scope.html#outside-scope",
+    "title": "Scope",
+    "section": "Outside scope",
+    "text": "Outside scope\n\n\n\n\n\n\nTable X\n\n\n\n\n\n[Explanation of why it is outside scope]\n[Display table, including full legend from paper]"
+  },
+  {
+    "objectID": "evaluation/artefacts.html",
+    "href": "evaluation/artefacts.html",
+    "title": "STARS framework",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work."
-  },
-  {
-    "objectID": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
-    "href": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
-    "title": "Reflections",
-    "section": "What would have helped facilitate this reproduction?",
-    "text": "What would have helped facilitate this reproduction?"
-  },
-  {
-    "objectID": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
-    "href": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
-    "title": "Reflections",
-    "section": "Full list of troubleshooting steps",
-    "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet."
+    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (Monks, Harper, and Mustafee (2024)).\nOf the 8 essential STARS components:\n\n\nX were met fully (✅)\nX was met partially (🟡)\nX was not met (❌)\n\nOf the 5 optional STARS components:\n\n\nX was met fully (✅)\nX were not met (❌)\n\n\n\n\n\n\n\n\n\n\n\nComponent\nDescription\nMet by study?\nEvidence/location\n\n\n\n\nEssential components\n\n\n\n\n\nOpen license\nFree and open-source software (FOSS) license (e.g. MIT, GNU Public License (GPL))\n\n\n\n\nDependency management\nSpecify software libraries, version numbers and sources (e.g. dependency management tools like virtualenv, conda, poetry)\n\n\n\n\nFOSS model\nCoded in FOSS language (e.g. R, Julia, Python)\n\n\n\n\nMinimum documentation\nMinimal instructions (e.g. in README) that overview (a) what model does, (b) how to install and run model to obtain results, and (c) how to vary parameters to run new experiments\n\n\n\n\nORCID\nORCID for each study author\n\n\n\n\nCitation information\nInstructions on how to cite the research artefact (e.g. CITATION.cff file)\n\n\n\n\nRemote code repository\nCode available in a remote code repository (e.g. GitHub, GitLab, BitBucket)\n\n\n\n\nOpen science archive\nCode stored in an open science archive with FORCE11 compliant citation and guaranteed persistance of digital artefacts (e.g. Figshare, Zenodo, the Open Science Framework (OSF), and the Computational Modeling in the Social and Ecological Sciences Network (CoMSES Net))\n\n\n\n\nOptional components\n\n\n\n\n\nEnhanced documentation\nOpen and high quality documentation on how the model is implemented and works (e.g. via notebooks and markdown files, brought together using software like Quarto and Jupyter Book). Suggested content includes:• Plain english summary of project and model• Clarifying license• Citation instructions• Contribution instructions• Model installation instructions• Structured code walk through of model• Documentation of modelling cycle using TRACE• Annotated simulation reporting guidelines• Clear description of model validation including its intended purpose\n\n\n\n\nDocumentation hosting\nHost documentation (e.g. with GitHub pages, GitLab pages, BitBucket Cloud, Quarto Pub)\n\n\n\n\nOnline coding environment\nProvide an online environment where users can run and change code (e.g. BinderHub, Google Colaboratory, Deepnote)\n\n\n\n\nModel interface\nProvide web application interface to the model so it is accessible to less technical simulation users\n\n\n\n\nWeb app hosting\nHost web app online (e.g. Streamlit Community Cloud, ShinyApps hosting)\n\n\n\n\n\n\n\n\n\nReferences\n\nMonks, Thomas, Alison Harper, and Navonil Mustafee. 2024. “Towards Sharing Tools and Artefacts for Reusable Simulations in Healthcare.” Journal of Simulation 0 (0): 1–20. https://doi.org/10.1080/17477778.2024.2347882."
   },
   {
     "objectID": "evaluation/badges.html",
@@ -77,60 +140,11 @@
     "text": "Sources\nNational Information Standards Organisation (NISO) (NISO Reproducibility Badging and Definitions Working Group (2021))\n\n“Open Research Objects (ORO)”\n“Open Research Objects - All (ORO-A)”\n“Results Reproduced (ROR-R)”\n\nAssociation for Computing Machinery (ACM) (Association for Computing Machinery (ACM) (2020))\n\n“Artifacts Available”\n“Artifacts Evaluated - Functional”\n“Artifacts Evaluated - Resuable”\n“Results Reproduced”\n\nCenter for Open Science (COS) (Blohowiak et al. (2023))\n\n“Open Code”\n\nInstitute of Electrical and Electronics Engineers (IEEE) (Institute of Electrical and Electronics Engineers (IEEE) (n.d.))\n\n“Code Available”\n“Code Reviewed”\n“Code Reproducible”\n\nPsychological Science (Hardwicke and Vazire (2023) and Association for Psychological Science (APS) (2023))\n\n“Computational Reproducibility”"
   },
   {
-    "objectID": "evaluation/reporting.html",
-    "href": "evaluation/reporting.html",
-    "title": "Reporting guidelines",
+    "objectID": "quarto_site/license.html",
+    "href": "quarto_site/license.html",
+    "title": "Open Source License",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:"
-  },
-  {
-    "objectID": "evaluation/reporting.html#stress-des",
-    "href": "evaluation/reporting.html#stress-des",
-    "title": "Reporting guidelines",
-    "section": "STRESS-DES",
-    "text": "STRESS-DES\nOf the 24 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nRecommendation\nMet by study?\nEvidence\n\n\n\n\nObjectives\n\n\n\n\n\n1.1 Purpose of the model\nExplain the background and objectives for the model\n\n\n\n\n1.2 Model outputs\nDefine all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.\n\n\n\n\n1.3 Experimentation aims\nIf the model has been used for experimentation, state the objectives that it was used to investigate.(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).\n\n\n\n\nLogic\n\n\n\n\n\n2.1 Base model overview diagram\nDescribe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.\n\n\n\n\n2.2 Base model logic\nGive details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.\n\n\n\n\n2.3 Scenario logic\nGive details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.\n\n\n\n\n2.4 Algorithms\nProvide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e. scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.\n\n\n\n\n2.5.1 Components - entities\nGive details of all entities within the simulation including a description of their role in the model and a description of all their attributes.\n\n\n\n\n2.5.2 Components - activities\nDescribe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.\n\n\n\n\n2.5.3 Components - resources\nList all the resources included within the model and which activities make use of them.\n\n\n\n\n2.5.4 Components - queues\nGive details of the assumed queuing discipline used in the model (e.g. First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.\n\n\n\n\n2.5.5 Components - entry/exit points\nGive details of the model boundaries i.e. all arrival and exit points of entities. Detail the arrival mechanism (e.g. ‘thinning’ to mimic a non-homogenous Poisson process or balking)\n\n\n\n\nData\n\n\n\n\n\n3.1 Data sources\nList and detail all data sources. Sources may include:• Interviews with stakeholders,• Samples of routinely collected data,• Prospectively collected samples for the purpose of the simulation study,• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.All data source descriptions should include details of the sample size, sample date ranges and use within the study.\n\n\n\n\n3.2 Pre-processing\nProvide details of any data manipulation that has taken place before its use in the simulation, e.g. interpolation to account for missing data or the removal of outliers.\n\n\n\n\n3.3 Input parameters\nList all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.Clearly state:• Base case data• Data use in experimentation, where different from the base case.• Where optimisation or design of experiments has been used, state the range of values that parameters can take.• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.\n\n\n\n\n3.4 Assumptions\nWhere data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.\n\n\n\n\nExperimentation\n\n\n\n\n\n4.1 Initialisation\nReport if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.\n\n\n\n\n4.2 Run length\nDetail the run length of the simulation model and time units.\n\n\n\n\n4.3 Estimation approach\nState the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.\n\n\n\n\nImplementation\n\n\n\n\n\n5.1 Software or programming language\nState the operating system and version and build number.State the name, version and build number of commercial or open source DES software that the model is implemented in.State the name and version of general-purpose programming languages used (e.g. Python 3.5).Where frameworks and libraries have been used provide all details including version numbers.\n\n\n\n\n5.2 Random sampling\nState the algorithm used to generate random samples in the software/programming language used e.g. Mersenne Twister.If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.\n\n\n\n\n5.3 Model execution\nState the event processing mechanism used e.g. three phase, event, activity, process interaction.Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.State all priority rules included if entities/activities compete for resources.If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)\n\n\n\n\n5.4 System specification\nState the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)\n\n\n\n\nCode access\n\n\n\n\n\n6.1 Computer model sharing statement\nDescribe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these."
-  },
-  {
-    "objectID": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
-    "href": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
-    "title": "Reporting guidelines",
-    "section": "DES checklist derived from ISPOR-SDM",
-    "text": "DES checklist derived from ISPOR-SDM\nOf the 18 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nAssessed if…\nMet by study?\nEvidence/location\n\n\n\n\nModel conceptualisation\n\n\n\n\n\n1 Is the focused health-related decision problem clarified?\n…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.\n\n\n\n\n2 Is the modeled healthcare setting/health condition clarified?\n…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.\n\n\n\n\n3 Is the model structure described?\n…the model’s conceptual structure was described in the form of either graphical or text presentation.\n\n\n\n\n4 Is the time horizon given?\n…the time period covered by the simulation was reported.\n\n\n\n\n5 Are all simulated strategies/scenarios specified?\n…the comparators under test were described in terms of their components, corresponding variations, etc\n\n\n\n\n6 Is the target population described?\n…the entities simulated and their main attributes were characterized.\n\n\n\n\nParamaterisation and uncertainty assessment\n\n\n\n\n\n7 Are data sources informing parameter estimations provided?\n…the sources of all data used to inform model inputs were reported.\n\n\n\n\n8 Are the parameters used to populate model frameworks specified?\n…all relevant parameters fed into model frameworks were disclosed.\n\n\n\n\n9 Are model uncertainties discussed?\n…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.\n\n\n\n\n10 Are sensitivity analyses performed and reported?\n…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.\n\n\n\n\nValidation\n\n\n\n\n\n11 Is face validity evaluated and reported?\n…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.\n\n\n\n\n12 Is cross validation performed and reported\n…comparison across similar modeling studies which deal with the same decision problem was undertaken.\n\n\n\n\n13 Is external validation performed and reported?\n…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.\n\n\n\n\n14 Is predictive validation performed or attempted?\n…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.\n\n\n\n\nGeneralisability and stakeholder involvement\n\n\n\n\n\n15 Is the model generalizability issue discussed?\n…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).\n\n\n\n\n16 Are decision makers or other stakeholders involved in modeling?\n…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.\n\n\n\n\n17 Is the source of funding stated?\n…the sponsorship of the study was indicated.\n\n\n\n\n18 Are model limitations discussed?\n…limitations of the assessed model, especially limitations of interest to decision makers, were discussed."
-  },
-  {
-    "objectID": "quarto_site/study_publication.html",
-    "href": "quarto_site/study_publication.html",
-    "title": "Publication",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#code-and-data",
-    "href": "quarto_site/study_publication.html#code-and-data",
-    "title": "Publication",
-    "section": "Code and data",
-    "text": "Code and data\n\nView at: &lt;[Link]&gt;"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#journal-article",
-    "href": "quarto_site/study_publication.html#journal-article",
-    "title": "Publication",
-    "section": "Journal article",
-    "text": "Journal article"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#supplementary-materials",
-    "href": "quarto_site/study_publication.html#supplementary-materials",
-    "title": "Publication",
-    "section": "Supplementary materials",
-    "text": "Supplementary materials"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#sources",
-    "href": "quarto_site/study_publication.html#sources",
-    "title": "Publication",
-    "section": "Sources",
-    "text": "Sources"
+    "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html",
@@ -182,102 +196,60 @@
     "text": "TBC"
   },
   {
-    "objectID": "CHANGELOG.html",
-    "href": "CHANGELOG.html",
-    "title": "Changelog",
+    "objectID": "quarto_site/study_publication.html",
+    "href": "quarto_site/study_publication.html",
+    "title": "Publication",
     "section": "",
-    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning. Dates formatted as YYYY-MM-DD as per ISO standard.\n\n\n\nContributors: Amy Heather\nMinor improvements following the third reproducibility assessment (Lim et al. 2020).\n\n\n\nAdd references to .yaml header in reproduction_report.qmd, reproduction_success.qmd and study_publication.qmd and set echo as false for scope.qmd\nAmended grammar in reporting.qmd bullet list\nUpdated references.bib\n\n\n\n\n\nContributors: Amy Heather\nMinor improvements following the second reproducibility assessment (Huang et al. 2019).\n\n\n\nInteractive and non-interactive time-to-completion figures add to reproduction_success.qmd, with time_to_complete.py producing figures\nAdd R-related items to .gitignore\nAdd option to not show limit on time from calculate_times()\n\n\n\n\n\nCorrected spelling of “artefacts” in badges.qmd and add sentence to cite original study in scope.qmd\nUpdated references.bib\nAdd matplotlib to requirements.txt\n\n\n\n\n\nContributors: Amy Heather\nMinor improvements following the first reproducibility assessment (Shoaib and Ramamohan 2022).\n\n\n\nTemplate page (reflections.qmd) for reflections on facilitators and barriers to reproduction, and for full list of troubleshooting steps\n\n\n\n\n\nAdd .vscode/ to .gitignore\nAdd citation to protocol on quarto site home page\nOrder of criteria in badges.qmd (so it is a consistent order between the dictionary of criteria names and results, making it easier when conducting the assessment to look between the two)\nAmended TODO: comments in CHANGELOG and GHCR GitHub action\nAdd missing &lt;!--- --&gt; marker in artefacts.qmd\nImproved the “succesfully reproduced” template sentence in reproduction_report.qmd\n\n\n\n\n\nContributors: Amy Heather\nFix to citation file to prevent error on Zenodo.\n\n\n\nCompleted CITATION.cff to reflect this repository (rather than to be a blank example), to prevent error when syncing with Zenodo\n\n\n\n\n\nContributors: Amy Heather, with review of the protocol and associated artefacts (such as this template) from Tom Monks, Alison Harper and Nav Mustafee\nInitial release of template repository. 🌱"
+    "text": "Please note: This is a template page and has not yet been completed"
   },
   {
-    "objectID": "CHANGELOG.html#v1.0.4---2024-07-26",
-    "href": "CHANGELOG.html#v1.0.4---2024-07-26",
-    "title": "Changelog",
+    "objectID": "quarto_site/study_publication.html#code-and-data",
+    "href": "quarto_site/study_publication.html#code-and-data",
+    "title": "Publication",
+    "section": "Code and data",
+    "text": "Code and data\n\nView at: &lt;[Link]&gt;"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html#journal-article",
+    "href": "quarto_site/study_publication.html#journal-article",
+    "title": "Publication",
+    "section": "Journal article",
+    "text": "Journal article"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html#supplementary-materials",
+    "href": "quarto_site/study_publication.html#supplementary-materials",
+    "title": "Publication",
+    "section": "Supplementary materials",
+    "text": "Supplementary materials"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html#sources",
+    "href": "quarto_site/study_publication.html#sources",
+    "title": "Publication",
+    "section": "Sources",
+    "text": "Sources"
+  },
+  {
+    "objectID": "evaluation/reporting.html",
+    "href": "evaluation/reporting.html",
+    "title": "Reporting guidelines",
     "section": "",
-    "text": "Contributors: Amy Heather\nMinor improvements following the third reproducibility assessment (Lim et al. 2020).\n\n\n\nAdd references to .yaml header in reproduction_report.qmd, reproduction_success.qmd and study_publication.qmd and set echo as false for scope.qmd\nAmended grammar in reporting.qmd bullet list\nUpdated references.bib"
+    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:"
   },
   {
-    "objectID": "CHANGELOG.html#v1.0.3---2024-07-19",
-    "href": "CHANGELOG.html#v1.0.3---2024-07-19",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather\nMinor improvements following the second reproducibility assessment (Huang et al. 2019).\n\n\n\nInteractive and non-interactive time-to-completion figures add to reproduction_success.qmd, with time_to_complete.py producing figures\nAdd R-related items to .gitignore\nAdd option to not show limit on time from calculate_times()\n\n\n\n\n\nCorrected spelling of “artefacts” in badges.qmd and add sentence to cite original study in scope.qmd\nUpdated references.bib\nAdd matplotlib to requirements.txt"
+    "objectID": "evaluation/reporting.html#stress-des",
+    "href": "evaluation/reporting.html#stress-des",
+    "title": "Reporting guidelines",
+    "section": "STRESS-DES",
+    "text": "STRESS-DES\nOf the 24 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nRecommendation\nMet by study?\nEvidence\n\n\n\n\nObjectives\n\n\n\n\n\n1.1 Purpose of the model\nExplain the background and objectives for the model\n\n\n\n\n1.2 Model outputs\nDefine all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.\n\n\n\n\n1.3 Experimentation aims\nIf the model has been used for experimentation, state the objectives that it was used to investigate.(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).\n\n\n\n\nLogic\n\n\n\n\n\n2.1 Base model overview diagram\nDescribe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.\n\n\n\n\n2.2 Base model logic\nGive details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.\n\n\n\n\n2.3 Scenario logic\nGive details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.\n\n\n\n\n2.4 Algorithms\nProvide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e. scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.\n\n\n\n\n2.5.1 Components - entities\nGive details of all entities within the simulation including a description of their role in the model and a description of all their attributes.\n\n\n\n\n2.5.2 Components - activities\nDescribe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.\n\n\n\n\n2.5.3 Components - resources\nList all the resources included within the model and which activities make use of them.\n\n\n\n\n2.5.4 Components - queues\nGive details of the assumed queuing discipline used in the model (e.g. First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.\n\n\n\n\n2.5.5 Components - entry/exit points\nGive details of the model boundaries i.e. all arrival and exit points of entities. Detail the arrival mechanism (e.g. ‘thinning’ to mimic a non-homogenous Poisson process or balking)\n\n\n\n\nData\n\n\n\n\n\n3.1 Data sources\nList and detail all data sources. Sources may include:• Interviews with stakeholders,• Samples of routinely collected data,• Prospectively collected samples for the purpose of the simulation study,• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.All data source descriptions should include details of the sample size, sample date ranges and use within the study.\n\n\n\n\n3.2 Pre-processing\nProvide details of any data manipulation that has taken place before its use in the simulation, e.g. interpolation to account for missing data or the removal of outliers.\n\n\n\n\n3.3 Input parameters\nList all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.Clearly state:• Base case data• Data use in experimentation, where different from the base case.• Where optimisation or design of experiments has been used, state the range of values that parameters can take.• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.\n\n\n\n\n3.4 Assumptions\nWhere data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.\n\n\n\n\nExperimentation\n\n\n\n\n\n4.1 Initialisation\nReport if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.\n\n\n\n\n4.2 Run length\nDetail the run length of the simulation model and time units.\n\n\n\n\n4.3 Estimation approach\nState the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.\n\n\n\n\nImplementation\n\n\n\n\n\n5.1 Software or programming language\nState the operating system and version and build number.State the name, version and build number of commercial or open source DES software that the model is implemented in.State the name and version of general-purpose programming languages used (e.g. Python 3.5).Where frameworks and libraries have been used provide all details including version numbers.\n\n\n\n\n5.2 Random sampling\nState the algorithm used to generate random samples in the software/programming language used e.g. Mersenne Twister.If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.\n\n\n\n\n5.3 Model execution\nState the event processing mechanism used e.g. three phase, event, activity, process interaction.Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.State all priority rules included if entities/activities compete for resources.If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)\n\n\n\n\n5.4 System specification\nState the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)\n\n\n\n\nCode access\n\n\n\n\n\n6.1 Computer model sharing statement\nDescribe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these."
   },
   {
-    "objectID": "CHANGELOG.html#v1.0.2---2024-07-03",
-    "href": "CHANGELOG.html#v1.0.2---2024-07-03",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather\nMinor improvements following the first reproducibility assessment (Shoaib and Ramamohan 2022).\n\n\n\nTemplate page (reflections.qmd) for reflections on facilitators and barriers to reproduction, and for full list of troubleshooting steps\n\n\n\n\n\nAdd .vscode/ to .gitignore\nAdd citation to protocol on quarto site home page\nOrder of criteria in badges.qmd (so it is a consistent order between the dictionary of criteria names and results, making it easier when conducting the assessment to look between the two)\nAmended TODO: comments in CHANGELOG and GHCR GitHub action\nAdd missing &lt;!--- --&gt; marker in artefacts.qmd\nImproved the “succesfully reproduced” template sentence in reproduction_report.qmd"
-  },
-  {
-    "objectID": "CHANGELOG.html#v1.0.1---2024-06-19",
-    "href": "CHANGELOG.html#v1.0.1---2024-06-19",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather\nFix to citation file to prevent error on Zenodo.\n\n\n\nCompleted CITATION.cff to reflect this repository (rather than to be a blank example), to prevent error when syncing with Zenodo"
-  },
-  {
-    "objectID": "CHANGELOG.html#v1.0.0-0-2024-06-19",
-    "href": "CHANGELOG.html#v1.0.0-0-2024-06-19",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather, with review of the protocol and associated artefacts (such as this template) from Tom Monks, Alison Harper and Nav Mustafee\nInitial release of template repository. 🌱"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Reproducing Author et al. Year",
-    "section": "",
-    "text": "This book captures the reproduction of:\n\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Reproducing Author et al. Year",
-    "section": "",
-    "text": "This book captures the reproduction of:\n\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
-  },
-  {
-    "objectID": "index.html#project-team",
-    "href": "index.html#project-team",
-    "title": "Reproducing Author et al. Year",
-    "section": "Project team",
-    "text": "Project team\n\n\nConducting this reproduction:\n\n[Name + Link + ORCID]\n\nProviding support during the reproduction:\n\n[Name + Link + ORCID]\n\nOther members of the team on STARS:\n\nAmy Heather \nThomas Monks \nAlison Harper \nNavonil Mustafee \nAndrew Mayne"
-  },
-  {
-    "objectID": "index.html#protocol",
-    "href": "index.html#protocol",
-    "title": "Reproducing Author et al. Year",
-    "section": "Protocol",
-    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
-  },
-  {
-    "objectID": "index.html#citation",
-    "href": "index.html#citation",
-    "title": "Reproducing Author et al. Year",
-    "section": "Citation",
-    "text": "Citation\nAPA: Heather A., Monks T., Harper A., Mustafee N., Mayne A. (2024). Template for computational reproducibility assessments on STARS (version 1.0.4). URL: https://github.com/pythonhealthdatascience/stars_reproduction_template\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "Reproducing Author et al. Year",
-    "section": "License",
-    "text": "License\nSee License page."
-  },
-  {
-    "objectID": "quarto_site/license.html",
-    "href": "quarto_site/license.html",
-    "title": "Open Source License",
-    "section": "",
-    "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
-  },
-  {
-    "objectID": "evaluation/artefacts.html",
-    "href": "evaluation/artefacts.html",
-    "title": "STARS framework",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (Monks, Harper, and Mustafee (2024)).\nOf the 8 essential STARS components:\n\n\nX were met fully (✅)\nX was met partially (🟡)\nX was not met (❌)\n\nOf the 5 optional STARS components:\n\n\nX was met fully (✅)\nX were not met (❌)\n\n\n\n\n\n\n\n\n\n\n\nComponent\nDescription\nMet by study?\nEvidence/location\n\n\n\n\nEssential components\n\n\n\n\n\nOpen license\nFree and open-source software (FOSS) license (e.g. MIT, GNU Public License (GPL))\n\n\n\n\nDependency management\nSpecify software libraries, version numbers and sources (e.g. dependency management tools like virtualenv, conda, poetry)\n\n\n\n\nFOSS model\nCoded in FOSS language (e.g. R, Julia, Python)\n\n\n\n\nMinimum documentation\nMinimal instructions (e.g. in README) that overview (a) what model does, (b) how to install and run model to obtain results, and (c) how to vary parameters to run new experiments\n\n\n\n\nORCID\nORCID for each study author\n\n\n\n\nCitation information\nInstructions on how to cite the research artefact (e.g. CITATION.cff file)\n\n\n\n\nRemote code repository\nCode available in a remote code repository (e.g. GitHub, GitLab, BitBucket)\n\n\n\n\nOpen science archive\nCode stored in an open science archive with FORCE11 compliant citation and guaranteed persistance of digital artefacts (e.g. Figshare, Zenodo, the Open Science Framework (OSF), and the Computational Modeling in the Social and Ecological Sciences Network (CoMSES Net))\n\n\n\n\nOptional components\n\n\n\n\n\nEnhanced documentation\nOpen and high quality documentation on how the model is implemented and works (e.g. via notebooks and markdown files, brought together using software like Quarto and Jupyter Book). Suggested content includes:• Plain english summary of project and model• Clarifying license• Citation instructions• Contribution instructions• Model installation instructions• Structured code walk through of model• Documentation of modelling cycle using TRACE• Annotated simulation reporting guidelines• Clear description of model validation including its intended purpose\n\n\n\n\nDocumentation hosting\nHost documentation (e.g. with GitHub pages, GitLab pages, BitBucket Cloud, Quarto Pub)\n\n\n\n\nOnline coding environment\nProvide an online environment where users can run and change code (e.g. BinderHub, Google Colaboratory, Deepnote)\n\n\n\n\nModel interface\nProvide web application interface to the model so it is accessible to less technical simulation users\n\n\n\n\nWeb app hosting\nHost web app online (e.g. Streamlit Community Cloud, ShinyApps hosting)\n\n\n\n\n\n\n\n\n\nReferences\n\nMonks, Thomas, Alison Harper, and Navonil Mustafee. 2024. “Towards Sharing Tools and Artefacts for Reusable Simulations in Healthcare.” Journal of Simulation 0 (0): 1–20. https://doi.org/10.1080/17477778.2024.2347882."
+    "objectID": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
+    "href": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
+    "title": "Reporting guidelines",
+    "section": "DES checklist derived from ISPOR-SDM",
+    "text": "DES checklist derived from ISPOR-SDM\nOf the 18 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nAssessed if…\nMet by study?\nEvidence/location\n\n\n\n\nModel conceptualisation\n\n\n\n\n\n1 Is the focused health-related decision problem clarified?\n…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.\n\n\n\n\n2 Is the modeled healthcare setting/health condition clarified?\n…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.\n\n\n\n\n3 Is the model structure described?\n…the model’s conceptual structure was described in the form of either graphical or text presentation.\n\n\n\n\n4 Is the time horizon given?\n…the time period covered by the simulation was reported.\n\n\n\n\n5 Are all simulated strategies/scenarios specified?\n…the comparators under test were described in terms of their components, corresponding variations, etc\n\n\n\n\n6 Is the target population described?\n…the entities simulated and their main attributes were characterized.\n\n\n\n\nParamaterisation and uncertainty assessment\n\n\n\n\n\n7 Are data sources informing parameter estimations provided?\n…the sources of all data used to inform model inputs were reported.\n\n\n\n\n8 Are the parameters used to populate model frameworks specified?\n…all relevant parameters fed into model frameworks were disclosed.\n\n\n\n\n9 Are model uncertainties discussed?\n…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.\n\n\n\n\n10 Are sensitivity analyses performed and reported?\n…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.\n\n\n\n\nValidation\n\n\n\n\n\n11 Is face validity evaluated and reported?\n…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.\n\n\n\n\n12 Is cross validation performed and reported\n…comparison across similar modeling studies which deal with the same decision problem was undertaken.\n\n\n\n\n13 Is external validation performed and reported?\n…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.\n\n\n\n\n14 Is predictive validation performed or attempted?\n…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.\n\n\n\n\nGeneralisability and stakeholder involvement\n\n\n\n\n\n15 Is the model generalizability issue discussed?\n…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).\n\n\n\n\n16 Are decision makers or other stakeholders involved in modeling?\n…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.\n\n\n\n\n17 Is the source of funding stated?\n…the sponsorship of the study was indicated.\n\n\n\n\n18 Are model limitations discussed?\n…limitations of the assessed model, especially limitations of interest to decision makers, were discussed."
   },
   {
     "objectID": "evaluation/reproduction_success.html",
@@ -291,7 +263,7 @@
     "href": "evaluation/reproduction_success.html#time-to-completion",
     "title": "Reproduction success",
     "section": "Time-to-completion",
-    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n100.0\nNaN\n0.0\n1.666667\n\n\n2\n100.0\nIn-text result 1\n12.5\n1.666667\n\n\n3\n200.0\nNaN\n12.5\n3.333333\n\n\n4\n200.0\nIn-text result 2\n25.0\n3.333333\n\n\n5\n300.0\nNaN\n25.0\n5.000000\n\n\n6\n300.0\nFigure 5\n37.5\n5.000000\n\n\n7\n400.0\nNaN\n37.5\n6.666667\n\n\n8\n400.0\nFigure 2\nNaN\n6.666667\n\n\n9\nNaN\nNaN\nNaN\nNaN\n\n\n10\nNaN\nFigure 3\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 4\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nSupplementary figure\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nIn-text result 3\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
+    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n100.0\nNaN\n0.0\n1.666667\n\n\n2\n100.0\nIn-text result 1\n12.5\n1.666667\n\n\n3\n200.0\nNaN\n12.5\n3.333333\n\n\n4\n200.0\nIn-text result 2\n25.0\n3.333333\n\n\n5\n300.0\nNaN\n25.0\n5.000000\n\n\n6\n300.0\nFigure 5\n37.5\n5.000000\n\n\n7\n400.0\nNaN\n37.5\n6.666667\n\n\n8\n400.0\nFigure 2\nNaN\n6.666667\n\n\n9\nNaN\nNaN\nNaN\nNaN\n\n\n10\nNaN\nFigure 3\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 4\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nSupplementary figure\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nIn-text result 3\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
   },
   {
     "objectID": "evaluation/reproduction_success.html#figure-x",
@@ -299,27 +271,6 @@
     "title": "Reproduction success",
     "section": "Figure X",
     "text": "Figure X\nConsensus: Not reproduced / Successfully reproduced\nOriginal (citation):\n\nReproduction:"
-  },
-  {
-    "objectID": "evaluation/scope.html",
-    "href": "evaluation/scope.html",
-    "title": "Scope",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page outlines the parts of the journal article which we will attempt to reproduce.\nAll images and quotes on this page are sourced from"
-  },
-  {
-    "objectID": "evaluation/scope.html#within-scope",
-    "href": "evaluation/scope.html#within-scope",
-    "title": "Scope",
-    "section": "Within scope",
-    "text": "Within scope\n\n\n\n\n\n\nFigure X\n\n\n\n\n\n[Figure with full legend from paper]"
-  },
-  {
-    "objectID": "evaluation/scope.html#outside-scope",
-    "href": "evaluation/scope.html#outside-scope",
-    "title": "Scope",
-    "section": "Outside scope",
-    "text": "Outside scope\n\n\n\n\n\n\nTable X\n\n\n\n\n\n[Explanation of why it is outside scope]\n[Display table, including full legend from paper]"
   },
   {
     "objectID": "evaluation/reproduction_report.html",
@@ -350,24 +301,73 @@
     "text": "Evaluation against guidelines\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
   },
   {
-    "objectID": "logbook/posts/2024_07_26/index.html",
-    "href": "logbook/posts/2024_07_26/index.html",
-    "title": "Day 1",
+    "objectID": "evaluation/reflections.html",
+    "href": "evaluation/reflections.html",
+    "title": "Reflections",
     "section": "",
-    "text": "Note\n\n\n\nX. Total time used: Xh Xm (X%)"
+    "text": "Please note: This is a template page and has not yet been completed\nThis page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work."
   },
   {
-    "objectID": "logbook/posts/2024_07_26/index.html#set-up-repository",
-    "href": "logbook/posts/2024_07_26/index.html#set-up-repository",
-    "title": "Day 1",
-    "section": "15.58-16.03, 16.21-: Set-up repository",
-    "text": "15.58-16.03, 16.21-: Set-up repository\n\nCreate repository from template\nSet up environment\nModified template files:\n\nREADME.md\n\nSet up site on GitHub pages (quarto publish gh-pages)"
+    "objectID": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
+    "href": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
+    "title": "Reflections",
+    "section": "What would have helped facilitate this reproduction?",
+    "text": "What would have helped facilitate this reproduction?"
   },
   {
-    "objectID": "logbook/posts/2024_07_26/index.html#timings",
-    "href": "logbook/posts/2024_07_26/index.html#timings",
-    "title": "Day 1",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('15.58', '16.03')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 5m, or 0h 5m\nTotal used to date: 5m, or 0h 5m\nTime remaining: 2395m, or 39h 55m\nUsed 0.2% of 40 hours max"
+    "objectID": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
+    "href": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
+    "title": "Reflections",
+    "section": "Full list of troubleshooting steps",
+    "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet."
+  },
+  {
+    "objectID": "logbook/logbook.html",
+    "href": "logbook/logbook.html",
+    "title": "Logbook",
+    "section": "",
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\nreproduce\n\n\nguidelines\n\n\nreport\n\n\ncompendium\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "",
+    "text": "This book captures the reproduction of:\n\nKim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "",
+    "text": "This book captures the reproduction of:\n\nKim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
+  },
+  {
+    "objectID": "index.html#project-team",
+    "href": "index.html#project-team",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "Project team",
+    "text": "Project team\n\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
+  },
+  {
+    "objectID": "index.html#protocol",
+    "href": "index.html#protocol",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "Protocol",
+    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
+  },
+  {
+    "objectID": "index.html#citation",
+    "href": "index.html#citation",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "Citation",
+    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A., Mustafee N., Mayne A. (2024). Template for computational reproducibility assessments on STARS (version 1.0.4). URL: https://github.com/pythonhealthdatascience/stars_reproduction_template\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "License",
+    "text": "License\nSee License page."
   }
 ]
