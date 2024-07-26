@@ -63,11 +63,18 @@
     "text": "16.36-16.41: Upload code and update license\nModel code is available at: https://github.com/mikesweeting/AAA_DES_model\nIt is available under an LGPL-3.0 license, so I updated this repository to use the same license (GNU LESSER GENERAL PUBLIC LICENSE Version 3). This license requires:\n\nCopy of full license and original copyright notice\nInclude source code when distribute derivative work\nLicense derivative work under same license"
   },
   {
+    "objectID": "logbook/posts/2024_07_26/index.html#upload-journal-article",
+    "href": "logbook/posts/2024_07_26/index.html#upload-journal-article",
+    "title": "Day 1",
+    "section": "16.43-16.56: Upload journal article",
+    "text": "16.43-16.56: Upload journal article\nThe article is published with PLoS ONE and has a permissive copyright statement:\n\n“Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”\n\nhttps://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327\nHence, uploaded article, figures, tables and supplementary materials to original_study/. Converted .tif files to .png (e.g. convert sup3.tif sup3.png). Converted .docx to .pdf (libreoffice --headless --convert-to pdf sup1.docx --outdir sup1.pdf).\nAmended study_publication.qmd to display these.\nAdd the study to references.bib."
+  },
+  {
     "objectID": "logbook/posts/2024_07_26/index.html#timings",
     "href": "logbook/posts/2024_07_26/index.html#timings",
     "title": "Day 1",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('15.58', '16.03'),\n    ('16.21', '16.30'),\n    ('16.36', '16.41')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 19m, or 0h 19m\nTotal used to date: 19m, or 0h 19m\nTime remaining: 2381m, or 39h 41m\nUsed 0.8% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('15.58', '16.03'),\n    ('16.21', '16.30'),\n    ('16.36', '16.41'),\n    ('16.43', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 32m, or 0h 32m\nTotal used to date: 32m, or 0h 32m\nTime remaining: 2368m, or 39h 28m\nUsed 1.3% of 40 hours max"
   },
   {
     "objectID": "CONTRIBUTING.html",
@@ -207,21 +214,21 @@
     "href": "quarto_site/study_publication.html",
     "title": "Publication",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
+    "text": "Kim et al. (2021)"
   },
   {
     "objectID": "quarto_site/study_publication.html#code-and-data",
     "href": "quarto_site/study_publication.html#code-and-data",
     "title": "Publication",
     "section": "Code and data",
-    "text": "Code and data\n\nView at: &lt;[Link]&gt;"
+    "text": "Code and data\nView at: https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model"
   },
   {
     "objectID": "quarto_site/study_publication.html#journal-article",
     "href": "quarto_site/study_publication.html#journal-article",
     "title": "Publication",
     "section": "Journal article",
-    "text": "Journal article"
+    "text": "Journal article\nThe article is published with PLoS ONE and has a permissive copyright statement:\n\n“Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”\n\nhttps://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327"
   },
   {
     "objectID": "quarto_site/study_publication.html#supplementary-materials",
@@ -229,13 +236,6 @@
     "title": "Publication",
     "section": "Supplementary materials",
     "text": "Supplementary materials"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#sources",
-    "href": "quarto_site/study_publication.html#sources",
-    "title": "Publication",
-    "section": "Sources",
-    "text": "Sources"
   },
   {
     "objectID": "evaluation/reporting.html",
@@ -333,7 +333,7 @@
     "href": "logbook/logbook.html",
     "title": "Logbook",
     "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\nreproduce\n\n\nguidelines\n\n\nreport\n\n\ncompendium\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",

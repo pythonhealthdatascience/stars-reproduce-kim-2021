@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -171,7 +191,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#code-and-data" id="toc-code-and-data" class="nav-link active" data-scroll-target="#code-and-data">Code and data</a></li>
   <li><a href="#journal-article" id="toc-journal-article" class="nav-link" data-scroll-target="#journal-article">Journal article</a></li>
   <li><a href="#supplementary-materials" id="toc-supplementary-materials" class="nav-link" data-scroll-target="#supplementary-materials">Supplementary materials</a></li>
-  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/quarto_site/study_publication.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -197,33 +216,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- TODO: Remove this warning once filled out page -->
-<p><strong>Please note: This is a template page and has not yet been completed</strong></p>
-<!-- TODO: Add citation from .bib file i.e. @study_word_year -->
+<p><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></p>
 <section id="code-and-data" class="level2">
 <h2 class="anchored" data-anchor-id="code-and-data">Code and data</h2>
-<!-- TODO: Add link to folder in repository -->
-<p>View at: &lt;[Link]&gt;</p>
+<p>View at: <a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model" class="uri">https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model</a></p>
 </section>
 <section id="journal-article" class="level2">
 <h2 class="anchored" data-anchor-id="journal-article">Journal article</h2>
-<!-- TODO: Embed article PDF - e.g.
-<iframe width="100%" height="800" src="../original_study/article.pdf"></iframe>
-
-Unless the article is behind the paywall and no open-access version is available - in which case, just provide link to it -->
+<p>The article is published with PLoS ONE and has a permissive copyright statement:</p>
+<blockquote class="blockquote">
+<p>“Copyright: © 2021 Kim et al.&nbsp;This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”</p>
+</blockquote>
+<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327</a></p>
+<iframe width="100%" height="800" src="../original_study/article.pdf">
+</iframe>
 </section>
 <section id="supplementary-materials" class="level2">
 <h2 class="anchored" data-anchor-id="supplementary-materials">Supplementary materials</h2>
-<!-- TODO: Embed supplementary PDF (if relevant) -->
+<iframe width="100%" height="800" src="../original_study/sup1.pdf">
+</iframe>
+<iframe width="100%" height="800" src="../original_study/sup2.pdf">
+</iframe>
+<p><img src="../original_study/sup3.png" class="img-fluid"></p>
+<p><img src="../original_study/sup4.png" class="img-fluid"></p>
+<p><img src="../original_study/sup5.png" class="img-fluid"></p>
+
+
+
 </section>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
-<!-- TODO: Add links for where the above were sourced from -->
 
-
-</section>
-
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-kim_modelling_2021" class="csl-entry" role="listitem">
+Kim, Lois G., Michael J. Sweeting, Morag Armer, Jo Jacomelli, Akhtar Nasim, and Seamus C. Harrison. 2021. <span>“Modelling the Impact of Changes to Abdominal Aortic Aneurysm Screening and Treatment Services in <span>England</span> During the <span>COVID</span>-19 Pandemic.”</span> <em>PLOS ONE</em> 16 (6): e0253327. <a href="https://doi.org/10.1371/journal.pone.0253327">https://doi.org/10.1371/journal.pone.0253327</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
