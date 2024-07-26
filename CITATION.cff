@@ -2,14 +2,10 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-# TODO: Amend to 'STARS: Computational reproducibility of Author et al. Year'
-title: Template for computational reproducibility assessments on STARS
+title: STARS: Computational reproducibility of Kim et al. 2021
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
-type: software
-# TODO: Amend to list of authors involved in reproduction - first, the primary
-# researcher, followed by those providing advice/feedback on the reproduction.
 authors:
   - given-names: Amy
     family-names: Heather
@@ -26,24 +22,18 @@ authors:
     email: a.l.harper@exeter.ac.uk
     affiliation: University of Exeter Business School, Exeter, UK
     orcid: 'https://orcid.org/0000-0001-5274-5037'
-  - given-names: Navonil
-    family-names: Mustafee
-    email: n.mustafee@exeter.ac.uk
-    affiliation: University of Exeter Business School, Exeter, UK
-    orcid: 'https://orcid.org/0000-0002-2204-8924'
-  - given-names: Andrew
-    family-names: Mayne
-    email: andrew.mayne@somersetft.nhs.uk
-    affiliation: Taunton and Somerset NHS Foundation Trust, UK
-    orcid: 'https://orcid.org/0000-0003-1263-2286'
-# TODO: Amend to correct repository URL
 repository-code: >-
-  https://github.com/pythonhealthdatascience/stars_reproduction_template
-# TODO: Amend to short description of repo and citation for the original study
+  https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021
 abstract: >-
-  Template repository for assessing the computational reproducibility of discrete-event simulation studies on STARS.
+  This repository forms part of work package 1 on the project STARS: Sharing
+  Tools and Artefacts for Reproducible Simulations. It assesses the
+  computational reproducibility of: Kim LG, Sweeting MJ, Armer M, Jacomelli J,
+  Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic
+  aneurysm screening and treatment services in England during the COVID-19
+  pandemic. PLoS ONE 16(6): e0253327 (2021).
+  https://doi.org/10.1371/journal.pone.0253327.
 # TODO: Update license if not using MIT
 license: MIT
 # TODO: Manually update with each GitHub release (start with 0.1.0)
-version: '1.0.4'
+version: '0.1.0'
 date-released: '2024-07-26'

@@ -5,13 +5,11 @@ project:
 
 website:
   # Name of site in navbar
-  # TODO: Amend to refer to the first author and year of the original study
-  title: "Reproducing Author et al. Year"
+  title: "Reproducing Kim et al. 2021"
   # Favicon image for site
   favicon: "quarto_site/stars_logo_blue.png"
   # Adds edit and issue buttons to footer
-  # TODO: Correct URL
-  repo-url: https://github.com/pythonhealthdatascience/stars_reproduction_template
+  repo-url: https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/
   repo-actions: [edit, issue]
   # Settings for navbar across top of page
   navbar:
@@ -40,10 +38,9 @@ website:
       - text: Reflections
         href: evaluation/reflections.qmd
     # Right-aligned within navbar...
-    # TODO: Correct URL
     right:
       - icon: github
-        href: https://github.com/pythonhealthdatascience/stars_reproduction_template
+        href: https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/
   page-footer:
     left: |
       [![](https://raw.githubusercontent.com/pythonhealthdatascience/stars-logo/main/stars_logo_blue_text.png){fig-alt="STARS" width=300px}](https://github.com/pythonhealthdatascience)
@@ -54,10 +51,9 @@ website:
         href: quarto_site/license.qmd
       - text: "Contributing"
         href: CONTRIBUTING.md
-    # TODO: Correct URL
     right:
       - icon: github
-        href: https://github.com/pythonhealthdatascience/stars_reproduction_template
+        href: https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/
 
 format:
   html:

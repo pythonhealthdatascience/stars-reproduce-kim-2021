@@ -1,18 +1,16 @@
 ---
 authors:
-  - name: [Reproduction Researcher Name]
-    url: [GitHub URL]
-    orcid: 0000-0000-0000-0000
+  - name: Amy Heather
+    url: https://github.com/amyheather
+    orcid: 0000-0002-6596-3479
     affiliation: University of Exeter
 ---
-<!-- TODO: Update author above -->
 
 ## About
 
 This book captures the reproduction of:
 
-<!-- TODO: Amend to citation for the original study -->
-> [Authors]. **[Title]**. *[Journal]* [Volume], [Edition] ([Year]). <[URL]>.
+> Kim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. **Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic**. *PLoS ONE* 16(6): e0253327 (2021). <https://doi.org/10.1371/journal.pone.0253327>.
 
 Use the navigation bar above to view:
 
@@ -29,22 +27,19 @@ Use the navigation bar above to view:
 <!-- TODO: Moved authors conducting and supporting reproduction out of the list and into the appropriate section -->
 Conducting this reproduction:
 
-* [Name + Link + ORCID]
+* [Amy Heather](https://github.com/amyheather) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0002-6596-3479)
 
 Providing support during the reproduction:
 
-* [Name + Link + ORCID]
+* [Thomas Monks](https://github.com/TomMonks) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0003-2631-4481)
+* [Alison Harper](https://github.com/AliHarp) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0001-5274-5037)
 
 Other members of the team on STARS:
 
-* [Amy Heather](https://github.com/amyheather) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0002-6596-3479)
-* [Thomas Monks](https://github.com/TomMonks) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0003-2631-4481)
-* [Alison Harper](https://github.com/AliHarp) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0001-5274-5037)
 * [Navonil Mustafee](https://github.com/NavonilNM) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0002-2204-8924)
 * [Andrew Mayne](https://github.com/andy-mayne) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0003-1263-2286)
 
 ## Protocol
-
 
 The protocol for this work is summarised in the diagram below and archived on Zenodo:
 
