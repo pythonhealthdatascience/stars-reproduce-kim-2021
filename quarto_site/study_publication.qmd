@@ -3,27 +3,30 @@ title: "Publication"
 bibliography: references.bib
 ---
 
-<!-- TODO: Remove this warning once filled out page -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Add citation from .bib file i.e. @study_word_year -->
+@kim_modelling_2021
 
 ## Code and data
 
-<!-- TODO: Add link to folder in repository -->
-View at: <[Link]>
+View at: <https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model>
 
 ## Journal article
 
-<!-- TODO: Embed article PDF - e.g.
-<iframe width="100%" height="800" src="../original_study/article.pdf"></iframe>
+The article is published with PLoS ONE and has a permissive copyright statement:
 
-Unless the article is behind the paywall and no open-access version is available - in which case, just provide link to it -->
+> "Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+
+<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327>
+
+<iframe width="100%" height="800" src="../original_study/article.pdf"></iframe>
 
 ## Supplementary materials
 
-<!-- TODO: Embed supplementary PDF (if relevant) -->
+<iframe width="100%" height="800" src="../original_study/sup1.pdf"></iframe>
 
-## Sources
+<iframe width="100%" height="800" src="../original_study/sup2.pdf"></iframe>
 
-<!-- TODO: Add links for where the above were sourced from -->
+![](../original_study/sup3.png)
+
+![](../original_study/sup4.png)
+
+![](../original_study/sup5.png)
