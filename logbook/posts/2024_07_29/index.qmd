@@ -1,0 +1,40 @@
+---
+title: "Day 2"
+author: "Amy Heather"
+date: "2024-07-29"
+categories: [read]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+TBC. Total time used: TBC
+
+:::
+
+## 09.38-09.43: High entropy secret
+
+Upload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to `original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R` on line 376:
+
+`# SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)`
+
+This is not a concern - the link doesn't work with that token for others.
+
+The DOI for this article is <https://doi.org/10.1016/j.jval.2015.03.1784>.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 32
+
+# Times from today
+times = [
+    ('', '')]
+
+calculate_times(used_to_date, times)
+```

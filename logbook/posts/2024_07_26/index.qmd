@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Set-up repository and upload materials. Total time used: 0h 32m (1.3%)
 
 :::
 
