@@ -34,7 +34,7 @@ used_to_date = 32
 
 # Times from today
 times = [
-    ('', '')]
+    ('09.38', '09.43')]
 
 calculate_times(used_to_date, times)
 ```
