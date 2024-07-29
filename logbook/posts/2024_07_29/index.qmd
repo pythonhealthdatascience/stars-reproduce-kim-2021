@@ -2,13 +2,13 @@
 title: "Day 2"
 author: "Amy Heather"
 date: "2024-07-29"
-categories: [read]
+categories: [read, scope, reproduce]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-TBC. Total time used: TBC
+Read article, decided on scope, then began reproduction. Total time used: TBCh TBCm (TBC%).
 
 :::
 
@@ -45,6 +45,14 @@ Some notes on scope (beyond obvious tables/figures):
 
 I described my interpretation of scope within `scope.qmd`.
 
+## 11.09-11.13: Discussed scope with Tom
+
+Looked over and happy with scope. He then did another look over the paper, but confirmed no further items.
+
+## 11.26-X: Archive scope
+
+Update `CHANGELOG.md` and `CITATION.cff`, set up sync on Zenodo, then created a Git release.
+
 ## Timings
 
 ```{python}
@@ -61,7 +69,8 @@ times = [
     ('09.53', '09.55'),
     ('10.05', '10.15'),
     ('10.29', '10.45'),
-    ('10.46', '11.02')]
+    ('10.46', '11.02'),
+    ('11.09', '11.13')]
 # TODO: Finish adding times
 
 calculate_times(used_to_date, times)
