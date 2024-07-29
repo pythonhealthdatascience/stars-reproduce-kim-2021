@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Amy Heather">
+<meta name="dcterms.date" content="2024-07-29">
 
-<title>Summary report – Reproducing Kim et al.&nbsp;2021</title>
+<title>Day 2 – Reproducing Kim et al.&nbsp;2021</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +22,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../quarto_site/stars_logo_blue.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../quarto_site/stars_logo_blue.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,25 +103,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
-
 
 
 </head>
@@ -93,14 +110,14 @@ require(['plotly'], function(Plotly) {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../quarto_site/stars_logo_blue.png" alt="" class="navbar-logo">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../quarto_site/stars_logo_blue.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Reproducing Kim et al.&nbsp;2021</span>
     </a>
   </div>
@@ -111,7 +128,7 @@ require(['plotly'], function(Plotly) {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../quarto_site/study_publication.html"> 
+    <a class="nav-link" href="../../../quarto_site/study_publication.html"> 
 <span class="menu-text">Original study</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -120,7 +137,7 @@ require(['plotly'], function(Plotly) {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-reproduction">    
         <li>
-    <a class="dropdown-item" href="../quarto_site/reproduction_readme.html">
+    <a class="dropdown-item" href="../../../quarto_site/reproduction_readme.html">
  <span class="dropdown-text">README</span></a>
   </li>  
     </ul>
@@ -131,37 +148,37 @@ require(['plotly'], function(Plotly) {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-evaluation">    
         <li>
-    <a class="dropdown-item" href="../evaluation/scope.html">
+    <a class="dropdown-item" href="../../../evaluation/scope.html">
  <span class="dropdown-text">Scope</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../evaluation/reproduction_success.html">
+    <a class="dropdown-item" href="../../../evaluation/reproduction_success.html">
  <span class="dropdown-text">Reproduction success</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../evaluation/badges.html">
+    <a class="dropdown-item" href="../../../evaluation/badges.html">
  <span class="dropdown-text">Journal badges</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../evaluation/artefacts.html">
+    <a class="dropdown-item" href="../../../evaluation/artefacts.html">
  <span class="dropdown-text">STARS framework</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../evaluation/reporting.html">
+    <a class="dropdown-item" href="../../../evaluation/reporting.html">
  <span class="dropdown-text">Reporting guidelines</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../logbook/logbook.html"> 
+    <a class="nav-link" href="../../../logbook/logbook.html"> 
 <span class="menu-text">Logbook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../evaluation/reproduction_report.html" aria-current="page"> 
+    <a class="nav-link" href="../../../evaluation/reproduction_report.html"> 
 <span class="menu-text">Summary</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../evaluation/reflections.html"> 
+    <a class="nav-link" href="../../../evaluation/reflections.html"> 
 <span class="menu-text">Reflections</span></a>
   </li>  
 </ul>
@@ -179,7 +196,38 @@ require(['plotly'], function(Plotly) {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Day 2</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">read</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Amy Heather </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 29, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -187,102 +235,60 @@ require(['plotly'], function(Plotly) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#study" id="toc-study" class="nav-link active" data-scroll-target="#study">Study</a></li>
-  <li><a href="#computational-reproducibility" id="toc-computational-reproducibility" class="nav-link" data-scroll-target="#computational-reproducibility">Computational reproducibility</a></li>
-  <li><a href="#evaluation-against-guidelines" id="toc-evaluation-against-guidelines" class="nav-link" data-scroll-target="#evaluation-against-guidelines">Evaluation against guidelines</a></li>
+  <li><a href="#high-entropy-secret" id="toc-high-entropy-secret" class="nav-link active" data-scroll-target="#high-entropy-secret">09.38-09.43: High entropy secret</a></li>
+  <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/evaluation/reproduction_report.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Summary report</h1>
-<p class="subtitle lead">For computational reproducibility assessment of Author et al.&nbsp;Year</p>
+
+
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta column-page-left">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<!-- TODO: Remove this warning once filled out report -->
-<p><strong>Please note: This is a template page and has not yet been completed</strong></p>
-<!-- TODO: Use this skeleton to create a summary report -->
-<section id="study" class="level2">
-<h2 class="anchored" data-anchor-id="study">Study</h2>
-<blockquote class="blockquote">
-<p>[Authors]. <strong>[Title]</strong>. <em>[Journal]</em> [Volume], [Edition] ([Year]). &lt;[URL]&gt;.</p>
-</blockquote>
-<p>[Paragraph summarising model]</p>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TBC. Total time used: TBC</p>
+</div>
+</div>
+<section id="high-entropy-secret" class="level2">
+<h2 class="anchored" data-anchor-id="high-entropy-secret">09.38-09.43: High entropy secret</h2>
+<p>Upload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to <code>original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R</code> on line 376:</p>
+<p><code># SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)</code></p>
+<p>This is not a concern - the link doesn’t work with that token for others.</p>
+<p>The DOI for this article is <a href="https://doi.org/10.1016/j.jval.2015.03.1784" class="uri">https://doi.org/10.1016/j.jval.2015.03.1784</a>.</p>
 </section>
-<section id="computational-reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="computational-reproducibility">Computational reproducibility</h2>
-<p>Successfully reproduced <strong>X out of X (X%)</strong> of items from the scope in <strong>Xh Xm (X%)</strong>.</p>
-<p>Required troubleshooting:</p>
-<ul>
-<li>[List of required changes to code]</li>
-</ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Item X</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Item Y</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Figure 4</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>[One sentence description of item X]</p>
-<p>[Display side-by-side] <!-- Example:
-![Original](../original_study/article_fig2.png){width=49% .lightbox}
-![Reproduction](../reproduction/output/patients_base_3_month.png){width=49% .lightbox} --></p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>[Set-up as for Item X]</p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>[Set-up as for Item X]</p>
-</div>
+<section id="timings" class="level2">
+<h2 class="anchored" data-anchor-id="timings">Timings</h2>
+<div id="5fce45dc" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>)]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time spent today: 5m, or 0h 5m
+Total used to date: 37m, or 0h 37m
+Time remaining: 2363m, or 39h 23m
+Used 1.5% of 40 hours max</code></pre>
 </div>
 </div>
-</section>
-<section id="evaluation-against-guidelines" class="level2">
-<h2 class="anchored" data-anchor-id="evaluation-against-guidelines">Evaluation against guidelines</h2>
-<div id="b7a4d4a9" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div>                            <div id="0f833fe4-99c8-44ec-9688-e0047ee21e45" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("0f833fe4-99c8-44ec-9688-e0047ee21e45")) {                    Plotly.newPlot(                        "0f833fe4-99c8-44ec-9688-e0047ee21e45",                        [{"alignmentgroup":"True","customdata":[[1,"25.0%","fully"],[1,"25.0%","fully"],[1,"25.0%","fully"],[1,"25.0%","fully"],[1,"25.0%","fully"],[1,"25.0%","fully"]],"hovertemplate":"count=%{customdata[0]}\u003cbr\u003epercentage=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"fully","marker":{"color":"#06a94d","pattern":{"shape":""}},"name":"Fully met","offsetgroup":"fully","orientation":"h","showlegend":true,"textposition":"auto","x":[0.25,0.25,0.25,0.25,0.25,0.25],"xaxis":"x","y":["STARS (essential)","STARS (optional)","Badges (criteria)","Badges (badges)","STRESS-DES","ISPOR-SDM"],"yaxis":"y","type":"bar"},{"alignmentgroup":"True","customdata":[[1,"25.0%","partially"],[1,"25.0%","partially"],[1,"25.0%","partially"],[1,"25.0%","partially"],[1,"25.0%","partially"],[1,"25.0%","partially"]],"hovertemplate":"count=%{customdata[0]}\u003cbr\u003epercentage=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"partially","marker":{"color":"#ffd68c","pattern":{"shape":""}},"name":"Partially met","offsetgroup":"partially","orientation":"h","showlegend":true,"textposition":"auto","x":[0.25,0.25,0.25,0.25,0.25,0.25],"xaxis":"x","y":["STARS (essential)","STARS (optional)","Badges (criteria)","Badges (badges)","STRESS-DES","ISPOR-SDM"],"yaxis":"y","type":"bar"},{"alignmentgroup":"True","customdata":[[1,"25.0%","not"],[1,"25.0%","not"],[1,"25.0%","not"],[1,"25.0%","not"],[1,"25.0%","not"],[1,"25.0%","not"]],"hovertemplate":"count=%{customdata[0]}\u003cbr\u003epercentage=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"not","marker":{"color":"#ff9999","pattern":{"shape":""}},"name":"Not met","offsetgroup":"not","orientation":"h","showlegend":true,"textposition":"auto","x":[0.25,0.25,0.25,0.25,0.25,0.25],"xaxis":"x","y":["STARS (essential)","STARS (optional)","Badges (criteria)","Badges (badges)","STRESS-DES","ISPOR-SDM"],"yaxis":"y","type":"bar"},{"alignmentgroup":"True","customdata":[[1,"25.0%","na"],[1,"25.0%","na"],[1,"25.0%","na"],[1,"25.0%","na"],[1,"25.0%","na"],[1,"25.0%","na"]],"hovertemplate":"count=%{customdata[0]}\u003cbr\u003epercentage=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"na","marker":{"color":"#d1dcea","pattern":{"shape":""}},"name":"Not applicable","offsetgroup":"na","orientation":"h","showlegend":true,"textposition":"auto","x":[0.25,0.25,0.25,0.25,0.25,0.25],"xaxis":"x","y":["STARS (essential)","STARS (optional)","Badges (criteria)","Badges (badges)","STRESS-DES","ISPOR-SDM"],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":""},"range":[0,1],"tickmode":"array","tickvals":[0,0.2,0.4,0.6,0.8,1],"ticktext":["0%","20%","40%","60%","80%","100%"]},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":""},"autorange":"reversed","ticksuffix":"  "},"legend":{"title":{"text":"Result"},"tracegroupgap":0},"barmode":"relative"},                        {"displayModeBar": false, "responsive": true}                    ).then(function(){
-                            
-var gd = document.getElementById('0f833fe4-99c8-44ec-9688-e0047ee21e45');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })                };                });            </script>        </div>
-</div>
-</div>
-<p><sup>Context: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM.</sup></p>
 
 
 </section>
@@ -717,22 +723,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../CHANGELOG.html">
+    <a class="nav-link" href="../../../CHANGELOG.html">
 <p>Changelog</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../quarto_site/license.html">
+    <a class="nav-link" href="../../../quarto_site/license.html">
 <p>License</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../CONTRIBUTING.html">
+    <a class="nav-link" href="../../../CONTRIBUTING.html">
 <p>Contributing</p>
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/evaluation/reproduction_report.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
