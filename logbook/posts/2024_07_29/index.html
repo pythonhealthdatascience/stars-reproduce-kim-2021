@@ -236,6 +236,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#high-entropy-secret" id="toc-high-entropy-secret" class="nav-link active" data-scroll-target="#high-entropy-secret">09.38-09.43: High entropy secret</a></li>
+  <li><a href="#correct-file-paths" id="toc-correct-file-paths" class="nav-link" data-scroll-target="#correct-file-paths">09.53-09.55: Correct file paths</a></li>
+  <li><a href="#read-journal-article" id="toc-read-journal-article" class="nav-link" data-scroll-target="#read-journal-article">10.05-10.15, 10.29-10.45: Read journal article</a></li>
+  <li><a href="#define-scope-for-reproduction" id="toc-define-scope-for-reproduction" class="nav-link" data-scroll-target="#define-scope-for-reproduction">10.46-11.02: Define scope for reproduction</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -267,9 +270,33 @@ Note
 <p>This is not a concern - the link doesn’t work with that token for others.</p>
 <p>The DOI for this article is <a href="https://doi.org/10.1016/j.jval.2015.03.1784" class="uri">https://doi.org/10.1016/j.jval.2015.03.1784</a>.</p>
 </section>
+<section id="correct-file-paths" class="level2">
+<h2 class="anchored" data-anchor-id="correct-file-paths">09.53-09.55: Correct file paths</h2>
+<p>For <code>study_publication.qmd</code>.</p>
+</section>
+<section id="read-journal-article" class="level2">
+<h2 class="anchored" data-anchor-id="read-journal-article">10.05-10.15, 10.29-10.45: Read journal article</h2>
+<p>Uses a previously developed and validated model described in:</p>
+<ul>
+<li>Glover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. <a href="https://doi.org/10.1177/0272989X17753380" class="uri">https://doi.org/10.1177/0272989X17753380</a> PMID: 31665967</li>
+<li>Thompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al.&nbsp;Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. <a href="https://doi.org/10.3310/hta22430" class="uri">https://doi.org/10.3310/hta22430</a> PMID: 30132754</li>
+</ul>
+<p>Some notes on scope (beyond obvious tables/figures):</p>
+<ul>
+<li>In-text result for <code>Surveillance cohort: Scan suspension</code> (re: breakdown of deaths by type) are not captured in tables/figures</li>
+<li>Supplementary figure 1 and 2 are more like methods than results? Are referenced in methods.</li>
+<li>In-text results for <code>Surveillance cohort: Drop-out</code> are captured in Table 3 and Figure 4</li>
+<li>Also captured are <code>Surveillance cohort: Threshold for surgery</code></li>
+<li>Supplementary figure 3 and supplementary table 2 are definitely in scope</li>
+</ul>
+</section>
+<section id="define-scope-for-reproduction" class="level2">
+<h2 class="anchored" data-anchor-id="define-scope-for-reproduction">10.46-11.02: Define scope for reproduction</h2>
+<p>I described my interpretation of scope within <code>scope.qmd</code>.</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="7f751330" class="cell" data-execution_count="1">
+<div id="fedfe788" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -279,14 +306,19 @@ Note
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>)]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>)]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Finish adding times</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 5m, or 0h 5m
-Total used to date: 37m, or 0h 37m
-Time remaining: 2363m, or 39h 23m
-Used 1.5% of 40 hours max</code></pre>
+<pre><code>Time spent today: 49m, or 0h 49m
+Total used to date: 81m, or 1h 21m
+Time remaining: 2319m, or 38h 39m
+Used 3.4% of 40 hours max</code></pre>
 </div>
 </div>
 

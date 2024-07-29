@@ -298,21 +298,21 @@
     "href": "evaluation/scope.html",
     "title": "Scope",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page outlines the parts of the journal article which we will attempt to reproduce.\nAll images and quotes on this page are sourced from"
+    "text": "This page outlines the parts of the journal article which we will attempt to reproduce.\nAll images and quotes on this page are sourced from Kim et al. (2021)"
   },
   {
     "objectID": "evaluation/scope.html#within-scope",
     "href": "evaluation/scope.html#within-scope",
     "title": "Scope",
     "section": "Within scope",
-    "text": "Within scope\n\n\n\n\n\n\nFigure X\n\n\n\n\n\n[Figure with full legend from paper]"
+    "text": "Within scope\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n“Fig 1. 65-year-old cohort: Change in key outcomes over varying delay to primary invitation (model I1).” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n“Table 2. Predicted excess AAA deaths and emergency operations in the national invited 65-year-old cohort over 30y period.” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\n\n\n“Fig 2. 65-year-old cohort: Change in key outcomes over varying attendance at primary scan (model I2).” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n“Fig 3. Surveillance cohort: Change in key outcomes over varying suspension of surveillance scans (model S1).” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nIn-text result 1\n\n\n\n\n\nIn bold are the items not captured in Table 3 or Figure 3.\n“Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, 2 (1% increase) are in the sub-group measuring 4.5–4.9 cm at the start of the pandemic and 7 (8% increase) in the sub-group measuring 5.0–5.4 cm; &lt;0.1 are in the 3.0–4.4 cm sub-group. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, 1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group. However, the remaining 22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase in AAA-related deaths in this sub-group.”\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n“Fig 4. Surveillance cohort: Change in key outcomes over varying dropout rates, applied for (i) 1y (model I2.1) and (ii) 2y (model I2.2).” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n“Fig 5. Surveillance cohort: Change in key outcomes over varying time at increased (7cm) threshold (model I3).” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n“Table 3. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period.” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nSupplementary figure 3\n\n\n\n\n\n\n\n\n“S3 Fig. Cumulative impact of scenarios on surveillance cohort.” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nSupplementary table 2\n\n\n\n\n\n\n\n\n“S2 Tab. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period” Kim et al. (2021)"
   },
   {
     "objectID": "evaluation/scope.html#outside-scope",
     "href": "evaluation/scope.html#outside-scope",
     "title": "Scope",
     "section": "Outside scope",
-    "text": "Outside scope\n\n\n\n\n\n\nTable X\n\n\n\n\n\n[Explanation of why it is outside scope]\n[Display table, including full legend from paper]"
+    "text": "Outside scope\n\n\n\n\n\n\nTable 1\n\n\n\n\n\nInput parameters and scenarios.\n\n\n\n“Table 1. Modelled COVID policy scenarios for AAA services.” Kim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nSupplementary figure 1\n\n\n\n\n\nPart of methods (rather than a result from the model).\n\n\n\nKim et al. (2021)\n\n\n\n\n\n\n\n\n\n\n\nSupplementary figure 2\n\n\n\n\n\nPart of methods (rather than a result from the model).\n\n\n\nKim et al. (2021)"
   },
   {
     "objectID": "CONTRIBUTING.html",
@@ -350,11 +350,32 @@
     "text": "09.38-09.43: High entropy secret\nUpload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R on line 376:\n# SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)\nThis is not a concern - the link doesn’t work with that token for others.\nThe DOI for this article is https://doi.org/10.1016/j.jval.2015.03.1784."
   },
   {
+    "objectID": "logbook/posts/2024_07_29/index.html#correct-file-paths",
+    "href": "logbook/posts/2024_07_29/index.html#correct-file-paths",
+    "title": "Day 2",
+    "section": "09.53-09.55: Correct file paths",
+    "text": "09.53-09.55: Correct file paths\nFor study_publication.qmd."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#read-journal-article",
+    "href": "logbook/posts/2024_07_29/index.html#read-journal-article",
+    "title": "Day 2",
+    "section": "10.05-10.15, 10.29-10.45: Read journal article",
+    "text": "10.05-10.15, 10.29-10.45: Read journal article\nUses a previously developed and validated model described in:\n\nGlover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. https://doi.org/10.1177/0272989X17753380 PMID: 31665967\nThompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al. Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. https://doi.org/10.3310/hta22430 PMID: 30132754\n\nSome notes on scope (beyond obvious tables/figures):\n\nIn-text result for Surveillance cohort: Scan suspension (re: breakdown of deaths by type) are not captured in tables/figures\nSupplementary figure 1 and 2 are more like methods than results? Are referenced in methods.\nIn-text results for Surveillance cohort: Drop-out are captured in Table 3 and Figure 4\nAlso captured are Surveillance cohort: Threshold for surgery\nSupplementary figure 3 and supplementary table 2 are definitely in scope"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
+    "href": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
+    "title": "Day 2",
+    "section": "10.46-11.02: Define scope for reproduction",
+    "text": "10.46-11.02: Define scope for reproduction\nI described my interpretation of scope within scope.qmd."
+  },
+  {
     "objectID": "logbook/posts/2024_07_29/index.html#timings",
     "href": "logbook/posts/2024_07_29/index.html#timings",
     "title": "Day 2",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 5m, or 0h 5m\nTotal used to date: 37m, or 0h 37m\nTime remaining: 2363m, or 39h 23m\nUsed 1.5% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02')]\n# TODO: Finish adding times\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 49m, or 0h 49m\nTotal used to date: 81m, or 1h 21m\nTime remaining: 2319m, or 38h 39m\nUsed 3.4% of 40 hours max"
   },
   {
     "objectID": "index.html",
