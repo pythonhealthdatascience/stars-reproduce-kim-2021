@@ -1,0 +1,27 @@
+---
+title: "Process model results to generate results in article"
+author: "Amy Heather"
+---
+
+This script assumes you have already run the scenarios in `models/` and saved those results to `.csv` files which we here then process to generate the results from the paper.
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+y65_s1 <- read.csv("../output/output_65yo_scen1.csv")
+y65_s1
+```
+
+```{r}
+tab2 <- res %>%
+  mutate(excess_death = aaadead - first(aaadead),
+         excess_op = emeropen - first(emeropen)) %>%
+  select(delayscr, excess_death, excess_op) %>%
+  arrange(delayscr)
+
+write.csv(tab2, "../../logbook/posts/2024_07_29/tab2.csv", row.names=FALSE)
+
+tab2
+```
