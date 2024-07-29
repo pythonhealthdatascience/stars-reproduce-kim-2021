@@ -7,4 +7,5 @@ Imports:
     msm,
     foreach,
     iterators,
-    doParallel
+    doParallel,
+    rmarkdown
