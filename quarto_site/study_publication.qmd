@@ -7,7 +7,9 @@ bibliography: references.bib
 
 ## Code and data
 
-View at: <https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model>
+Copied into this repository: <https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model>
+
+Original repository link: <https://github.com/mikesweeting/AAA_DES_model>
 
 ## Journal article
 
