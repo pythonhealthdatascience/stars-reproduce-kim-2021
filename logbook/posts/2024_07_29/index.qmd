@@ -22,6 +22,29 @@ This is not a concern - the link doesn't work with that token for others.
 
 The DOI for this article is <https://doi.org/10.1016/j.jval.2015.03.1784>.
 
+## 09.53-09.55: Correct file paths
+
+For `study_publication.qmd`.
+
+## 10.05-10.15, 10.29-10.45: Read journal article
+
+Uses a previously developed and validated model described in:
+
+* Glover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. <https://doi.org/10.1177/0272989X17753380> PMID: 31665967
+* Thompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al. Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. <https://doi.org/10.3310/hta22430> PMID: 30132754
+
+Some notes on scope (beyond obvious tables/figures):
+
+* In-text result for `Surveillance cohort: Scan suspension` (re: breakdown of deaths by type) are not captured in tables/figures
+* Supplementary figure 1 and 2 are more like methods than results? Are referenced in methods.
+* In-text results for `Surveillance cohort: Drop-out` are captured in Table 3 and Figure 4
+* Also captured are `Surveillance cohort: Threshold for surgery`
+* Supplementary figure 3 and supplementary table 2 are definitely in scope
+
+## 10.46-11.02: Define scope for reproduction
+
+I described my interpretation of scope within `scope.qmd`.
+
 ## Timings
 
 ```{python}
@@ -34,7 +57,12 @@ used_to_date = 32
 
 # Times from today
 times = [
-    ('09.38', '09.43')]
+    ('09.38', '09.43'),
+    ('09.53', '09.55'),
+    ('10.05', '10.15'),
+    ('10.29', '10.45'),
+    ('10.46', '11.02')]
+# TODO: Finish adding times
 
 calculate_times(used_to_date, times)
 ```
