@@ -8,4 +8,5 @@ Imports:
     foreach,
     iterators,
     doParallel,
-    rmarkdown
+    rmarkdown,
+    dplyr
