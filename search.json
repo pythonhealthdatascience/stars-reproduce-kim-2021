@@ -4,42 +4,14 @@
     "href": "CHANGELOG.html",
     "title": "Changelog",
     "section": "",
-    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning. Dates formatted as YYYY-MM-DD as per ISO standard.\n\n\n\nContributors: Amy Heather\nMinor improvements following the third reproducibility assessment (Lim et al. 2020).\n\n\n\nAdd references to .yaml header in reproduction_report.qmd, reproduction_success.qmd and study_publication.qmd and set echo as false for scope.qmd\nAmended grammar in reporting.qmd bullet list\nUpdated references.bib\n\n\n\n\n\nContributors: Amy Heather\nMinor improvements following the second reproducibility assessment (Huang et al. 2019).\n\n\n\nInteractive and non-interactive time-to-completion figures add to reproduction_success.qmd, with time_to_complete.py producing figures\nAdd R-related items to .gitignore\nAdd option to not show limit on time from calculate_times()\n\n\n\n\n\nCorrected spelling of “artefacts” in badges.qmd and add sentence to cite original study in scope.qmd\nUpdated references.bib\nAdd matplotlib to requirements.txt\n\n\n\n\n\nContributors: Amy Heather\nMinor improvements following the first reproducibility assessment (Shoaib and Ramamohan 2022).\n\n\n\nTemplate page (reflections.qmd) for reflections on facilitators and barriers to reproduction, and for full list of troubleshooting steps\n\n\n\n\n\nAdd .vscode/ to .gitignore\nAdd citation to protocol on quarto site home page\nOrder of criteria in badges.qmd (so it is a consistent order between the dictionary of criteria names and results, making it easier when conducting the assessment to look between the two)\nAmended TODO: comments in CHANGELOG and GHCR GitHub action\nAdd missing &lt;!--- --&gt; marker in artefacts.qmd\nImproved the “succesfully reproduced” template sentence in reproduction_report.qmd\n\n\n\n\n\nContributors: Amy Heather\nFix to citation file to prevent error on Zenodo.\n\n\n\nCompleted CITATION.cff to reflect this repository (rather than to be a blank example), to prevent error when syncing with Zenodo\n\n\n\n\n\nContributors: Amy Heather, with review of the protocol and associated artefacts (such as this template) from Tom Monks, Alison Harper and Nav Mustafee\nInitial release of template repository. 🌱"
+    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning. Dates formatted as YYYY-MM-DD as per ISO standard.\n\n\nSet up repository and defined scope of reproduction.\n\n\n\nCode from original study\nArticle and supplementary materials\nPlanned scope for reproduction\n\n\n\n\n\nModified template to be about Kim et al. 2021"
   },
   {
-    "objectID": "CHANGELOG.html#v1.0.4---2024-07-26",
-    "href": "CHANGELOG.html#v1.0.4---2024-07-26",
+    "objectID": "CHANGELOG.html#v0.1.0---2024-07-29",
+    "href": "CHANGELOG.html#v0.1.0---2024-07-29",
     "title": "Changelog",
     "section": "",
-    "text": "Contributors: Amy Heather\nMinor improvements following the third reproducibility assessment (Lim et al. 2020).\n\n\n\nAdd references to .yaml header in reproduction_report.qmd, reproduction_success.qmd and study_publication.qmd and set echo as false for scope.qmd\nAmended grammar in reporting.qmd bullet list\nUpdated references.bib"
-  },
-  {
-    "objectID": "CHANGELOG.html#v1.0.3---2024-07-19",
-    "href": "CHANGELOG.html#v1.0.3---2024-07-19",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather\nMinor improvements following the second reproducibility assessment (Huang et al. 2019).\n\n\n\nInteractive and non-interactive time-to-completion figures add to reproduction_success.qmd, with time_to_complete.py producing figures\nAdd R-related items to .gitignore\nAdd option to not show limit on time from calculate_times()\n\n\n\n\n\nCorrected spelling of “artefacts” in badges.qmd and add sentence to cite original study in scope.qmd\nUpdated references.bib\nAdd matplotlib to requirements.txt"
-  },
-  {
-    "objectID": "CHANGELOG.html#v1.0.2---2024-07-03",
-    "href": "CHANGELOG.html#v1.0.2---2024-07-03",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather\nMinor improvements following the first reproducibility assessment (Shoaib and Ramamohan 2022).\n\n\n\nTemplate page (reflections.qmd) for reflections on facilitators and barriers to reproduction, and for full list of troubleshooting steps\n\n\n\n\n\nAdd .vscode/ to .gitignore\nAdd citation to protocol on quarto site home page\nOrder of criteria in badges.qmd (so it is a consistent order between the dictionary of criteria names and results, making it easier when conducting the assessment to look between the two)\nAmended TODO: comments in CHANGELOG and GHCR GitHub action\nAdd missing &lt;!--- --&gt; marker in artefacts.qmd\nImproved the “succesfully reproduced” template sentence in reproduction_report.qmd"
-  },
-  {
-    "objectID": "CHANGELOG.html#v1.0.1---2024-06-19",
-    "href": "CHANGELOG.html#v1.0.1---2024-06-19",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather\nFix to citation file to prevent error on Zenodo.\n\n\n\nCompleted CITATION.cff to reflect this repository (rather than to be a blank example), to prevent error when syncing with Zenodo"
-  },
-  {
-    "objectID": "CHANGELOG.html#v1.0.0-0-2024-06-19",
-    "href": "CHANGELOG.html#v1.0.0-0-2024-06-19",
-    "title": "Changelog",
-    "section": "",
-    "text": "Contributors: Amy Heather, with review of the protocol and associated artefacts (such as this template) from Tom Monks, Alison Harper and Nav Mustafee\nInitial release of template repository. 🌱"
+    "text": "Set up repository and defined scope of reproduction.\n\n\n\nCode from original study\nArticle and supplementary materials\nPlanned scope for reproduction\n\n\n\n\n\nModified template to be about Kim et al. 2021"
   },
   {
     "objectID": "logbook/posts/2024_07_26/index.html",
@@ -81,7 +53,7 @@
     "href": "logbook/logbook.html",
     "title": "Logbook",
     "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nread\n\n\n\n\n\n\n\n\n\nJul 29, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nread\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nJul 29, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "evaluation/reflections.html",
@@ -340,7 +312,7 @@
     "href": "logbook/posts/2024_07_29/index.html",
     "title": "Day 2",
     "section": "",
-    "text": "Note\n\n\n\nTBC. Total time used: TBC"
+    "text": "Note\n\n\n\nRead article, decided on scope, then began reproduction. Total time used: TBCh TBCm (TBC%)."
   },
   {
     "objectID": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
@@ -371,11 +343,25 @@
     "text": "10.46-11.02: Define scope for reproduction\nI described my interpretation of scope within scope.qmd."
   },
   {
+    "objectID": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
+    "href": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
+    "title": "Day 2",
+    "section": "11.09-11.13: Discussed scope with Tom",
+    "text": "11.09-11.13: Discussed scope with Tom\nLooked over and happy with scope. He then did another look over the paper, but confirmed no further items."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#x-archive-scope",
+    "href": "logbook/posts/2024_07_29/index.html#x-archive-scope",
+    "title": "Day 2",
+    "section": "11.26-X: Archive scope",
+    "text": "11.26-X: Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
+  },
+  {
     "objectID": "logbook/posts/2024_07_29/index.html#timings",
     "href": "logbook/posts/2024_07_29/index.html#timings",
     "title": "Day 2",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02')]\n# TODO: Finish adding times\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 49m, or 0h 49m\nTotal used to date: 81m, or 1h 21m\nTime remaining: 2319m, or 38h 39m\nUsed 3.4% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13')]\n# TODO: Finish adding times\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 53m, or 0h 53m\nTotal used to date: 85m, or 1h 25m\nTime remaining: 2315m, or 38h 35m\nUsed 3.5% of 40 hours max"
   },
   {
     "objectID": "index.html",

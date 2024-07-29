@@ -202,6 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Day 2</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">read</div>
+                <div class="quarto-category">scope</div>
+                <div class="quarto-category">reproduce</div>
               </div>
                   </div>
   </div>
@@ -239,6 +241,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#correct-file-paths" id="toc-correct-file-paths" class="nav-link" data-scroll-target="#correct-file-paths">09.53-09.55: Correct file paths</a></li>
   <li><a href="#read-journal-article" id="toc-read-journal-article" class="nav-link" data-scroll-target="#read-journal-article">10.05-10.15, 10.29-10.45: Read journal article</a></li>
   <li><a href="#define-scope-for-reproduction" id="toc-define-scope-for-reproduction" class="nav-link" data-scroll-target="#define-scope-for-reproduction">10.46-11.02: Define scope for reproduction</a></li>
+  <li><a href="#discussed-scope-with-tom" id="toc-discussed-scope-with-tom" class="nav-link" data-scroll-target="#discussed-scope-with-tom">11.09-11.13: Discussed scope with Tom</a></li>
+  <li><a href="#x-archive-scope" id="toc-x-archive-scope" class="nav-link" data-scroll-target="#x-archive-scope">11.26-X: Archive scope</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -260,7 +264,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TBC. Total time used: TBC</p>
+<p>Read article, decided on scope, then began reproduction. Total time used: TBCh TBCm (TBC%).</p>
 </div>
 </div>
 <section id="high-entropy-secret" class="level2">
@@ -294,9 +298,17 @@ Note
 <h2 class="anchored" data-anchor-id="define-scope-for-reproduction">10.46-11.02: Define scope for reproduction</h2>
 <p>I described my interpretation of scope within <code>scope.qmd</code>.</p>
 </section>
+<section id="discussed-scope-with-tom" class="level2">
+<h2 class="anchored" data-anchor-id="discussed-scope-with-tom">11.09-11.13: Discussed scope with Tom</h2>
+<p>Looked over and happy with scope. He then did another look over the paper, but confirmed no further items.</p>
+</section>
+<section id="x-archive-scope" class="level2">
+<h2 class="anchored" data-anchor-id="x-archive-scope">11.26-X: Archive scope</h2>
+<p>Update <code>CHANGELOG.md</code> and <code>CITATION.cff</code>, set up sync on Zenodo, then created a Git release.</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="fedfe788" class="cell" data-execution_count="1">
+<div id="5e00c9a5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -310,15 +322,16 @@ Note
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>)]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Finish adding times</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>)]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Finish adding times</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 49m, or 0h 49m
-Total used to date: 81m, or 1h 21m
-Time remaining: 2319m, or 38h 39m
-Used 3.4% of 40 hours max</code></pre>
+<pre><code>Time spent today: 53m, or 0h 53m
+Total used to date: 85m, or 1h 25m
+Time remaining: 2315m, or 38h 35m
+Used 3.5% of 40 hours max</code></pre>
 </div>
 </div>
 
