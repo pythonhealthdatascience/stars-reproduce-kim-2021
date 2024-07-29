@@ -1234,7 +1234,7 @@ countDropouts <- function(personsInfo, v1other, timeLimit=NA) {
 		if ("screen" %in% eventHistory$events && 
 				!("nonvisualization" %in% eventHistory$events) &&
 				eventHistory$measuredSizes[match("screen", 
-				eventHistory$events)] >= v1other$aortaDiameterThresholds[[1]]) {
+				eventHistory$events)] >= v1other$aortaDiameterThresholds[[1]][1]) {
 
 			if (is.na(timeLimit)) { 
 				if ("dropout" %in% eventHistory$events)

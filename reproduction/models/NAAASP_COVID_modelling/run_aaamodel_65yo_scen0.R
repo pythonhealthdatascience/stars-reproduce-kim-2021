@@ -23,7 +23,7 @@ source("functions/DES_Model.R")
 source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R") 
 
 ## Change v1other$aortaDiameterThresholds to be a list (new syntax)
-v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
+# v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
 
 ## Also allow monitoring after contraindication (currently discharged)
 v1other$monitoringIntervals[4] <- 0.25 ## 3 monthly monitoring for those contraindicated
@@ -42,7 +42,7 @@ v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
 v0$method <- "serial"
 
-v0$numberOfPersons <- 1e7 
+v0$numberOfPersons <- 1000
 
 ## Persons characteristics data.frame
 personData.screen <- data.frame(startAge = 65)
