@@ -177,6 +177,37 @@ Discussed with Tom and agreed to:
 
 ## 15.09-X: Running the model with fewer people
 
+`DES_Input_Definitions` states that the number of people to run through the DES is defined by `v0$numberOfPersons`, default 1000. Can see in `run_aaamodel_65yo_scen0.R` that it has been set to `v0$numberOfPersons <- 1e7`. I replaced this with `v0$numberOfPersons <- 1000`. This finished almost immediately, then hit an error:
+
+```
+> TableOfCounts(scen0.invite, v1other)
+Error in "screen" %in% eventHistory$events && !("nonvisualization" %in%  : 
+  'length = 3' in coercion to 'logical(1)'
+```
+
+`TableOfCounts()` is from `DES_Model.R`. Working through each line of the function, I found that the error is occurring for `scre_dropout=countDropouts(result, v1other)`.
+
+In this function, `personsInfo` (`result`, ie. `scen0.invite`) is used. It loops through the `EventHistories` for each person: `for (i in 1:length(personsInfo$eventHistories))`. It checks whether their events:
+
+* Includes "screen" (`"screen" %in% eventHistory$events`)
+* Does not include "nonvisualization" (`!("nonvisualization" %in% eventHistory$events)`)
+* If the measured size for screen is greater than or equal to `v1other$aortaDiameterThresholds[[1]]`
+
+The error occurs for that final comparison. That is the item we had to change earlier to be able to get the model to run. I tried setting that back to being a list within a list - `v1other$aortaDiameterThresholds <- list(c(3.0, 4.5, 5.5))`. However, I realised that *caused* the issue, and that in fact, `run_aaamodel_65yo_scen0.R` is changing it to `list()` again before running the model: 
+
+```
+## Change v1other$aortaDiameterThresholds to be a list (new syntax)
+v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
+```
+
+If I comment out that line, an error occurs. Hence, it seems we require it to be in a list within a list for the model, but just a list for `TableOfCounts()`. Looking at all the repository code, the reason becomes apparent in `models/NAASP_COVID_modelling/run_aaamodel_surv_scen3.R`, when multiple aaortaDiameterThresholds are provided.
+
+As such, I set about modifying the later processing functions so that they are able to use this `list()` format:
+
+* `input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R`: returned back to list(c()), but then changed `run_aaamodel_65yo_scen0.R` to not add an additional list() over the top.
+* `DES_Model.R`: `countDropouts()`: `>= v1other$aortaDiameterThresholds[[1]]` to `>= v1other$aortaDiameterThresholds[[1]][1]`
+
+The whole script then ran successfully!
 
 ## Timings
 
