@@ -242,7 +242,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#read-journal-article" id="toc-read-journal-article" class="nav-link" data-scroll-target="#read-journal-article">10.05-10.15, 10.29-10.45: Read journal article</a></li>
   <li><a href="#define-scope-for-reproduction" id="toc-define-scope-for-reproduction" class="nav-link" data-scroll-target="#define-scope-for-reproduction">10.46-11.02: Define scope for reproduction</a></li>
   <li><a href="#discussed-scope-with-tom" id="toc-discussed-scope-with-tom" class="nav-link" data-scroll-target="#discussed-scope-with-tom">11.09-11.13: Discussed scope with Tom</a></li>
-  <li><a href="#x-archive-scope" id="toc-x-archive-scope" class="nav-link" data-scroll-target="#x-archive-scope">11.26-X: Archive scope</a></li>
+  <li><a href="#archive-scope" id="toc-archive-scope" class="nav-link" data-scroll-target="#archive-scope">11.26-11.32 : Archive scope</a></li>
+  <li><a href="#look-over-code" id="toc-look-over-code" class="nav-link" data-scroll-target="#look-over-code">12.50-12.56: Look over code</a></li>
+  <li><a href="#set-up-environment" id="toc-set-up-environment" class="nav-link" data-scroll-target="#set-up-environment">12.57-13.04: Set up environment</a></li>
+  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code">13.05-13.13: Running code</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -302,36 +305,91 @@ Note
 <h2 class="anchored" data-anchor-id="discussed-scope-with-tom">11.09-11.13: Discussed scope with Tom</h2>
 <p>Looked over and happy with scope. He then did another look over the paper, but confirmed no further items.</p>
 </section>
-<section id="x-archive-scope" class="level2">
-<h2 class="anchored" data-anchor-id="x-archive-scope">11.26-X: Archive scope</h2>
+<section id="archive-scope" class="level2">
+<h2 class="anchored" data-anchor-id="archive-scope">11.26-11.32 : Archive scope</h2>
 <p>Update <code>CHANGELOG.md</code> and <code>CITATION.cff</code>, set up sync on Zenodo, then created a Git release.</p>
+</section>
+<section id="look-over-code" class="level2">
+<h2 class="anchored" data-anchor-id="look-over-code">12.50-12.56: Look over code</h2>
+<p>README:</p>
+<ul>
+<li>Directs to <code>NAASP_DES_Example_Script.R</code> which provides walk through example for running model.</li>
+<li>Notes the repository contains code for two papers - we are interested in <code>NAAASP_COVID</code> (rather than <code>SWAN</code>)</li>
+</ul>
+<p>Copied the items relevant to NAAASP COVID into <code>reproduction/</code>. As README states results are saved to <code>output/</code>, <strong>create a placeholder output folder</strong></p>
+<p>The <code>models/</code> folder seems to contain scripts to run each of the scenarios.</p>
+</section>
+<section id="set-up-environment" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-environment">12.57-13.04: Set up environment</h2>
+<p>Based on experience trying to backdate R and packages in my previous reproduction (<a href="https://pythonhealthdatascience.github.io/stars-reproduce-huang-2019/logbook/posts/2024_07_05/">Huang et al.&nbsp;2019</a>), I decided that this time I would start with the latest R and packages, and then backdate if its not working.</p>
+<p>This means using R 4.4.1 (paper mentions 3.6.3).</p>
+<p>At the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.</p>
+<pre><code>Title: Computational reproducibility assessment of Kim et al. 2019
+Depends: 
+    R
+Imports:
+    Rcpp,
+    expm,
+    msm,
+    foreach,
+    iterators,
+    doParallel</code></pre>
+<p>Ran:</p>
+<pre><code>renv::init(bare=TRUE)
+renv::install()
+renv::snapshot()</code></pre>
+</section>
+<section id="running-code" class="level2">
+<h2 class="anchored" data-anchor-id="running-code">13.05-13.13: Running code</h2>
+<p>Tried running <code>run_aaamodel_65yo_scen0.R</code>. Had error:</p>
+<pre><code>this.dir &lt;- dirname(parent.frame(2)$ofile)
+Error in dirname(parent.frame(2)$ofile) : 
+  a character vector argument expected</code></pre>
+<p>Realised this has a comment above stating:</p>
+<pre><code># Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)</code></pre>
+<p>So instead tried running with <code>Source</code> - this worked, up until this line:</p>
+<pre><code>&gt; v1other
+postSurgeryInitialPeriod = 0.08213552 
+timeToMonitoringFollowingOpenSurgery = 0.1149897 
+timeBetweenMonitoringFollowingEvarSurgery = 1 
+zeroGrowthDiameterThreshold = 2 
+baselineDiameters = data.frame with 2 columns:
+  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...
+  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...
+prevalenceThreshold = 3 
+aortaDiameterThresholds = list: =Error in cat(names(element)[i], "=", element[[i]], " ", sep = "") : 
+  argument 3 (type 'list') cannot be handled by 'cat'</code></pre>
+<p><code>v1other</code> was created when we called <code>source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R")</code>. Looking at that script, aortaDiameterThresholds are set as <code>v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5))</code>. Viewing the object rather than printing it with <code>View(v1other)</code>, I can see that the thresholds are stored, but its just a list within a list.</p>
+<p>I tried commenting the print statement in <code>run_aaamodel...</code> but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to <code>c(3.0, 4.5, 5.5)</code> (removing <code>list()</code>).</p>
+<p>This then ran without issue. As it ran, I can see it sets a random seed (<code>set.seed(3210)</code>). As per usual, paused timing while it ran.</p>
+<p>Spent a long while on <code>processPersons()</code> (<code>scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)</code>).</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="84932f38" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>)]</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Finish adding times</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="25d09861" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 53m, or 0h 53m
-Total used to date: 85m, or 1h 25m
-Time remaining: 2315m, or 38h 35m
-Used 3.5% of 40 hours max</code></pre>
+<pre><code>Time spent today: 59m, or 0h 59m
+Total used to date: 91m, or 1h 31m
+Time remaining: 2309m, or 38h 29m
+Used 3.8% of 40 hours max</code></pre>
 </div>
 </div>
 

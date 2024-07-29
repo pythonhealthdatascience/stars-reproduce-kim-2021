@@ -158,7 +158,7 @@
     "href": "quarto_site/study_publication.html#code-and-data",
     "title": "Publication",
     "section": "Code and data",
-    "text": "Code and data\nView at: https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model"
+    "text": "Code and data\nCopied into this repository: https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/tree/main/original_study/AAA_DES_model\nOriginal repository link: https://github.com/mikesweeting/AAA_DES_model"
   },
   {
     "objectID": "quarto_site/study_publication.html#journal-article",
@@ -350,18 +350,39 @@
     "text": "11.09-11.13: Discussed scope with Tom\nLooked over and happy with scope. He then did another look over the paper, but confirmed no further items."
   },
   {
-    "objectID": "logbook/posts/2024_07_29/index.html#x-archive-scope",
-    "href": "logbook/posts/2024_07_29/index.html#x-archive-scope",
+    "objectID": "logbook/posts/2024_07_29/index.html#archive-scope",
+    "href": "logbook/posts/2024_07_29/index.html#archive-scope",
     "title": "Day 2",
-    "section": "11.26-X: Archive scope",
-    "text": "11.26-X: Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
+    "section": "11.26-11.32 : Archive scope",
+    "text": "11.26-11.32 : Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#look-over-code",
+    "href": "logbook/posts/2024_07_29/index.html#look-over-code",
+    "title": "Day 2",
+    "section": "12.50-12.56: Look over code",
+    "text": "12.50-12.56: Look over code\nREADME:\n\nDirects to NAASP_DES_Example_Script.R which provides walk through example for running model.\nNotes the repository contains code for two papers - we are interested in NAAASP_COVID (rather than SWAN)\n\nCopied the items relevant to NAAASP COVID into reproduction/. As README states results are saved to output/, create a placeholder output folder\nThe models/ folder seems to contain scripts to run each of the scenarios."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#set-up-environment",
+    "href": "logbook/posts/2024_07_29/index.html#set-up-environment",
+    "title": "Day 2",
+    "section": "12.57-13.04: Set up environment",
+    "text": "12.57-13.04: Set up environment\nBased on experience trying to backdate R and packages in my previous reproduction (Huang et al. 2019), I decided that this time I would start with the latest R and packages, and then backdate if its not working.\nThis means using R 4.4.1 (paper mentions 3.6.3).\nAt the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.\nTitle: Computational reproducibility assessment of Kim et al. 2019\nDepends: \n    R\nImports:\n    Rcpp,\n    expm,\n    msm,\n    foreach,\n    iterators,\n    doParallel\nRan:\nrenv::init(bare=TRUE)\nrenv::install()\nrenv::snapshot()"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#running-code",
+    "href": "logbook/posts/2024_07_29/index.html#running-code",
+    "title": "Day 2",
+    "section": "13.05-13.13: Running code",
+    "text": "13.05-13.13: Running code\nTried running run_aaamodel_65yo_scen0.R. Had error:\nthis.dir &lt;- dirname(parent.frame(2)$ofile)\nError in dirname(parent.frame(2)$ofile) : \n  a character vector argument expected\nRealised this has a comment above stating:\n# Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)\nSo instead tried running with Source - this worked, up until this line:\n&gt; v1other\npostSurgeryInitialPeriod = 0.08213552 \ntimeToMonitoringFollowingOpenSurgery = 0.1149897 \ntimeBetweenMonitoringFollowingEvarSurgery = 1 \nzeroGrowthDiameterThreshold = 2 \nbaselineDiameters = data.frame with 2 columns:\n  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...\n  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...\nprevalenceThreshold = 3 \naortaDiameterThresholds = list: =Error in cat(names(element)[i], \"=\", element[[i]], \" \", sep = \"\") : \n  argument 3 (type 'list') cannot be handled by 'cat'\nv1other was created when we called source(\"input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R\"). Looking at that script, aortaDiameterThresholds are set as v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). Viewing the object rather than printing it with View(v1other), I can see that the thresholds are stored, but its just a list within a list.\nI tried commenting the print statement in run_aaamodel... but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to c(3.0, 4.5, 5.5) (removing list()).\nThis then ran without issue. As it ran, I can see it sets a random seed (set.seed(3210)). As per usual, paused timing while it ran.\nSpent a long while on processPersons() (scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen))."
   },
   {
     "objectID": "logbook/posts/2024_07_29/index.html#timings",
     "href": "logbook/posts/2024_07_29/index.html#timings",
     "title": "Day 2",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13')]\n# TODO: Finish adding times\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 53m, or 0h 53m\nTotal used to date: 85m, or 1h 25m\nTime remaining: 2315m, or 38h 35m\nUsed 3.5% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13'),\n    ('11.26', '11.32')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 59m, or 0h 59m\nTotal used to date: 91m, or 1h 31m\nTime remaining: 2309m, or 38h 29m\nUsed 3.8% of 40 hours max"
   },
   {
     "objectID": "index.html",
