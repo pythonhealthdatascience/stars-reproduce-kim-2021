@@ -49,9 +49,89 @@ I described my interpretation of scope within `scope.qmd`.
 
 Looked over and happy with scope. He then did another look over the paper, but confirmed no further items.
 
-## 11.26-X: Archive scope
+## 11.26-11.32 : Archive scope
 
 Update `CHANGELOG.md` and `CITATION.cff`, set up sync on Zenodo, then created a Git release.
+
+## 12.50-12.56: Look over code
+
+README:
+
+* Directs to `NAASP_DES_Example_Script.R` which provides walk through example for running model.
+* Notes the repository contains code for two papers - we are interested in `NAAASP_COVID` (rather than `SWAN`)
+
+Copied the items relevant to NAAASP COVID into `reproduction/`. As README states results are saved to `output/`, **create a placeholder output folder**
+
+The `models/` folder seems to contain scripts to run each of the scenarios.
+
+## 12.57-13.04: Set up environment
+
+Based on experience trying to backdate R and packages in my previous reproduction ([Huang et al. 2019](https://pythonhealthdatascience.github.io/stars-reproduce-huang-2019/logbook/posts/2024_07_05/)), I decided that this time I would start with the latest R and packages, and then backdate if its not working.
+
+This means using R 4.4.1 (paper mentions 3.6.3).
+
+At the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.
+
+```
+Title: Computational reproducibility assessment of Kim et al. 2019
+Depends: 
+    R
+Imports:
+    Rcpp,
+    expm,
+    msm,
+    foreach,
+    iterators,
+    doParallel
+```
+
+Ran:
+
+```
+renv::init(bare=TRUE)
+renv::install()
+renv::snapshot()
+```
+
+## 13.05-13.13: Running code
+
+Tried running `run_aaamodel_65yo_scen0.R`. Had error:
+
+```
+this.dir <- dirname(parent.frame(2)$ofile)
+Error in dirname(parent.frame(2)$ofile) : 
+  a character vector argument expected
+```
+
+Realised this has a comment above stating:
+
+```
+# Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)
+```
+
+So instead tried running with `Source` - this worked, up until this line:
+
+```
+> v1other
+postSurgeryInitialPeriod = 0.08213552 
+timeToMonitoringFollowingOpenSurgery = 0.1149897 
+timeBetweenMonitoringFollowingEvarSurgery = 1 
+zeroGrowthDiameterThreshold = 2 
+baselineDiameters = data.frame with 2 columns:
+  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...
+  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...
+prevalenceThreshold = 3 
+aortaDiameterThresholds = list: =Error in cat(names(element)[i], "=", element[[i]], " ", sep = "") : 
+  argument 3 (type 'list') cannot be handled by 'cat'
+```
+
+`v1other` was created when we called `source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R")`. Looking at that script, aortaDiameterThresholds are set as `v1other$aortaDiameterThresholds <- list(c(3.0, 4.5, 5.5))`. Viewing the object rather than printing it with `View(v1other)`, I can see that the thresholds are stored, but its just a list within a list.
+
+I tried commenting the print statement in `run_aaamodel...` but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to `c(3.0, 4.5, 5.5)` (removing `list()`).
+
+This then ran without issue. As it ran, I can see it sets a random seed (`set.seed(3210)`). As per usual, paused timing while it ran.
+
+Spent a long while on `processPersons()` (`scen0.invite <- processPersons(v0, v1other, v2, personData.screen)`).
 
 ## Timings
 
@@ -70,8 +150,8 @@ times = [
     ('10.05', '10.15'),
     ('10.29', '10.45'),
     ('10.46', '11.02'),
-    ('11.09', '11.13')]
-# TODO: Finish adding times
+    ('11.09', '11.13'),
+    ('11.26', '11.32')]
 
 calculate_times(used_to_date, times)
 ```
