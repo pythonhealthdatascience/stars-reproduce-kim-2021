@@ -406,28 +406,49 @@ Reflection
 </section>
 <section id="x-running-the-model-with-fewer-people" class="level2">
 <h2 class="anchored" data-anchor-id="x-running-the-model-with-fewer-people">15.09-X: Running the model with fewer people</h2>
+<p><code>DES_Input_Definitions</code> states that the number of people to run through the DES is defined by <code>v0$numberOfPersons</code>, default 1000. Can see in <code>run_aaamodel_65yo_scen0.R</code> that it has been set to <code>v0$numberOfPersons &lt;- 1e7</code>. I replaced this with <code>v0$numberOfPersons &lt;- 1000</code>. This finished almost immediately, then hit an error:</p>
+<pre><code>&gt; TableOfCounts(scen0.invite, v1other)
+Error in "screen" %in% eventHistory$events &amp;&amp; !("nonvisualization" %in%  : 
+  'length = 3' in coercion to 'logical(1)'</code></pre>
+<p><code>TableOfCounts()</code> is from <code>DES_Model.R</code>. Working through each line of the function, I found that the error is occurring for <code>scre_dropout=countDropouts(result, v1other)</code>.</p>
+<p>In this function, <code>personsInfo</code> (<code>result</code>, ie. <code>scen0.invite</code>) is used. It loops through the <code>EventHistories</code> for each person: <code>for (i in 1:length(personsInfo$eventHistories))</code>. It checks whether their events:</p>
+<ul>
+<li>Includes “screen” (<code>"screen" %in% eventHistory$events</code>)</li>
+<li>Does not include “nonvisualization” (<code>!("nonvisualization" %in% eventHistory$events)</code>)</li>
+<li>If the measured size for screen is greater than or equal to <code>v1other$aortaDiameterThresholds[[1]]</code></li>
+</ul>
+<p>The error occurs for that final comparison. That is the item we had to change earlier to be able to get the model to run. I tried setting that back to being a list within a list - <code>v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5))</code>. However, I realised that <em>caused</em> the issue, and that in fact, <code>run_aaamodel_65yo_scen0.R</code> is changing it to <code>list()</code> again before running the model:</p>
+<pre><code>## Change v1other$aortaDiameterThresholds to be a list (new syntax)
+v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)</code></pre>
+<p>If I comment out that line, an error occurs. Hence, it seems we require it to be in a list within a list for the model, but just a list for <code>TableOfCounts()</code>. Looking at all the repository code, the reason becomes apparent in <code>models/NAASP_COVID_modelling/run_aaamodel_surv_scen3.R</code>, when multiple aaortaDiameterThresholds are provided.</p>
+<p>As such, I set about modifying the later processing functions so that they are able to use this <code>list()</code> format:</p>
+<ul>
+<li><code>input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R</code>: returned back to list(c()), but then changed <code>run_aaamodel_65yo_scen0.R</code> to not add an additional list() over the top.</li>
+<li><code>DES_Model.R</code>: <code>countDropouts()</code>: <code>&gt;= v1other$aortaDiameterThresholds[[1]]</code> to <code>&gt;= v1other$aortaDiameterThresholds[[1]][1]</code></li>
+</ul>
+<p>The whole script then ran successfully!</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="1cc5a340" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="379a0265" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time spent today: 59m, or 0h 59m
 Total used to date: 91m, or 1h 31m
