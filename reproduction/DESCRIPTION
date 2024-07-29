@@ -1,0 +1,10 @@
+Title: Computational reproducibility assessment of Kim et al. 2019
+Depends: 
+    R
+Imports:
+    Rcpp,
+    expm,
+    msm,
+    foreach,
+    iterators,
+    doParallel
