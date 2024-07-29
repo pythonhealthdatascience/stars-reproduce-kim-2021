@@ -245,7 +245,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#archive-scope" id="toc-archive-scope" class="nav-link" data-scroll-target="#archive-scope">11.26-11.32 : Archive scope</a></li>
   <li><a href="#look-over-code" id="toc-look-over-code" class="nav-link" data-scroll-target="#look-over-code">12.50-12.56: Look over code</a></li>
   <li><a href="#set-up-environment" id="toc-set-up-environment" class="nav-link" data-scroll-target="#set-up-environment">12.57-13.04: Set up environment</a></li>
-  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code">13.05-13.13: Running code</a></li>
+  <li><a href="#trying-to-run-model" id="toc-trying-to-run-model" class="nav-link" data-scroll-target="#trying-to-run-model">13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model</a></li>
+  <li><a href="#x-running-the-model-with-fewer-people" id="toc-x-running-the-model-with-fewer-people" class="nav-link" data-scroll-target="#x-running-the-model-with-fewer-people">15.09-X: Running the model with fewer people</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -339,8 +340,8 @@ Imports:
 renv::install()
 renv::snapshot()</code></pre>
 </section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">13.05-13.13: Running code</h2>
+<section id="trying-to-run-model" class="level2">
+<h2 class="anchored" data-anchor-id="trying-to-run-model">13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model</h2>
 <p>Tried running <code>run_aaamodel_65yo_scen0.R</code>. Had error:</p>
 <pre><code>this.dir &lt;- dirname(parent.frame(2)$ofile)
 Error in dirname(parent.frame(2)$ofile) : 
@@ -362,29 +363,71 @@ aortaDiameterThresholds = list: =Error in cat(names(element)[i], "=", element[[i
 <p><code>v1other</code> was created when we called <code>source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R")</code>. Looking at that script, aortaDiameterThresholds are set as <code>v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5))</code>. Viewing the object rather than printing it with <code>View(v1other)</code>, I can see that the thresholds are stored, but its just a list within a list.</p>
 <p>I tried commenting the print statement in <code>run_aaamodel...</code> but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to <code>c(3.0, 4.5, 5.5)</code> (removing <code>list()</code>).</p>
 <p>This then ran without issue. As it ran, I can see it sets a random seed (<code>set.seed(3210)</code>). As per usual, paused timing while it ran.</p>
-<p>Spent a long while on <code>processPersons()</code> (<code>scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)</code>).</p>
+<p>Spent a long while on <code>processPersons()</code> (<code>scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)</code>). At 13.48 (with model running since 13.13), I could see these would likely be slow models to run, so logged into the remote computer, cloned the GitHub repository there, and ran the next script starting at 13.55, <code>run_aaamodel_65yo_scen0.R</code>. To do so, after cloning, I ran:</p>
+<pre><code>cd stars-reproduce-kim-2021/reproduction
+Rscript -e "renv::restore()"
+Rscript -e "source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')"</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Including the expected run time would be handy, as I assume this is working fine, but that’s working on the assumption that these models take a long time to run (which I’m not sure yet whether that is the case or not).</p>
+<p>In this case, as I later found out they used HPC, it would’ve been beneficial to mention that also!</p>
+</div>
+</div>
+<p>I checked the <code>run_aaamodel...</code> scripts and realised that in each, none were using parallel processing (as <code>v0$method &lt;- "serial"</code>).</p>
+<p>Looking at the DES_Model code I can see the example of <code>processPersons()</code> allows three possible inputs:</p>
+<ul>
+<li>“serial”</li>
+<li>“parallel” (which uses parallel)</li>
+<li>“foreach” (which uses doParallel)</li>
+</ul>
+<p>The function <code>psa()</code> is the same, but also includes “parallelBatches” alongside “foreach”. However, the consequence of those inputs is to return an error that the method has not been implemented for psa. Hence, psa can only run with “serial” or “parallel”. Likewise for <code>psaAboveDiagnosisThreshold()</code>.</p>
+<p>At 14.16 (so having let the model run since 13.55, for 21 minutes), I cancelled the run on the remote computer, and altered the scenario script to set <code>v0$method &lt;- "parallel"</code>. Then set that running, starting at 14.21. At this moment, the first scenario was still running on my machine (since 13.13, so for apx. 1h 10m now).</p>
+<p>At 14.39, I noticed the parallel model said <code>Killed</code>. In case I might have accidentally done this, I just set it to rerun again. However, at 14.52, it showed as <code>Killed</code> again. Upon Googling, I can see this message occurs when you run out of memory - which perhaps, might be why all were set to run sequentially, if its too intensive to run in parallel. I switched it back to “serial”.</p>
+<p>However, the model still running on my machine has now been going for 1h 42m. Having looked in the repository and article for any indication of runtime or requirement of HPC, I’ve yet to find anything. I tried looking now at the article first describing the model (<a href="https://doi.org/10.1177/0272989X17753380" class="uri">https://doi.org/10.1177/0272989X17753380</a>). In this article, they state the run time:</p>
+<pre><code>However, the computational requirements of the DES were extensive, given the number of individuals needed to reduce sampling variation to an acceptable level and characterizing uncertainty through PSA. Run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered computer.</code></pre>
+<p>In this case, “each scenario model is run for 10 million hypothetical individuals randomly drawn with replacement from the distribution of the relevant population. The models are run for a period of 30 years”. However, as there is no mention of performing probabilistic sensitivity analysis iterations in the article, we could expect this to be quicker than that (although note it is 10m patients instead of 500k).</p>
+<p>Discussed with Tom and agreed to:</p>
+<ul>
+<li><ol type="A">
+<li>Try and just run it with very few people, just so we can see if the model is working, and whether we could get similar results with fewer people in the model</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Try and run it sequentially on the remote computer overnight</li>
+</ol></li>
+</ul>
+</section>
+<section id="x-running-the-model-with-fewer-people" class="level2">
+<h2 class="anchored" data-anchor-id="x-running-the-model-with-fewer-people">15.09-X: Running the model with fewer people</h2>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="25d09861" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1cc5a340" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time spent today: 59m, or 0h 59m
 Total used to date: 91m, or 1h 31m
