@@ -4,37 +4,122 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once filled out page -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Use skeleton to create page describing scope -->
-
-<!-- NOTE: If you do not have a license allowing you to upload and reuse images from the article, then you should describe them below, and direct the reader to a link to the article -->
-
 This page outlines the parts of the journal article which we will attempt to reproduce.
 
-All images and quotes on this page are sourced from <!-- TODO: Add citation to original study -->
+All images and quotes on this page are sourced from @kim_modelling_2021
 
 ## Within scope
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
-## Figure X
+## Figure 1
 
-[Figure with full legend from paper]
-<!-- e.g.
-![Figure 2. "Patient state over time by unit. The patient population progresses through infection over three months (with 80% infected). The bold line shows the median results of 30 trials, and the fainter lines show the minimum and maximum from the 30 trials." @allen_simulation_2020](../original_study/article_fig2.png){width=80%}-->
+!["Fig 1. 65-year-old cohort: Change in key outcomes over varying delay to primary invitation (model I1)." @kim_modelling_2021](../original_study/fig1.PNG){width=80% .lightbox}
 
 :::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 2
+!["Table 2. Predicted excess AAA deaths and emergency operations in the national invited 65-year-old cohort over 30y period." @kim_modelling_2021](../original_study/tab2.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 2
+
+!["Fig 2. 65-year-old cohort: Change in key outcomes over varying attendance at primary scan (model I2)." @kim_modelling_2021](../original_study/fig2.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 3
+
+!["Fig 3. Surveillance cohort: Change in key outcomes over varying suspension of surveillance scans (model S1)." @kim_modelling_2021](../original_study/fig3.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## In-text result 1
+
+In bold are the items not captured in Table 3 or Figure 3.
+
+"Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, **2 (1% increase) are in the sub-group measuring 4.5–4.9 cm** at the start of the pandemic and **7 (8% increase) in the sub-group measuring 5.0–5.4 cm**; **<0.1 are in the 3.0–4.4 cm sub-group**. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, **1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group**. However, the remaining **22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase** in AAA-related deaths in this sub-group."
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 4
+
+!["Fig 4. Surveillance cohort: Change in key outcomes over varying dropout rates, applied for (i) 1y (model I2.1) and (ii) 2y (model I2.2)." @kim_modelling_2021](../original_study/fig4.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 5
+
+!["Fig 5. Surveillance cohort: Change in key outcomes over varying time at increased (7cm) threshold (model I3)." @kim_modelling_2021](../original_study/fig5.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 3 
+
+!["Table 3. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period." @kim_modelling_2021](../original_study/tab3.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Supplementary figure 3
+
+!["S3 Fig. Cumulative impact of scenarios on surveillance cohort." @kim_modelling_2021](../original_study/sup_fig3_crop.png){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Supplementary table 2
+
+!["S2 Tab. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period" @kim_modelling_2021](../original_study/sup_tab2.png){width=80% .lightbox}
+
+:::
+
 
 ## Outside scope
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
-## Table X
+## Table 1
 
-[Explanation of why it is outside scope]
+Input parameters and scenarios.
 
-[Display table, including full legend from paper]
+!["Table 1. Modelled COVID policy scenarios for AAA services." @kim_modelling_2021](../original_study/tab1.PNG){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Supplementary figure 1
+
+Part of methods (rather than a result from the model).
+
+![@kim_modelling_2021](../original_study/sup_fig1.png){width=80% .lightbox}
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Supplementary figure 2
+
+Part of methods (rather than a result from the model).
+
+![@kim_modelling_2021](../original_study/sup_fig2.png){width=80% .lightbox}
 
 :::
