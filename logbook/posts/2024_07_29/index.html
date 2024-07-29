@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -103,6 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -246,7 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#look-over-code" id="toc-look-over-code" class="nav-link" data-scroll-target="#look-over-code">12.50-12.56: Look over code</a></li>
   <li><a href="#set-up-environment" id="toc-set-up-environment" class="nav-link" data-scroll-target="#set-up-environment">12.57-13.04: Set up environment</a></li>
   <li><a href="#trying-to-run-model" id="toc-trying-to-run-model" class="nav-link" data-scroll-target="#trying-to-run-model">13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model</a></li>
-  <li><a href="#x-running-the-model-with-fewer-people" id="toc-x-running-the-model-with-fewer-people" class="nav-link" data-scroll-target="#x-running-the-model-with-fewer-people">15.09-X: Running the model with fewer people</a></li>
+  <li><a href="#running-the-model-with-fewer-people" id="toc-running-the-model-with-fewer-people" class="nav-link" data-scroll-target="#running-the-model-with-fewer-people">15.09-15.42: Running the model with fewer people</a></li>
+  <li><a href="#inspecting-outcome-from-a-model-run" id="toc-inspecting-outcome-from-a-model-run" class="nav-link" data-scroll-target="#inspecting-outcome-from-a-model-run">15.43-16.00, : Inspecting outcome from a model run</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -404,8 +408,8 @@ Reflection
 </ol></li>
 </ul>
 </section>
-<section id="x-running-the-model-with-fewer-people" class="level2">
-<h2 class="anchored" data-anchor-id="x-running-the-model-with-fewer-people">15.09-X: Running the model with fewer people</h2>
+<section id="running-the-model-with-fewer-people" class="level2">
+<h2 class="anchored" data-anchor-id="running-the-model-with-fewer-people">15.09-15.42: Running the model with fewer people</h2>
 <p><code>DES_Input_Definitions</code> states that the number of people to run through the DES is defined by <code>v0$numberOfPersons</code>, default 1000. Can see in <code>run_aaamodel_65yo_scen0.R</code> that it has been set to <code>v0$numberOfPersons &lt;- 1e7</code>. I replaced this with <code>v0$numberOfPersons &lt;- 1000</code>. This finished almost immediately, then hit an error:</p>
 <pre><code>&gt; TableOfCounts(scen0.invite, v1other)
 Error in "screen" %in% eventHistory$events &amp;&amp; !("nonvisualization" %in%  : 
@@ -427,28 +431,197 @@ v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)</cod
 <li><code>DES_Model.R</code>: <code>countDropouts()</code>: <code>&gt;= v1other$aortaDiameterThresholds[[1]]</code> to <code>&gt;= v1other$aortaDiameterThresholds[[1]][1]</code></li>
 </ul>
 <p>The whole script then ran successfully!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These errors will likely be the result of having modified code but no re-run everything from scratch (unsurprising given the anticipated model run times).</p>
+</div>
+</div>
+</section>
+<section id="inspecting-outcome-from-a-model-run" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-outcome-from-a-model-run">15.43-16.00, : Inspecting outcome from a model run</h2>
+<p>That R script ran the status quo (I0) scenario for invited 65 year olds. The parameters from Table 1 are below, along with their location in the data from <code>DES_Input_Definitions.xlsx</code></p>
+<ul>
+<li>Attendance 75% - <code>v2$probOfAttendScreen</code></li>
+<li>Drop-out rate/annum: 6% - <code>v2$rateOfDropoutFromMonitoring</code></li>
+<li>Threshold for surgery: 5.5cm - <code>v1other$aortaDiameterThresholds[[1]][3]</code> (“These are the aortic cut-points where surveillance intervals change. Note, the first cut-point must always relate to the aortic size where individuals enter the AAA surveillance programme (e.g.&nbsp;3.0cm). The last cut-point must always relate to the aortic size where surgery is to be considered (e.g.&nbsp;5.5cm)”)</li>
+</ul>
+<p>Looking at the next R script, <code>run_aaamodel_65yo_scen1.R</code>, I can see that they repeat the model multiple times to get results from varying parameters of that scenario. That script is scenario 1 which, from Table 1, we can see delays invitation from 3 months to 5 years.</p>
+<p>I switched to trying that script, but again first setting:</p>
+<ul>
+<li><code># v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)</code></li>
+<li><code>v0$numberOfPersons &lt;- 1000</code></li>
+</ul>
+<p>This ran eight “scenarios” within the script. The output dataframe <code>scen1summaryi</code> showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.</p>
+<div id="28c34a8c" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'output_65yo_scen1_n1000.csv'</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>res[[<span class="st">'delayscr'</span>, <span class="st">'aaadead'</span>]].sort_values(by<span class="op">=</span><span class="st">'delayscr'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">delayscr</th>
+<th data-quarto-table-cell-role="th">aaadead</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>0.00</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.25</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.50</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1.00</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2.00</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>3.00</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>4.00</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>5.00</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>I increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.</p>
+<div id="a422efb4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'output_65yo_scen1_n10000.csv'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>res[[<span class="st">'delayscr'</span>, <span class="st">'aaadead'</span>, <span class="st">'emeropen'</span>]].sort_values(by<span class="op">=</span><span class="st">'delayscr'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">delayscr</th>
+<th data-quarto-table-cell-role="th">aaadead</th>
+<th data-quarto-table-cell-role="th">emeropen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>0.00</td>
+<td>96</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.25</td>
+<td>96</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.50</td>
+<td>98</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1.00</td>
+<td>96</td>
+<td>31</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2.00</td>
+<td>98</td>
+<td>31</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>3.00</td>
+<td>98</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>4.00</td>
+<td>101</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>5.00</td>
+<td>103</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Each result here relates to Table 2 (i.e.&nbsp;excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.</p>
+<p>I created an .Rmd file to start processing the results. This required the addition of <strong>rmarkdown</strong> to the renv.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="379a0265" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e9e78bf9" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time spent today: 59m, or 0h 59m
 Total used to date: 91m, or 1h 31m
