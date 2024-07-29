@@ -93,7 +93,7 @@ renv::install()
 renv::snapshot()
 ```
 
-## 13.05-13.13: Running code
+## 13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model
 
 Tried running `run_aaamodel_65yo_scen0.R`. Had error:
 
@@ -131,7 +131,52 @@ I tried commenting the print statement in `run_aaamodel...` but this just led to
 
 This then ran without issue. As it ran, I can see it sets a random seed (`set.seed(3210)`). As per usual, paused timing while it ran.
 
-Spent a long while on `processPersons()` (`scen0.invite <- processPersons(v0, v1other, v2, personData.screen)`).
+Spent a long while on `processPersons()` (`scen0.invite <- processPersons(v0, v1other, v2, personData.screen)`). At 13.48 (with model running since 13.13), I could see these would likely be slow models to run, so logged into the remote computer, cloned the GitHub repository there, and ran the next script starting at 13.55, `run_aaamodel_65yo_scen0.R`. To do so, after cloning, I ran:
+
+```
+cd stars-reproduce-kim-2021/reproduction
+Rscript -e "renv::restore()"
+Rscript -e "source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')"
+```
+
+::: {.callout-tip}
+## Reflection
+
+Including the expected run time would be handy, as I assume this is working fine, but that's working on the assumption that these models take a long time to run (which I'm not sure yet whether that is the case or not).
+
+In this case, as I later found out they used HPC, it would've been beneficial to mention that also!
+
+:::
+
+I checked the `run_aaamodel...` scripts and realised that in each, none were using parallel processing (as `v0$method <- "serial"`).
+
+Looking at the DES_Model code I can see the example of `processPersons()` allows three possible inputs:
+
+* "serial"
+* "parallel" (which uses parallel)
+* "foreach" (which uses doParallel)
+
+The function `psa()` is the same, but also includes "parallelBatches" alongside "foreach". However, the consequence of those inputs is to return an error that the method has not been implemented for psa. Hence, psa can only run with "serial" or "parallel". Likewise for `psaAboveDiagnosisThreshold()`.
+
+At 14.16 (so having let the model run since 13.55, for 21 minutes), I cancelled the run on the remote computer, and altered the scenario script to set `v0$method <- "parallel"`. Then set that running, starting at 14.21. At this moment, the first scenario was still running on my machine (since 13.13, so for apx. 1h 10m now).
+
+At 14.39, I noticed the parallel model said `Killed`. In case I might have accidentally done this, I just set it to rerun again. However, at 14.52, it showed as `Killed` again. Upon Googling, I can see this message occurs when you run out of memory - which perhaps, might be why all were set to run sequentially, if its too intensive to run in parallel. I switched it back to "serial".
+
+However, the model still running on my machine has now been going for 1h 42m. Having looked in the repository and article for any indication of runtime or requirement of HPC, I've yet to find anything. I tried looking now at the article first describing the model (<https://doi.org/10.1177/0272989X17753380>). In this article, they state the run time:
+
+```
+However, the computational requirements of the DES were extensive, given the number of individuals needed to reduce sampling variation to an acceptable level and characterizing uncertainty through PSA. Run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered computer.
+```
+
+In this case, "each scenario model is run for 10 million hypothetical individuals randomly drawn with replacement from the distribution of the relevant population. The models are run for a period of 30 years". However, as there is no mention of performing probabilistic sensitivity analysis iterations in the article, we could expect this to be quicker than that (although note it is 10m patients instead of 500k).
+
+Discussed with Tom and agreed to:
+
+* (A) Try and just run it with very few people, just so we can see if the model is working, and whether we could get similar results with fewer people in the model
+* (B) Try and run it sequentially on the remote computer overnight
+
+## 15.09-X: Running the model with fewer people
+
 
 ## Timings
 
