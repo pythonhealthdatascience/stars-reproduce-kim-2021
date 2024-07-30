@@ -44,10 +44,11 @@ make_tab2 <- function(df, n_person) {
   full_tab2 <- df %>%
     # Sort by length of delay (so first row is 0 delay)
     arrange(delayscr) %>%
-    select(delayscr, aaadead, emerevar) %>%
+    mutate(total_emer = emerevar + emeropen) %>%
+    select(delayscr, aaadead, total_emer) %>%
     # Scale to number of deaths if population size was 279,798
     mutate(scaled_dead = round(279798*(aaadead/n_person)),
-           scaled_emer = round(279798*(emerevar/n_person))) %>%
+           scaled_emer = round(279798*(total_emer/n_person))) %>%
     # Calculate excess (compare to time 0, but set negative to 0)
     mutate(excess_dead = pmax(scaled_dead - first(scaled_dead), 0),
            excess_emer = pmax(scaled_emer - first(scaled_emer), 0))
@@ -60,7 +61,7 @@ make_tab2 <- function(df, n_person) {
     mutate(months = paste0(delayscr*12, "m")) %>%
     select(months, excess_dead, excess_emer)
 
-  return(tab2)
+  return(list(full_tab2, tab2))
 }
 ```
 
