@@ -5,14 +5,13 @@ bibliography: ../quarto_site/references.bib
 ---
 
 <!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
+**Please note: This page is in-progress and has not yet been completed**
 
 Of the 10 items in the scope, X% (X out of 10) were considered to be **successfully reproduced**.
 
-As cited throughout, images on this page are sourced from
-<!-- Add @reference -->
+As cited throughout, images on this page are sourced from @kim_modelling_2021
+
+**Note:** This items have been reproduced with simulations containing 1,000,000 people (instead of 10,000,000) as that is very computationally expensive. We felt that, with 1,000,000 people, results are reasonably similar enough to be satisified with reproduction.
 
 ## Time-to-completion
 
@@ -25,7 +24,7 @@ from time_to_complete import process_times, success_static, success_interactive
 # TODO: Change to actual items and times for this project
 time_list = [
     [445, 'Figure 1'],
-    [np.nan, 'Table 2'],
+    [511, 'Table 2'],
     [np.nan, 'Figure 2'],
     [np.nan, 'Figure 3'],
     [np.nan, 'In-text result 1'],
@@ -61,3 +60,15 @@ Original (@kim_modelling_2021):
 Reproduction:
 
 ![](../reproduction/output/fig1.png){width=80% fig-align="center" .lightbox}
+
+## Table 2
+
+Original (@kim_modelling_2021):
+
+![](../original_study/tab2.PNG){fig-align="center" .lightbox}
+
+Reproduction:
+
+```{python}
+pd.read_csv('../reproduction/output/tab2.csv')
+```
