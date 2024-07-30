@@ -38,8 +38,14 @@ head(y65_s1_1m, 3)
 make_tab2 <- function(df, n_person) {
   #' Create table 2 from the article
   #' 
+  #' Create table with a count of excess deaths and excess emergency operations
+  #' with increasing delays in the simulation.
+  #' 
   #' @param df Dataframe with results from the model
   #' @param n_person Integer - number of people in simulation
+  #' @return tab2 Dataframe with excess deaths and emergency operations
+  #' @examples
+  #' make_tab2(y65_s1_1m, 1000000)
 
   full_tab2 <- df %>%
     # Sort by length of delay (so first row is 0 delay)
@@ -61,18 +67,26 @@ make_tab2 <- function(df, n_person) {
     mutate(months = paste0(delayscr*12, "m")) %>%
     select(months, excess_dead, excess_emer)
 
-  return(list(full_tab2, tab2))
+  return(tab2)
 }
 ```
 
 Simulation 65yo scen1 with 1,000,000 people
 
 ```{r}
-make_tab2(y65_s1_1m, 1000000)
+tab2_1m <- make_tab2(y65_s1_1m, 1000000)
+
+write.csv(tab2_1m, "../../logbook/posts/2024_07_30/tab2_correct_1m.csv", row.names=FALSE)
+
+tab2_1m
 ```
 
 Simulation 65yo scen1 with 2,000,000 people
 
 ```{r}
-make_tab2(y65_s1_2m, 2000000)
+tab2_2m <- make_tab2(y65_s1_2m, 2000000)
+
+write.csv(tab2_2m, "../../logbook/posts/2024_07_30/tab2_correct_2m.csv", row.names=FALSE)
+
+tab2_2m
 ```

@@ -21,7 +21,8 @@ Timings:
 * 09.30-09.40
 * 09.52-10.44
 * 10.51-10.56
-* 11.02-
+* 11.02-11.56
+* 12.59-13.27
 
 ### GitHub repository dates
 
@@ -163,6 +164,12 @@ Given that number of emergency operations looked very different, I was suspiciou
 
 I tried applying scaling to every column from row 1, to see which came out most similar.
 
+```
+as.data.frame(t(head(y65_s1, 1))) %>%
+  rename(result = 1) %>%
+  mutate(scaled = round(279798*(result/n_person)))
+```
+
 Based on the names, there are a few candidates for emergency operations: `emerevar`, `emeropen`, `reintemerevar` and `reintemeropen`. I'm not certain what the difference is between these, but starting with their scaled values:
 
 * `emerevar` - 242
@@ -201,13 +208,21 @@ Looking directly at the output of `Eventsandcosts(scen1.invite)` I can see that 
 
 I'm not certain why `reintemerevar` uses 21 and not 22, as 22 is `reinterventionAfterEmergencyEvar`, but this appears to be the same in each of the scenario scripts.
 
+These are assigned from costs, and `v2$costs` is in the data dictionary, `DES_Input_Definitions.xlsx`:
 
+* `electiveSurgeryEvar`: Elective EVAR repair
+* `electiveSurgeryOpen`: Elective Open repair
+* `emergencySurgeryEvar`: Emergency EVAR repair
+* `emergencySurgeryOpen`: Emergency Open repair
+* `reinterventionAfterElectiveEvar`: Re-intervention after elective EVAR
 
-**TO DO THE BELOW**
+Having looked at this, I am presuming that the number of emergency operations would be given by combining `emergencySurgeryEvar` (17) (`emerevar`) and `emergencySurgeryOpen` (18) (`emeropen`).
+
+Once I did that, the numbers looked much closer to the expected 1041 from the paper, with 1034 from 1 million people, and 1028 from 2 million people.
 
 ### Excess deaths
 
-I'm seeing some negatives (but the paper does not, and has several 0). I'm wondering if, as the result is "excess" deaths, perhaps I should only be counting when it was over 0 (and setting negative numbers to 0)?
+I'm seeing some negatives (but the paper does not, and has several 0). I'm wondering if, as the result is "excess" deaths, perhaps I should only be counting when it was over 0 (and setting negative numbers to 0), so I altered it accordingly.
 
 I also trimmed down the rows displayed for Table 2, to make the article.
 
@@ -221,9 +236,24 @@ I ran `run_aaamodel_65yo_scen1.R` again but with 2 million people, as that looks
 
 RE: (a) - it did manage it. While running, I did note we are now getting very large objects from each run (e.g. `processPersons is about to return an object of size 4.5 Gb`)
 
-RE: (b) - the time for one run with 2 million people was **11 minutes 20 seconds**. For all eight runs, it took a total of 
+RE: (b) - the time for one run with 2 million people was **11 minutes 20 seconds**. For all eight runs, it took a total of "1.01512100968096" (which is weird - normally it gives me a result in minutes). If we assume this is hours, it's just over an hour. My estimate based on the time for one run would be 1 hour 30 minutes. Have changed the timing statement to use difftime instead with units specified to avoid this issue in future.
 
-RE: (c) **TO ADD TO ADD**
+RE: (c) - the results are pretty similar. I renamed the output files to we had results with 1 million and 2 million, then applied same function to create table 2, and they were pretty similar.
+
+```{python}
+import pandas as pd
+
+display(pd.read_csv('tab2_correct_1m.csv'))
+display(pd.read_csv('tab2_correct_2m.csv'))
+```
+
+Given their similarity, I will continue with running the simulation with 1 million people for the time being, since running with 2 million was much longer and very computationally expensive.
+
+## 13.29-X: Running 65 year old scenario 2
+
+Scenario 2 has a delay to invitation of 6 months, and attendance of 45 to 75%. This is required for Table 2, which also displays results from attendance of 65%, 55% and 45% (compared against 75%).
+
+I set this up to run in **parallel** on the remote computer with **1 million** people and saving the results to **csv**.
 
 ## Timings
 
@@ -240,7 +270,10 @@ times = [
     ('09.10', '09.11'),
     ('09.20', '09.22'),
     ('09.30', '09.40'),
-    ('09.52', '09.57')]
+    ('09.52', '10.44'),
+    ('10.51', '10.56'),
+    ('11.02', '11.56'),
+    ('12.59', '13.27')]
 
 calculate_times(used_to_date, times)
 ```
