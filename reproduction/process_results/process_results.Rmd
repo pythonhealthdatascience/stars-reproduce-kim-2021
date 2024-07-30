@@ -88,6 +88,49 @@ make_tab2 <- function(df,
 }
 ```
 
+```{r}
+make_fig_df <- function(df, groupvar) {
+  #' Make dataframe to produce figure
+  #' 
+  #' @param df Dataframe with results from model
+  #' @param groupvar String - column with group names (i.e. colour in figure)
+  #' 
+  #' @return fig_df_long Long-format dataframe which can use to make figure
+
+  # Sort dataframe by grouping variable (not using dplyr as it didn't work
+  # when needed to parse the string column name with !!, and just did no sort)
+  df_sort <- df[order(df[,groupvar]),]
+  rownames(df_sort) <- NULL
+
+  fig_df <- df_sort %>%
+    # Calculate the total number of emergency and elective operations
+    mutate(total_emer = emerevar + emeropen,
+           total_elec = elecevar + elecopen) %>%
+    # Keep relevant columns
+    select(!!groupvar, aaadead, total_elec, total_emer, rupt) %>%
+    # Calculate percentage change from timepoint 0
+    mutate(pct_dead = (aaadead - first(aaadead)) / first(aaadead) * 100,
+           pct_elec = (total_elec - first(total_elec)) / first(total_elec) * 100,
+           pct_emer = (total_emer - first(total_emer)) / first(total_emer) * 100,
+           pct_rupt = (rupt - first(rupt)) / first(rupt) * 100) %>%
+  # Keep relevant columns
+  select(!!groupvar, starts_with("pct_"))
+
+  # Define labels
+  fig_lab = list(pct_dead = "AAA deaths",
+                 pct_elec = "Elective operations",
+                 pct_emer = "Emergency operations",
+                 pct_rupt = "Ruptures")
+
+  # Melt dataframe from wide to long and add labels
+  fig_df_long <- fig_df %>%
+    pivot_longer(-!!groupvar) %>%
+    mutate(label = recode(name, !!!fig_lab, .default = NA_character_))
+
+  return (fig_df_long)
+}
+```
+
 ## Table 2
 
 ```{r}
@@ -229,46 +272,12 @@ res2m
 Process results from model into a dataframe to use for plotting.
 
 ```{r}
-fig1_df <- y65_s1_1m %>%
-  # Sort by length of delay (so first row is 0 delay)
-  arrange(delayscr) %>%
-  # Calculate the total number of emergency and elective operations
-  mutate(total_emer = emerevar + emeropen,
-         total_elec = elecevar + elecopen) %>%
-  # Keep relevant columns
-  select(delayscr, aaadead, total_elec, total_emer, rupt) %>%
+fig1_df <- make_fig_df(y65_s1_1m, "delayscr") %>%
   # Drop result from 0.25 months (not included in plot)
-  filter(delayscr != 0.25) %>%
-  # Calculate percentage change from timepoint 0
-  mutate(pct_dead = (aaadead - first(aaadead)) / first(aaadead) * 100,
-         pct_elec = (total_elec - first(total_elec)) / first(total_elec) * 100,
-         pct_emer = (total_emer - first(total_emer)) / first(total_emer) * 100,
-         pct_rupt = (rupt - first(rupt)) / first(rupt) * 100) %>%
-  # Keep relevant columns
-  select(delayscr, starts_with("pct_"))
+  filter(delayscr != 0.25)
 
-fig1_df
-```
-
-Melt the dataframe into long format for then creating the line plot.
-
-```{r}
-# Define labels
-fig1_lab = list(pct_dead = "AAA deaths",
-                pct_elec = "Elective operations",
-                pct_emer = "Emergency operations",
-                pct_rupt = "Ruptures")
-
-# Melt dataframe from wide to long and add labels
-fig1_long <- fig1_df %>%
-  pivot_longer(-delayscr) %>%
-  mutate(label = recode(name, !!!fig1_lab, .default = NA_character_))
-
-fig1_long
-```
-
-```{r}
-ggplot(fig1_long, aes(x=delayscr, y=value, color=label)) +
+# Create plot
+ggplot(fig1_df, aes(x=delayscr, y=value, color=label)) +
   geom_line() +
   geom_point() +
   labs(x="Delay in initial invitation (years)",
@@ -282,3 +291,11 @@ ggplot(fig1_long, aes(x=delayscr, y=value, color=label)) +
 ggsave(paths$fig1)
 ```
 
+## Figure 2
+
+```{r}
+# Use delay version of dataframe (which has only kept results with delay)
+fig2_df <- make_fig_df(y65_s2_delay, "delayscr")
+
+fig2_df
+```
