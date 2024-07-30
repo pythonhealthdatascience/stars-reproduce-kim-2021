@@ -17,64 +17,61 @@ outputs = "../output"
 
 # Paths to output files
 paths <- list(
-  out_65_scen0 = file.path(outputs, "output_65yo_scen0.csv"),
-  out_65_scen1 = file.path(outputs, "output_65yo_scen1.csv"),
+  y65_s1_1m = file.path(outputs, "output_65yo_scen1_1mil.csv"),
+  y65_s1_2m = file.path(outputs, "output_65yo_scen1_2mil.csv"),
   tab2 = file.path(outputs, "tab2.csv")
 )
 ```
 
 ```{r}
 # Import files
-y65_s0 <- read.csv(paths$out_65_scen0)
-y65_s1 <- read.csv(paths$out_65_scen1)
+y65_s1_1m <- read.csv(paths$y65_s1_1m)
+y65_s1_2m <- read.csv(paths$y65_s1_2m)
+
+# Preview 65 year old scenario 1 dataframe with 1 million people
+head(y65_s1_1m, 3)
 ```
 
 ## Table 2
 
 ```{r}
-scale_dead_s0 <- y65_s0 %>%
-  select(aaadead) %>%
-  mutate(scaled_dead = round(279798*(aaadead/1000000)))
-write.csv(scale_dead_s0, "../../logbook/posts/2024_07_30/dead_s0.csv", row.names=FALSE)
+make_tab2 <- function(df, n_person) {
+  #' Create table 2 from the article
+  #' 
+  #' @param df Dataframe with results from the model
+  #' @param n_person Integer - number of people in simulation
+
+  full_tab2 <- df %>%
+    # Sort by length of delay (so first row is 0 delay)
+    arrange(delayscr) %>%
+    select(delayscr, aaadead, emerevar) %>%
+    # Scale to number of deaths if population size was 279,798
+    mutate(scaled_dead = round(279798*(aaadead/n_person)),
+           scaled_emer = round(279798*(emerevar/n_person))) %>%
+    # Calculate excess (compare to time 0, but set negative to 0)
+    mutate(excess_dead = pmax(scaled_dead - first(scaled_dead), 0),
+           excess_emer = pmax(scaled_emer - first(scaled_emer), 0))
+
+  # Filter and format to match paper
+  tab2 <- full_tab2 %>%
+    # Just keep a subset of results
+    filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+    # Convert time from years to months
+    mutate(months = paste0(delayscr*12, "m")) %>%
+    select(months, excess_dead, excess_emer)
+
+  return(tab2)
+}
 ```
 
+Simulation 65yo scen1 with 1,000,000 people
+
 ```{r}
-y65_s1 %>%
-  # Sort by length of delay (so first row is 0 delay)
-  arrange(delayscr) %>%
-  select(delayscr, aaadead) %>%
-  # Scale to number of deaths if population size was 279,798
-  mutate(scaled_dead = round(279798*(aaadead/1000000)),
-         scaled_emer = round(279798*(emerevar/1000000)))
+make_tab2(y65_s1_1m, 1000000)
 ```
 
-```{r}
-scale_0 <- as.data.frame(t(head(y65_s1, 1))) %>%
-  rename(result = 1) %>%
-  mutate(scaled = round(279798*(result/1000000)))
-
-write.csv(scale_0, "../../logbook/posts/2024_07_30/scale_all_first_row.csv", row.names=TRUE)
-
-scale_0
-```
+Simulation 65yo scen1 with 2,000,000 people
 
 ```{r}
-tab2 <- y65_s1 %>%
-  arrange(delayscr) %>%
-  select(delayscr, aaadead, emeropen) %>%
-  mutate(excess_death = aaadead - first(aaadead),
-         excess_op = emeropen - first(emeropen))
-tab2
-```
-
-```{r}
-write.csv(tab2, "../../logbook/posts/2024_07_30/tab2_1m.csv", row.names=FALSE)
-
-tab2
-```
-
-```{r}
-y65_s1 %>%
-  arrange(delayscr) %>%
-  select(delayscr, aaadead, elecopen, elecevar, emeropen, emerevar, rupt)
+make_tab2(y65_s1_2m, 2000000)
 ```
