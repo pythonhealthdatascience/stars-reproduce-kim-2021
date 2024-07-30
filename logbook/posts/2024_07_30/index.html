@@ -248,6 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#excess-deaths" id="toc-excess-deaths" class="nav-link" data-scroll-target="#excess-deaths">Excess deaths</a></li>
   <li><a href="#two-million-people" id="toc-two-million-people" class="nav-link" data-scroll-target="#two-million-people">Two million people</a></li>
   </ul></li>
+  <li><a href="#x-running-65-year-old-scenario-2" id="toc-x-running-65-year-old-scenario-2" class="nav-link" data-scroll-target="#x-running-65-year-old-scenario-2">13.29-X: Running 65 year old scenario 2</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_30/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -281,7 +282,8 @@ Note
 <li>09.30-09.40</li>
 <li>09.52-10.44</li>
 <li>10.51-10.56</li>
-<li>11.02-</li>
+<li>11.02-11.56</li>
+<li>12.59-13.27</li>
 </ul>
 <section id="github-repository-dates" class="level3">
 <h3 class="anchored" data-anchor-id="github-repository-dates">GitHub repository dates</h3>
@@ -347,7 +349,7 @@ Reflection
 <section id="incrementing-number-of-people-for-65yo-scen1" class="level3">
 <h3 class="anchored" data-anchor-id="incrementing-number-of-people-for-65yo-scen1">Incrementing number of people for 65yo scen1</h3>
 <p>Ran full script of <code>run_aaamodel-65yo_scen1.R</code> with 100,000 people and parallel. However, this evidently is still too few people, looking at the results.</p>
-<div id="197a0705" class="cell" data-execution_count="1">
+<div id="6dc2d0b5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'tab2_100k.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -429,7 +431,7 @@ Reflection
 <li><strong>13 minutes 44 seconds</strong> on local computer - so would be an estimated 1 hour 50 minutes in total</li>
 </ul>
 <p>Looking at the <strong>convergence plots</strong> (supplementary figure 1 and 2), 1 million people is nearing closer to convergence - but 2 million even more-so.</p>
-<div id="39ccaedd" class="cell" data-execution_count="2">
+<div id="4dc7aab2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'tab2_1m.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -529,7 +531,7 @@ Reflection
 <li>Expected emergency operations over 30y in status quo = 1041</li>
 </ul>
 <p>I tried scaling the results so that it reflects deaths expected if population were 279,798 (rather than 1 million). I scaled the results from <code>aaadead</code> and <code>emerevar</code> (e.g.&nbsp;<code>round(279798*(aaadead/1000000))</code>). The number of deaths looks similar to the expected from Table 2 (2564), but the number of emergency operations is very different.</p>
-<div id="e0628302" class="cell" data-execution_count="3">
+<div id="1ad117c7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'scaled_1m.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -620,7 +622,7 @@ Reflection
   mutate(scaled_dead = round(279798*(aaadead/1000000)))
 write.csv(scale_dead_s0, "../../logbook/posts/2024_07_30/dead_s0.csv", row.names=FALSE)</code></pre>
 <p>It came out exactly the same, so seems, no issue with using the 0 result from the run of <code>scen1</code>.</p>
-<div id="61961985" class="cell" data-execution_count="4">
+<div id="534e2ac5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'dead_s0.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -653,6 +655,9 @@ write.csv(scale_dead_s0, "../../logbook/posts/2024_07_30/dead_s0.csv", row.names
 <h3 class="anchored" data-anchor-id="confirming-which-column-gives-number-of-operations">Confirming which column gives number of operations</h3>
 <p>Given that number of emergency operations looked very different, I was suspicious if I was using the correct column for this. It seems clear that deaths and ruptures are <code>aaadead</code> and <code>rupt</code> respectively, but I was less certain for surgeries (<code>elecopen</code> vs <code>elecevar</code>) (<code>emeropen</code> vs <code>emerevar</code>).</p>
 <p>I tried applying scaling to every column from row 1, to see which came out most similar.</p>
+<pre><code>as.data.frame(t(head(y65_s1, 1))) %&gt;%
+  rename(result = 1) %&gt;%
+  mutate(scaled = round(279798*(result/n_person)))</code></pre>
 <p>Based on the names, there are a few candidates for emergency operations: <code>emerevar</code>, <code>emeropen</code>, <code>reintemerevar</code> and <code>reintemeropen</code>. I’m not certain what the difference is between these, but starting with their scaled values:</p>
 <ul>
 <li><code>emerevar</code> - 242</li>
@@ -661,10 +666,10 @@ write.csv(scale_dead_s0, "../../logbook/posts/2024_07_30/dead_s0.csv", row.names
 <li><code>reintemeropen</code> - 183</li>
 </ul>
 <p>The expected number is 1041, so reintemerevar does appear closest.</p>
-<div id="fe5d53ce" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'scale_all_first_row.csv'</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cb886c4b" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'scale_all_first_row.csv'</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -802,11 +807,20 @@ reintemerevar&lt;-Eventsandcosts(scen1.invite)[21,2]</code></pre>
 <li>21- <code>reinterventionAfterElectiveEvar</code></li>
 </ul>
 <p>I’m not certain why <code>reintemerevar</code> uses 21 and not 22, as 22 is <code>reinterventionAfterEmergencyEvar</code>, but this appears to be the same in each of the scenario scripts.</p>
-<p><strong>TO DO THE BELOW</strong></p>
+<p>These are assigned from costs, and <code>v2$costs</code> is in the data dictionary, <code>DES_Input_Definitions.xlsx</code>:</p>
+<ul>
+<li><code>electiveSurgeryEvar</code>: Elective EVAR repair</li>
+<li><code>electiveSurgeryOpen</code>: Elective Open repair</li>
+<li><code>emergencySurgeryEvar</code>: Emergency EVAR repair</li>
+<li><code>emergencySurgeryOpen</code>: Emergency Open repair</li>
+<li><code>reinterventionAfterElectiveEvar</code>: Re-intervention after elective EVAR</li>
+</ul>
+<p>Having looked at this, I am presuming that the number of emergency operations would be given by combining <code>emergencySurgeryEvar</code> (17) (<code>emerevar</code>) and <code>emergencySurgeryOpen</code> (18) (<code>emeropen</code>).</p>
+<p>Once I did that, the numbers looked much closer to the expected 1041 from the paper, with 1034 from 1 million people, and 1028 from 2 million people.</p>
 </section>
 <section id="excess-deaths" class="level3">
 <h3 class="anchored" data-anchor-id="excess-deaths">Excess deaths</h3>
-<p>I’m seeing some negatives (but the paper does not, and has several 0). I’m wondering if, as the result is “excess” deaths, perhaps I should only be counting when it was over 0 (and setting negative numbers to 0)?</p>
+<p>I’m seeing some negatives (but the paper does not, and has several 0). I’m wondering if, as the result is “excess” deaths, perhaps I should only be counting when it was over 0 (and setting negative numbers to 0), so I altered it accordingly.</p>
 <p>I also trimmed down the rows displayed for Table 2, to make the article.</p>
 </section>
 <section id="two-million-people" class="level3">
@@ -824,33 +838,158 @@ reintemerevar&lt;-Eventsandcosts(scen1.invite)[21,2]</code></pre>
 </ol></li>
 </ul>
 <p>RE: (a) - it did manage it. While running, I did note we are now getting very large objects from each run (e.g.&nbsp;<code>processPersons is about to return an object of size 4.5 Gb</code>)</p>
-<p>RE: (b) - the time for one run with 2 million people was <strong>11 minutes 20 seconds</strong>. For all eight runs, it took a total of</p>
-<p>RE: (c) <strong>TO ADD TO ADD</strong></p>
+<p>RE: (b) - the time for one run with 2 million people was <strong>11 minutes 20 seconds</strong>. For all eight runs, it took a total of “1.01512100968096” (which is weird - normally it gives me a result in minutes). If we assume this is hours, it’s just over an hour. My estimate based on the time for one run would be 1 hour 30 minutes. Have changed the timing statement to use difftime instead with units specified to avoid this issue in future.</p>
+<p>RE: (c) - the results are pretty similar. I renamed the output files to we had results with 1 million and 2 million, then applied same function to create table 2, and they were pretty similar.</p>
+<div id="51b7a6bb" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>display(pd.read_csv(<span class="st">'tab2_correct_1m.csv'</span>))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>display(pd.read_csv(<span class="st">'tab2_correct_2m.csv'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">months</th>
+<th data-quarto-table-cell-role="th">excess_dead</th>
+<th data-quarto-table-cell-role="th">excess_emer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>6m</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>12m</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>24m</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>36m</td>
+<td>21</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>48m</td>
+<td>56</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>60m</td>
+<td>108</td>
+<td>56</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">months</th>
+<th data-quarto-table-cell-role="th">excess_dead</th>
+<th data-quarto-table-cell-role="th">excess_emer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>6m</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>12m</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>24m</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>36m</td>
+<td>20</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>48m</td>
+<td>50</td>
+<td>31</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>60m</td>
+<td>105</td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Given their similarity, I will continue with running the simulation with 1 million people for the time being, since running with 2 million was much longer and very computationally expensive.</p>
 </section>
+</section>
+<section id="x-running-65-year-old-scenario-2" class="level2">
+<h2 class="anchored" data-anchor-id="x-running-65-year-old-scenario-2">13.29-X: Running 65 year old scenario 2</h2>
+<p>Scenario 2 has a delay to invitation of 6 months, and attendance of 45 to 75%. This is required for Table 2, which also displays results from attendance of 65%, 55% and 45% (compared against 75%).</p>
+<p>I set this up to run in <strong>parallel</strong> on the remote computer with <strong>1 million</strong> people and saving the results to <strong>csv</strong>.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="7757c53e" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">243</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.10'</span>, <span class="st">'09.11'</span>),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.22'</span>),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.30'</span>, <span class="st">'09.40'</span>),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.52'</span>, <span class="st">'09.57'</span>)]</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4b14ae17" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">243</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.10'</span>, <span class="st">'09.11'</span>),</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.22'</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.30'</span>, <span class="st">'09.40'</span>),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.52'</span>, <span class="st">'10.44'</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.51'</span>, <span class="st">'10.56'</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.02'</span>, <span class="st">'11.56'</span>),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.59'</span>, <span class="st">'13.27'</span>)]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 18m, or 0h 18m
-Total used to date: 261m, or 4h 21m
-Time remaining: 2139m, or 35h 39m
-Used 10.9% of 40 hours max</code></pre>
+<pre><code>Time spent today: 152m, or 2h 32m
+Total used to date: 395m, or 6h 35m
+Time remaining: 2005m, or 33h 25m
+Used 16.5% of 40 hours max</code></pre>
 </div>
 </div>
 
