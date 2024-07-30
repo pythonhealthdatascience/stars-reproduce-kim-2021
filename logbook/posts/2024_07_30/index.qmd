@@ -249,11 +249,67 @@ display(pd.read_csv('tab2_correct_2m.csv'))
 
 Given their similarity, I will continue with running the simulation with 1 million people for the time being, since running with 2 million was much longer and very computationally expensive.
 
-## 13.29-X: Running 65 year old scenario 2
+## 13.29-13.39: Running 65 year old scenario 2
 
 Scenario 2 has a delay to invitation of 6 months, and attendance of 45 to 75%. This is required for Table 2, which also displays results from attendance of 65%, 55% and 45% (compared against 75%).
 
-I set this up to run in **parallel** on the remote computer with **1 million** people and saving the results to **csv**.
+I set this up to run on the remote computer, with the changes as before, of:
+
+* Using **parallel**
+* **1 million**
+* Saving the results to **csv**
+* Commenting out `list(v1other$aortaDiameterThresholds)`
+* Timings for one run and all runs
+
+Timings:
+
+* One run: 3.952 minutes = 237 seconds = 3 minutes 57 seconds
+* Full run: 19.123 minutes = 1147 seconds = 19 minutes 7 seconds
+
+## 14.00-14.06: Running surv scenario 1
+
+Midway through creating figure 1, I set remote computer to run another scenario.
+
+Amended script as did for 65yo scen2, with an additional fix too - correct path to model script to `DES_Model.R` - and then ran on remote machine.
+
+Timings:
+
+* One run:
+* Full run:
+
+## 13.40-13.44, 13.51-13.59, 14.07-14.29: Creating Figure 1
+
+Whilst that ran - and then, setting others to run during this too (hence time jumps) - I set about creating Figure 1 from the results of scenario 1 with 1 million people.
+
+Add `ggplot2` (to make plots) and `tidyr` (to melt dataframe) to renv.
+
+Wrote code to create figure, and was satisified this was reproduced at 14.29.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 243
+
+# Times from today
+times = [
+    ('09.10', '09.11'),
+    ('09.20', '09.22'),
+    ('09.30', '09.40'),
+    ('09.52', '10.44'),
+    ('10.51', '10.56'),
+    ('11.02', '11.56'),
+    ('12.59', '13.27'),
+    ('13.29', '13.39'),
+    ('13.40', '13.44'),
+    ('13.51', '13.59'),
+    ('14.00', '14.06'),
+    ('14.07', '14.29')]
+
+calculate_times(used_to_date, times)
+```
 
 ## Timings
 
@@ -273,7 +329,12 @@ times = [
     ('09.52', '10.44'),
     ('10.51', '10.56'),
     ('11.02', '11.56'),
-    ('12.59', '13.27')]
+    ('12.59', '13.27'),
+    ('13.29', '13.39'),
+    ('13.40', '13.44'),
+    ('13.51', '13.59'),
+    ('14.00', '14.06'),
+    ('14.07', '14.29')]
 
 calculate_times(used_to_date, times)
 ```
