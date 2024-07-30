@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#set-up-environment" id="toc-set-up-environment" class="nav-link" data-scroll-target="#set-up-environment">12.57-13.04: Set up environment</a></li>
   <li><a href="#trying-to-run-model" id="toc-trying-to-run-model" class="nav-link" data-scroll-target="#trying-to-run-model">13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model</a></li>
   <li><a href="#running-the-model-with-fewer-people" id="toc-running-the-model-with-fewer-people" class="nav-link" data-scroll-target="#running-the-model-with-fewer-people">15.09-15.42: Running the model with fewer people</a></li>
-  <li><a href="#inspecting-outcome-from-a-model-run" id="toc-inspecting-outcome-from-a-model-run" class="nav-link" data-scroll-target="#inspecting-outcome-from-a-model-run">15.43-16.00, : Inspecting outcome from a model run</a></li>
+  <li><a href="#inspecting-outcome-from-a-model-run" id="toc-inspecting-outcome-from-a-model-run" class="nav-link" data-scroll-target="#inspecting-outcome-from-a-model-run">15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_29/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -272,7 +272,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read article, decided on scope, then began reproduction. Total time used: TBCh TBCm (TBC%).</p>
+<p>Read article, decided on scope, then began running model. Total time used: 4h 3m (10.1%).</p>
 </div>
 </div>
 <section id="high-entropy-secret" class="level2">
@@ -446,7 +446,7 @@ Reflection
 </div>
 </section>
 <section id="inspecting-outcome-from-a-model-run" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-outcome-from-a-model-run">15.43-16.00, : Inspecting outcome from a model run</h2>
+<h2 class="anchored" data-anchor-id="inspecting-outcome-from-a-model-run">15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run</h2>
 <p>That R script ran the status quo (I0) scenario for invited 65 year olds. The parameters from Table 1 are below, along with their location in the data from <code>DES_Input_Definitions.xlsx</code></p>
 <ul>
 <li>Attendance 75% - <code>v2$probOfAttendScreen</code></li>
@@ -460,7 +460,7 @@ Reflection
 <li><code>v0$numberOfPersons &lt;- 1000</code></li>
 </ul>
 <p>This ran eight “scenarios” within the script. The output dataframe <code>scen1summaryi</code> showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.</p>
-<div id="28c34a8c" class="cell" data-execution_count="1">
+<div id="657c198f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'output_65yo_scen1_n1000.csv'</span>)</span>
@@ -525,7 +525,7 @@ Reflection
 </div>
 </div>
 <p>I increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.</p>
-<div id="a422efb4" class="cell" data-execution_count="2">
+<div id="c20a1cb8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'output_65yo_scen1_n10000.csv'</span>)</span>
@@ -599,34 +599,125 @@ Reflection
 </div>
 </div>
 <p>Each result here relates to Table 2 (i.e.&nbsp;excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.</p>
-<p>I created an .Rmd file to start processing the results. This required the addition of <strong>rmarkdown</strong> to the renv.</p>
+<p>I created an .Rmd file to start processing the results. This required the addition of <strong>rmarkdown</strong> to the renv. I add dplyr for processing the results. Looking at excess deaths, we can see the anticipated pattern, although for emergency operations, the numbers are still too small that they fluctuate, and emergency operations goes in the wrong direction.</p>
+<div id="b8162bbf" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'tab2.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">delayscr</th>
+<th data-quarto-table-cell-role="th">excess_death</th>
+<th data-quarto-table-cell-role="th">excess_op</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.00</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.25</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.50</td>
+<td>2</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1.00</td>
+<td>0</td>
+<td>-2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.00</td>
+<td>2</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>3.00</td>
+<td>2</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>4.00</td>
+<td>5</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>5.00</td>
+<td>7</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>I tried upping it to 100,000 people, and recorded the time with different settings:</p>
+<ul>
+<li>“serial” - <strong>5 minutes 7 seconds</strong></li>
+<li>“parallel” - <strong>2 minutes 12 seconds</strong> (although 1m10 of that was just it getting set up it seems, as the line <code>Random seed has been set by clusterSetRNGStream(iseed=3210).</code>)</li>
+<li>“foreach” - not possible, <code>Error in processPersons(v0, v1other, v2, personData.screen) : v0$randomSeed does not yet work with v0$method="foreach"</code></li>
+</ul>
+<p>For each of these, about 45 seconds is results processing at the end (e.g.&nbsp;<code>Eventsandcosts()</code>)</p>
+<p>Whilst these ran, I looked through the repository to try and spot whether they had functions to generate the plots from the article. I found plotting functions in <code>DES_Model.R</code>, <code>shiny_output_functions.R</code> and <code>NAAASP_DES_Example_Script.R</code>, though none relevant to the article, so it appears I’ll need to write the code to do that processing.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="e9e78bf9" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>)]</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5902c578" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.38'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.53'</span>, <span class="st">'09.55'</span>),</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.05'</span>, <span class="st">'10.15'</span>),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.29'</span>, <span class="st">'10.45'</span>),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.46'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.13'</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.26'</span>, <span class="st">'11.32'</span>),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.50'</span>, <span class="st">'12.56'</span>),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.57'</span>, <span class="st">'13.04'</span>),</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.05'</span>, <span class="st">'13.13'</span>), </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.48'</span>, <span class="st">'13.55'</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.07'</span>, <span class="st">'14.21'</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.53'</span>, <span class="st">'15.08'</span>),</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.09'</span>, <span class="st">'15.42'</span>),</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.43'</span>, <span class="st">'16.00'</span>),</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.03'</span>, <span class="st">'16.43'</span>),</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.45'</span>, <span class="st">'16.47'</span>),</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.53'</span>, <span class="st">'16.56'</span>)]</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 59m, or 0h 59m
-Total used to date: 91m, or 1h 31m
-Time remaining: 2309m, or 38h 29m
-Used 3.8% of 40 hours max</code></pre>
+<pre><code>Time spent today: 211m, or 3h 31m
+Total used to date: 243m, or 4h 3m
+Time remaining: 2157m, or 35h 57m
+Used 10.1% of 40 hours max</code></pre>
 </div>
 </div>
 
@@ -1063,7 +1154,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../../CHANGELOG.html">
+    <a class="nav-link" href="../../../CHANGELOG.md">
 <p>Changelog</p>
 </a>
   </li>  
@@ -1073,7 +1164,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../CONTRIBUTING.html">
+    <a class="nav-link" href="../../../CONTRIBUTING.md">
 <p>Contributing</p>
 </a>
   </li>  
