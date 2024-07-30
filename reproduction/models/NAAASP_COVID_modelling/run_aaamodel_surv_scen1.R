@@ -28,7 +28,7 @@ source("functions/DES_model.R")
 source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R") 
 
 ## Change v1other$aortaDiameterThresholds to be a list (new syntax)
-v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
+# v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
 
 ## Also allow monitoring after contraindication (currently discharged)
 v1other$monitoringIntervals[4] <- 0.25 ## 3 monthly monitoring for those contraindicated
@@ -45,9 +45,9 @@ v1distributions
 ## Set other quantities
 v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
-v0$method <- "serial"
+v0$method <- "parallel"
 
-v0$numberOfPersons <- 1e7 
+v0$numberOfPersons <- 1000000
 
 
 
@@ -80,6 +80,9 @@ v2$costs["screen"] <- v2$costs["monitor"]
 v1other$inviteToScreenSuspensionTime <- 0
 v1other$aortaDiameterThresholds <- list(c(3, 4.5, 50), c(3, 4.5, 5.5), c(3, 4.5, 5.5))
 attr(v1other$aortaDiameterThresholds, "timeCutPoints") <- c(0.25, 0.25)
+
+# Start timer
+start_time <- Sys.time()
 
 # 3-month delay to surveillance scans
 set.seed(3210)
@@ -114,6 +117,10 @@ thresh<-5.5
 lengththresh<-0
 scen1summary<-data.frame(n,period,thresh,lengththresh,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 
+# Print time taken
+time_one_run <- Sys.time()
+diff_time <- difftime(time_one_run, start_time, units='mins')
+print(paste(c("Time for one run: ", diff_time), collapse=""))
 
 # 6-month delay to surveillance scans
 v1other$monitoringIntervalsSuspensionTime <- rep(0.5, length(v1other$monitoringIntervals))
@@ -294,3 +301,14 @@ temp<-data.frame(n,period,thresh,lengththresh,inv,scr,reinv,nonatt,monitor,dropo
 scen1summary<-rbind(scen1summary,temp)
 
 scen1summary
+
+# Print time taken
+time_all_runs <- Sys.time()
+diff_time_all <- difftime(time_all_runs, start_time, units='mins')
+print(paste(c("Time for one run: ", diff_time_all), collapse=""))
+
+######################################################################################################################################################
+# SAVE RESULTS
+######################################################################################################################################################
+
+write.csv(scen1summary, "output/output_surv_scen1.csv", row.names=FALSE)
