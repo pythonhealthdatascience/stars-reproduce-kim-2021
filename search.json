@@ -46,7 +46,7 @@
     "href": "evaluation/reproduction_success.html",
     "title": "Reproduction success",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nOf the X items in the scope, X% (X out of X) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from"
+    "text": "Please note: This is a template page and has not yet been completed\nOf the 10 items in the scope, X% (X out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from"
   },
   {
     "objectID": "evaluation/reproduction_success.html#time-to-completion",
@@ -56,11 +56,11 @@
     "text": "Time-to-completion\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
   },
   {
-    "objectID": "evaluation/reproduction_success.html#figure-x",
-    "href": "evaluation/reproduction_success.html#figure-x",
+    "objectID": "evaluation/reproduction_success.html#figure-1",
+    "href": "evaluation/reproduction_success.html#figure-1",
     "title": "Reproduction success",
-    "section": "Figure X",
-    "text": "Figure X\nConsensus: Not reproduced / Successfully reproduced\nOriginal (citation):\n\nReproduction:"
+    "section": "Figure 1",
+    "text": "Figure 1\n\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html",
