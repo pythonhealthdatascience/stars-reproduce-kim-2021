@@ -155,7 +155,7 @@ res1k <- make_tab2(y65_s1_1k, n_person=1000) %>%
   # Keep relevant columns
   select(months, excess_dead_emer)
 
-write.csv(res1k, "../../logbook/posts/2024_07_30/65y_s1_tab2_1k.csv")
+write.csv(res1k, "../../logbook/posts/2024_07_30/65y_s1_tab2_1k.csv", row.names=FALSE)
 
 res1k
 ```
@@ -171,7 +171,7 @@ res10k <- make_tab2(y65_s1_10k, n_person=10000) %>%
   # Keep relevant columns
   select(months, excess_dead_emer)
 
-write.csv(res10k, "../../logbook/posts/2024_07_30/65y_s1_tab2_10k.csv")
+write.csv(res10k, "../../logbook/posts/2024_07_30/65y_s1_tab2_10k.csv", row.names=FALSE)
 
 res10k
 ```
@@ -187,7 +187,7 @@ res100k <- make_tab2(y65_s1_100k, n_person=100000) %>%
   # Keep relevant columns
   select(months, excess_dead_emer)
 
-write.csv(res100k, "../../logbook/posts/2024_07_30/65y_s1_tab2_100k.csv")
+write.csv(res100k, "../../logbook/posts/2024_07_30/65y_s1_tab2_100k.csv", row.names=FALSE)
 
 res100k
 ```
@@ -203,7 +203,7 @@ res1m <- make_tab2(y65_s1_1m, n_person=1000000) %>%
   # Keep relevant columns
   select(months, excess_dead_emer)
 
-write.csv(res1m, "../../logbook/posts/2024_07_30/65y_s1_tab2_1m.csv")
+write.csv(res1m, "../../logbook/posts/2024_07_30/65y_s1_tab2_1m.csv", row.names=FALSE)
 
 res1m
 ```
@@ -219,7 +219,7 @@ res2m <- make_tab2(y65_s1_2m, n_person=2000000) %>%
   # Keep relevant columns
   select(months, excess_dead_emer)
 
-write.csv(res2m, "../../logbook/posts/2024_07_30/65y_s1_tab2_2m.csv")
+write.csv(res2m, "../../logbook/posts/2024_07_30/65y_s1_tab2_2m.csv", row.names=FALSE)
 
 res2m
 ```

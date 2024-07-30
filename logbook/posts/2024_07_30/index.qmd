@@ -274,8 +274,10 @@ Amended script as did for 65yo scen2, with an additional fix too - correct path 
 
 Timings:
 
-* One run:
-* Full run:
+* One run: 13.368 minutes = 802 seconds = 13 minutes 22 seconds
+* Full run: 70.183 minutes = 4211 seconds = 1 hour 10 minutes 11 seconds
+
+This runtime reaffirmed for me the use of 1,000,000 people (rather than 2,000,000).
 
 ## 13.40-13.44, 13.51-13.59, 14.07-14.29: Creating Figure 1
 
@@ -310,6 +312,28 @@ times = [
 
 calculate_times(used_to_date, times)
 ```
+
+## 14.42-14.49: Checking scenario 1 simulation table 2 results
+
+Now that we have the function to process scenario 1 correctly, I went back to re-run the results from fewer numbers of people, just to reaffirm whether the chosen number is appropriate (or whether we could use fewer).
+
+I downloaded the results from my GitHub commit history, renaming the files to indicating the number of people.
+
+With each of the variants I'd tried, it is apparent that none below 1 million were appropriate. It is possible that there could have been an appropriate inbetween value that I hadn't tried (e.g. 500,000), but for now, I will stick with 1 million.
+
+```{python}
+import pandas as pd
+
+display(pd.read_csv('65y_s1_tab2_1k.csv'))
+display(pd.read_csv('65y_s1_tab2_10k.csv'))
+display(pd.read_csv('65y_s1_tab2_100k.csv'))
+display(pd.read_csv('65y_s1_tab2_1m.csv'))
+display(pd.read_csv('65y_s1_tab2_2m.csv'))
+```
+
+## 15.00-15.59: Table 2
+
+Modified function so it could be used to process both scenarios, then combined into a single table.
 
 ## Timings
 
