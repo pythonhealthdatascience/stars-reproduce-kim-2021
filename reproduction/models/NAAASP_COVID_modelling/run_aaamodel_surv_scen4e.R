@@ -24,13 +24,13 @@ this.dir <- dirname(parent.frame(2)$ofile)
 setwd(paste0(this.dir,"/../../"))
 
 # Model
-source("functions/DES_model.R")
+source("functions/DES_Model.R")
 
 ## Input parameters
 source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R") 
 
 ## Change v1other$aortaDiameterThresholds to be a list (new syntax)
-v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
+# v1other$aortaDiameterThresholds <- list(v1other$aortaDiameterThresholds)
 
 ## Also allow monitoring after contraindication (currently discharged)
 v1other$monitoringIntervals[4] <- 0.25 ## 3 monthly monitoring for those contraindicated
@@ -47,9 +47,9 @@ v1distributions
 ## Set other quantities
 v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
-v0$method <- "serial"
+v0$method <- "parallel"
 
-v0$numberOfPersons <- 1e7 
+v0$numberOfPersons <- 1e6 
 
 ###############################################################################################################################################################
 # SURVEILLANCE COHORT
@@ -81,6 +81,8 @@ v2$costs["screen"] <- v2$costs["monitor"]
 # S4 threshold increase to 7cm for 2y, with 2 lockdown (op suspension) periods
 # S5 threshold increase to [7cm for 3m + 5.5cm for 3m] x2, with 2 lockdown (op suspension) periods
 
+# Start timer
+start_time <- Sys.time()
 
 # ADDING S2.2+S5
 v1other$inviteToScreenSuspensionTime <- 0
@@ -122,6 +124,10 @@ period<-0.25
 thresh<-7
 scen4esummary<-data.frame(n,dropoutrate,dropoutperiod,period,thresh,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 
+# Print time taken
+time_one_run <- Sys.time()
+diff_time <- difftime(time_one_run, start_time, units='mins')
+print(paste(c("Time for one run: ", diff_time), collapse=""))
 
 # surveillance scan suspension period=0.5 yrs
 v1other$monitoringIntervalsSuspensionTime <- rep(0.5, length(v1other$monitoringIntervals))
@@ -321,3 +327,14 @@ temp<-data.frame(n,dropoutrate,dropoutperiod,period,thresh,inv,scr,reinv,nonatt,
 scen4esummary<-rbind(scen4esummary,temp)
 
 scen4esummary
+
+# Print time taken
+time_all_runs <- Sys.time()
+diff_time_all <- difftime(time_all_runs, start_time, units='mins')
+print(paste(c("Time for one run: ", diff_time_all), collapse=""))
+
+###############################################################################
+# SAVE RESULTS
+###############################################################################
+
+write.csv(scen4esummary, "output/output_surv_scen4e.csv", row.names=FALSE)
