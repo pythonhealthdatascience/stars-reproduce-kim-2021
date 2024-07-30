@@ -45,7 +45,7 @@ v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
 v0$method <- "parallel"
 
-v0$numberOfPersons <- 100000
+v0$numberOfPersons <- 1000000
 
 ## Persons characteristics data.frame
 personData.screen <- data.frame(startAge = 65)
