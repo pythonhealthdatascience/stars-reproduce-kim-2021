@@ -9,6 +9,8 @@ This script assumes you have already run the scenarios in `models/` and saved th
 
 ```{r}
 library(dplyr)
+library(ggplot2)
+library(tidyr)
 ```
 
 ```{r}
@@ -17,19 +19,18 @@ outputs = "../output"
 
 # Paths to output files
 paths <- list(
-  y65_s1_1m = file.path(outputs, "output_65yo_scen1_1mil.csv"),
-  y65_s1_2m = file.path(outputs, "output_65yo_scen1_2mil.csv"),
-  tab2 = file.path(outputs, "tab2.csv")
+  y65_s1= file.path(outputs, "output_65yo_scen1_1mil.csv"),
+  tab2 = file.path(outputs, "tab2.csv"),
+  fig1 = file.path(outputs, "fig1.png")
 )
 ```
 
 ```{r}
 # Import files
-y65_s1_1m <- read.csv(paths$y65_s1_1m)
-y65_s1_2m <- read.csv(paths$y65_s1_2m)
+y65_s1 <- read.csv(paths$y65_s1)
 
 # Preview 65 year old scenario 1 dataframe with 1 million people
-head(y65_s1_1m, 3)
+head(y65_s1, 3)
 ```
 
 ## Table 2
@@ -50,6 +51,7 @@ make_tab2 <- function(df, n_person) {
   full_tab2 <- df %>%
     # Sort by length of delay (so first row is 0 delay)
     arrange(delayscr) %>%
+    # Calculate the total number of emergency operations
     mutate(total_emer = emerevar + emeropen) %>%
     select(delayscr, aaadead, total_emer) %>%
     # Scale to number of deaths if population size was 279,798
@@ -74,19 +76,68 @@ make_tab2 <- function(df, n_person) {
 Simulation 65yo scen1 with 1,000,000 people
 
 ```{r}
-tab2_1m <- make_tab2(y65_s1_1m, 1000000)
+tab2_1m <- make_tab2(y65_s1, 1000000)
 
-write.csv(tab2_1m, "../../logbook/posts/2024_07_30/tab2_correct_1m.csv", row.names=FALSE)
+write.csv(tab2_1m, paths$tab2, row.names=FALSE)
 
 tab2_1m
 ```
 
-Simulation 65yo scen1 with 2,000,000 people
+## Figure 1
+
+Process results from model into a dataframe to use for plotting.
 
 ```{r}
-tab2_2m <- make_tab2(y65_s1_2m, 2000000)
+fig1_df <- y65_s1 %>%
+  # Sort by length of delay (so first row is 0 delay)
+  arrange(delayscr) %>%
+  # Calculate the total number of emergency and elective operations
+  mutate(total_emer = emerevar + emeropen,
+         total_elec = elecevar + elecopen) %>%
+  # Keep relevant columns
+  select(delayscr, aaadead, total_elec, total_emer, rupt) %>%
+  # Drop result from 0.25 months (not included in plot)
+  filter(delayscr != 0.25) %>%
+  # Calculate percentage change from timepoint 0
+  mutate(pct_dead = (aaadead - first(aaadead)) / first(aaadead) * 100,
+         pct_elec = (total_elec - first(total_elec)) / first(total_elec) * 100,
+         pct_emer = (total_emer - first(total_emer)) / first(total_emer) * 100,
+         pct_rupt = (rupt - first(rupt)) / first(rupt) * 100) %>%
+  # Keep relevant columns
+  select(delayscr, starts_with("pct_"))
 
-write.csv(tab2_2m, "../../logbook/posts/2024_07_30/tab2_correct_2m.csv", row.names=FALSE)
-
-tab2_2m
+fig1_df
 ```
+
+Melt the dataframe into long format for then creating the line plot.
+
+```{r}
+# Define labels
+fig1_lab = list(pct_dead = "AAA deaths",
+                pct_elec = "Elective operations",
+                pct_emer = "Emergency operations",
+                pct_rupt = "Ruptures")
+
+# Melt dataframe from wide to long and add labels
+fig1_long <- fig1_df %>%
+  pivot_longer(-delayscr) %>%
+  mutate(label = recode(name, !!!fig1_lab, .default = NA_character_))
+
+fig1_long
+```
+
+```{r}
+ggplot(fig1_long, aes(x=delayscr, y=value, color=label)) +
+  geom_line() +
+  geom_point() +
+  labs(x="Delay in initial invitation (years)",
+       y="Percentage change in outcome",
+       color="Outcome") +
+  scale_y_continuous(limits = c(-10, 10),
+                     breaks = seq(-10, 10, 2)) +
+  geom_hline(yintercept=0) +
+  theme_bw()
+
+ggsave(paths$fig1)
+```
+

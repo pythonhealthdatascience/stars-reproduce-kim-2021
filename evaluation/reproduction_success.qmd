@@ -9,7 +9,7 @@ bibliography: ../quarto_site/references.bib
 
 <!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
 
-Of the X items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
+Of the 10 items in the scope, X% (X out of 10) were considered to be **successfully reproduced**.
 
 As cited throughout, images on this page are sourced from
 <!-- Add @reference -->
@@ -24,16 +24,17 @@ from time_to_complete import process_times, success_static, success_interactive
 # List of time to complete each item
 # TODO: Change to actual items and times for this project
 time_list = [
-    [100, 'In-text result 1'],
-    [200, 'In-text result 2'],
-    [400, 'Figure 2'], # Finished work, not completed, adjust to set to NaN
+    [445, 'Figure 1'],
+    [np.nan, 'Table 2'],
+    [np.nan, 'Figure 2'],
     [np.nan, 'Figure 3'],
+    [np.nan, 'In-text result 1'],
     [np.nan, 'Figure 4'],
-    [300, 'Figure 5'],
-    [np.nan, 'Supplementary figure'],
-    [np.nan, 'In-text result 3']]
-times_df = process_times(time_list, adjust='Figure 2')
-display(times_df)
+    [np.nan, 'Figure 5'],
+    [np.nan, 'Table 3'],
+    [np.nan, 'Supplementary figure 3'],
+    [np.nan, 'Supplementary table 2']]
+times_df = process_times(time_list)
 ```
 
 Non-interactive plot:
@@ -48,15 +49,15 @@ Interactive plot:
 success_interactive(times_df)
 ```
 
-## Figure X
+## Figure 1
 
-**Consensus: Not reproduced / Successfully reproduced**
+<!-- TODO: Add these
+**Consensus: Not reproduced / Successfully reproduced** -->
 
-Original (citation):
+Original (@kim_modelling_2021):
 
-<!-- Image, e.g.
-![](../original_study/fig2.jpg){width=80% fig-align="center" .lightbox} -->
+![](../original_study/fig1.PNG){width=80% fig-align="center" .lightbox}
 
 Reproduction:
 
-<!-- Image -->
+![](../reproduction/output/fig1.png){width=80% fig-align="center" .lightbox}

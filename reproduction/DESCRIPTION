@@ -9,4 +9,6 @@ Imports:
     iterators,
     doParallel,
     rmarkdown,
-    dplyr
+    dplyr,
+    ggplot2,
+    tidyr
