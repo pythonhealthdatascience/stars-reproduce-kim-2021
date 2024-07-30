@@ -60,7 +60,7 @@ personData.screen <- data.frame(startAge = 65)
 ## (iii) Threshold for operation changed to 50cm for first 3 months (no elective ops), then revert to 55mm
 
 # Start timer
-start.time <- Sys.time()
+start_time <- Sys.time()
 
 ## 3-month delay
 v1other$monitoringIntervalsSuspensionTime <- rep(0.25, length(v1other$monitoringIntervals))
@@ -97,8 +97,9 @@ n<-v0$numberOfPersons
 scen1summaryi<-data.frame(n,delayscr,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 
 # Print time taken
-time.taken <- Sys.time() - start.time
-print(paste(c("Time for one run: ", time.taken), collapse=""))
+time_one_run <- Sys.time()
+diff_time <- difftime(time_one_run, start_time, units='mins'))
+print(paste(c("Time for one run: ", diff_time), collapse=""))
 
 ## 6-month delay 
 v1other$inviteToScreenSuspensionTime <- 0.5
@@ -302,8 +303,9 @@ scen1summaryi<-rbind(scen1summaryi,temp)
 scen1summaryi
 
 # Print time taken
-time.taken <- Sys.time() - start.time
-print(paste(c("Time for all runs: ", time.taken), collapse=""))
+time_all_runs <- Sys.time()
+diff_time_all <- difftime(time_all_runs, start_time, units='mins')
+print(paste(c("Time for one run: ", diff_time_all), collapse=""))
 
 ######################################################################################################################################################
 # SAVE RESULTS
