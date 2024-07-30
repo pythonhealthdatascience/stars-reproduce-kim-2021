@@ -53,7 +53,7 @@
     "href": "evaluation/reproduction_success.html#time-to-completion",
     "title": "Reproduction success",
     "section": "Time-to-completion",
-    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n100.0\nNaN\n0.0\n1.666667\n\n\n2\n100.0\nIn-text result 1\n12.5\n1.666667\n\n\n3\n200.0\nNaN\n12.5\n3.333333\n\n\n4\n200.0\nIn-text result 2\n25.0\n3.333333\n\n\n5\n300.0\nNaN\n25.0\n5.000000\n\n\n6\n300.0\nFigure 5\n37.5\n5.000000\n\n\n7\n400.0\nNaN\n37.5\n6.666667\n\n\n8\n400.0\nFigure 2\nNaN\n6.666667\n\n\n9\nNaN\nNaN\nNaN\nNaN\n\n\n10\nNaN\nFigure 3\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 4\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nSupplementary figure\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nIn-text result 3\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
+    "text": "Time-to-completion\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
   },
   {
     "objectID": "evaluation/reproduction_success.html#figure-x",
