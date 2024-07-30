@@ -335,6 +335,36 @@ display(pd.read_csv('65y_s1_tab2_2m.csv'))
 
 Modified function so it could be used to process both scenarios, then combined into a single table.
 
+I was satisfied this was reproduced (within expected variation from running with less people) at 15.59.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 243
+
+# Times from today
+times = [
+    ('09.10', '09.11'),
+    ('09.20', '09.22'),
+    ('09.30', '09.40'),
+    ('09.52', '10.44'),
+    ('10.51', '10.56'),
+    ('11.02', '11.56'),
+    ('12.59', '13.27'),
+    ('13.29', '13.39'),
+    ('13.40', '13.44'),
+    ('13.51', '13.59'),
+    ('14.00', '14.06'),
+    ('14.07', '14.29'),
+    ('14.42', '14.49'),
+    ('15.00', '15.59')]
+
+calculate_times(used_to_date, times)
+```
+
 ## Timings
 
 ```{python}
@@ -358,7 +388,9 @@ times = [
     ('13.40', '13.44'),
     ('13.51', '13.59'),
     ('14.00', '14.06'),
-    ('14.07', '14.29')]
+    ('14.07', '14.29'),
+    ('14.42', '14.49'),
+    ('15.00', '15.59')]
 
 calculate_times(used_to_date, times)
 ```
