@@ -96,11 +96,9 @@ delayscr<-v1other$inviteToScreenSuspensionTime
 n<-v0$numberOfPersons
 scen1summaryi<-data.frame(n,delayscr,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 
-# Stop timer
-
-end.time <- Sys.time()
-time.taken <- end.time - start.time
-print(time.taken)
+# Print time taken
+time.taken <- Sys.time() - start.time
+print(paste(c("Time for one run: ", time.taken), collapse=""))
 
 ## 6-month delay 
 v1other$inviteToScreenSuspensionTime <- 0.5
@@ -302,6 +300,10 @@ delayscr<-v1other$inviteToScreenSuspensionTime
 temp<-data.frame(n,delayscr,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 scen1summaryi<-rbind(scen1summaryi,temp)
 scen1summaryi
+
+# Print time taken
+time.taken <- Sys.time() - start.time
+print(paste(c("Time for all runs: ", time.taken), collapse=""))
 
 ######################################################################################################################################################
 # SAVE RESULTS
