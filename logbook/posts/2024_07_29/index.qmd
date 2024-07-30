@@ -262,7 +262,7 @@ pd.read_csv('tab2.csv')
 I tried upping it to 100,000 people, and recorded the time with different settings:
 
 * "serial" - **5 minutes 7 seconds**
-* "parallel" - **2 minutes 12 seconds** (although 1m10 of that was just it getting set up it seems, as the line `Random seed has been set by clusterSetRNGStream(iseed=3210).`)
+* "parallel" - **2 minutes 12 seconds** - so estimated 17 and a half minutes in total
 * "foreach" - not possible, `Error in processPersons(v0, v1other, v2, personData.screen) : v0$randomSeed does not yet work with v0$method="foreach"`
 
 For each of these, about 45 seconds is results processing at the end (e.g. `Eventsandcosts()`)
