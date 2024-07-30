@@ -49,11 +49,18 @@
     "text": "15.00-15.59: Table 2\nModified function so it could be used to process both scenarios, then combined into a single table.\nI was satisfied this was reproduced (within expected variation from running with less people) at 15.59.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 268m, or 4h 28m\nTotal used to date: 511m, or 8h 31m\nTime remaining: 1889m, or 31h 29m\nUsed 21.3% of 40 hours max"
   },
   {
+    "objectID": "logbook/posts/2024_07_30/index.html#fix-later-scenarios",
+    "href": "logbook/posts/2024_07_30/index.html#fix-later-scenarios",
+    "title": "Day 3",
+    "section": "16.12-16.27: Fix later scenarios",
+    "text": "16.12-16.27: Fix later scenarios\nFixed surv scenarios 2 to 4e (although not yet running as potentially insufficient time to complete before end of work day). As above, fixes include:\n\nUsing parallel\n1 million\nSaving the results to csv\nCommenting out list(v1other$aortaDiameterThresholds)\nTimings for one run and all runs\nCorrecting filename when source DES_Model.R\n\n\n\n\n\n\n\nReflection\n\n\n\nI haven’t modified the provided structure of seperate scripts, but this structure does make it challenging when you want to change a parameter across the runs, as you have to carefully change each of the scripts. It would be easier if they were controlled by a single set of shared parameters."
+  },
+  {
     "objectID": "logbook/posts/2024_07_30/index.html#timings",
     "href": "logbook/posts/2024_07_30/index.html#timings",
     "title": "Day 3",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 268m, or 4h 28m\nTotal used to date: 511m, or 8h 31m\nTime remaining: 1889m, or 31h 29m\nUsed 21.3% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59'),\n    ('16.12', '16.27')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 283m, or 4h 43m\nTotal used to date: 526m, or 8h 46m\nTime remaining: 1874m, or 31h 14m\nUsed 21.9% of 40 hours max"
   },
   {
     "objectID": "evaluation/reproduction_success.html",
