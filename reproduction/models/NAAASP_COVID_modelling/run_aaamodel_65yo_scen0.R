@@ -40,9 +40,9 @@ v1distributions
 ## Set other quantities
 v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
-v0$method <- "serial"
+v0$method <- "parallel"
 
-v0$numberOfPersons <- 1000
+v0$numberOfPersons <- 1000000
 
 ## Persons characteristics data.frame
 personData.screen <- data.frame(startAge = 65)
@@ -81,3 +81,8 @@ nonaaadead<-Eventsandcosts(scen0.invite)[25,2]
 scen0summaryi<-data.frame(inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,reintelecevar,reintemeropen,aaadead,nonaaadead)
 scen0summaryi
 
+######################################################################################################################################################
+# SAVE RESULTS
+######################################################################################################################################################
+
+write.csv(scen0summaryi, "output/output_65yo_scen0.csv", row.names=FALSE)
