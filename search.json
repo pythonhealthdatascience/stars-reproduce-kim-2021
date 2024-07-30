@@ -25,7 +25,7 @@
     "href": "logbook/posts/2024_07_30/index.html#running-surv-scenario-1",
     "title": "Day 3",
     "section": "14.00-14.06: Running surv scenario 1",
-    "text": "14.00-14.06: Running surv scenario 1\nMidway through creating figure 1, I set remote computer to run another scenario.\nAmended script as did for 65yo scen2, with an additional fix too - correct path to model script to DES_Model.R - and then ran on remote machine.\nTimings:\n\nOne run:\nFull run:"
+    "text": "14.00-14.06: Running surv scenario 1\nMidway through creating figure 1, I set remote computer to run another scenario.\nAmended script as did for 65yo scen2, with an additional fix too - correct path to model script to DES_Model.R - and then ran on remote machine.\nTimings:\n\nOne run: 13.368 minutes = 802 seconds = 13 minutes 22 seconds\nFull run: 70.183 minutes = 4211 seconds = 1 hour 10 minutes 11 seconds\n\nThis runtime reaffirmed for me the use of 1,000,000 people (rather than 2,000,000)."
   },
   {
     "objectID": "logbook/posts/2024_07_30/index.html#creating-figure-1",
@@ -35,18 +35,32 @@
     "text": "13.40-13.44, 13.51-13.59, 14.07-14.29: Creating Figure 1\nWhilst that ran - and then, setting others to run during this too (hence time jumps) - I set about creating Figure 1 from the results of scenario 1 with 1 million people.\nAdd ggplot2 (to make plots) and tidyr (to melt dataframe) to renv.\nWrote code to create figure, and was satisified this was reproduced at 14.29.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 202m, or 3h 22m\nTotal used to date: 445m, or 7h 25m\nTime remaining: 1955m, or 32h 35m\nUsed 18.5% of 40 hours max"
   },
   {
+    "objectID": "logbook/posts/2024_07_30/index.html#checking-scenario-1-simulation-table-2-results",
+    "href": "logbook/posts/2024_07_30/index.html#checking-scenario-1-simulation-table-2-results",
+    "title": "Day 3",
+    "section": "14.42-14.49: Checking scenario 1 simulation table 2 results",
+    "text": "14.42-14.49: Checking scenario 1 simulation table 2 results\nNow that we have the function to process scenario 1 correctly, I went back to re-run the results from fewer numbers of people, just to reaffirm whether the chosen number is appropriate (or whether we could use fewer).\nI downloaded the results from my GitHub commit history, renaming the files to indicating the number of people.\nWith each of the variants I’d tried, it is apparent that none below 1 million were appropriate. It is possible that there could have been an appropriate inbetween value that I hadn’t tried (e.g. 500,000), but for now, I will stick with 1 million.\n\nimport pandas as pd\n\ndisplay(pd.read_csv('65y_s1_tab2_1k.csv'))\ndisplay(pd.read_csv('65y_s1_tab2_10k.csv'))\ndisplay(pd.read_csv('65y_s1_tab2_100k.csv'))\ndisplay(pd.read_csv('65y_s1_tab2_1m.csv'))\ndisplay(pd.read_csv('65y_s1_tab2_2m.csv'))\n\n\n\n\n\n\n\n\nmonths\nexcess_dead_emer\n\n\n\n\n0\n6m\n0 (NA)\n\n\n1\n12m\n0 (NA)\n\n\n2\n24m\n0 (NA)\n\n\n3\n36m\n0 (NA)\n\n\n4\n48m\n279 (NA)\n\n\n5\n60m\n279 (NA)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmonths\nexcess_dead_emer\n\n\n\n\n0\n6m\n56 (0)\n\n\n1\n12m\n0 (0)\n\n\n2\n24m\n56 (0)\n\n\n3\n36m\n56 (0)\n\n\n4\n48m\n140 (0)\n\n\n5\n60m\n196 (0)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmonths\nexcess_dead_emer\n\n\n\n\n0\n6m\n0 (6)\n\n\n1\n12m\n0 (0)\n\n\n2\n24m\n0 (0)\n\n\n3\n36m\n5 (6)\n\n\n4\n48m\n70 (25)\n\n\n5\n60m\n114 (25)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmonths\nexcess_dead_emer\n\n\n\n\n0\n6m\n0 (3)\n\n\n1\n12m\n0 (0)\n\n\n2\n24m\n0 (1)\n\n\n3\n36m\n21 (14)\n\n\n4\n48m\n56 (35)\n\n\n5\n60m\n108 (56)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmonths\nexcess_dead_emer\n\n\n\n\n0\n6m\n0 (0)\n\n\n1\n12m\n0 (0)\n\n\n2\n24m\n0 (0)\n\n\n3\n36m\n20 (11)\n\n\n4\n48m\n50 (31)\n\n\n5\n60m\n105 (60)"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_30/index.html#table-2",
+    "href": "logbook/posts/2024_07_30/index.html#table-2",
+    "title": "Day 3",
+    "section": "15.00-15.59: Table 2",
+    "text": "15.00-15.59: Table 2\nModified function so it could be used to process both scenarios, then combined into a single table.\nI was satisfied this was reproduced (within expected variation from running with less people) at 15.59.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 268m, or 4h 28m\nTotal used to date: 511m, or 8h 31m\nTime remaining: 1889m, or 31h 29m\nUsed 21.3% of 40 hours max"
+  },
+  {
     "objectID": "logbook/posts/2024_07_30/index.html#timings",
     "href": "logbook/posts/2024_07_30/index.html#timings",
     "title": "Day 3",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 202m, or 3h 22m\nTotal used to date: 445m, or 7h 25m\nTime remaining: 1955m, or 32h 35m\nUsed 18.5% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 268m, or 4h 28m\nTotal used to date: 511m, or 8h 31m\nTime remaining: 1889m, or 31h 29m\nUsed 21.3% of 40 hours max"
   },
   {
     "objectID": "evaluation/reproduction_success.html",
     "href": "evaluation/reproduction_success.html",
     "title": "Reproduction success",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nOf the 10 items in the scope, X% (X out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from"
+    "text": "Please note: This page is in-progress and has not yet been completed\nOf the 10 items in the scope, X% (X out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from Kim et al. (2021)\nNote: This items have been reproduced with simulations containing 1,000,000 people (instead of 10,000,000) as that is very computationally expensive. We felt that, with 1,000,000 people, results are reasonably similar enough to be satisified with reproduction."
   },
   {
     "objectID": "evaluation/reproduction_success.html#time-to-completion",
@@ -61,6 +75,13 @@
     "title": "Reproduction success",
     "section": "Figure 1",
     "text": "Figure 1\n\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#table-2",
+    "href": "evaluation/reproduction_success.html#table-2",
+    "title": "Reproduction success",
+    "section": "Table 2",
+    "text": "Table 2\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\n\n\n\n\n\n\n\n\n\nLength of delay to invitation\nExcess AAA deaths (excess emergency operations) in Model I1*\nAttendance rate at primary scan\nExcess AAA deaths (excess emergency operations) in Model I2*\n\n\n\n\n0\n6m\n0 (3)\n65%\n61 (32)\n\n\n1\n12m\n0 (0)\n55%\n127 (67)\n\n\n2\n24m\n0 (1)\n45%\n184 (96)\n\n\n3\n36m\n21 (14)\nNaN\nNaN\n\n\n4\n48m\n56 (35)\nNaN\nNaN\n\n\n5\n60m\n108 (56)\nNaN\nNaN"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html",
