@@ -24,16 +24,17 @@ from time_to_complete import process_times, success_static, success_interactive
 # List of time to complete each item
 # TODO: Change to actual items and times for this project
 time_list = [
-    [100, 'In-text result 1'],
-    [200, 'In-text result 2'],
-    [400, 'Figure 2'], # Finished work, not completed, adjust to set to NaN
+    [445, 'Figure 1'],
+    [np.nan, 'Table 2'],
+    [np.nan, 'Figure 2'],
     [np.nan, 'Figure 3'],
+    [np.nan, 'In-text result 1'],
     [np.nan, 'Figure 4'],
-    [300, 'Figure 5'],
-    [np.nan, 'Supplementary figure'],
-    [np.nan, 'In-text result 3']]
-times_df = process_times(time_list, adjust='Figure 2')
-display(times_df)
+    [np.nan, 'Figure 5'],
+    [np.nan, 'Table 3'],
+    [np.nan, 'Supplementary figure 3'],
+    [np.nan, 'Supplementary table 2']]
+times_df = process_times(time_list)
 ```
 
 Non-interactive plot:
