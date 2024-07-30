@@ -22,7 +22,7 @@ this.dir <- dirname(parent.frame(2)$ofile)
 setwd(paste0(this.dir,"/../../"))
 
 # Model
-source("functions/DES_model.R")
+source("functions/DES_Model.R")
 
 ## Input parameters
 source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R") 
