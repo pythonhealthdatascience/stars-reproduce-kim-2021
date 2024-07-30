@@ -365,6 +365,24 @@ times = [
 calculate_times(used_to_date, times)
 ```
 
+## 16.12-16.27: Fix later scenarios
+
+Fixed surv scenarios 2 to 4e (although not yet running as potentially insufficient time to complete before end of work day). As above, fixes include:
+
+* Using **parallel**
+* **1 million**
+* Saving the results to **csv**
+* Commenting out `list(v1other$aortaDiameterThresholds)`
+* Timings for one run and all runs
+* Correcting filename when source `DES_Model.R`
+
+::: {.callout-tip}
+## Reflection
+
+I haven't modified the provided structure of seperate scripts, but this structure does make it challenging when you want to change a parameter across the runs, as you have to carefully change each of the scripts. It would be easier if they were controlled by a single set of shared parameters.
+
+:::
+
 ## Timings
 
 ```{python}
@@ -390,7 +408,8 @@ times = [
     ('14.00', '14.06'),
     ('14.07', '14.29'),
     ('14.42', '14.49'),
-    ('15.00', '15.59')]
+    ('15.00', '15.59'),
+    ('16.12', '16.27')]
 
 calculate_times(used_to_date, times)
 ```
