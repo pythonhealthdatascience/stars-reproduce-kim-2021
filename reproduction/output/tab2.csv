@@ -1,7 +1,7 @@
-"months","excess_dead","excess_emer"
-"6m",0,3
-"12m",0,0
-"24m",0,1
-"36m",21,14
-"48m",56,35
-"60m",108,56
+"Length of delay to invitation","Excess AAA deaths (excess emergency operations) in Model I1*","Attendance rate at primary scan","Excess AAA deaths (excess emergency operations) in Model I2*"
+"6m","0 (3)","65%","61 (32)"
+"12m","0 (0)","55%","127 (67)"
+"24m","0 (1)","45%","184 (96)"
+"36m","21 (14)",NA,NA
+"48m","56 (35)",NA,NA
+"60m","108 (56)",NA,NA

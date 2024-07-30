@@ -19,7 +19,12 @@ outputs = "../output"
 
 # Paths to output files
 paths <- list(
-  y65_s1= file.path(outputs, "output_65yo_scen1_1mil.csv"),
+  y65_s1_1k = file.path(outputs, "output_65yo_scen1_1k.csv"),
+  y65_s1_10k = file.path(outputs, "output_65yo_scen1_10k.csv"),
+  y65_s1_100k = file.path(outputs, "output_65yo_scen1_100k.csv"),
+  y65_s1_1m = file.path(outputs, "output_65yo_scen1_1mil.csv"),
+  y65_s1_2m = file.path(outputs, "output_65yo_scen1_2mil.csv"),
+  y65_s2 = file.path(outputs, "output_65yo_scen2.csv"),
   tab2 = file.path(outputs, "tab2.csv"),
   fig1 = file.path(outputs, "fig1.png")
 )
@@ -27,60 +32,196 @@ paths <- list(
 
 ```{r}
 # Import files
-y65_s1 <- read.csv(paths$y65_s1)
-
-# Preview 65 year old scenario 1 dataframe with 1 million people
-head(y65_s1, 3)
+y65_s1_1k <- read.csv(paths$y65_s1_1k)
+y65_s1_10k <- read.csv(paths$y65_s1_10k)
+y65_s1_100k <- read.csv(paths$y65_s1_100k)
+y65_s1_1m <- read.csv(paths$y65_s1_1m)
+y65_s1_2m <- read.csv(paths$y65_s1_2m)
+y65_s2 <- read.csv(paths$y65_s2)
 ```
 
-## Table 2
+## Functions
 
 ```{r}
-make_tab2 <- function(df, n_person) {
+make_tab2 <- function(df,
+                      n_person=1000000,
+                      groupvar="delayscr",
+                      decreasing=FALSE) {
   #' Create table 2 from the article
   #' 
   #' Create table with a count of excess deaths and excess emergency operations
   #' with increasing delays in the simulation.
   #' 
-  #' @param df Dataframe with results from the model
+  #' @param df Dataframe - results from the model
   #' @param n_person Integer - number of people in simulation
-  #' @return tab2 Dataframe with excess deaths and emergency operations
+  #' @param groupvar String - column with group names (i.e. colour in figure)
+  #' @param decreasing Boolean - whether to sort group decreasing
+  #' 
+  #' @return tab2 Dataframe - excess deaths and emergency operations
+  #' 
   #' @examples
   #' make_tab2(y65_s1_1m, 1000000)
 
-  full_tab2 <- df %>%
-    # Sort by length of delay (so first row is 0 delay)
-    arrange(delayscr) %>%
+  # Sort dataframe by grouping variable (not using dplyr as it didn't work
+  # when needed to parse the string column name with !!, and just did no sort)
+  df_sort <- df[order(df[,groupvar], decreasing=decreasing),]
+  rownames(df_sort) <- NULL
+
+  # Remaining processing steps...
+  tab2 <- df_sort %>%
     # Calculate the total number of emergency operations
     mutate(total_emer = emerevar + emeropen) %>%
-    select(delayscr, aaadead, total_emer) %>%
+    # Keep relevant columns
+    select(!!groupvar, aaadead, total_emer) %>%
     # Scale to number of deaths if population size was 279,798
     mutate(scaled_dead = round(279798*(aaadead/n_person)),
            scaled_emer = round(279798*(total_emer/n_person))) %>%
     # Calculate excess (compare to time 0, but set negative to 0)
     mutate(excess_dead = pmax(scaled_dead - first(scaled_dead), 0),
-           excess_emer = pmax(scaled_emer - first(scaled_emer), 0))
-
-  # Filter and format to match paper
-  tab2 <- full_tab2 %>%
-    # Just keep a subset of results
-    filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
-    # Convert time from years to months
-    mutate(months = paste0(delayscr*12, "m")) %>%
-    select(months, excess_dead, excess_emer)
+           excess_emer = pmax(scaled_emer - first(scaled_emer), 0)) %>%
+    # Combine (so its formatted like the article)
+    mutate(excess_dead_emer = paste0(excess_dead, " (", excess_emer, ")")) %>%
+    # Keep relevant columns
+    select(!!groupvar, excess_dead_emer)
 
   return(tab2)
 }
 ```
 
-Simulation 65yo scen1 with 1,000,000 people
+## Table 2
 
 ```{r}
-tab2_1m <- make_tab2(y65_s1, 1000000)
+tab2_delay <- make_tab2(y65_s1_1m) %>%
+  # Keep subset of results
+  filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(delayscr*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
 
-write.csv(tab2_1m, paths$tab2, row.names=FALSE)
+tab2_delay
+```
 
-tab2_1m
+```{r}
+# Just keep rows in scenario 2 where they had a 6 month delay
+y65_s2_delay <- y65_s2 %>% filter(delayscr==0.5)
+
+# Generate section of table 2
+tab2_attend <- make_tab2(y65_s2_delay, groupvar="attend", decreasing=TRUE) %>%
+  # Don't keep base result
+  filter(attend != 0.75) %>%
+  # Convert proportions to percentage
+  mutate(perc = paste0(attend*100, "%")) %>%
+  # Keep relevant columns
+  select(perc, excess_dead_emer)
+
+tab2_attend
+```
+
+Combine the delay and attend sections to produce table 2
+
+```{r}
+# Add empty rows to attendance and rename the results column to be distinct
+tab2_attend_fill <- rbind(tab2_attend, tab2_attend[0,][rep(NA, 3),]) %>%
+  rename(excess_dead_emer_attend = excess_dead_emer)
+
+# Combine into single dataframe
+tab2 <- cbind(tab2_delay, tab2_attend_fill )%>%
+  # Rename columns to be similar to paper
+  rename("Length of delay to invitation" = months,
+         "Excess AAA deaths (excess emergency operations) in Model I1*" = excess_dead_emer,
+         "Attendance rate at primary scan" = perc,
+         "Excess AAA deaths (excess emergency operations) in Model I2*" = excess_dead_emer_attend)
+
+# Reset index
+rownames(tab2) <- NULL
+
+# Save to csv
+write.csv(tab2,paths$tab2, row.names=FALSE)
+
+tab2
+```
+
+## Varying the number of people in the simulation for scenario 1
+
+1000 people
+
+```{r}
+res1k <- make_tab2(y65_s1_1k, n_person=1000) %>%
+  # Keep subset of results
+  filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(delayscr*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
+
+write.csv(res1k, "../../logbook/posts/2024_07_30/65y_s1_tab2_1k.csv")
+
+res1k
+```
+
+10,000 people
+
+```{r}
+res10k <- make_tab2(y65_s1_10k, n_person=10000) %>%
+  # Keep subset of results
+  filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(delayscr*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
+
+write.csv(res10k, "../../logbook/posts/2024_07_30/65y_s1_tab2_10k.csv")
+
+res10k
+```
+
+100,000 people
+
+```{r}
+res100k <- make_tab2(y65_s1_100k, n_person=100000) %>%
+  # Keep subset of results
+  filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(delayscr*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
+
+write.csv(res100k, "../../logbook/posts/2024_07_30/65y_s1_tab2_100k.csv")
+
+res100k
+```
+
+1,000,000 people
+
+```{r}
+res1m <- make_tab2(y65_s1_1m, n_person=1000000) %>%
+  # Keep subset of results
+  filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(delayscr*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
+
+write.csv(res1m, "../../logbook/posts/2024_07_30/65y_s1_tab2_1m.csv")
+
+res1m
+```
+
+2,000,000 people
+
+```{r}
+res2m <- make_tab2(y65_s1_2m, n_person=2000000) %>%
+  # Keep subset of results
+  filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(delayscr*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
+
+write.csv(res2m, "../../logbook/posts/2024_07_30/65y_s1_tab2_2m.csv")
+
+res2m
 ```
 
 ## Figure 1
@@ -88,7 +229,7 @@ tab2_1m
 Process results from model into a dataframe to use for plotting.
 
 ```{r}
-fig1_df <- y65_s1 %>%
+fig1_df <- y65_s1_1m %>%
   # Sort by length of delay (so first row is 0 delay)
   arrange(delayscr) %>%
   # Calculate the total number of emergency and elective operations
