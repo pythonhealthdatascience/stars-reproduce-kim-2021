@@ -2,6 +2,9 @@ project:
   type: website
   preview:
     browser: true
+  render:
+    - "*.qmd"
+    - "!process_results.Rmd"
 
 website:
   # Name of site in navbar
