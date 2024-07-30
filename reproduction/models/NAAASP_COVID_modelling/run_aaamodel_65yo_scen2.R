@@ -100,7 +100,7 @@ scen2summaryi<-data.frame(n,attend,delayscr,inv,scr,reinv,nonatt,monitor,dropout
 
 # Print time taken
 time_one_run <- Sys.time()
-diff_time <- difftime(time_one_run, start_time, units='mins'))
+diff_time <- difftime(time_one_run, start_time, units='mins')
 print(paste(c("Time for one run: ", diff_time), collapse=""))
 
 ## Attendance 65%
