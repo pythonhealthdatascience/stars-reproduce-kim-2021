@@ -1,0 +1,25 @@
+---
+title: "Day 3"
+author: "Amy Heather"
+date: "2024-07-30"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+TBC. Total time used: TBCh TBCm (TBC%).
+
+:::
+
+## 09.10-09.11, 9.20-9.22, 9.30-X
+
+Ran full script of `run_aaamodel-65yo_scen1.R` with 100,000 people and parallel. However, this evidently is still too few people, looking at the results.
+
+```{python}
+import pandas as pd
+
+pd.read_csv('tab2_100k.csv')
+```
+
+I pulled changes to files and renv onto remote computer, and then ran that with 1,000,000 people.
