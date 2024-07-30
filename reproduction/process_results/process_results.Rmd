@@ -15,13 +15,13 @@ y65_s1
 ```
 
 ```{r}
-tab2 <- res %>%
+tab2 <- y65_s1 %>%
+  arrange(delayscr) %>%
   mutate(excess_death = aaadead - first(aaadead),
          excess_op = emeropen - first(emeropen)) %>%
-  select(delayscr, excess_death, excess_op) %>%
-  arrange(delayscr)
+  select(delayscr, excess_death, excess_op)
 
-write.csv(tab2, "../../logbook/posts/2024_07_29/tab2.csv", row.names=FALSE)
+write.csv(tab2, "../../logbook/posts/2024_07_30/tab2_100k.csv", row.names=FALSE)
 
 tab2
 ```
