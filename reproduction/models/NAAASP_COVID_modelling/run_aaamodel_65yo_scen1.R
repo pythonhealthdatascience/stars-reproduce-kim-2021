@@ -43,9 +43,9 @@ v1distributions
 ## Set other quantities
 v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
-v0$method <- "serial"
+v0$method <- "parallel"
 
-v0$numberOfPersons <- 10000
+v0$numberOfPersons <- 100000
 
 ## Persons characteristics data.frame
 personData.screen <- data.frame(startAge = 65)
@@ -58,6 +58,9 @@ personData.screen <- data.frame(startAge = 65)
 ## (i) Invitation to 65 year olds delayed by 3 months up to 5y, in 3m increments
 ## (ii) All surveillance scans suspended by 3 months (but irrelevant here)
 ## (iii) Threshold for operation changed to 50cm for first 3 months (no elective ops), then revert to 55mm
+
+# Start timer
+start.time <- Sys.time()
 
 ## 3-month delay
 v1other$monitoringIntervalsSuspensionTime <- rep(0.25, length(v1other$monitoringIntervals))
@@ -92,6 +95,12 @@ nonaaadead<-Eventsandcosts(scen1.invite)[25,2]
 delayscr<-v1other$inviteToScreenSuspensionTime
 n<-v0$numberOfPersons
 scen1summaryi<-data.frame(n,delayscr,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
+
+# Stop timer
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+print(time.taken)
 
 ## 6-month delay 
 v1other$inviteToScreenSuspensionTime <- 0.5
