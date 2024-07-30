@@ -9,7 +9,7 @@ bibliography: ../quarto_site/references.bib
 
 <!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
 
-Of the X items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
+Of the 10 items in the scope, X% (X out of 10) were considered to be **successfully reproduced**.
 
 As cited throughout, images on this page are sourced from
 <!-- Add @reference -->
@@ -49,15 +49,15 @@ Interactive plot:
 success_interactive(times_df)
 ```
 
-## Figure X
+## Figure 1
 
-**Consensus: Not reproduced / Successfully reproduced**
+<!-- TODO: Add these
+**Consensus: Not reproduced / Successfully reproduced** -->
 
-Original (citation):
+Original (@kim_modelling_2021):
 
-<!-- Image, e.g.
-![](../original_study/fig2.jpg){width=80% fig-align="center" .lightbox} -->
+![](../original_study/fig1.PNG){width=80% fig-align="center" .lightbox}
 
 Reproduction:
 
-<!-- Image -->
+![](../reproduction/output/fig1.png){width=80% fig-align="center" .lightbox}
