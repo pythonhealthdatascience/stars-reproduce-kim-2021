@@ -5,23 +5,76 @@ author: "Amy Heather"
 
 This script assumes you have already run the scenarios in `models/` and saved those results to `.csv` files which we here then process to generate the results from the paper.
 
+## Set-up
+
 ```{r}
 library(dplyr)
 ```
 
 ```{r}
-y65_s1 <- read.csv("../output/output_65yo_scen1.csv")
-y65_s1
+# Path to output folder
+outputs = "../output"
+
+# Paths to output files
+paths <- list(
+  out_65_scen0 = file.path(outputs, "output_65yo_scen0.csv"),
+  out_65_scen1 = file.path(outputs, "output_65yo_scen1.csv"),
+  tab2 = file.path(outputs, "tab2.csv")
+)
+```
+
+```{r}
+# Import files
+y65_s0 <- read.csv(paths$out_65_scen0)
+y65_s1 <- read.csv(paths$out_65_scen1)
+```
+
+## Table 2
+
+```{r}
+scale_dead_s0 <- y65_s0 %>%
+  select(aaadead) %>%
+  mutate(scaled_dead = round(279798*(aaadead/1000000)))
+write.csv(scale_dead_s0, "../../logbook/posts/2024_07_30/dead_s0.csv", row.names=FALSE)
+```
+
+```{r}
+y65_s1 %>%
+  # Sort by length of delay (so first row is 0 delay)
+  arrange(delayscr) %>%
+  select(delayscr, aaadead) %>%
+  # Scale to number of deaths if population size was 279,798
+  mutate(scaled_dead = round(279798*(aaadead/1000000)),
+         scaled_emer = round(279798*(emerevar/1000000)))
+```
+
+```{r}
+scale_0 <- as.data.frame(t(head(y65_s1, 1))) %>%
+  rename(result = 1) %>%
+  mutate(scaled = round(279798*(result/1000000)))
+
+write.csv(scale_0, "../../logbook/posts/2024_07_30/scale_all_first_row.csv", row.names=TRUE)
+
+scale_0
 ```
 
 ```{r}
 tab2 <- y65_s1 %>%
   arrange(delayscr) %>%
+  select(delayscr, aaadead, emeropen) %>%
   mutate(excess_death = aaadead - first(aaadead),
-         excess_op = emeropen - first(emeropen)) %>%
-  select(delayscr, excess_death, excess_op)
+         excess_op = emeropen - first(emeropen))
+tab2
+```
 
-write.csv(tab2, "../../logbook/posts/2024_07_30/tab2_100k.csv", row.names=FALSE)
+```{r}
+write.csv(tab2, "../../logbook/posts/2024_07_30/tab2_1m.csv", row.names=FALSE)
 
 tab2
+```
+
+```{r}
+y65_s1 %>%
+  arrange(delayscr) %>%
+  select(delayscr, aaadead, elecopen, elecevar, emeropen, emerevar, rupt)
 ```

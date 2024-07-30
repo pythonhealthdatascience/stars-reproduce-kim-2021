@@ -12,7 +12,80 @@ TBC. Total time used: TBCh TBCm (TBC%).
 
 :::
 
-## 09.10-09.11, 9.20-9.22, 9.30-X
+## Timings below: Working on Table 2 and Figure 1
+
+Timings:
+
+* 09.10-09.11
+* 09.20-09.22
+* 09.30-09.40
+* 09.52-10.44
+* 10.51-10.56
+* 11.02-
+
+### GitHub repository dates
+
+I realised I had forgotten to check the GitHub repository dates v.s. paper dates. The article was published in June 2021. There are three commits after this point:
+
+* 19 July 2021 - "Adding SWAN models to repository" - relevant changes:
+  * `debug=F` and some error handling in `processPersons()` from `DES_Model.R`
+  * Changing from `v1other$aortaDiameterThresholds <- c(3.0, 4.5, 5.5)` to `v1other$aortaDiameterThresholds <- list(c(3.0, 4.5, 5.5))` in `input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R`
+  * Removing an associated `.xlsx` file for 202-05-11
+* 19 July 2021 - "Updating README.md"
+  * More detail in README (see below)
+* 12 February 2024 - "Fixed checks with vectorised elements, which was causing errors in R v4.3"
+  * Add .gitignore
+  * Modification in `Auxillary_Functions.R`
+  * Formatting in `DES_Model.R`
+
+Original:
+
+> The following directories are included:
+> 
+> /models      	-- R scripts that run the DES models for AAA screening
+> 
+> /models/Example    -- An example script to run the DES is contained here
+> 
+> /functions   	-- Contains the DES model code
+> 
+> /input 	     	-- Contains the input parameters and .csv files needed to run the DES models
+> 
+> /input/NAAASP_Men_2020-05-11    -- Updated parameters for AAA screening in men, updated as of 11/05/2020
+> 
+> /output      	-- Directory where Rdata output files are saved
+
+New:
+
+> The following directories are included:
+> 
+> * /models      	-- R scripts that run the DES models for AAA screening
+> 
+> * /models/Example    -- An example script to run the DES is contained here
+> 
+> * /models/SWAN  -- Screening Women for Abdominal Aortic Aneurysm (SWAN) model scripts. See our [Lancet publication](http://dx.doi.org/10.1016/S0140-6736(18)31222-4) and [HTA report](https://doi.org/10.3310/hta22430) for further details
+> 
+> * /models/NAAASP_COVID_modelling -- Scripts for modelling the impact of changes to Abdominal Aortic Aneurysm screening and treatment services in England during the COVID-19 pandemic. See our [PLOS ONE](https://doi.org/10.1371/journal.pone.0253327) publication for further details 
+> 
+> * /functions   	-- Contains the DES model code
+> 
+> * /input 	     	-- Contains the input parameters and .csv files needed to run the DES models
+> 
+> * /input/SWAN	-- Screening Women for Abdominal Aortic Aneurysm (SWAN) input parameters. See our [Lancet publication](http://dx.doi.org/10.1016/S0140-6736(18)31222-4) and [HTA report](https://doi.org/10.3310/hta22430) for further details
+> 
+> * /input/NAAASP_COVID_modelling -- Input parameters for modelling the impact of changes to Abdominal Aortic Aneurysm screening and treatment services in England during the COVID-19 pandemic. See our [PLOS ONE](https://doi.org/10.1371/journal.pone.0253327) publication for further details 
+> 
+> * /input/NAAASP_Men_2020-05-11    -- Updated parameters for AAA screening in men, updated as of 11/05/2020
+> 
+> * /output      	-- Directory where Rdata output files are saved
+
+::: {.callout-tip}
+## Reflection
+
+Given how far I have progressed with this, I won't go back to using the version as of publication, but we should bare this in mind later.
+
+:::
+
+### Incrementing number of people for 65yo scen1
 
 Ran full script of `run_aaamodel-65yo_scen1.R` with 100,000 people and parallel. However, this evidently is still too few people, looking at the results.
 
@@ -22,4 +95,152 @@ import pandas as pd
 pd.read_csv('tab2_100k.csv')
 ```
 
-I pulled changes to files and renv onto remote computer, and then ran that with 1,000,000 people.
+I pulled changes to files and renv onto remote computer, and then ran that with 1,000,000 people. To open and change file:
+
+```
+nano 'models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R'
+```
+
+To run:
+
+```
+Rscript -e "source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')"
+```
+
+Per run this took:
+
+* **3 minutes 46 seconds** on remote computer - so estimated 30 minutes in total.
+* **13 minutes 44 seconds** on local computer - so would be an estimated 1 hour 50 minutes in total
+
+Looking at the **convergence plots** (supplementary figure 1 and 2), 1 million people is nearing closer to convergence - but 2 million even more-so.
+
+```{python}
+import pandas as pd
+
+pd.read_csv('tab2_1m.csv')
+```
+
+### Scaling the numbers
+
+Looking at the result, I'm a little uncertain over the numbers we are getting. Looking at Table 2's caption, I'm thinking that perhaps I may need to scale these (as using the raw numbers from the simulation, we'd expect these to be less than the table). The caption mentions that the:
+
+* National male 65 year old cohort for England: n = 279,798
+* Expected AAA deaths over 30y in status quo = 2564
+* Expected emergency operations over 30y in status quo = 1041
+
+I tried scaling the results so that it reflects deaths expected if population were 279,798 (rather than 1 million). I scaled the results from `aaadead` and `emerevar` (e.g. `round(279798*(aaadead/1000000))`). The number of deaths looks similar to the expected from Table 2 (2564), but the number of emergency operations is very different.
+
+```{python}
+import pandas as pd
+
+pd.read_csv('scaled_1m.csv')
+```
+
+### Scenario 0
+
+I was wondering whether this should be compared against the result from the status quo script rather than from when delay is 0 (or whether that should just be the same thing anyway!).
+
+I repeated this for the results from scenario 0 (status quo):
+
+```
+scale_dead_s0 <- y65_s0 %>%
+  select(aaadead) %>%
+  mutate(scaled_dead = round(279798*(aaadead/1000000)))
+write.csv(scale_dead_s0, "../../logbook/posts/2024_07_30/dead_s0.csv", row.names=FALSE)
+```
+
+It came out exactly the same, so seems, no issue with using the 0 result from the run of `scen1`.
+
+```{python}
+import pandas as pd
+
+pd.read_csv('dead_s0.csv')
+```
+
+### Confirming which column gives number of operations
+
+Given that number of emergency operations looked very different, I was suspicious if I was using the correct column for this. It seems clear that deaths and ruptures are `aaadead` and `rupt` respectively, but I was less certain for surgeries (`elecopen` vs `elecevar`) (`emeropen` vs `emerevar`).
+
+I tried applying scaling to every column from row 1, to see which came out most similar.
+
+Based on the names, there are a few candidates for emergency operations: `emerevar`, `emeropen`, `reintemerevar` and `reintemeropen`. I'm not certain what the difference is between these, but starting with their scaled values:
+
+* `emerevar` - 242
+* `emeropen` - 790
+* `reintemerevar` - 935
+* `reintemeropen` - 183
+
+The expected number is 1041, so reintemerevar does appear closest.
+
+```{python}
+import pandas as pd
+
+pd.read_csv('scale_all_first_row.csv', index_col=0)
+```
+
+I also then looked into the repository, for any written explanation for each variable, or the code behind it, to help confirm which is appropriate. Looking across the repository, these columns are created within each of the scenario scripts. From `run_aaamodel_65yo_scen1.R`:
+
+```
+elecevar<-Eventsandcosts(scen1.invite)[14,2]
+elecopen<-Eventsandcosts(scen1.invite)[15,2]
+
+emerevar<-Eventsandcosts(scen1.invite)[17,2]
+emeropen<-Eventsandcosts(scen1.invite)[18,2]
+
+reintelecevar<-Eventsandcosts(scen1.invite)[21,2]
+reintemerevar<-Eventsandcosts(scen1.invite)[21,2]
+```
+
+Looking directly at the output of `Eventsandcosts(scen1.invite)` I can see that these match up with:
+
+* 14 - `electiveSurgeryEvar`
+* 15 - `electiveSurgeryOpen`
+* 17 - `emergencySurgeryEvar`
+* 18 - `emergencySurgeryOpen`
+* 21- `reinterventionAfterElectiveEvar`
+
+I'm not certain why `reintemerevar` uses 21 and not 22, as 22 is `reinterventionAfterEmergencyEvar`, but this appears to be the same in each of the scenario scripts.
+
+
+
+**TO DO THE BELOW**
+
+### Excess deaths
+
+I'm seeing some negatives (but the paper does not, and has several 0). I'm wondering if, as the result is "excess" deaths, perhaps I should only be counting when it was over 0 (and setting negative numbers to 0)?
+
+I also trimmed down the rows displayed for Table 2, to make the article.
+
+### Two million people
+
+I ran `run_aaamodel_65yo_scen1.R` again but with 2 million people, as that looks like a more appropriate figure from the convergence plots, but I wasn't certain if:
+
+* (a) the remote computer would manage it (process killed when ran with 10 million)
+* (b) how long it would take
+* (c) how much of a difference it would make
+
+RE: (a) - it did manage it. While running, I did note we are now getting very large objects from each run (e.g. `processPersons is about to return an object of size 4.5 Gb`)
+
+RE: (b) - the time for one run with 2 million people was **11 minutes 20 seconds**. For all eight runs, it took a total of 
+
+RE: (c) **TO ADD TO ADD**
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 243
+
+# Times from today
+times = [
+    ('09.10', '09.11'),
+    ('09.20', '09.22'),
+    ('09.30', '09.40'),
+    ('09.52', '09.57')]
+
+calculate_times(used_to_date, times)
+```
