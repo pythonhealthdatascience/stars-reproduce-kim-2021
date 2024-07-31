@@ -330,7 +330,7 @@ scen4dsummary
 # Print time taken
 time_all_runs <- Sys.time()
 diff_time_all <- difftime(time_all_runs, start_time, units='mins')
-print(paste(c("Time for one run: ", diff_time_all), collapse=""))
+print(paste(c("Time for all runs: ", diff_time_all), collapse=""))
 
 ###############################################################################
 # SAVE RESULTS
