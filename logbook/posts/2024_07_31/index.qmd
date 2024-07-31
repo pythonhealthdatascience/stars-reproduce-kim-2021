@@ -18,8 +18,8 @@ Update renv on remote machine, and then set surv scen2 to run.
 
 Timings:
 
-* First run: 14.850 minutes
-* All runs:
+* First run: 14.850 minutes = 891 seconds = 14 minutes 51 seconds
+* All runs: 99.651 minutes = 5979 seconds = 1 hour 39 minutes 39 seconds
 
 ## 09.20-09.58: Figure 2
 
@@ -43,6 +43,69 @@ times = [
 calculate_times(used_to_date, times)
 ```
 
+::: {.callout-tip}
+## Reflection
+
+Nice simple output from the model makes it easier to work with, as well as it being simply plots with fairly minimal manipulation.
+
+:::
+
+## 10.09-10.27: Figure 3 and Table 3
+
+Using surv scen 1 (as in figure legend and article), starting working on Figure 3 and part of Table 3, adapting my prior functions.
+
+I realised the output for scenario 1 doesn't include a result from delay 0, so I will need the outputs from the base scenario scen0 to create this plot. I have not yet generated these.
+
+This will also need different scaling. As in the Table 3 caption:
+
+* National surveillance cohort March 2020: n=15376
+* Expected AAA deaths in status quo: n=2152
+* Expected emergency operations in status quo: n=745
+
+## 10.56-11.02: Set surv scenario 0 to run on remote machine
+
+First had to push and pull changes, and then update surv scenario 0 R script (as we have done for others) (parallel, 1 million, csv, etc.)
+
+Timings:
+
+* 4.463 minutes = 268 seconds = 4 minutes 28 seconds
+
+## 11.06-11.07: Set surv scenario 3 to run on remote machine
+
+Timings:
+
+* First run: 13.303 minutes
+
+## 11.11-11.24: Returning to Figure 3 and a subset of Table 3
+
+With scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.
+
+Satisfied Figure 3 is reproduced at 11.24.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 539
+
+# Times from today
+times = [
+    ('09.12', '09.16'),
+    ('09.20', '09.58'),
+    ('10.09', '10.27'),
+    ('10.56', '11.02'),
+    ('11.06', '11.07'),
+    ('11.11', '11.24')]
+
+calculate_times(used_to_date, times)
+```
+
+## Untimed: R GitHub action
+
+Throughout the day, if I had down time waiting for scenarios to run and didn't otherwise have results needing to be converted to tables/figures, I attempted to fix the GitHub action for rendering the .Rmd. I had attempted this during [my last reproduction](https://github.com/pythonhealthdatascience/stars-reproduce-huang-2019), although don't time it as it is part of the set-up of the quarto site that I would have resolved during my test-run if I had done it in R (but the test-run was just in Python).
+
 ## Timings
 
 ```{python}
@@ -56,7 +119,11 @@ used_to_date = 539
 # Times from today
 times = [
     ('09.12', '09.16'),
-    ('09.20', '09.58')]
+    ('09.20', '09.58'),
+    ('10.09', '10.27'),
+    ('10.56', '11.02'),
+    ('11.06', '11.07'),
+    ('11.11', '11.24')]
 
 calculate_times(used_to_date, times)
 ```
