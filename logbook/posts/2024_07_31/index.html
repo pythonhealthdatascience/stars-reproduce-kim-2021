@@ -237,6 +237,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#run-surv-scenario-2" id="toc-run-surv-scenario-2" class="nav-link active" data-scroll-target="#run-surv-scenario-2">09.12-09.16: Run surv scenario 2</a></li>
   <li><a href="#figure-2" id="toc-figure-2" class="nav-link" data-scroll-target="#figure-2">09.20-09.58: Figure 2</a></li>
+  <li><a href="#figure-3-and-table-3" id="toc-figure-3-and-table-3" class="nav-link" data-scroll-target="#figure-3-and-table-3">10.09-10.27: Figure 3 and Table 3</a></li>
+  <li><a href="#set-surv-scenario-0-to-run-on-remote-machine" id="toc-set-surv-scenario-0-to-run-on-remote-machine" class="nav-link" data-scroll-target="#set-surv-scenario-0-to-run-on-remote-machine">10.56-11.02: Set surv scenario 0 to run on remote machine</a></li>
+  <li><a href="#set-surv-scenario-3-to-run-on-remote-machine" id="toc-set-surv-scenario-3-to-run-on-remote-machine" class="nav-link" data-scroll-target="#set-surv-scenario-3-to-run-on-remote-machine">11.06-11.07: Set surv scenario 3 to run on remote machine</a></li>
+  <li><a href="#returning-to-figure-3-and-a-subset-of-table-3" id="toc-returning-to-figure-3-and-a-subset-of-table-3" class="nav-link" data-scroll-target="#returning-to-figure-3-and-a-subset-of-table-3">11.11-11.24: Returning to Figure 3 and a subset of Table 3</a></li>
+  <li><a href="#untimed-r-github-action" id="toc-untimed-r-github-action" class="nav-link" data-scroll-target="#untimed-r-github-action">Untimed: R GitHub action</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_31/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -266,15 +271,15 @@ Note
 <p>Update renv on remote machine, and then set surv scen2 to run.</p>
 <p>Timings:</p>
 <ul>
-<li>First run: 14.850 minutes</li>
-<li>All runs:</li>
+<li>First run: 14.850 minutes = 891 seconds = 14 minutes 51 seconds</li>
+<li>All runs: 99.651 minutes = 5979 seconds = 1 hour 39 minutes 39 seconds</li>
 </ul>
 </section>
 <section id="figure-2" class="level2">
 <h2 class="anchored" data-anchor-id="figure-2">09.20-09.58: Figure 2</h2>
 <p>Fixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.</p>
 <p>Satisfied this is reproduced at 09.58.</p>
-<div id="45810c6b" class="cell" data-execution_count="1">
+<div id="c20f4d8b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -295,10 +300,51 @@ Time remaining: 1819m, or 30h 19m
 Used 24.2% of 40 hours max</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nice simple output from the model makes it easier to work with, as well as it being simply plots with fairly minimal manipulation.</p>
+</div>
+</div>
 </section>
-<section id="timings" class="level2">
-<h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="a9ea6416" class="cell" data-execution_count="2">
+<section id="figure-3-and-table-3" class="level2">
+<h2 class="anchored" data-anchor-id="figure-3-and-table-3">10.09-10.27: Figure 3 and Table 3</h2>
+<p>Using surv scen 1 (as in figure legend and article), starting working on Figure 3 and part of Table 3, adapting my prior functions.</p>
+<p>I realised the output for scenario 1 doesn’t include a result from delay 0, so I will need the outputs from the base scenario scen0 to create this plot. I have not yet generated these.</p>
+<p>This will also need different scaling. As in the Table 3 caption:</p>
+<ul>
+<li>National surveillance cohort March 2020: n=15376</li>
+<li>Expected AAA deaths in status quo: n=2152</li>
+<li>Expected emergency operations in status quo: n=745</li>
+</ul>
+</section>
+<section id="set-surv-scenario-0-to-run-on-remote-machine" class="level2">
+<h2 class="anchored" data-anchor-id="set-surv-scenario-0-to-run-on-remote-machine">10.56-11.02: Set surv scenario 0 to run on remote machine</h2>
+<p>First had to push and pull changes, and then update surv scenario 0 R script (as we have done for others) (parallel, 1 million, csv, etc.)</p>
+<p>Timings:</p>
+<ul>
+<li>4.463 minutes = 268 seconds = 4 minutes 28 seconds</li>
+</ul>
+</section>
+<section id="set-surv-scenario-3-to-run-on-remote-machine" class="level2">
+<h2 class="anchored" data-anchor-id="set-surv-scenario-3-to-run-on-remote-machine">11.06-11.07: Set surv scenario 3 to run on remote machine</h2>
+<p>Timings:</p>
+<ul>
+<li>First run: 13.303 minutes</li>
+</ul>
+</section>
+<section id="returning-to-figure-3-and-a-subset-of-table-3" class="level2">
+<h2 class="anchored" data-anchor-id="returning-to-figure-3-and-a-subset-of-table-3">11.11-11.24: Returning to Figure 3 and a subset of Table 3</h2>
+<p>With scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.</p>
+<p>Satisfied Figure 3 is reproduced at 11.24.</p>
+<div id="9d4f742a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -309,14 +355,50 @@ Used 24.2% of 40 hours max</code></pre>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.16'</span>),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.58'</span>)]</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.58'</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.09'</span>, <span class="st">'10.27'</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.56'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.06'</span>, <span class="st">'11.07'</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.11'</span>, <span class="st">'11.24'</span>)]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 42m, or 0h 42m
-Total used to date: 581m, or 9h 41m
-Time remaining: 1819m, or 30h 19m
-Used 24.2% of 40 hours max</code></pre>
+<pre><code>Time spent today: 80m, or 1h 20m
+Total used to date: 619m, or 10h 19m
+Time remaining: 1781m, or 29h 41m
+Used 25.8% of 40 hours max</code></pre>
+</div>
+</div>
+</section>
+<section id="untimed-r-github-action" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-r-github-action">Untimed: R GitHub action</h2>
+<p>Throughout the day, if I had down time waiting for scenarios to run and didn’t otherwise have results needing to be converted to tables/figures, I attempted to fix the GitHub action for rendering the .Rmd. I had attempted this during <a href="https://github.com/pythonhealthdatascience/stars-reproduce-huang-2019">my last reproduction</a>, although don’t time it as it is part of the set-up of the quarto site that I would have resolved during my test-run if I had done it in R (but the test-run was just in Python).</p>
+</section>
+<section id="timings" class="level2">
+<h2 class="anchored" data-anchor-id="timings">Timings</h2>
+<div id="8cec3d3e" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">539</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.16'</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.58'</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.09'</span>, <span class="st">'10.27'</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.56'</span>, <span class="st">'11.02'</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.06'</span>, <span class="st">'11.07'</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.11'</span>, <span class="st">'11.24'</span>)]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time spent today: 80m, or 1h 20m
+Total used to date: 619m, or 10h 19m
+Time remaining: 1781m, or 29h 41m
+Used 25.8% of 40 hours max</code></pre>
 </div>
 </div>
 

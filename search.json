@@ -105,6 +105,55 @@
     "text": "Figure 2\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
   },
   {
+    "objectID": "evaluation/reproduction_success.html#figure-3",
+    "href": "evaluation/reproduction_success.html#figure-3",
+    "title": "Reproduction success",
+    "section": "Figure 3",
+    "text": "Figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#in-text-result-1",
+    "href": "evaluation/reproduction_success.html#in-text-result-1",
+    "title": "Reproduction success",
+    "section": "In-text result 1",
+    "text": "In-text result 1\nIn bold are the items not captured in Table 3 or Figure 3:\n“Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, 2 (1% increase) are in the sub-group measuring 4.5–4.9 cm at the start of the pandemic and 7 (8% increase) in the sub-group measuring 5.0–5.4 cm; &lt;0.1 are in the 3.0–4.4 cm sub-group. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, 1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group. However, the remaining 22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase in AAA-related deaths in this sub-group.”\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-4",
+    "href": "evaluation/reproduction_success.html#figure-4",
+    "title": "Reproduction success",
+    "section": "Figure 4",
+    "text": "Figure 4\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-5",
+    "href": "evaluation/reproduction_success.html#figure-5",
+    "title": "Reproduction success",
+    "section": "Figure 5",
+    "text": "Figure 5\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#table-3",
+    "href": "evaluation/reproduction_success.html#table-3",
+    "title": "Reproduction success",
+    "section": "Table 3",
+    "text": "Table 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#supplementary-figure-3",
+    "href": "evaluation/reproduction_success.html#supplementary-figure-3",
+    "title": "Reproduction success",
+    "section": "Supplementary figure 3",
+    "text": "Supplementary figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#supplementary-table-2",
+    "href": "evaluation/reproduction_success.html#supplementary-table-2",
+    "title": "Reproduction success",
+    "section": "Supplementary table 2",
+    "text": "Supplementary table 2\nOriginal (Kim et al. (2021)):"
+  },
+  {
     "objectID": "evaluation/badges.html",
     "href": "evaluation/badges.html",
     "title": "Journal badges",
@@ -410,21 +459,56 @@
     "href": "logbook/posts/2024_07_31/index.html#run-surv-scenario-2",
     "title": "Day 4",
     "section": "09.12-09.16: Run surv scenario 2",
-    "text": "09.12-09.16: Run surv scenario 2\nUpdate renv on remote machine, and then set surv scen2 to run.\nTimings:\n\nFirst run: 14.850 minutes\nAll runs:"
+    "text": "09.12-09.16: Run surv scenario 2\nUpdate renv on remote machine, and then set surv scen2 to run.\nTimings:\n\nFirst run: 14.850 minutes = 891 seconds = 14 minutes 51 seconds\nAll runs: 99.651 minutes = 5979 seconds = 1 hour 39 minutes 39 seconds"
   },
   {
     "objectID": "logbook/posts/2024_07_31/index.html#figure-2",
     "href": "logbook/posts/2024_07_31/index.html#figure-2",
     "title": "Day 4",
     "section": "09.20-09.58: Figure 2",
-    "text": "09.20-09.58: Figure 2\nFixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.\nSatisfied this is reproduced at 09.58.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max"
+    "text": "09.20-09.58: Figure 2\nFixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.\nSatisfied this is reproduced at 09.58.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max\n\n\n\n\n\n\n\n\nReflection\n\n\n\nNice simple output from the model makes it easier to work with, as well as it being simply plots with fairly minimal manipulation."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
+    "href": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
+    "title": "Day 4",
+    "section": "10.09-10.27: Figure 3 and Table 3",
+    "text": "10.09-10.27: Figure 3 and Table 3\nUsing surv scen 1 (as in figure legend and article), starting working on Figure 3 and part of Table 3, adapting my prior functions.\nI realised the output for scenario 1 doesn’t include a result from delay 0, so I will need the outputs from the base scenario scen0 to create this plot. I have not yet generated these.\nThis will also need different scaling. As in the Table 3 caption:\n\nNational surveillance cohort March 2020: n=15376\nExpected AAA deaths in status quo: n=2152\nExpected emergency operations in status quo: n=745"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-surv-scenario-0-to-run-on-remote-machine",
+    "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-0-to-run-on-remote-machine",
+    "title": "Day 4",
+    "section": "10.56-11.02: Set surv scenario 0 to run on remote machine",
+    "text": "10.56-11.02: Set surv scenario 0 to run on remote machine\nFirst had to push and pull changes, and then update surv scenario 0 R script (as we have done for others) (parallel, 1 million, csv, etc.)\nTimings:\n\n4.463 minutes = 268 seconds = 4 minutes 28 seconds"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
+    "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
+    "title": "Day 4",
+    "section": "11.06-11.07: Set surv scenario 3 to run on remote machine",
+    "text": "11.06-11.07: Set surv scenario 3 to run on remote machine\nTimings:\n\nFirst run: 13.303 minutes"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
+    "href": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
+    "title": "Day 4",
+    "section": "11.11-11.24: Returning to Figure 3 and a subset of Table 3",
+    "text": "11.11-11.24: Returning to Figure 3 and a subset of Table 3\nWith scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.\nSatisfied Figure 3 is reproduced at 11.24.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 80m, or 1h 20m\nTotal used to date: 619m, or 10h 19m\nTime remaining: 1781m, or 29h 41m\nUsed 25.8% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#untimed-r-github-action",
+    "href": "logbook/posts/2024_07_31/index.html#untimed-r-github-action",
+    "title": "Day 4",
+    "section": "Untimed: R GitHub action",
+    "text": "Untimed: R GitHub action\nThroughout the day, if I had down time waiting for scenarios to run and didn’t otherwise have results needing to be converted to tables/figures, I attempted to fix the GitHub action for rendering the .Rmd. I had attempted this during my last reproduction, although don’t time it as it is part of the set-up of the quarto site that I would have resolved during my test-run if I had done it in R (but the test-run was just in Python)."
   },
   {
     "objectID": "logbook/posts/2024_07_31/index.html#timings",
     "href": "logbook/posts/2024_07_31/index.html#timings",
     "title": "Day 4",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 80m, or 1h 20m\nTotal used to date: 619m, or 10h 19m\nTime remaining: 1781m, or 29h 41m\nUsed 25.8% of 40 hours max"
   },
   {
     "objectID": "logbook/posts/2024_07_29/index.html",
