@@ -1,0 +1,62 @@
+---
+title: "Day 4"
+author: "Amy Heather"
+date: "2024-07-31"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+TBC. Total time used: TBCh TBCm (TBC%).
+
+:::
+
+## 09.12-09.16: Run surv scenario 2
+
+Update renv on remote machine, and then set surv scen2 to run.
+
+Timings:
+
+* First run: 14.850 minutes
+* All runs:
+
+## 09.20-09.58: Figure 2
+
+Fixed dimensions of Figure 1 so it doesn't change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.
+
+Satisfied this is reproduced at 09.58.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 539
+
+# Times from today
+times = [
+    ('09.12', '09.16'),
+    ('09.20', '09.58')]
+
+calculate_times(used_to_date, times)
+```
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 539
+
+# Times from today
+times = [
+    ('09.12', '09.16'),
+    ('09.20', '09.58')]
+
+calculate_times(used_to_date, times)
+```
