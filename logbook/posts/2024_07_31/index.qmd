@@ -46,7 +46,7 @@ calculate_times(used_to_date, times)
 ::: {.callout-tip}
 ## Reflection
 
-Nice simple output from the model makes it easier to work with, as well as it being simply plots with fairly minimal manipulation.
+Nice simple output from the model makes it easier to work with, as well as it being simple and similar plots with fairly minimal manipulation.
 
 :::
 
@@ -75,6 +75,7 @@ Timings:
 Timings:
 
 * First run: 13.303 minutes
+* Full run: 81.663 minutes
 
 ## 11.11-11.24: Returning to Figure 3 and a subset of Table 3
 
@@ -102,9 +103,90 @@ times = [
 calculate_times(used_to_date, times)
 ```
 
-## Untimed: R GitHub action
+## 11.31-11.55, 12.43-13.00: Working on Figure 4
 
-Throughout the day, if I had down time waiting for scenarios to run and didn't otherwise have results needing to be converted to tables/figures, I attempted to fix the GitHub action for rendering the .Rmd. I had attempted this during [my last reproduction](https://github.com/pythonhealthdatascience/stars-reproduce-huang-2019), although don't time it as it is part of the set-up of the quarto site that I would have resolved during my test-run if I had done it in R (but the test-run was just in Python).
+Surv_scen2 includes s2.1 and s2.2, as it varies the dropout rate for 1 year, or for 2 years. These are each in part of Table 3, and together in Figure 4.
+
+## 13.01-13.04: Set up surv scen 4a to run
+
+Timings:
+
+* First run: 
+* All runs: 35.390 min
+
+## 13.05-13.14: Resuming Table 3 and Figure 4
+
+Had to combine with scenario 0 again to give result when dropout rate is 0.
+
+Satisfied this is reproduced at 13.14.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 539
+
+# Times from today
+times = [
+    ('09.12', '09.16'),
+    ('09.20', '09.58'),
+    ('10.09', '10.27'),
+    ('10.56', '11.02'),
+    ('11.06', '11.07'),
+    ('11.11', '11.24'),
+    ('11.31', '11.55'),
+    ('12.43', '13.00'),
+    ('13.01', '13.04'),
+    ('13.05', '13.14')]
+
+calculate_times(used_to_date, times)
+```
+
+## 13.22-13.29: Subset of Table 3
+
+Created the scenario 2 sections of table 3 using my prior functions.
+
+::: {.callout-tip}
+## Reflection
+
+Given small size of these results dataframe, could have been handy to include them along with the code.
+
+:::
+
+## 13.32-13.40: In-text result 1
+
+The output from the model for Figure 3/Table 3 (`..._surv_scen1.R`) just returns total AAA deaths and not which sub-groups these belonged to.
+
+I couldn't spot any code in the repository that would extra this result by these sub-groups, so set about identifying how to do this.
+
+## 13.53-13.55: Set up surv scen4b to run
+
+Push and pull, and set to run.
+
+::: {.callout-tip}
+## Reflection
+
+The original study authors inclusion of seeds and parallel processing is great and really handy.
+
+:::
+
+## 13.56-14.00, 14.10-14.49, 16.07-X: Return to in-text result 1
+
+I ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.
+
+`scen1.surv$eventHistories` is a list where each item is a person from the simulation. We can get:
+
+* Whether they died - if "aaaDeath" is in their events (`scen1.surv$eventHistories[[i]]$screening$events`)
+* Their aaorta size - `scen1.surv$eventHistories[[i]]$screening$initialAortaSizeAsMeasured`
+
+I wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to `..._surv_scen1.R`, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.
+
+Timings:
+
+* One run: 13.346 minutes
+* All runs: 68.854 minutes
 
 ## Timings
 
@@ -123,7 +205,16 @@ times = [
     ('10.09', '10.27'),
     ('10.56', '11.02'),
     ('11.06', '11.07'),
-    ('11.11', '11.24')]
+    ('11.11', '11.24'),
+    ('11.31', '11.55'),
+    ('12.43', '13.00'),
+    ('13.01', '13.04'),
+    ('13.05', '13.14'),
+    ('13.22', '13.29'),
+    ('13.32', '13.40'),
+    ('13.53', '13.55'),
+    ('13.56', '14.00'),
+    ('14.10', '14.49')]
 
 calculate_times(used_to_date, times)
 ```
