@@ -18,17 +18,21 @@ library(tidyr)
 outputs = "../output"
 
 # Paths to output files
-paths <- list(
-  y65_s1_1k = file.path(outputs, "output_65yo_scen1_1k.csv"),
-  y65_s1_10k = file.path(outputs, "output_65yo_scen1_10k.csv"),
-  y65_s1_100k = file.path(outputs, "output_65yo_scen1_100k.csv"),
-  y65_s1_1m = file.path(outputs, "output_65yo_scen1_1mil.csv"),
-  y65_s1_2m = file.path(outputs, "output_65yo_scen1_2mil.csv"),
-  y65_s2 = file.path(outputs, "output_65yo_scen2.csv"),
-  tab2 = file.path(outputs, "tab2.csv"),
-  fig1 = file.path(outputs, "fig1.png"),
-  fig2 = file.path(outputs, "fig2.png")
+files <- list(
+  y65_s1_1k ="output_65yo_scen1_1k.csv",
+  y65_s1_10k = "output_65yo_scen1_10k.csv",
+  y65_s1_100k = "output_65yo_scen1_100k.csv",
+  y65_s1_1m = "output_65yo_scen1_1mil.csv",
+  y65_s1_2m = "output_65yo_scen1_2mil.csv",
+  y65_s2 = "output_65yo_scen2.csv",
+  surv_s1 = "output_surv_scen1.csv",
+  tab2 = "tab2.csv",
+  fig1 = "fig1.png",
+  fig2 = "fig2.png"
 )
+
+# Apply file.path to each element in list to create path to file in outputs
+paths <- lapply(files, function(filename) file.path(outputs, filename))
 ```
 
 ```{r}
@@ -39,29 +43,34 @@ y65_s1_100k <- read.csv(paths$y65_s1_100k)
 y65_s1_1m <- read.csv(paths$y65_s1_1m)
 y65_s1_2m <- read.csv(paths$y65_s1_2m)
 y65_s2 <- read.csv(paths$y65_s2)
+surv_s1 <- read.csv(paths$surv_s1)
 ```
 
 ## Functions
 
 ```{r}
-make_tab2 <- function(df,
-                      n_person=1000000,
-                      groupvar="delayscr",
-                      decreasing=FALSE) {
-  #' Create table 2 from the article
+make_tab <- function(df,
+                     scale_to,
+                     n_person=1000000,
+                     groupvar="delayscr",
+                     decreasing=FALSE) {
+  #' Create section of tables from the article
   #' 
   #' Create table with a count of excess deaths and excess emergency operations
   #' with increasing delays in the simulation.
   #' 
   #' @param df Dataframe - results from the model
-  #' @param n_person Integer - number of people in simulation
+  #' @param scale_to Integer - number of expected people in actual population,
+  #' which we scale our results to (so it reflects the number of outcomes
+  #' anticipated in a population of that size)
+  #' @param n_person Integer - number of people in the simulation model
   #' @param groupvar String - column with group names (i.e. colour in figure)
   #' @param decreasing Boolean - whether to sort group decreasing
   #' 
   #' @return tab2 Dataframe - excess deaths and emergency operations
   #' 
   #' @examples
-  #' make_tab2(y65_s1_1m, 1000000)
+  #' make_tab(y65_s1_1m, 1000000)
 
   # Sort dataframe by grouping variable (not using dplyr as it didn't work
   # when needed to parse the string column name with !!, and just did no sort)
@@ -74,9 +83,9 @@ make_tab2 <- function(df,
     mutate(total_emer = emerevar + emeropen) %>%
     # Keep relevant columns
     select(!!groupvar, aaadead, total_emer) %>%
-    # Scale to number of deaths if population size was 279,798
-    mutate(scaled_dead = round(279798*(aaadead/n_person)),
-           scaled_emer = round(279798*(total_emer/n_person))) %>%
+    # Scale to number of deaths if population size was as expected in real life
+    mutate(scaled_dead = round(scale_to*(aaadead/n_person)),
+           scaled_emer = round(scale_to*(total_emer/n_person))) %>%
     # Calculate excess (compare to time 0, but set negative to 0)
     mutate(excess_dead = pmax(scaled_dead - first(scaled_dead), 0),
            excess_emer = pmax(scaled_emer - first(scaled_emer), 0)) %>%
@@ -175,7 +184,7 @@ plot_fig <- function(df, xvar, xlab, savepath, xbreaks=NULL) {
 ## Table 2
 
 ```{r}
-tab2_delay <- make_tab2(y65_s1_1m) %>%
+tab2_delay <- make_tab(y65_s1_1m, scale_to=279798) %>%
   # Keep subset of results
   filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
@@ -191,7 +200,8 @@ tab2_delay
 y65_s2_delay <- y65_s2 %>% filter(delayscr==0.5)
 
 # Generate section of table 2
-tab2_attend <- make_tab2(y65_s2_delay, groupvar="attend", decreasing=TRUE) %>%
+tab2_attend <- make_tab(y65_s2_delay, scale_to=279798,
+                         groupvar="attend", decreasing=TRUE) %>%
   # Don't keep base result
   filter(attend != 0.75) %>%
   # Convert proportions to percentage
@@ -231,7 +241,7 @@ tab2
 1000 people
 
 ```{r}
-res1k <- make_tab2(y65_s1_1k, n_person=1000) %>%
+res1k <- make_tab(y65_s1_1k, scale_to=279798, n_person=1000) %>%
   # Keep subset of results
   filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
@@ -247,7 +257,7 @@ res1k
 10,000 people
 
 ```{r}
-res10k <- make_tab2(y65_s1_10k, n_person=10000) %>%
+res10k <- make_tab(y65_s1_10k, scale_to=279798, n_person=10000) %>%
   # Keep subset of results
   filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
@@ -263,7 +273,7 @@ res10k
 100,000 people
 
 ```{r}
-res100k <- make_tab2(y65_s1_100k, n_person=100000) %>%
+res100k <- make_tab(y65_s1_100k, scale_to=279798, n_person=100000) %>%
   # Keep subset of results
   filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
@@ -279,7 +289,7 @@ res100k
 1,000,000 people
 
 ```{r}
-res1m <- make_tab2(y65_s1_1m, n_person=1000000) %>%
+res1m <- make_tab(y65_s1_1m, scale_to=279798, n_person=1000000) %>%
   # Keep subset of results
   filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
@@ -295,7 +305,7 @@ res1m
 2,000,000 people
 
 ```{r}
-res2m <- make_tab2(y65_s1_2m, n_person=2000000) %>%
+res2m <- make_tab(y65_s1_2m, scale_to=279798, n_person=2000000) %>%
   # Keep subset of results
   filter(delayscr %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
@@ -306,6 +316,20 @@ res2m <- make_tab2(y65_s1_2m, n_person=2000000) %>%
 write.csv(res2m, "../../logbook/posts/2024_07_30/65y_s1_tab2_2m.csv", row.names=FALSE)
 
 res2m
+```
+
+## Table 3
+
+**TODO: Fix this - it won't be right as it's comparing against 3 month delay rather than 0 month delay - need to combine with surv_s0**
+
+```{r}
+make_tab(surv_s1, scale_to = 15376, groupvar = "period") %>%
+  # Keep subset of results
+  filter(period %in% c(0.5, 1, 2, 3, 4, 5)) %>%
+  # Convert time from years to months
+  mutate(months = paste0(period*12, "m")) %>%
+  # Keep relevant columns
+  select(months, excess_dead_emer)
 ```
 
 ## Figure 1
@@ -349,4 +373,10 @@ fig2_df
 # Create and save plot
 plot_fig(fig2_df, xvar="attend", xlab="Attendance at initial scan (%)",
          xbreaks=seq(45, 75, 5), savepath=paths$fig2)
+```
+
+## Figure 3
+
+```{r}
+surv_s1
 ```
