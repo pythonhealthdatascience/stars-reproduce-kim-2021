@@ -25,10 +25,16 @@ files <- list(
   y65_s1_1m = "output_65yo_scen1_1mil.csv",
   y65_s1_2m = "output_65yo_scen1_2mil.csv",
   y65_s2 = "output_65yo_scen2.csv",
+  surv_s0 = "output_surv_scen0.csv",
   surv_s1 = "output_surv_scen1.csv",
+  surv_s2 = "output_surv_scen2.csv",
   tab2 = "tab2.csv",
+  tab3 = "tab3.csv",
   fig1 = "fig1.png",
-  fig2 = "fig2.png"
+  fig2 = "fig2.png",
+  fig3 = "fig3.png",
+  fig4 = "fig4.png",
+  fig5 = "fig5.png"
 )
 
 # Apply file.path to each element in list to create path to file in outputs
@@ -37,13 +43,17 @@ paths <- lapply(files, function(filename) file.path(outputs, filename))
 
 ```{r}
 # Import files
+
 y65_s1_1k <- read.csv(paths$y65_s1_1k)
 y65_s1_10k <- read.csv(paths$y65_s1_10k)
 y65_s1_100k <- read.csv(paths$y65_s1_100k)
 y65_s1_1m <- read.csv(paths$y65_s1_1m)
 y65_s1_2m <- read.csv(paths$y65_s1_2m)
 y65_s2 <- read.csv(paths$y65_s2)
+
+surv_s0 <- read.csv(paths$surv_s0)
 surv_s1 <- read.csv(paths$surv_s1)
+surv_s2 <- read.csv(paths$surv_s2)
 ```
 
 ## Functions
@@ -320,16 +330,30 @@ res2m
 
 ## Table 3
 
-**TODO: Fix this - it won't be right as it's comparing against 3 month delay rather than 0 month delay - need to combine with surv_s0**
+```{r}
+# Define columns to keep (as don't all have same columns, so just filter to
+# desired - and alternative would've been to filter to common cols)
+cols = c("period", "elecevar", "elecopen", "emerevar", "emeropen",
+         "aaadead", "rupt")
+
+# Combine into single dataframe
+surv_s0_s1 <- rbind(
+  surv_s1 %>% select(any_of(cols)),
+  surv_s0 %>% mutate(period=0) %>% select(any_of(cols)))
+
+surv_s0_s1
+```
 
 ```{r}
-make_tab(surv_s1, scale_to = 15376, groupvar = "period") %>%
+tab3_s1 <- make_tab(surv_s0_s1, scale_to = 15376, groupvar = "period") %>%
   # Keep subset of results
   filter(period %in% c(0.5, 1, 2, 3, 4, 5)) %>%
   # Convert time from years to months
   mutate(months = paste0(period*12, "m")) %>%
   # Keep relevant columns
   select(months, excess_dead_emer)
+
+tab3_s1
 ```
 
 ## Figure 1
@@ -368,7 +392,6 @@ fig2_pct <- get_pct_change(df=y65_s2, ordervar="delayscr") %>%
 
 # Melt and label dataframe
 fig2_df <- prepare_fig_df(fig2_pct, pivotvar="attend")
-fig2_df
 
 # Create and save plot
 plot_fig(fig2_df, xvar="attend", xlab="Attendance at initial scan (%)",
@@ -378,5 +401,15 @@ plot_fig(fig2_df, xvar="attend", xlab="Attendance at initial scan (%)",
 ## Figure 3
 
 ```{r}
-surv_s1
+fig3_pct <- get_pct_change(df=surv_s0_s1, ordervar="period") %>%
+  # Drop years 4 and 5
+  filter(period <= 3) %>%
+  # Keep relevant columns
+  select(period, starts_with("pct_"))
+
+# Melt and label dataframe
+fig3_df <- prepare_fig_df(fig3_pct, pivotvar="period")
+
+plot_fig(fig3_df, xvar="period", xlab="Surveillance scan suspension (years)",
+         savepath=paths$fig3)
 ```
