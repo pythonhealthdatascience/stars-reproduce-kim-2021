@@ -28,7 +28,7 @@ time_list = [
     [581, 'Figure 2'],
     [619, 'Figure 3'],
     [np.nan, 'In-text result 1'],
-    [np.nan, 'Figure 4'],
+    [672, 'Figure 4'],
     [np.nan, 'Figure 5'],
     [np.nan, 'Table 3'],
     [np.nan, 'Supplementary figure 3'],
@@ -111,7 +111,7 @@ Original (@kim_modelling_2021):
 
 Reproduction:
 
-TBC
+![](../reproduction/output/fig4.png){width=80% fig-align="center" .lightbox}
 
 ## Figure 5
 
