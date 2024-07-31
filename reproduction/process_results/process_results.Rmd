@@ -388,6 +388,27 @@ surv_s0_s2_2y <- rbind(
   surv_s2[surv_s2$dropoutperiod == 2,] %>% select(any_of(cols)),
   surv_s0 %>% mutate(dropoutrate=0) %>% select(any_of(cols))
 )
+
+# Calculate excess deaths and emergency operations
+tab_surv_s2_1y <- make_tab(
+  surv_s0_s2_1y, scale_to = 15376, groupvar = "dropoutrate") %>%
+  rename(excess_dead_emer_s21 = excess_dead_emer)
+tab_surv_s2_2y <- make_tab(
+  surv_s0_s2_2y, scale_to = 15376, groupvar = "dropoutrate") %>%
+  rename(excess_dead_emer_s22 = excess_dead_emer)
+
+# Combine into single dataframe
+tab3_s2 <- mutate(tab_surv_s2_1y, tab_surv_s2_2y) %>%
+  # Remove result from dropoutrate 0
+  filter(dropoutrate != 0) %>%
+  # Convert dropout rate from proportion to percentage
+  mutate(dropoutrate = paste0(dropoutrate*100, "%")) %>%
+  # Rename columns to be similar to paper
+  rename("Dropout rate/ annum" = dropoutrate,
+         "Excess AAA deaths (excess emergency operations) in Model S2.1*" = excess_dead_emer_s21,
+         "Excess AAA deaths (excess emergency operations) in Model S2.2*" = excess_dead_emer_s22)
+
+tab3_s2
 ```
 
 ## Figure 1
