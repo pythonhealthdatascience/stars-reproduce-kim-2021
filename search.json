@@ -70,88 +70,95 @@
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59'),\n    ('16.12', '16.27'),\n    ('16.42', '16.55')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 296m, or 4h 56m\nTotal used to date: 539m, or 8h 59m\nTime remaining: 1861m, or 31h 1m\nUsed 22.5% of 40 hours max"
   },
   {
-    "objectID": "evaluation/reproduction_success.html",
-    "href": "evaluation/reproduction_success.html",
-    "title": "Reproduction success",
+    "objectID": "logbook/posts/2024_07_29/index.html",
+    "href": "logbook/posts/2024_07_29/index.html",
+    "title": "Day 2",
     "section": "",
-    "text": "Please note: This page is in-progress and has not yet been completed\nOf the 10 items in the scope, X% (X out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from Kim et al. (2021)\nNote: This items have been reproduced with simulations containing 1,000,000 people (instead of 10,000,000) as that is very computationally expensive. We felt that, with 1,000,000 people, results are reasonably similar enough to be satisified with reproduction, whilst still being feasible to run on our machines."
+    "text": "Note\n\n\n\nRead article, decided on scope, then began running model. Total time used: 4h 3m (10.1%)."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#time-to-completion",
-    "href": "evaluation/reproduction_success.html#time-to-completion",
-    "title": "Reproduction success",
-    "section": "Time-to-completion",
-    "text": "Time-to-completion\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
+    "objectID": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
+    "href": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
+    "title": "Day 2",
+    "section": "09.38-09.43: High entropy secret",
+    "text": "09.38-09.43: High entropy secret\nUpload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R on line 376:\n# SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)\nThis is not a concern - the link doesn’t work with that token for others.\nThe DOI for this article is https://doi.org/10.1016/j.jval.2015.03.1784."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#figure-1",
-    "href": "evaluation/reproduction_success.html#figure-1",
-    "title": "Reproduction success",
-    "section": "Figure 1",
-    "text": "Figure 1\n\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+    "objectID": "logbook/posts/2024_07_29/index.html#correct-file-paths",
+    "href": "logbook/posts/2024_07_29/index.html#correct-file-paths",
+    "title": "Day 2",
+    "section": "09.53-09.55: Correct file paths",
+    "text": "09.53-09.55: Correct file paths\nFor study_publication.qmd."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#table-2",
-    "href": "evaluation/reproduction_success.html#table-2",
-    "title": "Reproduction success",
-    "section": "Table 2",
-    "text": "Table 2\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\n\n\n\n\n\n\n\n\n\nLength of delay to invitation\nExcess AAA deaths (excess emergency operations) in Model I1*\nAttendance rate at primary scan\nExcess AAA deaths (excess emergency operations) in Model I2*\n\n\n\n\n0\n6m\n0 (3)\n65%\n61 (32)\n\n\n1\n12m\n0 (0)\n55%\n127 (67)\n\n\n2\n24m\n0 (1)\n45%\n184 (96)\n\n\n3\n36m\n21 (14)\nNaN\nNaN\n\n\n4\n48m\n56 (35)\nNaN\nNaN\n\n\n5\n60m\n108 (56)\nNaN\nNaN"
+    "objectID": "logbook/posts/2024_07_29/index.html#read-journal-article",
+    "href": "logbook/posts/2024_07_29/index.html#read-journal-article",
+    "title": "Day 2",
+    "section": "10.05-10.15, 10.29-10.45: Read journal article",
+    "text": "10.05-10.15, 10.29-10.45: Read journal article\nUses a previously developed and validated model described in:\n\nGlover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. https://doi.org/10.1177/0272989X17753380 PMID: 31665967\nThompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al. Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. https://doi.org/10.3310/hta22430 PMID: 30132754\n\nSome notes on scope (beyond obvious tables/figures):\n\nIn-text result for Surveillance cohort: Scan suspension (re: breakdown of deaths by type) are not captured in tables/figures\nSupplementary figure 1 and 2 are more like methods than results? Are referenced in methods.\nIn-text results for Surveillance cohort: Drop-out are captured in Table 3 and Figure 4\nAlso captured are Surveillance cohort: Threshold for surgery\nSupplementary figure 3 and supplementary table 2 are definitely in scope"
   },
   {
-    "objectID": "evaluation/reproduction_success.html#figure-2",
-    "href": "evaluation/reproduction_success.html#figure-2",
-    "title": "Reproduction success",
-    "section": "Figure 2",
-    "text": "Figure 2\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+    "objectID": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
+    "href": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
+    "title": "Day 2",
+    "section": "10.46-11.02: Define scope for reproduction",
+    "text": "10.46-11.02: Define scope for reproduction\nI described my interpretation of scope within scope.qmd."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#figure-3",
-    "href": "evaluation/reproduction_success.html#figure-3",
-    "title": "Reproduction success",
-    "section": "Figure 3",
-    "text": "Figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+    "objectID": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
+    "href": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
+    "title": "Day 2",
+    "section": "11.09-11.13: Discussed scope with Tom",
+    "text": "11.09-11.13: Discussed scope with Tom\nLooked over and happy with scope. He then did another look over the paper, but confirmed no further items."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#in-text-result-1",
-    "href": "evaluation/reproduction_success.html#in-text-result-1",
-    "title": "Reproduction success",
-    "section": "In-text result 1",
-    "text": "In-text result 1\nIn bold are the items not captured in Table 3 or Figure 3:\n“Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, 2 (1% increase) are in the sub-group measuring 4.5–4.9 cm at the start of the pandemic and 7 (8% increase) in the sub-group measuring 5.0–5.4 cm; &lt;0.1 are in the 3.0–4.4 cm sub-group. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, 1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group. However, the remaining 22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase in AAA-related deaths in this sub-group.”\nReproduction:\nTBC"
+    "objectID": "logbook/posts/2024_07_29/index.html#archive-scope",
+    "href": "logbook/posts/2024_07_29/index.html#archive-scope",
+    "title": "Day 2",
+    "section": "11.26-11.32 : Archive scope",
+    "text": "11.26-11.32 : Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#figure-4",
-    "href": "evaluation/reproduction_success.html#figure-4",
-    "title": "Reproduction success",
-    "section": "Figure 4",
-    "text": "Figure 4\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+    "objectID": "logbook/posts/2024_07_29/index.html#look-over-code",
+    "href": "logbook/posts/2024_07_29/index.html#look-over-code",
+    "title": "Day 2",
+    "section": "12.50-12.56: Look over code",
+    "text": "12.50-12.56: Look over code\nREADME:\n\nDirects to NAASP_DES_Example_Script.R which provides walk through example for running model.\nNotes the repository contains code for two papers - we are interested in NAAASP_COVID (rather than SWAN)\n\nCopied the items relevant to NAAASP COVID into reproduction/. As README states results are saved to output/, create a placeholder output folder\nThe models/ folder seems to contain scripts to run each of the scenarios."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#figure-5",
-    "href": "evaluation/reproduction_success.html#figure-5",
-    "title": "Reproduction success",
-    "section": "Figure 5",
-    "text": "Figure 5\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+    "objectID": "logbook/posts/2024_07_29/index.html#set-up-environment",
+    "href": "logbook/posts/2024_07_29/index.html#set-up-environment",
+    "title": "Day 2",
+    "section": "12.57-13.04: Set up environment",
+    "text": "12.57-13.04: Set up environment\nBased on experience trying to backdate R and packages in my previous reproduction (Huang et al. 2019), I decided that this time I would start with the latest R and packages, and then backdate if its not working.\nThis means using R 4.4.1 (paper mentions 3.6.3).\nAt the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.\nTitle: Computational reproducibility assessment of Kim et al. 2019\nDepends: \n    R\nImports:\n    Rcpp,\n    expm,\n    msm,\n    foreach,\n    iterators,\n    doParallel\nRan:\nrenv::init(bare=TRUE)\nrenv::install()\nrenv::snapshot()"
   },
   {
-    "objectID": "evaluation/reproduction_success.html#table-3",
-    "href": "evaluation/reproduction_success.html#table-3",
-    "title": "Reproduction success",
-    "section": "Table 3",
-    "text": "Table 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+    "objectID": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
+    "href": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
+    "title": "Day 2",
+    "section": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model",
+    "text": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model\nTried running run_aaamodel_65yo_scen0.R. Had error:\nthis.dir &lt;- dirname(parent.frame(2)$ofile)\nError in dirname(parent.frame(2)$ofile) : \n  a character vector argument expected\nRealised this has a comment above stating:\n# Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)\nSo instead tried running with Source - this worked, up until this line:\n&gt; v1other\npostSurgeryInitialPeriod = 0.08213552 \ntimeToMonitoringFollowingOpenSurgery = 0.1149897 \ntimeBetweenMonitoringFollowingEvarSurgery = 1 \nzeroGrowthDiameterThreshold = 2 \nbaselineDiameters = data.frame with 2 columns:\n  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...\n  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...\nprevalenceThreshold = 3 \naortaDiameterThresholds = list: =Error in cat(names(element)[i], \"=\", element[[i]], \" \", sep = \"\") : \n  argument 3 (type 'list') cannot be handled by 'cat'\nv1other was created when we called source(\"input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R\"). Looking at that script, aortaDiameterThresholds are set as v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). Viewing the object rather than printing it with View(v1other), I can see that the thresholds are stored, but its just a list within a list.\nI tried commenting the print statement in run_aaamodel... but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to c(3.0, 4.5, 5.5) (removing list()).\nThis then ran without issue. As it ran, I can see it sets a random seed (set.seed(3210)). As per usual, paused timing while it ran.\nSpent a long while on processPersons() (scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)). At 13.48 (with model running since 13.13), I could see these would likely be slow models to run, so logged into the remote computer, cloned the GitHub repository there, and ran the next script starting at 13.55, run_aaamodel_65yo_scen0.R. To do so, after cloning, I ran:\ncd stars-reproduce-kim-2021/reproduction\nRscript -e \"renv::restore()\"\nRscript -e \"source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')\"\n\n\n\n\n\n\nReflection\n\n\n\nIncluding the expected run time would be handy, as I assume this is working fine, but that’s working on the assumption that these models take a long time to run (which I’m not sure yet whether that is the case or not).\nIn this case, as I later found out they used HPC, it would’ve been beneficial to mention that also!\n\n\nI checked the run_aaamodel... scripts and realised that in each, none were using parallel processing (as v0$method &lt;- \"serial\").\nLooking at the DES_Model code I can see the example of processPersons() allows three possible inputs:\n\n“serial”\n“parallel” (which uses parallel)\n“foreach” (which uses doParallel)\n\nThe function psa() is the same, but also includes “parallelBatches” alongside “foreach”. However, the consequence of those inputs is to return an error that the method has not been implemented for psa. Hence, psa can only run with “serial” or “parallel”. Likewise for psaAboveDiagnosisThreshold().\nAt 14.16 (so having let the model run since 13.55, for 21 minutes), I cancelled the run on the remote computer, and altered the scenario script to set v0$method &lt;- \"parallel\". Then set that running, starting at 14.21. At this moment, the first scenario was still running on my machine (since 13.13, so for apx. 1h 10m now).\nAt 14.39, I noticed the parallel model said Killed. In case I might have accidentally done this, I just set it to rerun again. However, at 14.52, it showed as Killed again. Upon Googling, I can see this message occurs when you run out of memory - which perhaps, might be why all were set to run sequentially, if its too intensive to run in parallel. I switched it back to “serial”.\nHowever, the model still running on my machine has now been going for 1h 42m. Having looked in the repository and article for any indication of runtime or requirement of HPC, I’ve yet to find anything. I tried looking now at the article first describing the model (https://doi.org/10.1177/0272989X17753380). In this article, they state the run time:\nHowever, the computational requirements of the DES were extensive, given the number of individuals needed to reduce sampling variation to an acceptable level and characterizing uncertainty through PSA. Run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered computer.\nIn this case, “each scenario model is run for 10 million hypothetical individuals randomly drawn with replacement from the distribution of the relevant population. The models are run for a period of 30 years”. However, as there is no mention of performing probabilistic sensitivity analysis iterations in the article, we could expect this to be quicker than that (although note it is 10m patients instead of 500k).\nDiscussed with Tom and agreed to:\n\n\nTry and just run it with very few people, just so we can see if the model is working, and whether we could get similar results with fewer people in the model\n\n\nTry and run it sequentially on the remote computer overnight"
   },
   {
-    "objectID": "evaluation/reproduction_success.html#supplementary-figure-3",
-    "href": "evaluation/reproduction_success.html#supplementary-figure-3",
-    "title": "Reproduction success",
-    "section": "Supplementary figure 3",
-    "text": "Supplementary figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+    "objectID": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
+    "href": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
+    "title": "Day 2",
+    "section": "15.09-15.42: Running the model with fewer people",
+    "text": "15.09-15.42: Running the model with fewer people\nDES_Input_Definitions states that the number of people to run through the DES is defined by v0$numberOfPersons, default 1000. Can see in run_aaamodel_65yo_scen0.R that it has been set to v0$numberOfPersons &lt;- 1e7. I replaced this with v0$numberOfPersons &lt;- 1000. This finished almost immediately, then hit an error:\n&gt; TableOfCounts(scen0.invite, v1other)\nError in \"screen\" %in% eventHistory$events && !(\"nonvisualization\" %in%  : \n  'length = 3' in coercion to 'logical(1)'\nTableOfCounts() is from DES_Model.R. Working through each line of the function, I found that the error is occurring for scre_dropout=countDropouts(result, v1other).\nIn this function, personsInfo (result, ie. scen0.invite) is used. It loops through the EventHistories for each person: for (i in 1:length(personsInfo$eventHistories)). It checks whether their events:\n\nIncludes “screen” (\"screen\" %in% eventHistory$events)\nDoes not include “nonvisualization” (!(\"nonvisualization\" %in% eventHistory$events))\nIf the measured size for screen is greater than or equal to v1other$aortaDiameterThresholds[[1]]\n\nThe error occurs for that final comparison. That is the item we had to change earlier to be able to get the model to run. I tried setting that back to being a list within a list - v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). However, I realised that caused the issue, and that in fact, run_aaamodel_65yo_scen0.R is changing it to list() again before running the model:\n## Change v1other$aortaDiameterThresholds to be a list (new syntax)\nv1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nIf I comment out that line, an error occurs. Hence, it seems we require it to be in a list within a list for the model, but just a list for TableOfCounts(). Looking at all the repository code, the reason becomes apparent in models/NAASP_COVID_modelling/run_aaamodel_surv_scen3.R, when multiple aaortaDiameterThresholds are provided.\nAs such, I set about modifying the later processing functions so that they are able to use this list() format:\n\ninput/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R: returned back to list(c()), but then changed run_aaamodel_65yo_scen0.R to not add an additional list() over the top.\nDES_Model.R: countDropouts(): &gt;= v1other$aortaDiameterThresholds[[1]] to &gt;= v1other$aortaDiameterThresholds[[1]][1]\n\nThe whole script then ran successfully!\n\n\n\n\n\n\nReflection\n\n\n\nThese errors will likely be the result of having modified code but no re-run everything from scratch (unsurprising given the anticipated model run times)."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#supplementary-table-2",
-    "href": "evaluation/reproduction_success.html#supplementary-table-2",
-    "title": "Reproduction success",
-    "section": "Supplementary table 2",
-    "text": "Supplementary table 2\nOriginal (Kim et al. (2021)):"
+    "objectID": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
+    "href": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
+    "title": "Day 2",
+    "section": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run",
+    "text": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run\nThat R script ran the status quo (I0) scenario for invited 65 year olds. The parameters from Table 1 are below, along with their location in the data from DES_Input_Definitions.xlsx\n\nAttendance 75% - v2$probOfAttendScreen\nDrop-out rate/annum: 6% - v2$rateOfDropoutFromMonitoring\nThreshold for surgery: 5.5cm - v1other$aortaDiameterThresholds[[1]][3] (“These are the aortic cut-points where surveillance intervals change. Note, the first cut-point must always relate to the aortic size where individuals enter the AAA surveillance programme (e.g. 3.0cm). The last cut-point must always relate to the aortic size where surgery is to be considered (e.g. 5.5cm)”)\n\nLooking at the next R script, run_aaamodel_65yo_scen1.R, I can see that they repeat the model multiple times to get results from varying parameters of that scenario. That script is scenario 1 which, from Table 1, we can see delays invitation from 3 months to 5 years.\nI switched to trying that script, but again first setting:\n\n# v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nv0$numberOfPersons &lt;- 1000\n\nThis ran eight “scenarios” within the script. The output dataframe scen1summaryi showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n1000.csv')\nres[['delayscr', 'aaadead']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\n\n\n\n\n7\n0.00\n7\n\n\n0\n0.25\n7\n\n\n1\n0.50\n7\n\n\n2\n1.00\n7\n\n\n3\n2.00\n7\n\n\n4\n3.00\n7\n\n\n5\n4.00\n8\n\n\n6\n5.00\n8\n\n\n\n\n\n\n\nI increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n10000.csv')\nres[['delayscr', 'aaadead', 'emeropen']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\nemeropen\n\n\n\n\n7\n0.00\n96\n33\n\n\n0\n0.25\n96\n33\n\n\n1\n0.50\n98\n32\n\n\n2\n1.00\n96\n31\n\n\n3\n2.00\n98\n31\n\n\n4\n3.00\n98\n32\n\n\n5\n4.00\n101\n32\n\n\n6\n5.00\n103\n32\n\n\n\n\n\n\n\nEach result here relates to Table 2 (i.e. excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.\nI created an .Rmd file to start processing the results. This required the addition of rmarkdown to the renv. I add dplyr for processing the results. Looking at excess deaths, we can see the anticipated pattern, although for emergency operations, the numbers are still too small that they fluctuate, and emergency operations goes in the wrong direction.\n\nimport pandas as pd\n\npd.read_csv('tab2.csv')\n\n\n\n\n\n\n\n\ndelayscr\nexcess_death\nexcess_op\n\n\n\n\n0\n0.00\n0\n0\n\n\n1\n0.25\n0\n0\n\n\n2\n0.50\n2\n-1\n\n\n3\n1.00\n0\n-2\n\n\n4\n2.00\n2\n-2\n\n\n5\n3.00\n2\n-1\n\n\n6\n4.00\n5\n-1\n\n\n7\n5.00\n7\n-1\n\n\n\n\n\n\n\nI tried upping it to 100,000 people, and recorded the time with different settings:\n\n“serial” - 5 minutes 7 seconds\n“parallel” - 2 minutes 12 seconds - so estimated 17 and a half minutes in total\n“foreach” - not possible, Error in processPersons(v0, v1other, v2, personData.screen) : v0$randomSeed does not yet work with v0$method=\"foreach\"\n\nFor each of these, about 45 seconds is results processing at the end (e.g. Eventsandcosts())\nWhilst these ran, I looked through the repository to try and spot whether they had functions to generate the plots from the article. I found plotting functions in DES_Model.R, shiny_output_functions.R and NAAASP_DES_Example_Script.R, though none relevant to the article, so it appears I’ll need to write the code to do that processing."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#timings",
+    "href": "logbook/posts/2024_07_29/index.html#timings",
+    "title": "Day 2",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13'),\n    ('11.26', '11.32'),\n    ('12.50', '12.56'),\n    ('12.57', '13.04'),\n    ('13.05', '13.13'), \n    ('13.48', '13.55'),\n    ('14.07', '14.21'),\n    ('14.53', '15.08'),\n    ('15.09', '15.42'),\n    ('15.43', '16.00'),\n    ('16.03', '16.43'),\n    ('16.45', '16.47'),\n    ('16.53', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 211m, or 3h 31m\nTotal used to date: 243m, or 4h 3m\nTime remaining: 2157m, or 35h 57m\nUsed 10.1% of 40 hours max"
   },
   {
     "objectID": "evaluation/badges.html",
@@ -448,6 +455,90 @@
     "text": "TBC"
   },
   {
+    "objectID": "evaluation/reproduction_success.html",
+    "href": "evaluation/reproduction_success.html",
+    "title": "Reproduction success",
+    "section": "",
+    "text": "Please note: This page is in-progress and has not yet been completed\nOf the 10 items in the scope, X% (X out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from Kim et al. (2021)\nNote: This items have been reproduced with simulations containing 1,000,000 people (instead of 10,000,000) as that is very computationally expensive. We felt that, with 1,000,000 people, results are reasonably similar enough to be satisified with reproduction, whilst still being feasible to run on our machines."
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#time-to-completion",
+    "href": "evaluation/reproduction_success.html#time-to-completion",
+    "title": "Reproduction success",
+    "section": "Time-to-completion",
+    "text": "Time-to-completion\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-1",
+    "href": "evaluation/reproduction_success.html#figure-1",
+    "title": "Reproduction success",
+    "section": "Figure 1",
+    "text": "Figure 1\n\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#table-2",
+    "href": "evaluation/reproduction_success.html#table-2",
+    "title": "Reproduction success",
+    "section": "Table 2",
+    "text": "Table 2\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\n\n\n\n\n\n\n\n\n\nLength of delay to invitation\nExcess AAA deaths (excess emergency operations) in Model I1*\nAttendance rate at primary scan\nExcess AAA deaths (excess emergency operations) in Model I2*\n\n\n\n\n0\n6m\n0 (3)\n65%\n61 (32)\n\n\n1\n12m\n0 (0)\n55%\n127 (67)\n\n\n2\n24m\n0 (1)\n45%\n184 (96)\n\n\n3\n36m\n21 (14)\nNaN\nNaN\n\n\n4\n48m\n56 (35)\nNaN\nNaN\n\n\n5\n60m\n108 (56)\nNaN\nNaN"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-2",
+    "href": "evaluation/reproduction_success.html#figure-2",
+    "title": "Reproduction success",
+    "section": "Figure 2",
+    "text": "Figure 2\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-3",
+    "href": "evaluation/reproduction_success.html#figure-3",
+    "title": "Reproduction success",
+    "section": "Figure 3",
+    "text": "Figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#in-text-result-1",
+    "href": "evaluation/reproduction_success.html#in-text-result-1",
+    "title": "Reproduction success",
+    "section": "In-text result 1",
+    "text": "In-text result 1\nIn bold are the items not captured in Table 3 or Figure 3:\n“Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, 2 (1% increase) are in the sub-group measuring 4.5–4.9 cm at the start of the pandemic and 7 (8% increase) in the sub-group measuring 5.0–5.4 cm; &lt;0.1 are in the 3.0–4.4 cm sub-group. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, 1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group. However, the remaining 22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase in AAA-related deaths in this sub-group.”\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-4",
+    "href": "evaluation/reproduction_success.html#figure-4",
+    "title": "Reproduction success",
+    "section": "Figure 4",
+    "text": "Figure 4\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-5",
+    "href": "evaluation/reproduction_success.html#figure-5",
+    "title": "Reproduction success",
+    "section": "Figure 5",
+    "text": "Figure 5\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#table-3",
+    "href": "evaluation/reproduction_success.html#table-3",
+    "title": "Reproduction success",
+    "section": "Table 3",
+    "text": "Table 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#supplementary-figure-3",
+    "href": "evaluation/reproduction_success.html#supplementary-figure-3",
+    "title": "Reproduction success",
+    "section": "Supplementary figure 3",
+    "text": "Supplementary figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:\nTBC"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#supplementary-table-2",
+    "href": "evaluation/reproduction_success.html#supplementary-table-2",
+    "title": "Reproduction success",
+    "section": "Supplementary table 2",
+    "text": "Supplementary table 2\nOriginal (Kim et al. (2021)):"
+  },
+  {
     "objectID": "logbook/posts/2024_07_31/index.html",
     "href": "logbook/posts/2024_07_31/index.html",
     "title": "Day 4",
@@ -466,7 +557,7 @@
     "href": "logbook/posts/2024_07_31/index.html#figure-2",
     "title": "Day 4",
     "section": "09.20-09.58: Figure 2",
-    "text": "09.20-09.58: Figure 2\nFixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.\nSatisfied this is reproduced at 09.58.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max\n\n\n\n\n\n\n\n\nReflection\n\n\n\nNice simple output from the model makes it easier to work with, as well as it being simply plots with fairly minimal manipulation."
+    "text": "09.20-09.58: Figure 2\nFixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.\nSatisfied this is reproduced at 09.58.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max\n\n\n\n\n\n\n\n\nReflection\n\n\n\nNice simple output from the model makes it easier to work with, as well as it being simple and similar plots with fairly minimal manipulation."
   },
   {
     "objectID": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
@@ -487,7 +578,7 @@
     "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
     "title": "Day 4",
     "section": "11.06-11.07: Set surv scenario 3 to run on remote machine",
-    "text": "11.06-11.07: Set surv scenario 3 to run on remote machine\nTimings:\n\nFirst run: 13.303 minutes"
+    "text": "11.06-11.07: Set surv scenario 3 to run on remote machine\nTimings:\n\nFirst run: 13.303 minutes\nFull run: 81.663 minutes"
   },
   {
     "objectID": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
@@ -497,108 +588,59 @@
     "text": "11.11-11.24: Returning to Figure 3 and a subset of Table 3\nWith scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.\nSatisfied Figure 3 is reproduced at 11.24.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 80m, or 1h 20m\nTotal used to date: 619m, or 10h 19m\nTime remaining: 1781m, or 29h 41m\nUsed 25.8% of 40 hours max"
   },
   {
-    "objectID": "logbook/posts/2024_07_31/index.html#untimed-r-github-action",
-    "href": "logbook/posts/2024_07_31/index.html#untimed-r-github-action",
+    "objectID": "logbook/posts/2024_07_31/index.html#working-on-figure-4",
+    "href": "logbook/posts/2024_07_31/index.html#working-on-figure-4",
     "title": "Day 4",
-    "section": "Untimed: R GitHub action",
-    "text": "Untimed: R GitHub action\nThroughout the day, if I had down time waiting for scenarios to run and didn’t otherwise have results needing to be converted to tables/figures, I attempted to fix the GitHub action for rendering the .Rmd. I had attempted this during my last reproduction, although don’t time it as it is part of the set-up of the quarto site that I would have resolved during my test-run if I had done it in R (but the test-run was just in Python)."
+    "section": "11.31-11.55, 12.43-13.00: Working on Figure 4",
+    "text": "11.31-11.55, 12.43-13.00: Working on Figure 4\nSurv_scen2 includes s2.1 and s2.2, as it varies the dropout rate for 1 year, or for 2 years. These are each in part of Table 3, and together in Figure 4."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-up-surv-scen-4a-to-run",
+    "href": "logbook/posts/2024_07_31/index.html#set-up-surv-scen-4a-to-run",
+    "title": "Day 4",
+    "section": "13.01-13.04: Set up surv scen 4a to run",
+    "text": "13.01-13.04: Set up surv scen 4a to run\nTimings:\n\nFirst run:\nAll runs: 35.390 min"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#resuming-table-3-and-figure-4",
+    "href": "logbook/posts/2024_07_31/index.html#resuming-table-3-and-figure-4",
+    "title": "Day 4",
+    "section": "13.05-13.14: Resuming Table 3 and Figure 4",
+    "text": "13.05-13.14: Resuming Table 3 and Figure 4\nHad to combine with scenario 0 again to give result when dropout rate is 0.\nSatisfied this is reproduced at 13.14.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 133m, or 2h 13m\nTotal used to date: 672m, or 11h 12m\nTime remaining: 1728m, or 28h 48m\nUsed 28.0% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#subset-of-table-3",
+    "href": "logbook/posts/2024_07_31/index.html#subset-of-table-3",
+    "title": "Day 4",
+    "section": "13.22-13.29: Subset of Table 3",
+    "text": "13.22-13.29: Subset of Table 3\nCreated the scenario 2 sections of table 3 using my prior functions.\n\n\n\n\n\n\nReflection\n\n\n\nGiven small size of these results dataframe, could have been handy to include them along with the code."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#in-text-result-1",
+    "href": "logbook/posts/2024_07_31/index.html#in-text-result-1",
+    "title": "Day 4",
+    "section": "13.32-13.40: In-text result 1",
+    "text": "13.32-13.40: In-text result 1\nThe output from the model for Figure 3/Table 3 (..._surv_scen1.R) just returns total AAA deaths and not which sub-groups these belonged to.\nI couldn’t spot any code in the repository that would extra this result by these sub-groups, so set about identifying how to do this."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-up-surv-scen4b-to-run",
+    "href": "logbook/posts/2024_07_31/index.html#set-up-surv-scen4b-to-run",
+    "title": "Day 4",
+    "section": "13.53-13.55: Set up surv scen4b to run",
+    "text": "13.53-13.55: Set up surv scen4b to run\nPush and pull, and set to run.\n\n\n\n\n\n\nReflection\n\n\n\nThe original study authors inclusion of seeds and parallel processing is great and really handy."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#x-return-to-in-text-result-1",
+    "href": "logbook/posts/2024_07_31/index.html#x-return-to-in-text-result-1",
+    "title": "Day 4",
+    "section": "13.56-14.00, 14.10-14.49, 16.07-X: Return to in-text result 1",
+    "text": "13.56-14.00, 14.10-14.49, 16.07-X: Return to in-text result 1\nI ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.\nscen1.surv$eventHistories is a list where each item is a person from the simulation. We can get:\n\nWhether they died - if “aaaDeath” is in their events (scen1.surv$eventHistories[[i]]$screening$events)\nTheir aaorta size - scen1.surv$eventHistories[[i]]$screening$initialAortaSizeAsMeasured\n\nI wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to ..._surv_scen1.R, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.\nTimings:\n\nOne run: 13.346 minutes\nAll runs: 68.854 minutes"
   },
   {
     "objectID": "logbook/posts/2024_07_31/index.html#timings",
     "href": "logbook/posts/2024_07_31/index.html#timings",
     "title": "Day 4",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 80m, or 1h 20m\nTotal used to date: 619m, or 10h 19m\nTime remaining: 1781m, or 29h 41m\nUsed 25.8% of 40 hours max"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html",
-    "href": "logbook/posts/2024_07_29/index.html",
-    "title": "Day 2",
-    "section": "",
-    "text": "Note\n\n\n\nRead article, decided on scope, then began running model. Total time used: 4h 3m (10.1%)."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
-    "href": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
-    "title": "Day 2",
-    "section": "09.38-09.43: High entropy secret",
-    "text": "09.38-09.43: High entropy secret\nUpload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R on line 376:\n# SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)\nThis is not a concern - the link doesn’t work with that token for others.\nThe DOI for this article is https://doi.org/10.1016/j.jval.2015.03.1784."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#correct-file-paths",
-    "href": "logbook/posts/2024_07_29/index.html#correct-file-paths",
-    "title": "Day 2",
-    "section": "09.53-09.55: Correct file paths",
-    "text": "09.53-09.55: Correct file paths\nFor study_publication.qmd."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#read-journal-article",
-    "href": "logbook/posts/2024_07_29/index.html#read-journal-article",
-    "title": "Day 2",
-    "section": "10.05-10.15, 10.29-10.45: Read journal article",
-    "text": "10.05-10.15, 10.29-10.45: Read journal article\nUses a previously developed and validated model described in:\n\nGlover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. https://doi.org/10.1177/0272989X17753380 PMID: 31665967\nThompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al. Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. https://doi.org/10.3310/hta22430 PMID: 30132754\n\nSome notes on scope (beyond obvious tables/figures):\n\nIn-text result for Surveillance cohort: Scan suspension (re: breakdown of deaths by type) are not captured in tables/figures\nSupplementary figure 1 and 2 are more like methods than results? Are referenced in methods.\nIn-text results for Surveillance cohort: Drop-out are captured in Table 3 and Figure 4\nAlso captured are Surveillance cohort: Threshold for surgery\nSupplementary figure 3 and supplementary table 2 are definitely in scope"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
-    "href": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
-    "title": "Day 2",
-    "section": "10.46-11.02: Define scope for reproduction",
-    "text": "10.46-11.02: Define scope for reproduction\nI described my interpretation of scope within scope.qmd."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
-    "href": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
-    "title": "Day 2",
-    "section": "11.09-11.13: Discussed scope with Tom",
-    "text": "11.09-11.13: Discussed scope with Tom\nLooked over and happy with scope. He then did another look over the paper, but confirmed no further items."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#archive-scope",
-    "href": "logbook/posts/2024_07_29/index.html#archive-scope",
-    "title": "Day 2",
-    "section": "11.26-11.32 : Archive scope",
-    "text": "11.26-11.32 : Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#look-over-code",
-    "href": "logbook/posts/2024_07_29/index.html#look-over-code",
-    "title": "Day 2",
-    "section": "12.50-12.56: Look over code",
-    "text": "12.50-12.56: Look over code\nREADME:\n\nDirects to NAASP_DES_Example_Script.R which provides walk through example for running model.\nNotes the repository contains code for two papers - we are interested in NAAASP_COVID (rather than SWAN)\n\nCopied the items relevant to NAAASP COVID into reproduction/. As README states results are saved to output/, create a placeholder output folder\nThe models/ folder seems to contain scripts to run each of the scenarios."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#set-up-environment",
-    "href": "logbook/posts/2024_07_29/index.html#set-up-environment",
-    "title": "Day 2",
-    "section": "12.57-13.04: Set up environment",
-    "text": "12.57-13.04: Set up environment\nBased on experience trying to backdate R and packages in my previous reproduction (Huang et al. 2019), I decided that this time I would start with the latest R and packages, and then backdate if its not working.\nThis means using R 4.4.1 (paper mentions 3.6.3).\nAt the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.\nTitle: Computational reproducibility assessment of Kim et al. 2019\nDepends: \n    R\nImports:\n    Rcpp,\n    expm,\n    msm,\n    foreach,\n    iterators,\n    doParallel\nRan:\nrenv::init(bare=TRUE)\nrenv::install()\nrenv::snapshot()"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
-    "href": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
-    "title": "Day 2",
-    "section": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model",
-    "text": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model\nTried running run_aaamodel_65yo_scen0.R. Had error:\nthis.dir &lt;- dirname(parent.frame(2)$ofile)\nError in dirname(parent.frame(2)$ofile) : \n  a character vector argument expected\nRealised this has a comment above stating:\n# Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)\nSo instead tried running with Source - this worked, up until this line:\n&gt; v1other\npostSurgeryInitialPeriod = 0.08213552 \ntimeToMonitoringFollowingOpenSurgery = 0.1149897 \ntimeBetweenMonitoringFollowingEvarSurgery = 1 \nzeroGrowthDiameterThreshold = 2 \nbaselineDiameters = data.frame with 2 columns:\n  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...\n  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...\nprevalenceThreshold = 3 \naortaDiameterThresholds = list: =Error in cat(names(element)[i], \"=\", element[[i]], \" \", sep = \"\") : \n  argument 3 (type 'list') cannot be handled by 'cat'\nv1other was created when we called source(\"input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R\"). Looking at that script, aortaDiameterThresholds are set as v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). Viewing the object rather than printing it with View(v1other), I can see that the thresholds are stored, but its just a list within a list.\nI tried commenting the print statement in run_aaamodel... but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to c(3.0, 4.5, 5.5) (removing list()).\nThis then ran without issue. As it ran, I can see it sets a random seed (set.seed(3210)). As per usual, paused timing while it ran.\nSpent a long while on processPersons() (scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)). At 13.48 (with model running since 13.13), I could see these would likely be slow models to run, so logged into the remote computer, cloned the GitHub repository there, and ran the next script starting at 13.55, run_aaamodel_65yo_scen0.R. To do so, after cloning, I ran:\ncd stars-reproduce-kim-2021/reproduction\nRscript -e \"renv::restore()\"\nRscript -e \"source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')\"\n\n\n\n\n\n\nReflection\n\n\n\nIncluding the expected run time would be handy, as I assume this is working fine, but that’s working on the assumption that these models take a long time to run (which I’m not sure yet whether that is the case or not).\nIn this case, as I later found out they used HPC, it would’ve been beneficial to mention that also!\n\n\nI checked the run_aaamodel... scripts and realised that in each, none were using parallel processing (as v0$method &lt;- \"serial\").\nLooking at the DES_Model code I can see the example of processPersons() allows three possible inputs:\n\n“serial”\n“parallel” (which uses parallel)\n“foreach” (which uses doParallel)\n\nThe function psa() is the same, but also includes “parallelBatches” alongside “foreach”. However, the consequence of those inputs is to return an error that the method has not been implemented for psa. Hence, psa can only run with “serial” or “parallel”. Likewise for psaAboveDiagnosisThreshold().\nAt 14.16 (so having let the model run since 13.55, for 21 minutes), I cancelled the run on the remote computer, and altered the scenario script to set v0$method &lt;- \"parallel\". Then set that running, starting at 14.21. At this moment, the first scenario was still running on my machine (since 13.13, so for apx. 1h 10m now).\nAt 14.39, I noticed the parallel model said Killed. In case I might have accidentally done this, I just set it to rerun again. However, at 14.52, it showed as Killed again. Upon Googling, I can see this message occurs when you run out of memory - which perhaps, might be why all were set to run sequentially, if its too intensive to run in parallel. I switched it back to “serial”.\nHowever, the model still running on my machine has now been going for 1h 42m. Having looked in the repository and article for any indication of runtime or requirement of HPC, I’ve yet to find anything. I tried looking now at the article first describing the model (https://doi.org/10.1177/0272989X17753380). In this article, they state the run time:\nHowever, the computational requirements of the DES were extensive, given the number of individuals needed to reduce sampling variation to an acceptable level and characterizing uncertainty through PSA. Run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered computer.\nIn this case, “each scenario model is run for 10 million hypothetical individuals randomly drawn with replacement from the distribution of the relevant population. The models are run for a period of 30 years”. However, as there is no mention of performing probabilistic sensitivity analysis iterations in the article, we could expect this to be quicker than that (although note it is 10m patients instead of 500k).\nDiscussed with Tom and agreed to:\n\n\nTry and just run it with very few people, just so we can see if the model is working, and whether we could get similar results with fewer people in the model\n\n\nTry and run it sequentially on the remote computer overnight"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
-    "href": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
-    "title": "Day 2",
-    "section": "15.09-15.42: Running the model with fewer people",
-    "text": "15.09-15.42: Running the model with fewer people\nDES_Input_Definitions states that the number of people to run through the DES is defined by v0$numberOfPersons, default 1000. Can see in run_aaamodel_65yo_scen0.R that it has been set to v0$numberOfPersons &lt;- 1e7. I replaced this with v0$numberOfPersons &lt;- 1000. This finished almost immediately, then hit an error:\n&gt; TableOfCounts(scen0.invite, v1other)\nError in \"screen\" %in% eventHistory$events && !(\"nonvisualization\" %in%  : \n  'length = 3' in coercion to 'logical(1)'\nTableOfCounts() is from DES_Model.R. Working through each line of the function, I found that the error is occurring for scre_dropout=countDropouts(result, v1other).\nIn this function, personsInfo (result, ie. scen0.invite) is used. It loops through the EventHistories for each person: for (i in 1:length(personsInfo$eventHistories)). It checks whether their events:\n\nIncludes “screen” (\"screen\" %in% eventHistory$events)\nDoes not include “nonvisualization” (!(\"nonvisualization\" %in% eventHistory$events))\nIf the measured size for screen is greater than or equal to v1other$aortaDiameterThresholds[[1]]\n\nThe error occurs for that final comparison. That is the item we had to change earlier to be able to get the model to run. I tried setting that back to being a list within a list - v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). However, I realised that caused the issue, and that in fact, run_aaamodel_65yo_scen0.R is changing it to list() again before running the model:\n## Change v1other$aortaDiameterThresholds to be a list (new syntax)\nv1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nIf I comment out that line, an error occurs. Hence, it seems we require it to be in a list within a list for the model, but just a list for TableOfCounts(). Looking at all the repository code, the reason becomes apparent in models/NAASP_COVID_modelling/run_aaamodel_surv_scen3.R, when multiple aaortaDiameterThresholds are provided.\nAs such, I set about modifying the later processing functions so that they are able to use this list() format:\n\ninput/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R: returned back to list(c()), but then changed run_aaamodel_65yo_scen0.R to not add an additional list() over the top.\nDES_Model.R: countDropouts(): &gt;= v1other$aortaDiameterThresholds[[1]] to &gt;= v1other$aortaDiameterThresholds[[1]][1]\n\nThe whole script then ran successfully!\n\n\n\n\n\n\nReflection\n\n\n\nThese errors will likely be the result of having modified code but no re-run everything from scratch (unsurprising given the anticipated model run times)."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
-    "href": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
-    "title": "Day 2",
-    "section": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run",
-    "text": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run\nThat R script ran the status quo (I0) scenario for invited 65 year olds. The parameters from Table 1 are below, along with their location in the data from DES_Input_Definitions.xlsx\n\nAttendance 75% - v2$probOfAttendScreen\nDrop-out rate/annum: 6% - v2$rateOfDropoutFromMonitoring\nThreshold for surgery: 5.5cm - v1other$aortaDiameterThresholds[[1]][3] (“These are the aortic cut-points where surveillance intervals change. Note, the first cut-point must always relate to the aortic size where individuals enter the AAA surveillance programme (e.g. 3.0cm). The last cut-point must always relate to the aortic size where surgery is to be considered (e.g. 5.5cm)”)\n\nLooking at the next R script, run_aaamodel_65yo_scen1.R, I can see that they repeat the model multiple times to get results from varying parameters of that scenario. That script is scenario 1 which, from Table 1, we can see delays invitation from 3 months to 5 years.\nI switched to trying that script, but again first setting:\n\n# v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nv0$numberOfPersons &lt;- 1000\n\nThis ran eight “scenarios” within the script. The output dataframe scen1summaryi showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n1000.csv')\nres[['delayscr', 'aaadead']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\n\n\n\n\n7\n0.00\n7\n\n\n0\n0.25\n7\n\n\n1\n0.50\n7\n\n\n2\n1.00\n7\n\n\n3\n2.00\n7\n\n\n4\n3.00\n7\n\n\n5\n4.00\n8\n\n\n6\n5.00\n8\n\n\n\n\n\n\n\nI increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n10000.csv')\nres[['delayscr', 'aaadead', 'emeropen']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\nemeropen\n\n\n\n\n7\n0.00\n96\n33\n\n\n0\n0.25\n96\n33\n\n\n1\n0.50\n98\n32\n\n\n2\n1.00\n96\n31\n\n\n3\n2.00\n98\n31\n\n\n4\n3.00\n98\n32\n\n\n5\n4.00\n101\n32\n\n\n6\n5.00\n103\n32\n\n\n\n\n\n\n\nEach result here relates to Table 2 (i.e. excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.\nI created an .Rmd file to start processing the results. This required the addition of rmarkdown to the renv. I add dplyr for processing the results. Looking at excess deaths, we can see the anticipated pattern, although for emergency operations, the numbers are still too small that they fluctuate, and emergency operations goes in the wrong direction.\n\nimport pandas as pd\n\npd.read_csv('tab2.csv')\n\n\n\n\n\n\n\n\ndelayscr\nexcess_death\nexcess_op\n\n\n\n\n0\n0.00\n0\n0\n\n\n1\n0.25\n0\n0\n\n\n2\n0.50\n2\n-1\n\n\n3\n1.00\n0\n-2\n\n\n4\n2.00\n2\n-2\n\n\n5\n3.00\n2\n-1\n\n\n6\n4.00\n5\n-1\n\n\n7\n5.00\n7\n-1\n\n\n\n\n\n\n\nI tried upping it to 100,000 people, and recorded the time with different settings:\n\n“serial” - 5 minutes 7 seconds\n“parallel” - 2 minutes 12 seconds - so estimated 17 and a half minutes in total\n“foreach” - not possible, Error in processPersons(v0, v1other, v2, personData.screen) : v0$randomSeed does not yet work with v0$method=\"foreach\"\n\nFor each of these, about 45 seconds is results processing at the end (e.g. Eventsandcosts())\nWhilst these ran, I looked through the repository to try and spot whether they had functions to generate the plots from the article. I found plotting functions in DES_Model.R, shiny_output_functions.R and NAAASP_DES_Example_Script.R, though none relevant to the article, so it appears I’ll need to write the code to do that processing."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#timings",
-    "href": "logbook/posts/2024_07_29/index.html#timings",
-    "title": "Day 2",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13'),\n    ('11.26', '11.32'),\n    ('12.50', '12.56'),\n    ('12.57', '13.04'),\n    ('13.05', '13.13'), \n    ('13.48', '13.55'),\n    ('14.07', '14.21'),\n    ('14.53', '15.08'),\n    ('15.09', '15.42'),\n    ('15.43', '16.00'),\n    ('16.03', '16.43'),\n    ('16.45', '16.47'),\n    ('16.53', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 211m, or 3h 31m\nTotal used to date: 243m, or 4h 3m\nTime remaining: 2157m, or 35h 57m\nUsed 10.1% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14'),\n    ('13.22', '13.29'),\n    ('13.32', '13.40'),\n    ('13.53', '13.55'),\n    ('13.56', '14.00'),\n    ('14.10', '14.49')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 193m, or 3h 13m\nTotal used to date: 732m, or 12h 12m\nTime remaining: 1668m, or 27h 48m\nUsed 30.5% of 40 hours max"
   }
 ]
