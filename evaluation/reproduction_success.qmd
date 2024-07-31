@@ -26,7 +26,7 @@ time_list = [
     [445, 'Figure 1'],
     [511, 'Table 2'],
     [581, 'Figure 2'],
-    [np.nan, 'Figure 3'],
+    [619, 'Figure 3'],
     [np.nan, 'In-text result 1'],
     [np.nan, 'Figure 4'],
     [np.nan, 'Figure 5'],
@@ -82,3 +82,69 @@ Original (@kim_modelling_2021):
 Reproduction:
 
 ![](../reproduction/output/fig2.png){width=80% fig-align="center" .lightbox}
+
+## Figure 3
+
+Original (@kim_modelling_2021):
+
+![](../original_study/fig3.PNG){width=80% fig-align="center" .lightbox}
+
+Reproduction:
+
+![](../reproduction/output/fig3.png){width=80% fig-align="center" .lightbox}
+
+## In-text result 1
+
+In bold are the items not captured in Table 3 or Figure 3:
+
+"Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, **2 (1% increase) are in the sub-group measuring 4.5–4.9 cm** at the start of the pandemic and **7 (8% increase) in the sub-group measuring 5.0–5.4 cm**; **<0.1 are in the 3.0–4.4 cm sub-group**. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, **1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group**. However, the remaining **22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase** in AAA-related deaths in this sub-group."
+
+Reproduction:
+
+TBC
+
+## Figure 4
+
+Original (@kim_modelling_2021):
+
+![](../original_study/fig4.PNG){width=80% fig-align="center" .lightbox}
+
+Reproduction:
+
+TBC
+
+## Figure 5
+
+Original (@kim_modelling_2021):
+
+![](../original_study/fig5.PNG){width=80% fig-align="center" .lightbox}
+
+Reproduction:
+
+TBC
+
+## Table 3
+
+Original (@kim_modelling_2021):
+
+![](../original_study/tab3.PNG){width=100% fig-align="center" .lightbox}
+
+Reproduction:
+
+TBC
+
+## Supplementary figure 3
+
+Original (@kim_modelling_2021):
+
+![](../original_study/sup_fig3_crop.png){width=80% fig-align="center" .lightbox}
+
+Reproduction:
+
+TBC
+
+## Supplementary table 2
+
+Original (@kim_modelling_2021):
+
+![](../original_study/sup_tab2.png){width=100% fig-align="center" .lightbox}
