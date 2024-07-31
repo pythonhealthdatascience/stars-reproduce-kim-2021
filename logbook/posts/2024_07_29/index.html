@@ -460,7 +460,7 @@ Reflection
 <li><code>v0$numberOfPersons &lt;- 1000</code></li>
 </ul>
 <p>This ran eight “scenarios” within the script. The output dataframe <code>scen1summaryi</code> showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.</p>
-<div id="8a3dcb57" class="cell" data-execution_count="1">
+<div id="cce64c5d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'output_65yo_scen1_n1000.csv'</span>)</span>
@@ -525,7 +525,7 @@ Reflection
 </div>
 </div>
 <p>I increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.</p>
-<div id="305ffc5a" class="cell" data-execution_count="2">
+<div id="55a61bfc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'output_65yo_scen1_n10000.csv'</span>)</span>
@@ -600,7 +600,7 @@ Reflection
 </div>
 <p>Each result here relates to Table 2 (i.e.&nbsp;excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.</p>
 <p>I created an .Rmd file to start processing the results. This required the addition of <strong>rmarkdown</strong> to the renv. I add dplyr for processing the results. Looking at excess deaths, we can see the anticipated pattern, although for emergency operations, the numbers are still too small that they fluctuate, and emergency operations goes in the wrong direction.</p>
-<div id="a86165c9" class="cell" data-execution_count="3">
+<div id="dce8d482" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'tab2.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -683,7 +683,7 @@ Reflection
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="5dc9acac" class="cell" data-execution_count="4">
+<div id="387f68be" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
