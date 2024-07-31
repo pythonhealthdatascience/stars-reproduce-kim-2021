@@ -45,7 +45,7 @@ v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
 v0$method <- "parallel"
 
-v0$numberOfPersons <- 2000000
+v0$numberOfPersons <- 1e6
 
 ## Persons characteristics data.frame
 personData.screen <- data.frame(startAge = 65)
@@ -98,7 +98,7 @@ scen1summaryi<-data.frame(n,delayscr,inv,scr,reinv,nonatt,monitor,dropout,oppdet
 
 # Print time taken
 time_one_run <- Sys.time()
-diff_time <- difftime(time_one_run, start_time, units='mins'))
+diff_time <- difftime(time_one_run, start_time, units='mins')
 print(paste(c("Time for one run: ", diff_time), collapse=""))
 
 ## 6-month delay 
