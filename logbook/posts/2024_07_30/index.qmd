@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-TBC. Total time used: TBCh TBCm (TBC%).
+Reproduced Figure 1 and Table 2. Total time used: 8h 59m (22.5%).
 
 :::
 
@@ -383,6 +383,10 @@ I haven't modified the provided structure of seperate scripts, but this structur
 
 :::
 
+## 16.42-16.55: Start on Figure 2
+
+Create function based on Figure 1, so can reuse same processing code to generate dataframe for the figure.
+
 ## Timings
 
 ```{python}
@@ -409,7 +413,8 @@ times = [
     ('14.07', '14.29'),
     ('14.42', '14.49'),
     ('15.00', '15.59'),
-    ('16.12', '16.27')]
+    ('16.12', '16.27'),
+    ('16.42', '16.55')]
 
 calculate_times(used_to_date, times)
 ```
