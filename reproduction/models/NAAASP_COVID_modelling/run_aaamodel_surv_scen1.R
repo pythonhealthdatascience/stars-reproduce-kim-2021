@@ -47,9 +47,7 @@ v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
 v0$method <- "parallel"
 
-v0$numberOfPersons <- 1000000
-
-
+v0$numberOfPersons <- 1e6
 
 ###############################################################################################################################################################
 # SURVEILLANCE COHORT
@@ -70,6 +68,47 @@ v2$costs["inviteToScreen"] <- 0
 v2$costs["requireReinvitation"] <- 0
 v2$costs["screen"] <- v2$costs["monitor"]
 
+
+
+###############################################################################
+# Function to count the aorta sizes of people with AAA-related deaths
+###############################################################################
+
+get_aaa_death_aorta_sizes <- function(df, n, period) {
+  #' Get a count of the aorta sizes for people who had AAA-related deaths
+  #' 
+  #' Counts the number of small (3.0-4.4cm), medium (4.5-4.9cm) and large
+  #' (5.0-5.4cm)
+  #' 
+  #' @param df Output from the model
+  #' @param n Number of people in simulation
+  #' @param period Number of years that ultrasound scans are suspended
+  #' 
+  #' @return aaa_deaths_aorta_size Dataframe with counts of each size
+  
+  # Get a list of aorta sizes from people who had AAA-related deaths
+  aorta <- c()
+  for (person in df$eventHistories) {
+    if ("aaaDeath" %in% person$screening$events) {
+      aorta <- c(aorta, person$screening$initialAortaSizeAsMeasured)
+    }
+  }
+  
+  # Count the number in each of the size groups
+  aorta_small <- sum(aorta >= 3 & aorta <= 4.4)
+  aorta_med <- sum(aorta >= 4.5 & aorta <= 4.9)
+  aorta_large <- sum(aorta >= 5 & aorta <= 5.4)
+  
+  # Convert into a dataframe
+  aaa_deaths_aorta_size <- data.frame(
+    aorta_size = c("small", "med", "large"),
+    aaadead = c(aorta_small, aorta_med, aorta_large)
+  )
+  aaa_deaths_aorta_size$n <- n
+  aaa_deaths_aorta_size$period <- period
+  
+  return (aaa_deaths_aorta_size)
+}
 
 
 ####################################################################################################################################################################
@@ -179,6 +218,8 @@ period<-1
 temp<-data.frame(n,period,thresh,lengththresh,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 scen1summary<-rbind(scen1summary,temp)
 
+# Count the aorta sizes of people with AAA-related deaths
+death_aorta_size <- get_aaa_death_aorta_sizes(scen1.surv, n=n, period=period)
 
 # 2-year delay to surveillance scans
 v1other$monitoringIntervalsSuspensionTime <- rep(2, length(v1other$monitoringIntervals))
@@ -207,6 +248,10 @@ nonaaadead<-Eventsandcosts(scen1.surv)[25,2]
 period<-2
 temp<-data.frame(n,period,thresh,lengththresh,inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 scen1summary<-rbind(scen1summary,temp)
+
+# Count the aorta sizes of people with AAA-related deaths
+temp <- get_aaa_death_aorta_sizes(scen1.surv, n=n, period=period)
+death_aorta_size <- rbind(death_aorta_size, temp)
 
 # 3-year delay to surveillance scans
 set.seed(3210)
@@ -312,3 +357,4 @@ print(paste(c("Time for one run: ", diff_time_all), collapse=""))
 ######################################################################################################################################################
 
 write.csv(scen1summary, "output/output_surv_scen1.csv", row.names=FALSE)
+write.csv(death_aorta_size, "output/output_surv_scen1_aaadeath_aortasize.csv", row.names=FALSE)

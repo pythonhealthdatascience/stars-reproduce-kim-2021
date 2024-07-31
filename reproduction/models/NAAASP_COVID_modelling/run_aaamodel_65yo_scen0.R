@@ -42,7 +42,7 @@ v0$returnEventHistories <- T ## return individual event histories
 v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
 v0$method <- "parallel"
 
-v0$numberOfPersons <- 1000000
+v0$numberOfPersons <- 1e6
 
 ## Persons characteristics data.frame
 personData.screen <- data.frame(startAge = 65)
@@ -50,6 +50,9 @@ personData.screen <- data.frame(startAge = 65)
 ######################################################################################################################################################
 # NEW 65-YEAR-OLD COHORT
 ######################################################################################################################################################
+
+# Start timer
+start_time <- Sys.time()
 
 ## SCENARIO 0: RESULTS FOR NEw 65YO COHORT (STATUS QUO)
 set.seed(3210)
@@ -80,6 +83,11 @@ nonaaadead<-Eventsandcosts(scen0.invite)[25,2]
 
 scen0summaryi<-data.frame(inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,reintelecevar,reintemeropen,aaadead,nonaaadead)
 scen0summaryi
+
+# Print time taken
+time_one_run <- Sys.time()
+diff_time <- difftime(time_one_run, start_time, units='mins')
+print(paste(c("Time for run: ", diff_time), collapse=""))
 
 ######################################################################################################################################################
 # SAVE RESULTS
