@@ -26,7 +26,8 @@ paths <- list(
   y65_s1_2m = file.path(outputs, "output_65yo_scen1_2mil.csv"),
   y65_s2 = file.path(outputs, "output_65yo_scen2.csv"),
   tab2 = file.path(outputs, "tab2.csv"),
-  fig1 = file.path(outputs, "fig1.png")
+  fig1 = file.path(outputs, "fig1.png"),
+  fig2 = file.path(outputs, "fig2.png")
 )
 ```
 
@@ -86,35 +87,45 @@ make_tab2 <- function(df,
 
   return(tab2)
 }
-```
 
-```{r}
-make_fig_df <- function(df, groupvar) {
-  #' Make dataframe to produce figure
+
+get_pct_change <- function(df, ordervar) {
+  #' Get percentage change in the four outcomes (for use in figures)
   #' 
   #' @param df Dataframe with results from model
-  #' @param groupvar String - column with group names (i.e. colour in figure)
+  #' @param ordervar String - column to order dataframe by (as percentage
+  #' change will be against the first row in the dataframe)
   #' 
-  #' @return fig_df_long Long-format dataframe which can use to make figure
-
-  # Sort dataframe by grouping variable (not using dplyr as it didn't work
+  #' @return fig_df Wide-format dataframe with percentage change added
+  
+  # Sort dataframe by ordering variable (not using dplyr as it didn't work
   # when needed to parse the string column name with !!, and just did no sort)
-  df_sort <- df[order(df[,groupvar]),]
+  df_sort <- df[order(df[,ordervar]),]
   rownames(df_sort) <- NULL
 
   fig_df <- df_sort %>%
     # Calculate the total number of emergency and elective operations
     mutate(total_emer = emerevar + emeropen,
            total_elec = elecevar + elecopen) %>%
-    # Keep relevant columns
-    select(!!groupvar, aaadead, total_elec, total_emer, rupt) %>%
     # Calculate percentage change from timepoint 0
     mutate(pct_dead = (aaadead - first(aaadead)) / first(aaadead) * 100,
            pct_elec = (total_elec - first(total_elec)) / first(total_elec) * 100,
            pct_emer = (total_emer - first(total_emer)) / first(total_emer) * 100,
            pct_rupt = (rupt - first(rupt)) / first(rupt) * 100) %>%
-  # Keep relevant columns
-  select(!!groupvar, starts_with("pct_"))
+
+  return (fig_df)
+}
+
+
+prepare_fig_df <- function(df, pivotvar) {
+  #' Prepares dataframe for use in making figure by melting and adding labels
+  #' 
+  #' @param df Dataframe with results calculated by get_pct_change(), filtered
+  #' to just the relevant columns
+  #' @param pivotvar String - name of column that serves as ID and that we keep
+  #' as a column when melting the dataframe
+  #' 
+  #' @return fig_df_long Long-format dataframe ready for creating plots
 
   # Define labels
   fig_lab = list(pct_dead = "AAA deaths",
@@ -123,11 +134,41 @@ make_fig_df <- function(df, groupvar) {
                  pct_rupt = "Ruptures")
 
   # Melt dataframe from wide to long and add labels
-  fig_df_long <- fig_df %>%
-    pivot_longer(-!!groupvar) %>%
+  fig_df_long <- df %>%
+    pivot_longer(-!!pivotvar) %>%
     mutate(label = recode(name, !!!fig_lab, .default = NA_character_))
 
   return (fig_df_long)
+}
+
+
+plot_fig <- function(df, xvar, xlab, savepath, xbreaks=NULL) {
+  #' Plot the figure using ggplot2
+  #' 
+  #' @param df Dataframe created using prepare_fig_df()
+  #' @param xvar String - column with data to plot along x axis
+  #' @param xlab String - label for x axis
+  #' @param savepath String - file path to save image
+  #' @param xbreaks Numeric vector of positions for xbreaks, or NULL (which
+  #' makes it keep the default xbreaks)
+
+  p <- ggplot(df, aes(x=!!sym(xvar), y=value, color=label)) +
+    geom_line() +
+    geom_point() +
+    labs(x=xlab,
+         y="Percentage change in outcome",
+         color="Outcome") +
+    scale_y_continuous(limits = c(-10, 10),
+                       breaks = seq(-10, 10, 2)) +
+    {if(hasArg(xbreaks))scale_x_continuous(breaks = xbreaks)} +
+    geom_hline(yintercept=0) +
+    theme_bw()
+
+  # Display plot
+  print(p)
+
+  # Save plot
+  ggsave(savepath, width=7, height=5)
 }
 ```
 
@@ -272,30 +313,40 @@ res2m
 Process results from model into a dataframe to use for plotting.
 
 ```{r}
-fig1_df <- make_fig_df(y65_s1_1m, "delayscr") %>%
+# Get percentage change
+fig1_pct <- get_pct_change(df=y65_s1_1m, ordervar="delayscr") %>%
+  # Keep relevant columns
+  select(delayscr, starts_with("pct_"))
+
+# Melt and label dataframe
+fig1_df <- prepare_fig_df(fig1_pct, pivotvar="delayscr") %>%
   # Drop result from 0.25 months (not included in plot)
   filter(delayscr != 0.25)
 
-# Create plot
-ggplot(fig1_df, aes(x=delayscr, y=value, color=label)) +
-  geom_line() +
-  geom_point() +
-  labs(x="Delay in initial invitation (years)",
-       y="Percentage change in outcome",
-       color="Outcome") +
-  scale_y_continuous(limits = c(-10, 10),
-                     breaks = seq(-10, 10, 2)) +
-  geom_hline(yintercept=0) +
-  theme_bw()
-
-ggsave(paths$fig1)
+# Create and save plot
+plot_fig(fig1_df, xvar="delayscr", xlab="Delay in initial invitation (years)",
+         savepath=paths$fig1)
 ```
 
 ## Figure 2
 
-```{r}
-# Use delay version of dataframe (which has only kept results with delay)
-fig2_df <- make_fig_df(y65_s2_delay, "delayscr")
+Here, the percentage change in outcome is compared against the outcome at 75% attendance with 0 months delay. Hence, we sort by delay (since that puts that row as first), but when we plot, we then remove that row, and just keep results with 6 months delay.
 
+```{r}
+# Calculate percentage change in four outcomes
+fig2_pct <- get_pct_change(df=y65_s2, ordervar="delayscr") %>%
+  # Drop result whith no delay
+  filter(delayscr!=0) %>%
+  # Keep relevant columns
+  select(attend, starts_with("pct_")) %>%
+  # Convert attendendance from proportion to percentage
+  mutate(attend = attend*100)
+
+# Melt and label dataframe
+fig2_df <- prepare_fig_df(fig2_pct, pivotvar="attend")
 fig2_df
+
+# Create and save plot
+plot_fig(fig2_df, xvar="attend", xlab="Attendance at initial scan (%)",
+         xbreaks=seq(45, 75, 5), savepath=paths$fig2)
 ```
