@@ -630,17 +630,17 @@
     "text": "13.53-13.55: Set up surv scen4b to run\nPush and pull, and set to run.\n\n\n\n\n\n\nReflection\n\n\n\nThe original study authors inclusion of seeds and parallel processing is great and really handy."
   },
   {
-    "objectID": "logbook/posts/2024_07_31/index.html#x-return-to-in-text-result-1",
-    "href": "logbook/posts/2024_07_31/index.html#x-return-to-in-text-result-1",
+    "objectID": "logbook/posts/2024_07_31/index.html#return-to-in-text-result-1",
+    "href": "logbook/posts/2024_07_31/index.html#return-to-in-text-result-1",
     "title": "Day 4",
-    "section": "13.56-14.00, 14.10-14.49, 16.07-X: Return to in-text result 1",
-    "text": "13.56-14.00, 14.10-14.49, 16.07-X: Return to in-text result 1\nI ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.\nscen1.surv$eventHistories is a list where each item is a person from the simulation. We can get:\n\nWhether they died - if “aaaDeath” is in their events (scen1.surv$eventHistories[[i]]$screening$events)\nTheir aaorta size - scen1.surv$eventHistories[[i]]$screening$initialAortaSizeAsMeasured\n\nI wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to ..._surv_scen1.R, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.\nTimings:\n\nOne run: 13.346 minutes\nAll runs: 68.854 minutes"
+    "section": "13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1",
+    "text": "13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1\nI ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.\nscen1.surv$eventHistories is a list where each item is a person from the simulation. We can get:\n\nWhether they died - if “aaaDeath” is in their events (scen1.surv$eventHistories[[i]]$screening$events)\nTheir aaorta size - scen1.surv$eventHistories[[i]]$screening$initialAortaSizeAsMeasured\n\nI wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to ..._surv_scen1.R, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.\nTimings:\n\nOne run: 13.346 minutes\nAll runs: 68.854 minutes\n\nI imported the results, and then realised I would also need to run this function with ..._surv_scen0.R.\nTODO: Move function to be with other model functions, so it is imported to both scripts, and then run surv_scen0 with that function added"
   },
   {
     "objectID": "logbook/posts/2024_07_31/index.html#timings",
     "href": "logbook/posts/2024_07_31/index.html#timings",
     "title": "Day 4",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14'),\n    ('13.22', '13.29'),\n    ('13.32', '13.40'),\n    ('13.53', '13.55'),\n    ('13.56', '14.00'),\n    ('14.10', '14.49')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 193m, or 3h 13m\nTotal used to date: 732m, or 12h 12m\nTime remaining: 1668m, or 27h 48m\nUsed 30.5% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14'),\n    ('13.22', '13.29'),\n    ('13.32', '13.40'),\n    ('13.53', '13.55'),\n    ('13.56', '14.00'),\n    ('14.10', '14.49')]\n# TODO: Finish adding times\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 193m, or 3h 13m\nTotal used to date: 732m, or 12h 12m\nTime remaining: 1668m, or 27h 48m\nUsed 30.5% of 40 hours max"
   }
 ]
