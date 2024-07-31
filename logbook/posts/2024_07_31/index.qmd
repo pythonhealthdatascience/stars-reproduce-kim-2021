@@ -172,7 +172,7 @@ The original study authors inclusion of seeds and parallel processing is great a
 
 :::
 
-## 13.56-14.00, 14.10-14.49, 16.07-X: Return to in-text result 1
+## 13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1
 
 I ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.
 
@@ -187,6 +187,10 @@ Timings:
 
 * One run: 13.346 minutes
 * All runs: 68.854 minutes
+
+I imported the results, and then realised I would also need to run this function with `..._surv_scen0.R`.
+
+**TODO: Move function to be with other model functions, so it is imported to both scripts, and then run surv_scen0 with that function added**
 
 ## Timings
 
@@ -215,6 +219,7 @@ times = [
     ('13.53', '13.55'),
     ('13.56', '14.00'),
     ('14.10', '14.49')]
+# TODO: Finish adding times
 
 calculate_times(used_to_date, times)
 ```
