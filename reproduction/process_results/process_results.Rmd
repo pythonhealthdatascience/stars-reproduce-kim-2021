@@ -27,6 +27,7 @@ files <- list(
   y65_s2 = "output_65yo_scen2.csv",
   surv_s0 = "output_surv_scen0.csv",
   surv_s1 = "output_surv_scen1.csv",
+  surv_s1_aorta = "output_surv_scen1_aaadeath_aortasize.csv",
   surv_s2 = "output_surv_scen2.csv",
   tab2 = "tab2.csv",
   tab3 = "tab3.csv",
@@ -53,6 +54,7 @@ y65_s2 <- read.csv(paths$y65_s2)
 
 surv_s0 <- read.csv(paths$surv_s0)
 surv_s1 <- read.csv(paths$surv_s1)
+surv_s1_aorta <- read.csv(paths$surv_s1_aorta)
 surv_s2 <- read.csv(paths$surv_s2)
 ```
 
@@ -498,4 +500,10 @@ fig4_df
 ```{r}
 plot_fig(fig4_df, xvar="dropoutrate", xlab="Dropout/annum(%)",
          scale_y=NULL, savepath=paths$fig4, linetype="period")
+```
+
+## In-text result 1
+
+```{r}
+surv_s1_aorta
 ```
