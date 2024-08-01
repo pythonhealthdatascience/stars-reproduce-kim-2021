@@ -26,16 +26,24 @@ files <- list(
   y65_s1_2m = "output_65yo_scen1_2mil.csv",
   y65_s2 = "output_65yo_scen2.csv",
   surv_s0 = "output_surv_scen0.csv",
+  surv_s0_aorta = "output_surv_scen0_aaadeath_aortasize.csv",
   surv_s1 = "output_surv_scen1.csv",
   surv_s1_aorta = "output_surv_scen1_aaadeath_aortasize.csv",
   surv_s2 = "output_surv_scen2.csv",
+  surv_s3 = "output_surv_scen3.csv",
+  surv_s4a = "output_surv_scen4a.csv",
+  surv_s4b = "output_surv_scen4b.csv",
+  surv_s4c = "output_surv_scen4c.csv",
+  surv_s4d = "output_surv_scen4d.csv",
+  surv_s4e = "output_surv_scen4e.csv",
   tab2 = "tab2.csv",
   tab3 = "tab3.csv",
   fig1 = "fig1.png",
   fig2 = "fig2.png",
   fig3 = "fig3.png",
   fig4 = "fig4.png",
-  fig5 = "fig5.png"
+  fig5 = "fig5.png",
+  intext1 = "intext1.csv"
 )
 
 # Apply file.path to each element in list to create path to file in outputs
@@ -53,9 +61,16 @@ y65_s1_2m <- read.csv(paths$y65_s1_2m)
 y65_s2 <- read.csv(paths$y65_s2)
 
 surv_s0 <- read.csv(paths$surv_s0)
+surv_s0_aorta <- read.csv(paths$surv_s0_aorta)
 surv_s1 <- read.csv(paths$surv_s1)
 surv_s1_aorta <- read.csv(paths$surv_s1_aorta)
 surv_s2 <- read.csv(paths$surv_s2)
+surv_s3 <- read.csv(paths$surv_s3)
+surv_s4a <- read.csv(paths$surv_s4a)
+surv_s4b <- read.csv(paths$surv_s4b)
+surv_s4c <- read.csv(paths$surv_s4c)
+surv_s4d <- read.csv(paths$surv_s4d)
+surv_s4e <- read.csv(paths$surv_s4e)
 ```
 
 ## Functions
@@ -505,5 +520,40 @@ plot_fig(fig4_df, xvar="dropoutrate", xlab="Dropout/annum(%)",
 ## In-text result 1
 
 ```{r}
-surv_s1_aorta
+# Combine the scenario 0 and 1 results
+aorta_size <- rbind(surv_s0_aorta, surv_s1_aorta)
+
+# Empty list to store results
+aorta_res <- data.frame()
+
+for (size in c("small", "med", "large")) {
+  # Filter to aorta size
+  aorta_df <- aorta_size %>%
+    filter(aorta_size == size)
+
+  aorta_res <- rbind(aorta_res, aorta_df %>%
+    # Scale results to population of 15,376
+    mutate(dead_scaled = round(15376*(aaadead/n))) %>%
+    # Calculate excess deaths (compared with period = 0) and percentage change
+    arrange(period) %>%
+    mutate(extra_deaths = dead_scaled - first(dead_scaled),
+           pct_change = round(
+             (dead_scaled - first(dead_scaled)) / first(dead_scaled) * 100, 2)))
+}
+
+# Tidy and reformat the results table
+intext1 <- aorta_res %>%
+  select(period, aorta_size, dead_scaled, extra_deaths, pct_change) %>%
+  arrange(period) %>%
+  rename("years_of_surveillance_suspension" = period)
+
+write.csv(intext1, paths$intext1, row.names=FALSE)
+
+intext1
+```
+
+## Figure 5
+
+```{r}
+surv_s3
 ```

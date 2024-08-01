@@ -1,0 +1,10 @@
+"years_of_surveillance_suspension","aorta_size","dead_scaled","extra_deaths","pct_change"
+0,"small",1750,0,0
+0,"med",225,0,0
+0,"large",180,0,0
+1,"small",1750,0,0
+1,"med",227,2,0.89
+1,"large",187,7,3.89
+2,"small",1755,5,0.29
+2,"med",235,10,4.44
+2,"large",207,27,15
