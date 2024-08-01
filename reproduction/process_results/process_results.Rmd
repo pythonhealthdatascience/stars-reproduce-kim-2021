@@ -381,7 +381,10 @@ tab3_s1 <- make_tab(surv_s0_s1, scale_to = 15376, groupvar = "period") %>%
   # Convert time from years to months
   mutate(months = paste0(period*12, "m")) %>%
   # Keep relevant columns
-  select(months, excess_dead_emer)
+  select(months, excess_dead_emer) %>%
+  # Rename to match article
+  rename("Length of scan suspension" = months,
+         "Excess AAA deaths (excess emergency operations) in Model S1" = excess_dead_emer)
 
 tab3_s1
 ```
@@ -422,10 +425,41 @@ tab3_s2 <- mutate(tab_surv_s2_1y, tab_surv_s2_2y) %>%
   mutate(dropoutrate = paste0(dropoutrate*100, "%")) %>%
   # Rename columns to be similar to paper
   rename("Dropout rate/ annum" = dropoutrate,
-         "Excess AAA deaths (excess emergency operations) in Model S2.1*" = excess_dead_emer_s21,
-         "Excess AAA deaths (excess emergency operations) in Model S2.2*" = excess_dead_emer_s22)
+         "Excess AAA deaths (excess emergency operations) in Model S2.1" = excess_dead_emer_s21,
+         "Excess AAA deaths (excess emergency operations) in Model S2.2" = excess_dead_emer_s22)
 
 tab3_s2
+```
+
+Scenario 3
+
+```{r}
+# Get excess deaths and operations
+tab3_s3 <- make_tab(surv_s3, scale_to=15376, groupvar="period") %>%
+  # Reformat period to match article
+  filter(period != 0) %>%
+  mutate(period = paste0(period*12, "m")) %>%
+  # Rename results column
+  rename("Excess AAA deaths (excess emergency operations) in Model S3" = excess_dead_emer,
+         "Length of time at 7cm threshold" = period)
+  
+tab3_s3
+```
+
+Combine to produce table 3
+
+```{r}
+# Add empty rows to scenario 2 (as has fewer rows in table)
+tab3_s2_na <- rbind(tab3_s2, tab3_s2[0,][rep(NA, 2),])
+
+# Combine into single dataframe
+full_tab3 <- mutate(tab3_s1, tab3_s3, tab3_s2_na)
+
+# Save to csv
+write.csv(full_tab3, paths$tab3, row.names=FALSE)
+
+# Display
+full_tab3
 ```
 
 ## Figure 1
