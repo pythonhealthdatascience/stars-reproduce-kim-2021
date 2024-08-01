@@ -517,6 +517,23 @@ plot_fig(fig4_df, xvar="dropoutrate", xlab="Dropout/annum(%)",
          scale_y=NULL, savepath=paths$fig4, linetype="period")
 ```
 
+## Figure 5
+
+```{r}
+# Get percentage change in outcomes from period 0 thresh 5.5
+fig5_pct <- get_pct_change(surv_s3, "period") %>%
+  select(period, starts_with("pct_"))
+
+# Melt and label dataframe
+fig4_df <- prepare_fig_df(fig5_pct, pivotvar=c("period")) %>%
+  # Filter to max 3 years (as article does not include above that in figure)
+  filter(period <= 3)
+
+# Create figure
+plot_fig(fig4_df, xvar="period", xlab="Time at 7cm threshold (years)",
+         savepath=paths$fig5)
+```
+
 ## In-text result 1
 
 ```{r}
@@ -550,10 +567,4 @@ intext1 <- aorta_res %>%
 write.csv(intext1, paths$intext1, row.names=FALSE)
 
 intext1
-```
-
-## Figure 5
-
-```{r}
-surv_s3
 ```
