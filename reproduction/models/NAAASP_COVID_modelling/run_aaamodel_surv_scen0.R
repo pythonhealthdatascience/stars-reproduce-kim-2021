@@ -19,6 +19,9 @@ setwd(paste0(this.dir,"/../../"))
 # Model
 source("functions/DES_Model.R")
 
+# Function to count the aorta sizes of people with AAA-related deaths
+source("functions/extra_functions.R")
+
 ## Input parameters
 source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R") 
 
@@ -100,6 +103,10 @@ nonaaadead<-scen0.tabresults[25,2]
 scen0ssummary<-data.frame(inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,rupt,emerevar,emeropen,reintelecevar,reintemerevar,reintemeropen,aaadead,nonaaadead)
 scen0ssummary
 
+# Count the aorta sizes of people with AAA-related deaths
+death_aorta_size <- get_aaa_death_aorta_sizes(
+  scen0.surv, n=v0$numberOfPersons, period=0)
+
 # Print time taken
 time_one_run <- Sys.time()
 diff_time <- difftime(time_one_run, start_time, units='mins')
@@ -109,4 +116,5 @@ print(paste(c("Time for one run: ", diff_time), collapse=""))
 # SAVE RESULTS
 ######################################################################################################################################################
 
-write.csv(scen0ssummary, "output/output_surv_scen0.csv", row.names=FALSE)
+#write.csv(scen0ssummary, "output/output_surv_scen0.csv", row.names=FALSE)
+write.csv(death_aorta_size, "output/output_surv_scen0_aaadeath_aortasize.csv", row.names=FALSE)
