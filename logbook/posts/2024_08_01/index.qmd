@@ -52,6 +52,91 @@ Also ran some others again on the remote machine that were missing run times:
 
 Reassuringly, for those re-run, no change in results observed (so seed control all working as anticipated).
 
+## 15.42-16.02: In-text result 1
+
+Combined results from my function added to surv scenario 0 and 1, to view deaths by aorta size. The numbers are pretty similar to the original - exacty the same for one year (0, 2 and 7 deaths in the small, medium and large groups repsectively). They differed a little more for the suspension over 2 years:
+
+* Small: Original 1, Mine 5
+* Medium: Original 17, Mine 10
+* Large: Original 22, Mine 27
+
+However, given the reduced sample size we run, I would consider this reasonably reproduced (with a consistent pattern, and relatively similar numbers), although will see what others say when send for a consensus opinion.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 741
+
+# Times from today
+times = [
+    ('09.12', '09.19'),
+    ('09.22', '09.24'),
+    ('09.34', '09.35'),
+    ('10.28', '10.29'),
+    ('11.05', '11.07'),
+    ('15.42', '16.02')]
+
+calculate_times(used_to_date, times)
+```
+
+## 16.06-16.17: Figure 5
+
+The model output from surv scen 3 includes thres 5.5 period 0, and then thresh 7 for periods 0.5 +. This aligns with the description in Table 1 in the paper. Hence, I'm assuming that calculations are in comparison against 5.5 period 0 (and that there is not a thresh 7 period 0 anywhere, since thresh 5.5 is otherwise the default).
+
+Feel this is reproduced at 16.17.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 741
+
+# Times from today
+times = [
+    ('09.12', '09.19'),
+    ('09.22', '09.24'),
+    ('09.34', '09.35'),
+    ('10.28', '10.29'),
+    ('11.05', '11.07'),
+    ('15.42', '16.02'),
+    ('16.06', '16.17')]
+
+calculate_times(used_to_date, times)
+```
+
+## 16.19-16.26: Finishing up Table 3
+
+Created the final section of table 3 from scenario 3, and then combined with prior sections to produced Table 3.
+
+Feel this is reproduced at 16.26.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 741
+
+# Times from today
+times = [
+    ('09.12', '09.19'),
+    ('09.22', '09.24'),
+    ('09.34', '09.35'),
+    ('10.28', '10.29'),
+    ('11.05', '11.07'),
+    ('15.42', '16.02'),
+    ('16.06', '16.17'),
+    ('16.19', '16.27')]
+
+calculate_times(used_to_date, times)
+```
+
 ## Timings
 
 ```{python}
@@ -68,7 +153,10 @@ times = [
     ('09.22', '09.24'),
     ('09.34', '09.35'),
     ('10.28', '10.29'),
-    ('11.05', '11.07')]
+    ('11.05', '11.07'),
+    ('15.42', '16.02'),
+    ('16.06', '16.17'),
+    ('16.19', '16.27')]
 
 calculate_times(used_to_date, times)
 ```
