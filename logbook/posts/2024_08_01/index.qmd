@@ -25,6 +25,33 @@ Timings:
 
 * Full run (one scenario): 4.633 minutes = 278 seconds = 4 minutes 38 seconds
 
+## 09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run
+
+Running on the remote machine...
+
+Timings for 4C:
+
+* First run: 5.452 minutes = 327 seconds = 5 minutes 27 seconds
+* All runs: 35.234 minutes = 2114 seconds = 35 minutes 14 seconds
+
+Timings for 4D:
+
+* First run: 5.429 minutes = 326 seconds = 5 minutes 26 seconds
+* All runs: 35.083 minutes= 2105 seconds = 35 minutes 5 seconds
+
+Timings for 4E:
+
+* First run: 5.465 minutes = 328 seconds = 5 minutes 28 seconds
+* All runs: 34.994 minutes = 2096 seconds = 34 minutes 56 seconds
+
+Also ran some others again on the remote machine that were missing run times:
+
+* 65yo scen 0: 3.528 min = 212 seconds = 3 minutes 32 seconds
+* 65yo scen 1: 29.230 min = 1754 seconds = 29 minutes 14 seconds
+* Surv scen 4b: 34.955 min = 2097 seconds = 34 minutes 57 seconds
+
+Reassuringly, for those re-run, no change in results observed (so seed control all working as anticipated).
+
 ## Timings
 
 ```{python}
@@ -38,7 +65,10 @@ used_to_date = 741
 # Times from today
 times = [
     ('09.12', '09.19'),
-    ('09.22', '09.24')]
+    ('09.22', '09.24'),
+    ('09.34', '09.35'),
+    ('10.28', '10.29'),
+    ('11.05', '11.07')]
 
 calculate_times(used_to_date, times)
 ```
