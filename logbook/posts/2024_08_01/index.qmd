@@ -1,0 +1,44 @@
+---
+title: "Day 5"
+author: "Amy Heather"
+date: "2024-08-01"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+TBC. Total time used: TBCh TBCm (TBC%).
+
+:::
+
+## 09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0
+
+Create a script `functions/extra_functions.R` and moved the function I created yesterday - `get_aaa_death_aorta_sizes()` - from `run_aaamodel_surv_scen1.R` to `extra_functions.R`. This is so that:
+
+1. It sits alongside other model functions
+2. It can be used in scenario 0 and scenario 1 without duplication
+
+I test ran it on a small sample before setting it to run on a remote machine.
+
+Timings:
+
+* Full run (one scenario): 4.633 minutes = 278 seconds = 4 minutes 38 seconds
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 741
+
+# Times from today
+times = [
+    ('09.12', '09.19'),
+    ('09.22', '09.24')]
+
+calculate_times(used_to_date, times)
+```
