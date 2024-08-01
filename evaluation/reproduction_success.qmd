@@ -27,7 +27,7 @@ time_list = [
     [511, 'Table 2'],
     [581, 'Figure 2'],
     [619, 'Figure 3'],
-    [np.nan, 'In-text result 1'],
+    [774, 'In-text result 1'],
     [672, 'Figure 4'],
     [np.nan, 'Figure 5'],
     [np.nan, 'Table 3'],
@@ -101,7 +101,9 @@ In bold are the items not captured in Table 3 or Figure 3:
 
 Reproduction:
 
-TBC
+```{python}
+pd.read_csv('../reproduction/output/intext1.csv')
+```
 
 ## Figure 4
 
