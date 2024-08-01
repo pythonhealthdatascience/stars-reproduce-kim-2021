@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -236,6 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0" id="toc-get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0" class="nav-link active" data-scroll-target="#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0">09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0</a></li>
+  <li><a href="#set-surv-scenario-4c-e-to-run" id="toc-set-surv-scenario-4c-e-to-run" class="nav-link" data-scroll-target="#set-surv-scenario-4c-e-to-run">09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_01/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -273,9 +274,35 @@ Note
 <li>Full run (one scenario): 4.633 minutes = 278 seconds = 4 minutes 38 seconds</li>
 </ul>
 </section>
+<section id="set-surv-scenario-4c-e-to-run" class="level2">
+<h2 class="anchored" data-anchor-id="set-surv-scenario-4c-e-to-run">09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run</h2>
+<p>Running on the remote machine…</p>
+<p>Timings for 4C:</p>
+<ul>
+<li>First run: 5.452 minutes = 327 seconds = 5 minutes 27 seconds</li>
+<li>All runs: 35.234 minutes = 2114 seconds = 35 minutes 14 seconds</li>
+</ul>
+<p>Timings for 4D:</p>
+<ul>
+<li>First run: 5.429 minutes = 326 seconds = 5 minutes 26 seconds</li>
+<li>All runs: 35.083 minutes= 2105 seconds = 35 minutes 5 seconds</li>
+</ul>
+<p>Timings for 4E:</p>
+<ul>
+<li>First run: 5.465 minutes = 328 seconds = 5 minutes 28 seconds</li>
+<li>All runs: 34.994 minutes = 2096 seconds = 34 minutes 56 seconds</li>
+</ul>
+<p>Also ran some others again on the remote machine that were missing run times:</p>
+<ul>
+<li>65yo scen 0: 3.528 min = 212 seconds = 3 minutes 32 seconds</li>
+<li>65yo scen 1: 29.230 min = 1754 seconds = 29 minutes 14 seconds</li>
+<li>Surv scen 4b: 34.955 min = 2097 seconds = 34 minutes 57 seconds</li>
+</ul>
+<p>Reassuringly, for those re-run, no change in results observed (so seed control all working as anticipated).</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="884f4483" class="cell" data-execution_count="1">
+<div id="0224b075" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -286,14 +313,17 @@ Note
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.19'</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.22'</span>, <span class="st">'09.24'</span>)]</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.22'</span>, <span class="st">'09.24'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.34'</span>, <span class="st">'09.35'</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.28'</span>, <span class="st">'10.29'</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.05'</span>, <span class="st">'11.07'</span>)]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 9m, or 0h 9m
-Total used to date: 750m, or 12h 30m
-Time remaining: 1650m, or 27h 30m
-Used 31.2% of 40 hours max</code></pre>
+<pre><code>Time spent today: 13m, or 0h 13m
+Total used to date: 754m, or 12h 34m
+Time remaining: 1646m, or 27h 26m
+Used 31.4% of 40 hours max</code></pre>
 </div>
 </div>
 
