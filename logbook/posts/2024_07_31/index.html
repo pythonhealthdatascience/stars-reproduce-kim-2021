@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#returning-to-figure-3-and-a-subset-of-table-3" id="toc-returning-to-figure-3-and-a-subset-of-table-3" class="nav-link" data-scroll-target="#returning-to-figure-3-and-a-subset-of-table-3">11.11-11.24: Returning to Figure 3 and a subset of Table 3</a></li>
   <li><a href="#working-on-figure-4" id="toc-working-on-figure-4" class="nav-link" data-scroll-target="#working-on-figure-4">11.31-11.55, 12.43-13.00: Working on Figure 4</a></li>
   <li><a href="#set-up-surv-scen-4a-to-run" id="toc-set-up-surv-scen-4a-to-run" class="nav-link" data-scroll-target="#set-up-surv-scen-4a-to-run">13.01-13.04: Set up surv scen 4a to run</a></li>
-  <li><a href="#resuming-table-3-and-figure-4" id="toc-resuming-table-3-and-figure-4" class="nav-link" data-scroll-target="#resuming-table-3-and-figure-4">13.05-13.14: Resuming Table 3 and Figure 4</a></li>
+  <li><a href="#resuming-figure-4" id="toc-resuming-figure-4" class="nav-link" data-scroll-target="#resuming-figure-4">13.05-13.14: Resuming Figure 4</a></li>
   <li><a href="#subset-of-table-3" id="toc-subset-of-table-3" class="nav-link" data-scroll-target="#subset-of-table-3">13.22-13.29: Subset of Table 3</a></li>
   <li><a href="#in-text-result-1" id="toc-in-text-result-1" class="nav-link" data-scroll-target="#in-text-result-1">13.32-13.40: In-text result 1</a></li>
   <li><a href="#set-up-surv-scen4b-to-run" id="toc-set-up-surv-scen4b-to-run" class="nav-link" data-scroll-target="#set-up-surv-scen4b-to-run">13.53-13.55: Set up surv scen4b to run</a></li>
@@ -269,7 +269,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TBC. Total time used: TBCh TBCm (TBC%).</p>
+<p>Reproduced Figures 2-4, subset of Table 3, and ran some of the other scenarios. Total time used: 12h 21m (30.9%).</p>
 </div>
 </div>
 <section id="run-surv-scenario-2" class="level2">
@@ -285,7 +285,7 @@ Note
 <h2 class="anchored" data-anchor-id="figure-2">09.20-09.58: Figure 2</h2>
 <p>Fixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.</p>
 <p>Satisfied this is reproduced at 09.58.</p>
-<div id="8fa327da" class="cell" data-execution_count="1">
+<div id="7432128d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -343,15 +343,15 @@ Reflection
 <h2 class="anchored" data-anchor-id="set-surv-scenario-3-to-run-on-remote-machine">11.06-11.07: Set surv scenario 3 to run on remote machine</h2>
 <p>Timings:</p>
 <ul>
-<li>First run: 13.303 minutes</li>
-<li>Full run: 81.663 minutes</li>
+<li>First run: 13.303 minutes = 798 seconds = 13 minutes 18 seconds</li>
+<li>Full run: 81.663 minutes = 4900 seconds = 81 minutes 40 seconds</li>
 </ul>
 </section>
 <section id="returning-to-figure-3-and-a-subset-of-table-3" class="level2">
 <h2 class="anchored" data-anchor-id="returning-to-figure-3-and-a-subset-of-table-3">11.11-11.24: Returning to Figure 3 and a subset of Table 3</h2>
 <p>With scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.</p>
 <p>Satisfied Figure 3 is reproduced at 11.24.</p>
-<div id="f9f5f97e" class="cell" data-execution_count="2">
+<div id="d8bb1f61" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -385,15 +385,15 @@ Used 25.8% of 40 hours max</code></pre>
 <h2 class="anchored" data-anchor-id="set-up-surv-scen-4a-to-run">13.01-13.04: Set up surv scen 4a to run</h2>
 <p>Timings:</p>
 <ul>
-<li>First run:</li>
-<li>All runs: 35.390 min</li>
+<li>First run: <em>forgot to note down</em></li>
+<li>All runs: 35.390 min = 2123 seconds = 35 minutes 23 seconds</li>
 </ul>
 </section>
-<section id="resuming-table-3-and-figure-4" class="level2">
-<h2 class="anchored" data-anchor-id="resuming-table-3-and-figure-4">13.05-13.14: Resuming Table 3 and Figure 4</h2>
+<section id="resuming-figure-4" class="level2">
+<h2 class="anchored" data-anchor-id="resuming-figure-4">13.05-13.14: Resuming Figure 4</h2>
 <p>Had to combine with scenario 0 again to give result when dropout rate is 0.</p>
 <p>Satisfied this is reproduced at 13.14.</p>
-<div id="31ea987f" class="cell" data-execution_count="3">
+<div id="c24c86fe" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -473,15 +473,14 @@ Reflection
 <p>I wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to <code>..._surv_scen1.R</code>, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.</p>
 <p>Timings:</p>
 <ul>
-<li>One run: 13.346 minutes</li>
-<li>All runs: 68.854 minutes</li>
+<li>One run: 13.346 minutes = 801 seconds = 13 minutes 21 seconds</li>
+<li>All runs: 68.854 minutes = 4131 seconds = 1 hour 8 minutes 51 seconds</li>
 </ul>
 <p>I imported the results, and then realised I would also need to run this function with <code>..._surv_scen0.R</code>.</p>
-<p><strong>TODO: Move function to be with other model functions, so it is imported to both scripts, and then run surv_scen0 with that function added</strong></p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="76aa9941" class="cell" data-execution_count="4">
+<div id="88d5c9fd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -505,15 +504,15 @@ Reflection
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.32'</span>, <span class="st">'13.40'</span>),</span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.53'</span>, <span class="st">'13.55'</span>),</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.56'</span>, <span class="st">'14.00'</span>),</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.10'</span>, <span class="st">'14.49'</span>)]</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Finish adding times</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.10'</span>, <span class="st">'14.49'</span>),</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.07'</span>, <span class="st">'16.16'</span>)]</span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 193m, or 3h 13m
-Total used to date: 732m, or 12h 12m
-Time remaining: 1668m, or 27h 48m
-Used 30.5% of 40 hours max</code></pre>
+<pre><code>Time spent today: 202m, or 3h 22m
+Total used to date: 741m, or 12h 21m
+Time remaining: 1659m, or 27h 39m
+Used 30.9% of 40 hours max</code></pre>
 </div>
 </div>
 
