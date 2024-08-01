@@ -28,12 +28,22 @@ TBC
 
 ## Reproduction specs and runtime
 
-TBC
+Within this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took **8 hours 3 minutes** to run all the model scenarios. This included:
 
-<!-- Hint: On Linux, you can find specs by running the following commands in the terminal:
-cat /etc/os-release  # Shows operating system and version
-lscpu  # Shows computer model
-free -g  # Shows RAM in GB (combine total column) -->
+* 65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)
+* 65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)
+* 65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)
+* Surveillance scenario 0 - 4 minutes 28 seconds (268 seconds)
+* Surveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)
+* Surveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)
+* Surveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)
+* Surveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)
+* Surveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)
+* Surveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)
+* Surveillance scenario 4d - 35 minutes 5 seconds (2105 seconds)
+* Surveillance scenario 4e - 34 minutes 56 seconds (2096 seconds)
+
+<!-- 212 + 1754 + 1147 + 268 + 4211 + 5979 + 4900 + 2123 + 2097 + 2114 + 2105 + 2096 = 29006 seconds = 483 minutes 26 seconds = 8 hours, 3 minutes, 26 seconds -->
 
 ## Citation
 
