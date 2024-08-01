@@ -3,8 +3,7 @@ title: "Open Source License"
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Update with appropriate license -->
-This repository is licensed under the [license].
+This repository is licensed under the GNU Lesser General Public License v3.0.
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
@@ -14,25 +13,24 @@ This repository is licensed under the [license].
 
 :::
 
-<!-- TODO: Update with appropriate license -->
-This is aligned with the original study, who shared their code under [license].
+This is aligned with the original study, who shared their code under the GNU Lesser General Public License v3.0.
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
 ## View license
 
-<!-- TODO: Provide relative path to embed license from the original study, as done above for the main repository license -->
-[Embedded license]
+{{< include  ../original_study/AAA_DES_model/LICENSE >}}
 
 :::
 
-<!-- TODO: Add info about the article license -->
-The original study was published in the journal "[Journal name]". They distributed the article under [Add more details about license]
+The original study was published in the journal "PLoS ONE". They distributed the article under the Creative Commons Attribution License.
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
 ## View copyright statement from journal
 
-<!-- TODO: Add copyright statement -->
+"Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+
+<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327>
 
 :::
