@@ -8,20 +8,15 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once filled out report -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Use this skeleton to create a summary report -->
-
 ## Study
 
-> [Authors]. **[Title]**. *[Journal]* [Volume], [Edition] ([Year]). <[URL]>.
+> Kim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. **Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic**. *PLoS ONE* 16(6): e0253327 (2021). <https://doi.org/10.1371/journal.pone.0253327>.
 
-[Paragraph summarising model]
+This study adapts a previously developed DES model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission.
 
 ## Computational reproducibility
 
-Successfully reproduced **X out of X (X%)** of items from the scope in **Xh Xm (X%)**.
+Successfully reproduced **10 out of 10 (100%)** of items from the scope in **13h 59m (35.0%)**.
 
 Required troubleshooting:
 
@@ -29,26 +24,105 @@ Required troubleshooting:
 
 ::: {.panel-tabset}
 
-## Item X
+## Figure 1
 
-[One sentence description of item X]
+"Fig 1. 65-year-old cohort: Change in key outcomes over varying delay to primary invitation (model I1)." @kim_modelling_2021
 
-[Display side-by-side]
-<!-- Example:
-![Original](../original_study/article_fig2.png){width=49% .lightbox}
-![Reproduction](../reproduction/output/patients_base_3_month.png){width=49% .lightbox} -->
+![Original](../original_study/fig1.PNG){width=49% .lightbox}
+![Reproduction](../reproduction/output/fig1.png){width=49% .lightbox}
 
-## Item Y
+## Table 2
 
-[Set-up as for Item X]
+"Table 2. Predicted excess AAA deaths and emergency operations in the national invited 65-year-old cohort over 30y period." @kim_modelling_2021
+
+![Original](../original_study/tab2.PNG){.lightbox}
+
+```{python}
+import pandas as pd
+
+pd.read_csv('../reproduction/output/tab2.csv')
+```
+
+## Figure 2
+
+"Fig 2. 65-year-old cohort: Change in key outcomes over varying attendance at primary scan (model I2)." @kim_modelling_2021
+
+![Original](../original_study/fig2.PNG){width=49% .lightbox}
+![Reproduction](../reproduction/output/fig2.png){width=49% .lightbox}
+
+## Figure 3
+
+"Fig 3. Surveillance cohort: Change in key outcomes over varying suspension of surveillance scans (model S1)." @kim_modelling_2021
+
+![Original](../original_study/fig3.PNG){width=49% .lightbox}
+![Reproduction](../reproduction/output/fig3.png){width=49% .lightbox}
+
+## In-text result 1
+
+Original:
+
+"Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, **2 (1% increase) are in the sub-group measuring 4.5–4.9 cm** at the start of the pandemic and **7 (8% increase) in the sub-group measuring 5.0–5.4 cm**; **<0.1 are in the 3.0–4.4 cm sub-group**. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, **1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group**. However, the remaining **22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase** in AAA-related deaths in this sub-group."
+
+Reproduction:
+
+```{python}
+import pandas as pd
+
+pd.read_csv('../reproduction/output/intext1.csv')
+```
 
 ## Figure 4
 
-[Set-up as for Item X]
+"Fig 4. Surveillance cohort: Change in key outcomes over varying dropout rates, applied for (i) 1y (model I2.1) and (ii) 2y (model I2.2)." @kim_modelling_2021
+
+![Original](../original_study/fig4.PNG){width=49% .lightbox}
+![Reproduction](../reproduction/output/fig4.png){width=49% .lightbox}
+
+## Figure 5
+
+"Fig 5. Surveillance cohort: Change in key outcomes over varying time at increased (7cm) threshold (model I3)." @kim_modelling_2021
+
+![Original](../original_study/fig5.PNG){width=49% .lightbox}
+![Reproduction](../reproduction/output/fig5.png){width=49% .lightbox}
+
+## Table 3
+
+"Table 3. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period." @kim_modelling_2021
+
+![Original](../original_study/tab3.PNG){.lightbox}
+
+```{python}
+import pandas as pd
+
+pd.read_csv('../reproduction/output/tab3.csv')
+```
+
+## Supplementary figure 3
+
+"S3 Fig. Cumulative impact of scenarios on surveillance cohort." @kim_modelling_2021
+
+![Original](../original_study/sup_fig3_crop.png){width=49% .lightbox}
+![Reproduction](../reproduction/output/supfig3.png){width=49% .lightbox}
+
+## Supplementary table 2
+
+"S2 Tab. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period" @kim_modelling_2021
+
+![Original](../original_study/sup_tab2.png){.lightbox}
+
+```{python}
+import pandas as pd
+
+pd.read_csv('../reproduction/output/suptab2.csv')
+```
 
 :::
 
 ## Evaluation against guidelines
+
+**Note: this section still needs to be completed**
+
+<!-- TODO: Add evaluation -->
 
 ```{python}
 import pandas as pd
