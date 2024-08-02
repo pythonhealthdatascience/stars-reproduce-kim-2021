@@ -231,11 +231,18 @@
     "text": "09.09-09.43: Resuming supplementary table 2\nCombined each scenario with scenario 0, then adapted previous functions to generate the table.\nConsider this reproduced at 09.43.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 34m, or 0h 34m\nTotal used to date: 839m, or 13h 59m\nTime remaining: 1561m, or 26h 1m\nUsed 35.0% of 40 hours max"
   },
   {
+    "objectID": "logbook/posts/2024_08_02/index.html#supplementary-figure-3",
+    "href": "logbook/posts/2024_08_02/index.html#supplementary-figure-3",
+    "title": "Day 6",
+    "section": "10.02-10.38: Supplementary figure 3",
+    "text": "10.02-10.38: Supplementary figure 3\nAmend prior functions to combine with scenario 0 using a function (as repeated lots, and need again for this figure). Could then use those dataframes in my figure functions.\nConsider this reproduced at 10.38."
+  },
+  {
     "objectID": "logbook/posts/2024_08_02/index.html#timings",
     "href": "logbook/posts/2024_08_02/index.html#timings",
     "title": "Day 6",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 34m, or 0h 34m\nTotal used to date: 839m, or 13h 59m\nTime remaining: 1561m, or 26h 1m\nUsed 35.0% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43'),\n    ('10.02', '10.38')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 70m, or 1h 10m\nTotal used to date: 875m, or 14h 35m\nTime remaining: 1525m, or 25h 25m\nUsed 36.5% of 40 hours max"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html",
@@ -641,7 +648,7 @@
     "href": "evaluation/reproduction_success.html",
     "title": "Reproduction success",
     "section": "",
-    "text": "Please note: This page is in-progress and has not yet been completed\nOf the 10 items in the scope, X% (X out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from Kim et al. (2021)\nNote: This items have been reproduced with simulations containing 1,000,000 people (instead of 10,000,000) as that is very computationally expensive. We felt that, with 1,000,000 people, results are reasonably similar enough to be satisified with reproduction, whilst still being feasible to run on our machines."
+    "text": "Of the 10 items in the scope, 100% (10 out of 10) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from Kim et al. (2021)\nNote: This items have been reproduced with simulations containing 1,000,000 people (instead of 10,000,000) as that is very computationally expensive. We felt that, with 1,000,000 people, results are reasonably similar enough to be satisified with reproduction, whilst still being feasible to run on our machines."
   },
   {
     "objectID": "evaluation/reproduction_success.html#time-to-completion",
@@ -711,7 +718,7 @@
     "href": "evaluation/reproduction_success.html#supplementary-figure-3",
     "title": "Reproduction success",
     "section": "Supplementary figure 3",
-    "text": "Supplementary figure 3\nOriginal (Kim et al. (2021)):\n Reproduction:\nTBC"
+    "text": "Supplementary figure 3\nOriginal (Kim et al. (2021)):\n\n\n\n\n\nReproduction:"
   },
   {
     "objectID": "evaluation/reproduction_success.html#supplementary-table-2",

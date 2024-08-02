@@ -236,6 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#resuming-supplementary-table-2" id="toc-resuming-supplementary-table-2" class="nav-link active" data-scroll-target="#resuming-supplementary-table-2">09.09-09.43: Resuming supplementary table 2</a></li>
+  <li><a href="#supplementary-figure-3" id="toc-supplementary-figure-3" class="nav-link" data-scroll-target="#supplementary-figure-3">10.02-10.38: Supplementary figure 3</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -264,7 +265,7 @@ Note
 <h2 class="anchored" data-anchor-id="resuming-supplementary-table-2">09.09-09.43: Resuming supplementary table 2</h2>
 <p>Combined each scenario with scenario 0, then adapted previous functions to generate the table.</p>
 <p>Consider this reproduced at 09.43.</p>
-<div id="5551c5c8" class="cell" data-execution_count="1">
+<div id="b5918e8d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -285,9 +286,14 @@ Used 35.0% of 40 hours max</code></pre>
 </div>
 </div>
 </section>
+<section id="supplementary-figure-3" class="level2">
+<h2 class="anchored" data-anchor-id="supplementary-figure-3">10.02-10.38: Supplementary figure 3</h2>
+<p>Amend prior functions to combine with scenario 0 using a function (as repeated lots, and need again for this figure). Could then use those dataframes in my figure functions.</p>
+<p>Consider this reproduced at 10.38.</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="3e231a1f" class="cell" data-execution_count="2">
+<div id="8aed0b74" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -297,14 +303,15 @@ Used 35.0% of 40 hours max</code></pre>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.09'</span>, <span class="st">'09.43'</span>)]</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.09'</span>, <span class="st">'09.43'</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.02'</span>, <span class="st">'10.38'</span>)]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 34m, or 0h 34m
-Total used to date: 839m, or 13h 59m
-Time remaining: 1561m, or 26h 1m
-Used 35.0% of 40 hours max</code></pre>
+<pre><code>Time spent today: 70m, or 1h 10m
+Total used to date: 875m, or 14h 35m
+Time remaining: 1525m, or 25h 25m
+Used 36.5% of 40 hours max</code></pre>
 </div>
 </div>
 
