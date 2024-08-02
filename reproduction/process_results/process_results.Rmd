@@ -43,7 +43,9 @@ files <- list(
   fig3 = "fig3.png",
   fig4 = "fig4.png",
   fig5 = "fig5.png",
-  intext1 = "intext1.csv"
+  intext1 = "intext1.csv",
+  suptab1 = "suptab1.csv",
+  supfig3 = "supfig3.png"
 )
 
 # Apply file.path to each element in list to create path to file in outputs
@@ -460,6 +462,55 @@ write.csv(full_tab3, paths$tab3, row.names=FALSE)
 
 # Display
 full_tab3
+```
+
+## Supplementary table 1
+
+```{r}
+make_sup_tab <- function(df, colname){
+  #' Create components of supplementary table
+  #' 
+  #' Provided as function as there was a lot of repetition to create each of
+  #' these elements
+  #' @param df Dataframe with model results
+  #' @param colname Name of final column in supplementary table
+
+  # Define columns to keep (as don't all have same columns, so just filter to
+  # desired - and alternative would've been to filter to common cols)
+  cols = c("period", "elecevar", "elecopen", "emerevar", "emeropen",
+           "aaadead", "rupt")
+
+  # Combine scenario 0 (period=0) with the results from period 0.25+
+  df_comb <- rbind(surv_s0 %>% mutate("period" = 0) %>% select(any_of(cols)),
+                   df %>% select(any_of(cols)))
+
+  # Calculate scaled excess deaths and emergencies
+  sup_tab <- make_tab(df_comb, scale_to=15376, groupvar="period") %>%
+    rename(!!colname := excess_dead_emer) %>%
+
+  return (sup_tab)
+}
+```
+
+```{r}
+# Create each of the columns of the table, adding the full column names
+suptab1_s1 <- make_sup_tab(surv_s1, "Scan suspension only (S1)")
+suptab1_s21 <- make_sup_tab(surv_s4a, "+10% dropout/ annum for 1y (S2.1)")
+suptab1_s22 <- make_sup_tab(surv_s4b, "+10% dropout/ annum for 2y (S2.2)")
+suptab1_s23 <- make_sup_tab(surv_s4c, "+7cm threshold for 2y (S3)")
+# Combine into single table
+suptab1 <- mutate(suptab1_s1, suptab1_s21, suptab1_s22, suptab1_s23) %>%
+  # Only keep 6 months +
+  filter(period >= 0.5) %>%
+  # Relabel
+  mutate(period = paste0(period*12, "m")) %>%
+  rename("Length of scan suspension" = period)
+
+# Save to csv
+write.csv(suptab1, paths$suptab1, row.names=FALSE)
+
+# View dataframe
+suptab1
 ```
 
 ## Figure 1
