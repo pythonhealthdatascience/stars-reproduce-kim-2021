@@ -32,7 +32,7 @@ time_list = [
     [785, 'Figure 5'],
     [793, 'Table 3'],
     [np.nan, 'Supplementary figure 3'],
-    [np.nan, 'Supplementary table 2']]
+    [839, 'Supplementary table 2']]
 times_df = process_times(time_list)
 ```
 
@@ -142,7 +142,6 @@ pd.read_csv('../reproduction/output/tab3.csv')
 Original (@kim_modelling_2021):
 
 ![](../original_study/sup_fig3_crop.png){width=80% fig-align="center" .lightbox}
-
 Reproduction:
 
 TBC
@@ -152,3 +151,9 @@ TBC
 Original (@kim_modelling_2021):
 
 ![](../original_study/sup_tab2.png){width=100% fig-align="center" .lightbox}
+
+Reproduction:
+
+```{python}
+pd.read_csv('../reproduction/output/suptab2.csv')
+```
