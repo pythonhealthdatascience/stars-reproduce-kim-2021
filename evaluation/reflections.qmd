@@ -2,19 +2,34 @@
 title: "Reflections"
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
 This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work.
+
+## What helped facilitate this reproduction?
+
+* Provides commands to install packages required at the start of scripts, which I could then easily base renv on automatically (as it detects them)
+* Used seeds to control model (so got consistent results between runs with matching parameters)
+* Provides the option of running with parallel processing
+* Relatively simple and repetitive plots which are easy to understand and create
 
 ## What would have helped facilitate this reproduction?
 
-<!-- TODO: Add reflections. Example:
 **Provide environment (packages and versions)**
 
-* Not all packages needed will be listed in the imports (e.g. greenlet, pathlib)
-* Didn't work with latest package versions, had to backdate it for it to work
--->
+* There were no issues using the latest environment, but if there had been, it would be important to know what versions had previously been used and worked
+
+**Run time**
+
+* Making note of the high run time in the paper and repository, and providing suggestions on how to run the model quicker or on a lower-spec machine (i.e. not on a high-performance computer) - for example, running in parallel, and suggesting a lower numebr of people in simulation
+
+**Fix error in script**
+
+* An error appears to have been introduced with the aoorta diameter thresholds by switching between nested and unnested lists, which I'm anticipating was unresolved due to the long run times of the model meaning they weren't all run in sequence at the end.
+
+**Provide code to implement scenarios and generate outputs**
+
+* Include code to find the aorta sizes of people with AAA-related deaths
+* Provide code to produce the tables
+* Provide code to produce the figures
 
 ## Full list of troubleshooting steps
 
@@ -23,12 +38,35 @@ This page contains reflections on the facilitators and barriers to this reproduc
 
 Troubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.
 
-<!-- TODO: Add full list of troubleshooting steps. Example:
-
 ### Environment
 
-* No environment file, and no versions for Python or Salabim in paper (2)
-* Dependencies based on PHC.py and package versions on or prior to 14th March 2021 (2)
--->
+* No environment but does state version of R (3.6.3) and has commands to install required packages (no specific versions). Created an renv with latest versions and then had no issues with environment. (2)
+
+### Running the scripts
+
+* After a failed attempt, realised that need to run scripts using `source()` (and this is mentioned at the start of `run_aaamodel_65yo_scen0.R`). (2)
+* Did not realise the high run time of these models and how computationally expensive they were until I tried running them (and later realising its mentioned in the prior study, Glover et al. 2018). Had to:
+    * Experiment with different numbers of people in the simulation to identify a number that was high enough to get reasonably similar results to the original study, but low enough to be feasible to run on our machines. (2)
+    * Switch from serial to parallel (this was provided in the script already, just had to change the parameter) (2)
+
+### Fixing errors in scripts
+
+* The aaorta diameter thresholds need to be provided as a nested list for some aspects of the script but a normal list for others. This was not implemented in the script, so had to:
+    * Removed addition of `list()` in the run script (2)
+    * Change `countDropouts()` to get first element of list (i.e. to unnest it) (2)
+
+### Writing code to generate outputs
+
+* Had to write code to generate tables...   
+    * Calculate excess deaths and emergency operations (3+)
+    * Scale to population size (3+)
+    * Identify which columns provide the operation outcomes (need to combine two) (3)
+* Had to write code to produce figures
+    * Calculate percentage change in outcomes (3+)
+    * Plot figures (3+)
+
+### Writing code to find deaths by aorta size
+
+* Add code to the model scripts that will save the aorta sizes of people with AAA-related deaths, used to produce in-text result 1 (4-5)
 
 :::
