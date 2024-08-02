@@ -3,25 +3,18 @@ title: "STARS framework"
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
 This page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (@monks_towards_2024).
 
 Of the **8** essential STARS components:
 
-<!-- TODO: Add counts from evaluation -->
-* **X** were met fully (✅)
-* **X** was met partially (🟡)
-* **X** was not met (❌)
+* **4** were met fully (✅)
+* **1** was met partially (🟡)
+* **3** was not met (❌)
 
 Of the **5** optional STARS components:
 
-<!-- TODO: Add counts from evaluation -->
-* **X** was met fully (✅)
-* **X** were not met (❌)
+* **5** were not met (❌)
 
-<!-- TODO: Fill in the table. Options are ✅ Fully, 🟡 Partially, or ❌ Not met -->
 | Component | Description | Met by study? | Evidence/location |
 | - | - | :-: | - |
 | **Essential components** |
