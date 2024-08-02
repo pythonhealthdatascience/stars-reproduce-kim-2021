@@ -70,298 +70,214 @@
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 243\n\n# Times from today\ntimes = [\n    ('09.10', '09.11'),\n    ('09.20', '09.22'),\n    ('09.30', '09.40'),\n    ('09.52', '10.44'),\n    ('10.51', '10.56'),\n    ('11.02', '11.56'),\n    ('12.59', '13.27'),\n    ('13.29', '13.39'),\n    ('13.40', '13.44'),\n    ('13.51', '13.59'),\n    ('14.00', '14.06'),\n    ('14.07', '14.29'),\n    ('14.42', '14.49'),\n    ('15.00', '15.59'),\n    ('16.12', '16.27'),\n    ('16.42', '16.55')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 296m, or 4h 56m\nTotal used to date: 539m, or 8h 59m\nTime remaining: 1861m, or 31h 1m\nUsed 22.5% of 40 hours max"
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html",
-    "href": "logbook/posts/2024_08_01/index.html",
-    "title": "Day 5",
+    "objectID": "evaluation/reproduction_report.html",
+    "href": "evaluation/reproduction_report.html",
+    "title": "Summary report",
     "section": "",
-    "text": "Note\n\n\n\nFinished runnning scenarios, and reproduced in-text result 1, figure 5 and table 3. Total time used: 13h 25m (33.5%)."
+    "text": "Kim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nThis study adapts a previously developed DES model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission."
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0",
-    "href": "logbook/posts/2024_08_01/index.html#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0",
-    "title": "Day 5",
-    "section": "09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0",
-    "text": "09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0\nCreate a script functions/extra_functions.R and moved the function I created yesterday - get_aaa_death_aorta_sizes() - from run_aaamodel_surv_scen1.R to extra_functions.R. This is so that:\n\nIt sits alongside other model functions\nIt can be used in scenario 0 and scenario 1 without duplication\n\nI test ran it on a small sample before setting it to run on a remote machine.\nTimings:\n\nFull run (one scenario): 4.633 minutes = 278 seconds = 4 minutes 38 seconds"
+    "objectID": "evaluation/reproduction_report.html#study",
+    "href": "evaluation/reproduction_report.html#study",
+    "title": "Summary report",
+    "section": "",
+    "text": "Kim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nThis study adapts a previously developed DES model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission."
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#set-surv-scenario-4c-e-to-run",
-    "href": "logbook/posts/2024_08_01/index.html#set-surv-scenario-4c-e-to-run",
-    "title": "Day 5",
-    "section": "09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run",
-    "text": "09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run\nRunning on the remote machine…\nTimings for 4C:\n\nFirst run: 5.452 minutes = 327 seconds = 5 minutes 27 seconds\nAll runs: 35.234 minutes = 2114 seconds = 35 minutes 14 seconds\n\nTimings for 4D:\n\nFirst run: 5.429 minutes = 326 seconds = 5 minutes 26 seconds\nAll runs: 35.083 minutes= 2105 seconds = 35 minutes 5 seconds\n\nTimings for 4E:\n\nFirst run: 5.465 minutes = 328 seconds = 5 minutes 28 seconds\nAll runs: 34.994 minutes = 2096 seconds = 34 minutes 56 seconds\n\nAlso ran some others again on the remote machine that were missing run times:\n\n65yo scen 0: 3.528 min = 212 seconds = 3 minutes 32 seconds\n65yo scen 1: 29.230 min = 1754 seconds = 29 minutes 14 seconds\nSurv scen 4b: 34.955 min = 2097 seconds = 34 minutes 57 seconds\n\nReassuringly, for those re-run, no change in results observed (so seed control all working as anticipated)."
+    "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
+    "href": "evaluation/reproduction_report.html#computational-reproducibility",
+    "title": "Summary report",
+    "section": "Computational reproducibility",
+    "text": "Computational reproducibility\nSuccessfully reproduced 10 out of 10 (100%) of items from the scope in 13h 59m (35.0%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nFigure 1Table 2Figure 2Figure 3In-text result 1Figure 4Figure 5Table 3Supplementary figure 3Supplementary table 2\n\n\n“Fig 1. 65-year-old cohort: Change in key outcomes over varying delay to primary invitation (model I1).” Kim et al. (2021)\n \n\n\n“Table 2. Predicted excess AAA deaths and emergency operations in the national invited 65-year-old cohort over 30y period.” Kim et al. (2021)\n\n\n\nOriginal\n\n\n\n\n\n\n\n\n\n\n\nLength of delay to invitation\nExcess AAA deaths (excess emergency operations) in Model I1*\nAttendance rate at primary scan\nExcess AAA deaths (excess emergency operations) in Model I2*\n\n\n\n\n0\n6m\n0 (3)\n65%\n61 (32)\n\n\n1\n12m\n0 (0)\n55%\n127 (67)\n\n\n2\n24m\n0 (1)\n45%\n184 (96)\n\n\n3\n36m\n21 (14)\nNaN\nNaN\n\n\n4\n48m\n56 (35)\nNaN\nNaN\n\n\n5\n60m\n108 (56)\nNaN\nNaN\n\n\n\n\n\n\n\n\n\n“Fig 2. 65-year-old cohort: Change in key outcomes over varying attendance at primary scan (model I2).” Kim et al. (2021)\n \n\n\n“Fig 3. Surveillance cohort: Change in key outcomes over varying suspension of surveillance scans (model S1).” Kim et al. (2021)\n \n\n\nOriginal:\n“Suspending ultrasound scans in the surveillance cohort could result in 9 (0.4% increase) additional AAA-related deaths if scans were suspended for one year (Table 3, Fig 3). Of these, 2 (1% increase) are in the sub-group measuring 4.5–4.9 cm at the start of the pandemic and 7 (8% increase) in the sub-group measuring 5.0–5.4 cm; &lt;0.1 are in the 3.0–4.4 cm sub-group. More pronounced effects are evident for suspension for two years and beyond. Suspending surveillance for two years could result in 40 excess AAA-related deaths overall; a 1.9% increase over the lifetime of the surveillance cohort. Of these, 1 is in the 3.0–4.4 cm sub-group and 17 (7% increase) in the 4.5–4.9cm sub-group. However, the remaining 22 excess deaths are in the 5.0–5.4cm range, corresponding to a 24% increase in AAA-related deaths in this sub-group.”\nReproduction:\n\n\n\n\n\n\n\n\n\nyears_of_surveillance_suspension\naorta_size\ndead_scaled\nextra_deaths\npct_change\n\n\n\n\n0\n0\nsmall\n1750\n0\n0.00\n\n\n1\n0\nmed\n225\n0\n0.00\n\n\n2\n0\nlarge\n180\n0\n0.00\n\n\n3\n1\nsmall\n1750\n0\n0.00\n\n\n4\n1\nmed\n227\n2\n0.89\n\n\n5\n1\nlarge\n187\n7\n3.89\n\n\n6\n2\nsmall\n1755\n5\n0.29\n\n\n7\n2\nmed\n235\n10\n4.44\n\n\n8\n2\nlarge\n207\n27\n15.00\n\n\n\n\n\n\n\n\n\n“Fig 4. Surveillance cohort: Change in key outcomes over varying dropout rates, applied for (i) 1y (model I2.1) and (ii) 2y (model I2.2).” Kim et al. (2021)\n \n\n\n“Fig 5. Surveillance cohort: Change in key outcomes over varying time at increased (7cm) threshold (model I3).” Kim et al. (2021)\n \n\n\n“Table 3. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period.” Kim et al. (2021)\n\n\n\nOriginal\n\n\n\n\n\n\n\n\n\n\n\nLength of scan suspension\nExcess AAA deaths (excess emergency operations) in Model S1\nLength of time at 7cm threshold\nExcess AAA deaths (excess emergency operations) in Model S3\nDropout rate/ annum\nExcess AAA deaths (excess emergency operations) in Model S2.1\nExcess AAA deaths (excess emergency operations) in Model S2.2\n\n\n\n\n0\n6m\n2 (0)\n6m\n2 (0)\n8%\n46 (24)\n85 (43)\n\n\n1\n12m\n9 (4)\n12m\n10 (4)\n10%\n84 (43)\n153 (79)\n\n\n2\n24m\n43 (23)\n24m\n42 (23)\n12%\n122 (62)\n218 (114)\n\n\n3\n36m\n114 (64)\n36m\n101 (55)\n15%\n176 (91)\n313 (164)\n\n\n4\n48m\n236 (127)\n48m\n179 (98)\nNaN\nNaN\nNaN\n\n\n5\n60m\n409 (223)\n60m\n262 (146)\nNaN\nNaN\nNaN\n\n\n\n\n\n\n\n\n\n“S3 Fig. Cumulative impact of scenarios on surveillance cohort.” Kim et al. (2021)\n \n\n\n“S2 Tab. Predicted excess AAA deaths and emergency operations in the national surveillance cohort over 30y period” Kim et al. (2021)\n\n\n\nOriginal\n\n\n\n\n\n\n\n\n\n\n\nLength of scan suspension\nScan suspension only (S1)\n+10% dropout/ annum for 1y (S2.1)\n+10% dropout/ annum for 2y (S2.2)\n+7cm threshold for 2y (S3)\n\n\n\n\n0\n6m\n2 (0)\n84 (43)\n153 (79)\n209 (111)\n\n\n1\n12m\n9 (4)\n94 (49)\n164 (85)\n209 (111)\n\n\n2\n24m\n43 (23)\n126 (67)\n209 (112)\n209 (112)\n\n\n3\n36m\n114 (64)\n194 (106)\n274 (147)\n275 (148)\n\n\n4\n48m\n236 (127)\n311 (166)\n385 (207)\n386 (207)\n\n\n5\n60m\n409 (223)\n478 (259)\n547 (297)\n548 (298)"
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#in-text-result-1",
-    "href": "logbook/posts/2024_08_01/index.html#in-text-result-1",
-    "title": "Day 5",
-    "section": "15.42-16.02: In-text result 1",
-    "text": "15.42-16.02: In-text result 1\nCombined results from my function added to surv scenario 0 and 1, to view deaths by aorta size. The numbers are pretty similar to the original - exacty the same for one year (0, 2 and 7 deaths in the small, medium and large groups repsectively). They differed a little more for the suspension over 2 years:\n\nSmall: Original 1, Mine 5\nMedium: Original 17, Mine 10\nLarge: Original 22, Mine 27\n\nHowever, given the reduced sample size we run, I would consider this reasonably reproduced (with a consistent pattern, and relatively similar numbers), although will see what others say when send for a consensus opinion.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 33m, or 0h 33m\nTotal used to date: 774m, or 12h 54m\nTime remaining: 1626m, or 27h 6m\nUsed 32.2% of 40 hours max"
+    "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
+    "href": "evaluation/reproduction_report.html#evaluation-against-guidelines",
+    "title": "Summary report",
+    "section": "Evaluation against guidelines",
+    "text": "Evaluation against guidelines\nNote: this section still needs to be completed\n\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#figure-5",
-    "href": "logbook/posts/2024_08_01/index.html#figure-5",
-    "title": "Day 5",
-    "section": "16.06-16.17: Figure 5",
-    "text": "16.06-16.17: Figure 5\nThe model output from surv scen 3 includes thres 5.5 period 0, and then thresh 7 for periods 0.5 +. This aligns with the description in Table 1 in the paper. Hence, I’m assuming that calculations are in comparison against 5.5 period 0 (and that there is not a thresh 7 period 0 anywhere, since thresh 5.5 is otherwise the default).\nFeel this is reproduced at 16.17.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 44m, or 0h 44m\nTotal used to date: 785m, or 13h 5m\nTime remaining: 1615m, or 26h 55m\nUsed 32.7% of 40 hours max"
+    "objectID": "logbook/posts/2024_07_31/index.html",
+    "href": "logbook/posts/2024_07_31/index.html",
+    "title": "Day 4",
+    "section": "",
+    "text": "Note\n\n\n\nReproduced Figures 2-4, subset of Table 3, and ran some of the other scenarios. Total time used: 12h 21m (30.9%)."
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#finishing-up-table-3",
-    "href": "logbook/posts/2024_08_01/index.html#finishing-up-table-3",
-    "title": "Day 5",
-    "section": "16.19-16.26: Finishing up Table 3",
-    "text": "16.19-16.26: Finishing up Table 3\nCreated the final section of table 3 from scenario 3, and then combined with prior sections to produced Table 3.\nFeel this is reproduced at 16.26.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.27')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 52m, or 0h 52m\nTotal used to date: 793m, or 13h 13m\nTime remaining: 1607m, or 26h 47m\nUsed 33.0% of 40 hours max"
+    "objectID": "logbook/posts/2024_07_31/index.html#run-surv-scenario-2",
+    "href": "logbook/posts/2024_07_31/index.html#run-surv-scenario-2",
+    "title": "Day 4",
+    "section": "09.12-09.16: Run surv scenario 2",
+    "text": "09.12-09.16: Run surv scenario 2\nUpdate renv on remote machine, and then set surv scen2 to run.\nTimings:\n\nFirst run: 14.850 minutes = 891 seconds = 14 minutes 51 seconds\nAll runs: 99.651 minutes = 5979 seconds = 1 hour 39 minutes 39 seconds"
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#supplementary-table-2",
-    "href": "logbook/posts/2024_08_01/index.html#supplementary-table-2",
-    "title": "Day 5",
-    "section": "16.40-16.53: Supplementary table 2",
-    "text": "16.40-16.53: Supplementary table 2\nLooking through the code and results:\n\nScenario 4A has scan suspension + 10% dropout over 1 year\nScenario 4B has scan suspension + 10% dropout over 2 years\nScenario 4C has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years\nScenario 4D has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years + 2 lockdown (op suspension) periods\nScenario 4E has scan suspension + 10% dropout over 2 years + 7cm threshold for 3 months and 5.5cm threshold for 3 months\n\nSupplementary table 1 and supplementary figure 3 appears to include just 4A to 4C, plus a prior scenario that just had scan suspension. Hence, I removed their run times from the README.\nScan suspension is presented in Figure 3, which uses scenarios 0 and 1."
+    "objectID": "logbook/posts/2024_07_31/index.html#figure-2",
+    "href": "logbook/posts/2024_07_31/index.html#figure-2",
+    "title": "Day 4",
+    "section": "09.20-09.58: Figure 2",
+    "text": "09.20-09.58: Figure 2\nFixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.\nSatisfied this is reproduced at 09.58.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max\n\n\n\n\n\n\n\n\nReflection\n\n\n\nNice simple output from the model makes it easier to work with, as well as it being simple and similar plots with fairly minimal manipulation."
   },
   {
-    "objectID": "logbook/posts/2024_08_01/index.html#timings",
-    "href": "logbook/posts/2024_08_01/index.html#timings",
-    "title": "Day 5",
+    "objectID": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
+    "href": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
+    "title": "Day 4",
+    "section": "10.09-10.27: Figure 3 and Table 3",
+    "text": "10.09-10.27: Figure 3 and Table 3\nUsing surv scen 1 (as in figure legend and article), starting working on Figure 3 and part of Table 3, adapting my prior functions.\nI realised the output for scenario 1 doesn’t include a result from delay 0, so I will need the outputs from the base scenario scen0 to create this plot. I have not yet generated these.\nThis will also need different scaling. As in the Table 3 caption:\n\nNational surveillance cohort March 2020: n=15376\nExpected AAA deaths in status quo: n=2152\nExpected emergency operations in status quo: n=745"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-surv-scenario-0-to-run-on-remote-machine",
+    "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-0-to-run-on-remote-machine",
+    "title": "Day 4",
+    "section": "10.56-11.02: Set surv scenario 0 to run on remote machine",
+    "text": "10.56-11.02: Set surv scenario 0 to run on remote machine\nFirst had to push and pull changes, and then update surv scenario 0 R script (as we have done for others) (parallel, 1 million, csv, etc.)\nTimings:\n\n4.463 minutes = 268 seconds = 4 minutes 28 seconds"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
+    "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
+    "title": "Day 4",
+    "section": "11.06-11.07: Set surv scenario 3 to run on remote machine",
+    "text": "11.06-11.07: Set surv scenario 3 to run on remote machine\nTimings:\n\nFirst run: 13.303 minutes = 798 seconds = 13 minutes 18 seconds\nFull run: 81.663 minutes = 4900 seconds = 81 minutes 40 seconds"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
+    "href": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
+    "title": "Day 4",
+    "section": "11.11-11.24: Returning to Figure 3 and a subset of Table 3",
+    "text": "11.11-11.24: Returning to Figure 3 and a subset of Table 3\nWith scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.\nSatisfied Figure 3 is reproduced at 11.24.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 80m, or 1h 20m\nTotal used to date: 619m, or 10h 19m\nTime remaining: 1781m, or 29h 41m\nUsed 25.8% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#working-on-figure-4",
+    "href": "logbook/posts/2024_07_31/index.html#working-on-figure-4",
+    "title": "Day 4",
+    "section": "11.31-11.55, 12.43-13.00: Working on Figure 4",
+    "text": "11.31-11.55, 12.43-13.00: Working on Figure 4\nSurv_scen2 includes s2.1 and s2.2, as it varies the dropout rate for 1 year, or for 2 years. These are each in part of Table 3, and together in Figure 4."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-up-surv-scen-4a-to-run",
+    "href": "logbook/posts/2024_07_31/index.html#set-up-surv-scen-4a-to-run",
+    "title": "Day 4",
+    "section": "13.01-13.04: Set up surv scen 4a to run",
+    "text": "13.01-13.04: Set up surv scen 4a to run\nTimings:\n\nFirst run: forgot to note down\nAll runs: 35.390 min = 2123 seconds = 35 minutes 23 seconds"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#resuming-figure-4",
+    "href": "logbook/posts/2024_07_31/index.html#resuming-figure-4",
+    "title": "Day 4",
+    "section": "13.05-13.14: Resuming Figure 4",
+    "text": "13.05-13.14: Resuming Figure 4\nHad to combine with scenario 0 again to give result when dropout rate is 0.\nSatisfied this is reproduced at 13.14.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 133m, or 2h 13m\nTotal used to date: 672m, or 11h 12m\nTime remaining: 1728m, or 28h 48m\nUsed 28.0% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#subset-of-table-3",
+    "href": "logbook/posts/2024_07_31/index.html#subset-of-table-3",
+    "title": "Day 4",
+    "section": "13.22-13.29: Subset of Table 3",
+    "text": "13.22-13.29: Subset of Table 3\nCreated the scenario 2 sections of table 3 using my prior functions.\n\n\n\n\n\n\nReflection\n\n\n\nGiven small size of these results dataframe, could have been handy to include them along with the code."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#in-text-result-1",
+    "href": "logbook/posts/2024_07_31/index.html#in-text-result-1",
+    "title": "Day 4",
+    "section": "13.32-13.40: In-text result 1",
+    "text": "13.32-13.40: In-text result 1\nThe output from the model for Figure 3/Table 3 (..._surv_scen1.R) just returns total AAA deaths and not which sub-groups these belonged to.\nI couldn’t spot any code in the repository that would extra this result by these sub-groups, so set about identifying how to do this."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#set-up-surv-scen4b-to-run",
+    "href": "logbook/posts/2024_07_31/index.html#set-up-surv-scen4b-to-run",
+    "title": "Day 4",
+    "section": "13.53-13.55: Set up surv scen4b to run",
+    "text": "13.53-13.55: Set up surv scen4b to run\nPush and pull, and set to run.\n\n\n\n\n\n\nReflection\n\n\n\nThe original study authors inclusion of seeds and parallel processing is great and really handy."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#return-to-in-text-result-1",
+    "href": "logbook/posts/2024_07_31/index.html#return-to-in-text-result-1",
+    "title": "Day 4",
+    "section": "13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1",
+    "text": "13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1\nI ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.\nscen1.surv$eventHistories is a list where each item is a person from the simulation. We can get:\n\nWhether they died - if “aaaDeath” is in their events (scen1.surv$eventHistories[[i]]$screening$events)\nTheir aaorta size - scen1.surv$eventHistories[[i]]$screening$initialAortaSizeAsMeasured\n\nI wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to ..._surv_scen1.R, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.\nTimings:\n\nOne run: 13.346 minutes = 801 seconds = 13 minutes 21 seconds\nAll runs: 68.854 minutes = 4131 seconds = 1 hour 8 minutes 51 seconds\n\nI imported the results, and then realised I would also need to run this function with ..._surv_scen0.R."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_31/index.html#timings",
+    "href": "logbook/posts/2024_07_31/index.html#timings",
+    "title": "Day 4",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.26'),\n    ('16.40', '16.53')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 64m, or 1h 4m\nTotal used to date: 805m, or 13h 25m\nTime remaining: 1595m, or 26h 35m\nUsed 33.5% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14'),\n    ('13.22', '13.29'),\n    ('13.32', '13.40'),\n    ('13.53', '13.55'),\n    ('13.56', '14.00'),\n    ('14.10', '14.49'),\n    ('16.07', '16.16')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 202m, or 3h 22m\nTotal used to date: 741m, or 12h 21m\nTime remaining: 1659m, or 27h 39m\nUsed 30.9% of 40 hours max"
   },
   {
-    "objectID": "logbook/posts/2024_07_29/index.html",
-    "href": "logbook/posts/2024_07_29/index.html",
-    "title": "Day 2",
+    "objectID": "quarto_site/license.html",
+    "href": "quarto_site/license.html",
+    "title": "Open Source License",
     "section": "",
-    "text": "Note\n\n\n\nRead article, decided on scope, then began running model. Total time used: 4h 3m (10.1%)."
+    "text": "This repository is licensed under the GNU Lesser General Public License v3.0.\n\n\n\n\n\n\nView license\n\n\n\n\n\n               GNU LESSER GENERAL PUBLIC LICENSE\n                   Version 3, 29 June 2007\nCopyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\nThis version of the GNU Lesser General Public License incorporates the terms and conditions of version 3 of the GNU General Public License, supplemented by the additional permissions listed below.\n\nAdditional Definitions.\n\nAs used herein, “this License” refers to version 3 of the GNU Lesser General Public License, and the “GNU GPL” refers to version 3 of the GNU General Public License.\n“The Library” refers to a covered work governed by this License, other than an Application or a Combined Work as defined below.\nAn “Application” is any work that makes use of an interface provided by the Library, but which is not otherwise based on the Library. Defining a subclass of a class defined by the Library is deemed a mode of using an interface provided by the Library.\nA “Combined Work” is a work produced by combining or linking an Application with the Library. The particular version of the Library with which the Combined Work was made is also called the “Linked Version”.\nThe “Minimal Corresponding Source” for a Combined Work means the Corresponding Source for the Combined Work, excluding any source code for portions of the Combined Work that, considered in isolation, are based on the Application, and not on the Linked Version.\nThe “Corresponding Application Code” for a Combined Work means the object code and/or source code for the Application, including any data and utility programs needed for reproducing the Combined Work from the Application, but excluding the System Libraries of the Combined Work.\n\nException to Section 3 of the GNU GPL.\n\nYou may convey a covered work under sections 3 and 4 of this License without being bound by section 3 of the GNU GPL.\n\nConveying Modified Versions.\n\nIf you modify a copy of the Library, and, in your modifications, a facility refers to a function or data to be supplied by an Application that uses the facility (other than as an argument passed when the facility is invoked), then you may convey a copy of the modified version:\n\nunder this License, provided that you make a good faith effort to ensure that, in the event an Application does not supply the function or data, the facility still operates, and performs whatever part of its purpose remains meaningful, or\nunder the GNU GPL, with none of the additional permissions of this License applicable to that copy.\n\n\nObject Code Incorporating Material from Library Header Files.\n\nThe object code form of an Application may incorporate material from a header file that is part of the Library. You may convey such object code under terms of your choice, provided that, if the incorporated material is not limited to numerical parameters, data structure layouts and accessors, or small macros, inline functions and templates (ten or fewer lines in length), you do both of the following:\n\nGive prominent notice with each copy of the object code that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the object code with a copy of the GNU GPL and this license document.\n\n\nCombined Works.\n\nYou may convey a Combined Work under terms of your choice that, taken together, effectively do not restrict modification of the portions of the Library contained in the Combined Work and reverse engineering for debugging such modifications, if you also do each of the following:\n\nGive prominent notice with each copy of the Combined Work that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the Combined Work with a copy of the GNU GPL and this license document.\nFor a Combined Work that displays copyright notices during execution, include the copyright notice for the Library among these notices, as well as a reference directing the user to the copies of the GNU GPL and this license document.\nDo one of the following:\n\nConvey the Minimal Corresponding Source under the terms of this License, and the Corresponding Application Code in a form suitable for, and under terms that permit, the user to recombine or relink the Application with a modified version of the Linked Version to produce a modified Combined Work, in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.\nUse a suitable shared library mechanism for linking with the Library. A suitable mechanism is one that (a) uses at run time a copy of the Library already present on the user’s computer system, and (b) will operate properly with a modified version of the Library that is interface-compatible with the Linked Version.\n\nProvide Installation Information, but only if you would otherwise be required to provide such information under section 6 of the GNU GPL, and only to the extent that such information is necessary to install and execute a modified version of the Combined Work produced by recombining or relinking the Application with a modified version of the Linked Version. (If you use option 4d0, the Installation Information must accompany the Minimal Corresponding Source and Corresponding Application Code. If you use option 4d1, you must provide the Installation Information in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.)\n\n\nCombined Libraries.\n\nYou may place library facilities that are a work based on the Library side by side in a single library together with other library facilities that are not Applications and are not covered by this License, and convey such a combined library under terms of your choice, if you do both of the following:\n\nAccompany the combined library with a copy of the same work based on the Library, uncombined with any other library facilities, conveyed under the terms of this License.\nGive prominent notice with the combined library that part of it is a work based on the Library, and explaining where to find the accompanying uncombined form of the same work.\n\n\nRevised Versions of the GNU Lesser General Public License.\n\nThe Free Software Foundation may publish revised and/or new versions of the GNU Lesser General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.\nEach version is given a distinguishing version number. If the Library as you received it specifies that a certain numbered version of the GNU Lesser General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that published version or of any later version published by the Free Software Foundation. If the Library as you received it does not specify a version number of the GNU Lesser General Public License, you may choose any version of the GNU Lesser General Public License ever published by the Free Software Foundation.\nIf the Library as you received it specifies that a proxy can decide whether future versions of the GNU Lesser General Public License shall apply, that proxy’s public statement of acceptance of any version is permanent authorization for you to choose that version for the Library.\n\n\n\nThis is aligned with the original study, who shared their code under the GNU Lesser General Public License v3.0.\n\n\n\n\n\n\nView license\n\n\n\n\n\n               GNU LESSER GENERAL PUBLIC LICENSE\n                   Version 3, 29 June 2007\nCopyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\nThis version of the GNU Lesser General Public License incorporates the terms and conditions of version 3 of the GNU General Public License, supplemented by the additional permissions listed below.\n\nAdditional Definitions.\n\nAs used herein, “this License” refers to version 3 of the GNU Lesser General Public License, and the “GNU GPL” refers to version 3 of the GNU General Public License.\n“The Library” refers to a covered work governed by this License, other than an Application or a Combined Work as defined below.\nAn “Application” is any work that makes use of an interface provided by the Library, but which is not otherwise based on the Library. Defining a subclass of a class defined by the Library is deemed a mode of using an interface provided by the Library.\nA “Combined Work” is a work produced by combining or linking an Application with the Library. The particular version of the Library with which the Combined Work was made is also called the “Linked Version”.\nThe “Minimal Corresponding Source” for a Combined Work means the Corresponding Source for the Combined Work, excluding any source code for portions of the Combined Work that, considered in isolation, are based on the Application, and not on the Linked Version.\nThe “Corresponding Application Code” for a Combined Work means the object code and/or source code for the Application, including any data and utility programs needed for reproducing the Combined Work from the Application, but excluding the System Libraries of the Combined Work.\n\nException to Section 3 of the GNU GPL.\n\nYou may convey a covered work under sections 3 and 4 of this License without being bound by section 3 of the GNU GPL.\n\nConveying Modified Versions.\n\nIf you modify a copy of the Library, and, in your modifications, a facility refers to a function or data to be supplied by an Application that uses the facility (other than as an argument passed when the facility is invoked), then you may convey a copy of the modified version:\n\nunder this License, provided that you make a good faith effort to ensure that, in the event an Application does not supply the function or data, the facility still operates, and performs whatever part of its purpose remains meaningful, or\nunder the GNU GPL, with none of the additional permissions of this License applicable to that copy.\n\n\nObject Code Incorporating Material from Library Header Files.\n\nThe object code form of an Application may incorporate material from a header file that is part of the Library. You may convey such object code under terms of your choice, provided that, if the incorporated material is not limited to numerical parameters, data structure layouts and accessors, or small macros, inline functions and templates (ten or fewer lines in length), you do both of the following:\n\nGive prominent notice with each copy of the object code that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the object code with a copy of the GNU GPL and this license document.\n\n\nCombined Works.\n\nYou may convey a Combined Work under terms of your choice that, taken together, effectively do not restrict modification of the portions of the Library contained in the Combined Work and reverse engineering for debugging such modifications, if you also do each of the following:\n\nGive prominent notice with each copy of the Combined Work that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the Combined Work with a copy of the GNU GPL and this license document.\nFor a Combined Work that displays copyright notices during execution, include the copyright notice for the Library among these notices, as well as a reference directing the user to the copies of the GNU GPL and this license document.\nDo one of the following:\n\nConvey the Minimal Corresponding Source under the terms of this License, and the Corresponding Application Code in a form suitable for, and under terms that permit, the user to recombine or relink the Application with a modified version of the Linked Version to produce a modified Combined Work, in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.\nUse a suitable shared library mechanism for linking with the Library. A suitable mechanism is one that (a) uses at run time a copy of the Library already present on the user’s computer system, and (b) will operate properly with a modified version of the Library that is interface-compatible with the Linked Version.\n\nProvide Installation Information, but only if you would otherwise be required to provide such information under section 6 of the GNU GPL, and only to the extent that such information is necessary to install and execute a modified version of the Combined Work produced by recombining or relinking the Application with a modified version of the Linked Version. (If you use option 4d0, the Installation Information must accompany the Minimal Corresponding Source and Corresponding Application Code. If you use option 4d1, you must provide the Installation Information in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.)\n\n\nCombined Libraries.\n\nYou may place library facilities that are a work based on the Library side by side in a single library together with other library facilities that are not Applications and are not covered by this License, and convey such a combined library under terms of your choice, if you do both of the following:\n\nAccompany the combined library with a copy of the same work based on the Library, uncombined with any other library facilities, conveyed under the terms of this License.\nGive prominent notice with the combined library that part of it is a work based on the Library, and explaining where to find the accompanying uncombined form of the same work.\n\n\nRevised Versions of the GNU Lesser General Public License.\n\nThe Free Software Foundation may publish revised and/or new versions of the GNU Lesser General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.\nEach version is given a distinguishing version number. If the Library as you received it specifies that a certain numbered version of the GNU Lesser General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that published version or of any later version published by the Free Software Foundation. If the Library as you received it does not specify a version number of the GNU Lesser General Public License, you may choose any version of the GNU Lesser General Public License ever published by the Free Software Foundation.\nIf the Library as you received it specifies that a proxy can decide whether future versions of the GNU Lesser General Public License shall apply, that proxy’s public statement of acceptance of any version is permanent authorization for you to choose that version for the Library.\n\n\n\nThe original study was published in the journal “PLoS ONE”. They distributed the article under the Creative Commons Attribution License.\n\n\n\n\n\n\nView copyright statement from journal\n\n\n\n\n\n“Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”\nhttps://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327"
   },
   {
-    "objectID": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
-    "href": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
-    "title": "Day 2",
-    "section": "09.38-09.43: High entropy secret",
-    "text": "09.38-09.43: High entropy secret\nUpload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R on line 376:\n# SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)\nThis is not a concern - the link doesn’t work with that token for others.\nThe DOI for this article is https://doi.org/10.1016/j.jval.2015.03.1784."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#correct-file-paths",
-    "href": "logbook/posts/2024_07_29/index.html#correct-file-paths",
-    "title": "Day 2",
-    "section": "09.53-09.55: Correct file paths",
-    "text": "09.53-09.55: Correct file paths\nFor study_publication.qmd."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#read-journal-article",
-    "href": "logbook/posts/2024_07_29/index.html#read-journal-article",
-    "title": "Day 2",
-    "section": "10.05-10.15, 10.29-10.45: Read journal article",
-    "text": "10.05-10.15, 10.29-10.45: Read journal article\nUses a previously developed and validated model described in:\n\nGlover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. https://doi.org/10.1177/0272989X17753380 PMID: 31665967\nThompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al. Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. https://doi.org/10.3310/hta22430 PMID: 30132754\n\nSome notes on scope (beyond obvious tables/figures):\n\nIn-text result for Surveillance cohort: Scan suspension (re: breakdown of deaths by type) are not captured in tables/figures\nSupplementary figure 1 and 2 are more like methods than results? Are referenced in methods.\nIn-text results for Surveillance cohort: Drop-out are captured in Table 3 and Figure 4\nAlso captured are Surveillance cohort: Threshold for surgery\nSupplementary figure 3 and supplementary table 2 are definitely in scope"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
-    "href": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
-    "title": "Day 2",
-    "section": "10.46-11.02: Define scope for reproduction",
-    "text": "10.46-11.02: Define scope for reproduction\nI described my interpretation of scope within scope.qmd."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
-    "href": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
-    "title": "Day 2",
-    "section": "11.09-11.13: Discussed scope with Tom",
-    "text": "11.09-11.13: Discussed scope with Tom\nLooked over and happy with scope. He then did another look over the paper, but confirmed no further items."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#archive-scope",
-    "href": "logbook/posts/2024_07_29/index.html#archive-scope",
-    "title": "Day 2",
-    "section": "11.26-11.32 : Archive scope",
-    "text": "11.26-11.32 : Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#look-over-code",
-    "href": "logbook/posts/2024_07_29/index.html#look-over-code",
-    "title": "Day 2",
-    "section": "12.50-12.56: Look over code",
-    "text": "12.50-12.56: Look over code\nREADME:\n\nDirects to NAASP_DES_Example_Script.R which provides walk through example for running model.\nNotes the repository contains code for two papers - we are interested in NAAASP_COVID (rather than SWAN)\n\nCopied the items relevant to NAAASP COVID into reproduction/. As README states results are saved to output/, create a placeholder output folder\nThe models/ folder seems to contain scripts to run each of the scenarios."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#set-up-environment",
-    "href": "logbook/posts/2024_07_29/index.html#set-up-environment",
-    "title": "Day 2",
-    "section": "12.57-13.04: Set up environment",
-    "text": "12.57-13.04: Set up environment\nBased on experience trying to backdate R and packages in my previous reproduction (Huang et al. 2019), I decided that this time I would start with the latest R and packages, and then backdate if its not working.\nThis means using R 4.4.1 (paper mentions 3.6.3).\nAt the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.\nTitle: Computational reproducibility assessment of Kim et al. 2019\nDepends: \n    R\nImports:\n    Rcpp,\n    expm,\n    msm,\n    foreach,\n    iterators,\n    doParallel\nRan:\nrenv::init(bare=TRUE)\nrenv::install()\nrenv::snapshot()"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
-    "href": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
-    "title": "Day 2",
-    "section": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model",
-    "text": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model\nTried running run_aaamodel_65yo_scen0.R. Had error:\nthis.dir &lt;- dirname(parent.frame(2)$ofile)\nError in dirname(parent.frame(2)$ofile) : \n  a character vector argument expected\nRealised this has a comment above stating:\n# Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)\nSo instead tried running with Source - this worked, up until this line:\n&gt; v1other\npostSurgeryInitialPeriod = 0.08213552 \ntimeToMonitoringFollowingOpenSurgery = 0.1149897 \ntimeBetweenMonitoringFollowingEvarSurgery = 1 \nzeroGrowthDiameterThreshold = 2 \nbaselineDiameters = data.frame with 2 columns:\n  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...\n  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...\nprevalenceThreshold = 3 \naortaDiameterThresholds = list: =Error in cat(names(element)[i], \"=\", element[[i]], \" \", sep = \"\") : \n  argument 3 (type 'list') cannot be handled by 'cat'\nv1other was created when we called source(\"input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R\"). Looking at that script, aortaDiameterThresholds are set as v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). Viewing the object rather than printing it with View(v1other), I can see that the thresholds are stored, but its just a list within a list.\nI tried commenting the print statement in run_aaamodel... but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to c(3.0, 4.5, 5.5) (removing list()).\nThis then ran without issue. As it ran, I can see it sets a random seed (set.seed(3210)). As per usual, paused timing while it ran.\nSpent a long while on processPersons() (scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)). At 13.48 (with model running since 13.13), I could see these would likely be slow models to run, so logged into the remote computer, cloned the GitHub repository there, and ran the next script starting at 13.55, run_aaamodel_65yo_scen0.R. To do so, after cloning, I ran:\ncd stars-reproduce-kim-2021/reproduction\nRscript -e \"renv::restore()\"\nRscript -e \"source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')\"\n\n\n\n\n\n\nReflection\n\n\n\nIncluding the expected run time would be handy, as I assume this is working fine, but that’s working on the assumption that these models take a long time to run (which I’m not sure yet whether that is the case or not).\nIn this case, as I later found out they used HPC, it would’ve been beneficial to mention that also!\n\n\nI checked the run_aaamodel... scripts and realised that in each, none were using parallel processing (as v0$method &lt;- \"serial\").\nLooking at the DES_Model code I can see the example of processPersons() allows three possible inputs:\n\n“serial”\n“parallel” (which uses parallel)\n“foreach” (which uses doParallel)\n\nThe function psa() is the same, but also includes “parallelBatches” alongside “foreach”. However, the consequence of those inputs is to return an error that the method has not been implemented for psa. Hence, psa can only run with “serial” or “parallel”. Likewise for psaAboveDiagnosisThreshold().\nAt 14.16 (so having let the model run since 13.55, for 21 minutes), I cancelled the run on the remote computer, and altered the scenario script to set v0$method &lt;- \"parallel\". Then set that running, starting at 14.21. At this moment, the first scenario was still running on my machine (since 13.13, so for apx. 1h 10m now).\nAt 14.39, I noticed the parallel model said Killed. In case I might have accidentally done this, I just set it to rerun again. However, at 14.52, it showed as Killed again. Upon Googling, I can see this message occurs when you run out of memory - which perhaps, might be why all were set to run sequentially, if its too intensive to run in parallel. I switched it back to “serial”.\nHowever, the model still running on my machine has now been going for 1h 42m. Having looked in the repository and article for any indication of runtime or requirement of HPC, I’ve yet to find anything. I tried looking now at the article first describing the model (https://doi.org/10.1177/0272989X17753380). In this article, they state the run time:\nHowever, the computational requirements of the DES were extensive, given the number of individuals needed to reduce sampling variation to an acceptable level and characterizing uncertainty through PSA. Run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered computer.\nIn this case, “each scenario model is run for 10 million hypothetical individuals randomly drawn with replacement from the distribution of the relevant population. The models are run for a period of 30 years”. However, as there is no mention of performing probabilistic sensitivity analysis iterations in the article, we could expect this to be quicker than that (although note it is 10m patients instead of 500k).\nDiscussed with Tom and agreed to:\n\n\nTry and just run it with very few people, just so we can see if the model is working, and whether we could get similar results with fewer people in the model\n\n\nTry and run it sequentially on the remote computer overnight"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
-    "href": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
-    "title": "Day 2",
-    "section": "15.09-15.42: Running the model with fewer people",
-    "text": "15.09-15.42: Running the model with fewer people\nDES_Input_Definitions states that the number of people to run through the DES is defined by v0$numberOfPersons, default 1000. Can see in run_aaamodel_65yo_scen0.R that it has been set to v0$numberOfPersons &lt;- 1e7. I replaced this with v0$numberOfPersons &lt;- 1000. This finished almost immediately, then hit an error:\n&gt; TableOfCounts(scen0.invite, v1other)\nError in \"screen\" %in% eventHistory$events && !(\"nonvisualization\" %in%  : \n  'length = 3' in coercion to 'logical(1)'\nTableOfCounts() is from DES_Model.R. Working through each line of the function, I found that the error is occurring for scre_dropout=countDropouts(result, v1other).\nIn this function, personsInfo (result, ie. scen0.invite) is used. It loops through the EventHistories for each person: for (i in 1:length(personsInfo$eventHistories)). It checks whether their events:\n\nIncludes “screen” (\"screen\" %in% eventHistory$events)\nDoes not include “nonvisualization” (!(\"nonvisualization\" %in% eventHistory$events))\nIf the measured size for screen is greater than or equal to v1other$aortaDiameterThresholds[[1]]\n\nThe error occurs for that final comparison. That is the item we had to change earlier to be able to get the model to run. I tried setting that back to being a list within a list - v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). However, I realised that caused the issue, and that in fact, run_aaamodel_65yo_scen0.R is changing it to list() again before running the model:\n## Change v1other$aortaDiameterThresholds to be a list (new syntax)\nv1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nIf I comment out that line, an error occurs. Hence, it seems we require it to be in a list within a list for the model, but just a list for TableOfCounts(). Looking at all the repository code, the reason becomes apparent in models/NAASP_COVID_modelling/run_aaamodel_surv_scen3.R, when multiple aaortaDiameterThresholds are provided.\nAs such, I set about modifying the later processing functions so that they are able to use this list() format:\n\ninput/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R: returned back to list(c()), but then changed run_aaamodel_65yo_scen0.R to not add an additional list() over the top.\nDES_Model.R: countDropouts(): &gt;= v1other$aortaDiameterThresholds[[1]] to &gt;= v1other$aortaDiameterThresholds[[1]][1]\n\nThe whole script then ran successfully!\n\n\n\n\n\n\nReflection\n\n\n\nThese errors will likely be the result of having modified code but no re-run everything from scratch (unsurprising given the anticipated model run times)."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
-    "href": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
-    "title": "Day 2",
-    "section": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run",
-    "text": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run\nThat R script ran the status quo (I0) scenario for invited 65 year olds. The parameters from Table 1 are below, along with their location in the data from DES_Input_Definitions.xlsx\n\nAttendance 75% - v2$probOfAttendScreen\nDrop-out rate/annum: 6% - v2$rateOfDropoutFromMonitoring\nThreshold for surgery: 5.5cm - v1other$aortaDiameterThresholds[[1]][3] (“These are the aortic cut-points where surveillance intervals change. Note, the first cut-point must always relate to the aortic size where individuals enter the AAA surveillance programme (e.g. 3.0cm). The last cut-point must always relate to the aortic size where surgery is to be considered (e.g. 5.5cm)”)\n\nLooking at the next R script, run_aaamodel_65yo_scen1.R, I can see that they repeat the model multiple times to get results from varying parameters of that scenario. That script is scenario 1 which, from Table 1, we can see delays invitation from 3 months to 5 years.\nI switched to trying that script, but again first setting:\n\n# v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nv0$numberOfPersons &lt;- 1000\n\nThis ran eight “scenarios” within the script. The output dataframe scen1summaryi showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n1000.csv')\nres[['delayscr', 'aaadead']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\n\n\n\n\n7\n0.00\n7\n\n\n0\n0.25\n7\n\n\n1\n0.50\n7\n\n\n2\n1.00\n7\n\n\n3\n2.00\n7\n\n\n4\n3.00\n7\n\n\n5\n4.00\n8\n\n\n6\n5.00\n8\n\n\n\n\n\n\n\nI increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n10000.csv')\nres[['delayscr', 'aaadead', 'emeropen']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\nemeropen\n\n\n\n\n7\n0.00\n96\n33\n\n\n0\n0.25\n96\n33\n\n\n1\n0.50\n98\n32\n\n\n2\n1.00\n96\n31\n\n\n3\n2.00\n98\n31\n\n\n4\n3.00\n98\n32\n\n\n5\n4.00\n101\n32\n\n\n6\n5.00\n103\n32\n\n\n\n\n\n\n\nEach result here relates to Table 2 (i.e. excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.\nI created an .Rmd file to start processing the results. This required the addition of rmarkdown to the renv. I add dplyr for processing the results. Looking at excess deaths, we can see the anticipated pattern, although for emergency operations, the numbers are still too small that they fluctuate, and emergency operations goes in the wrong direction.\n\nimport pandas as pd\n\npd.read_csv('tab2.csv')\n\n\n\n\n\n\n\n\ndelayscr\nexcess_death\nexcess_op\n\n\n\n\n0\n0.00\n0\n0\n\n\n1\n0.25\n0\n0\n\n\n2\n0.50\n2\n-1\n\n\n3\n1.00\n0\n-2\n\n\n4\n2.00\n2\n-2\n\n\n5\n3.00\n2\n-1\n\n\n6\n4.00\n5\n-1\n\n\n7\n5.00\n7\n-1\n\n\n\n\n\n\n\nI tried upping it to 100,000 people, and recorded the time with different settings:\n\n“serial” - 5 minutes 7 seconds\n“parallel” - 2 minutes 12 seconds - so estimated 17 and a half minutes in total\n“foreach” - not possible, Error in processPersons(v0, v1other, v2, personData.screen) : v0$randomSeed does not yet work with v0$method=\"foreach\"\n\nFor each of these, about 45 seconds is results processing at the end (e.g. Eventsandcosts())\nWhilst these ran, I looked through the repository to try and spot whether they had functions to generate the plots from the article. I found plotting functions in DES_Model.R, shiny_output_functions.R and NAAASP_DES_Example_Script.R, though none relevant to the article, so it appears I’ll need to write the code to do that processing."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_29/index.html#timings",
-    "href": "logbook/posts/2024_07_29/index.html#timings",
-    "title": "Day 2",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13'),\n    ('11.26', '11.32'),\n    ('12.50', '12.56'),\n    ('12.57', '13.04'),\n    ('13.05', '13.13'), \n    ('13.48', '13.55'),\n    ('14.07', '14.21'),\n    ('14.53', '15.08'),\n    ('15.09', '15.42'),\n    ('15.43', '16.00'),\n    ('16.03', '16.43'),\n    ('16.45', '16.47'),\n    ('16.53', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 211m, or 3h 31m\nTotal used to date: 243m, or 4h 3m\nTime remaining: 2157m, or 35h 57m\nUsed 10.1% of 40 hours max"
-  },
-  {
-    "objectID": "logbook/posts/2024_08_02/index.html",
-    "href": "logbook/posts/2024_08_02/index.html",
-    "title": "Day 6",
+    "objectID": "evaluation/badges.html",
+    "href": "evaluation/badges.html",
+    "title": "Journal badges",
     "section": "",
-    "text": "Note\n\n\n\nFinished reproduction (supplementary table 2 and figure). Completed evaluation against guidelines. Started on research compendium. Total reproduction time: 13h 59m (35.0%). Evaluation time: 1h 55m."
+    "text": "This page evaluates the extent to which the author-published research artefacts meet the criteria of badges related to reproducibility from various organisations and journals.\nCaveat: Please note that these criteria are based on available information about each badge online, and that we have likely differences in our procedure (e.g. allowed troubleshooting for execution and reproduction, not under tight time pressure to complete). Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals."
   },
   {
-    "objectID": "logbook/posts/2024_08_02/index.html#resuming-supplementary-table-2",
-    "href": "logbook/posts/2024_08_02/index.html#resuming-supplementary-table-2",
-    "title": "Day 6",
-    "section": "09.09-09.43: Resuming supplementary table 2",
-    "text": "09.09-09.43: Resuming supplementary table 2\nCombined each scenario with scenario 0, then adapted previous functions to generate the table.\nConsider this reproduced at 09.43.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 34m, or 0h 34m\nTotal used to date: 839m, or 13h 59m\nTime remaining: 1561m, or 26h 1m\nUsed 35.0% of 40 hours max"
+    "objectID": "evaluation/badges.html#criteria",
+    "href": "evaluation/badges.html#criteria",
+    "title": "Journal badges",
+    "section": "Criteria",
+    "text": "Criteria\n\n\nCode\nfrom IPython.display import display, Markdown\nimport numpy as np\nimport pandas as pd\n\n# Criteria and their definitions\ncriteria = {\n    'archive': 'Stored in a permanent archive that is publicly and openly accessible',\n    'id': 'Has a persistent identifier',\n    'license': 'Includes an open license',\n    'relevant': '''Artefacts are relevant to and contribute to the article's results''',\n    'complete': 'Complete set of materials shared (as would be needed to fully reproduce article)',\n    'structure': 'Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)',\n    'documentation_sufficient': 'Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)',\n    'documentation_careful': 'Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)',\n    # This criteria is kept seperate to documentation_careful, as it specifically requires a README file\n    'documentation_readme': 'Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript',\n    'execute': 'Scripts can be successfully executed',\n    'regenerated': 'Independent party regenerated results using the authors research artefacts',\n    'hour': 'Reproduced within approximately one hour (excluding compute time)',\n}\n\n# Evaluation for this study\n# TODO: Complete evaluate for each criteria\neval = pd.Series({\n    'archive': 0,\n    'id': 0,\n    'license': 1,\n    'relevant': 1,\n    'complete': 0,\n    'structure': 1,\n    'documentation_sufficient': 0,\n    'documentation_careful': 0,\n    'documentation_readme': 0,\n    'execute': 1,\n    'regenerated': 1,\n    'hour': 0,\n})\n\n# Get list of criteria met (True/False) overall\neval_list = list(eval)\n\n# Define function for creating the markdown formatted list of criteria met\ndef create_criteria_list(criteria_dict):\n    '''\n    Creates a string which contains a Markdown formatted list with icons to\n    indicate whether each criteria was met\n\n    Parameters:\n    -----------\n    criteria_dict : dict\n        Dictionary where keys are the criteria (variable name) and values are\n        Boolean (True/False of whether this study met the criteria)\n\n    Returns:\n    --------\n    formatted_list : string\n        Markdown formatted list\n    '''\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    # Create list with...\n    formatted_list = ''.join([\n        '* ' +\n        callout_icon[eval[key]] + # Icon based on whether it met criteria\n        ' ' +\n        value + # Full text description of criteria\n        '\\n' for key, value in criteria_dict.items()])\n    return(formatted_list)\n\n# Define groups of criteria\ncriteria_share_how = ['archive', 'id', 'license']\ncriteria_share_what = ['relevant', 'complete']\ncriteria_doc_struc = ['structure', 'documentation_sufficient', 'documentation_careful', 'documentation_readme']\ncriteria_run = ['execute', 'regenerated', 'hour']\n\n# Create text section\ndisplay(Markdown(f'''\nTo assess whether the author's materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\n\nThis study met **{sum(eval_list)} of the {len(eval_list)}** unique criteria items. These were as follows:\n\nCriteria related to how artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_how})}\n\nCriteria related to what artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_what})}\n\nCriteria related to the structure and documentation of the artefacts -\n\n{create_criteria_list({k: criteria[k] for k in criteria_doc_struc})}\n\nCriteria related to running and reproducing results -\n\n{create_criteria_list({k: criteria[k] for k in criteria_run})}\n'''))\n\n\nTo assess whether the author’s materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\nThis study met 5 of the 12 unique criteria items. These were as follows:\nCriteria related to how artefacts are shared -\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n\nCriteria related to what artefacts are shared -\n\n✅ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\nCriteria related to the structure and documentation of the artefacts -\n\n✅ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript\n\nCriteria related to running and reproducing results -\n\n✅ Scripts can be successfully executed\n✅ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)"
   },
   {
-    "objectID": "logbook/posts/2024_08_02/index.html#supplementary-figure-3",
-    "href": "logbook/posts/2024_08_02/index.html#supplementary-figure-3",
-    "title": "Day 6",
-    "section": "10.02-10.38: Supplementary figure 3",
-    "text": "10.02-10.38: Supplementary figure 3\nAmend prior functions to combine with scenario 0 using a function (as repeated lots, and need again for this figure). Could then use those dataframes in my figure functions.\nConsider this reproduced at 10.38."
+    "objectID": "evaluation/badges.html#badges",
+    "href": "evaluation/badges.html#badges",
+    "title": "Journal badges",
+    "section": "Badges",
+    "text": "Badges\n\n\nCode\n# Full badge names\nbadge_names = {\n    # Open objects\n    'open_niso': 'NISO \"Open Research Objects (ORO)\"',\n    'open_niso_all': 'NISO \"Open Research Objects - All (ORO-A)\"',\n    'open_acm': 'ACM \"Artifacts Available\"',\n    'open_cos': 'COS \"Open Code\"',\n    'open_ieee': 'IEEE \"Code Available\"',\n    # Object review\n    'review_acm_functional': 'ACM \"Artifacts Evaluated - Functional\"',\n    'review_acm_reusable': 'ACM \"Artifacts Evaluated - Reusable\"',\n    'review_ieee': 'IEEE \"Code Reviewed\"',\n    # Results reproduced\n    'reproduce_niso': 'NISO \"Results Reproduced (ROR-R)\"',\n    'reproduce_acm': 'ACM \"Results Reproduced\"',\n    'reproduce_ieee': 'IEEE \"Code Reproducible\"',\n    'reproduce_psy': 'Psychological Science \"Computational Reproducibility\"'\n}\n\n# Criteria required by each badge\nbadges = {\n    # Open objects\n    'open_niso': ['archive', 'id', 'license'],\n    'open_niso_all': ['archive', 'id', 'license', 'complete'],\n    'open_acm': ['archive', 'id'],\n    'open_cos': ['archive', 'id', 'license', 'complete', 'documentation_sufficient'],\n    'open_ieee': ['complete'],\n    # Object review\n    'review_acm_functional': ['documentation_sufficient', 'relevant', 'complete', 'execute'],\n    'review_acm_reusable': ['documentation_sufficient', 'documentation_careful', 'relevant', 'complete', 'execute', 'structure'],\n    'review_ieee': ['complete', 'execute'],\n    # Results reproduced\n    'reproduce_niso': ['regenerated'],\n    'reproduce_acm': ['regenerated'],\n    'reproduce_ieee': ['regenerated'],\n    'reproduce_psy': ['regenerated', 'hour', 'structure', 'documentation_readme'],\n}\n\n# Identify which badges would be awarded based on criteria\n# Get list of badges met (True/False) overall\naward = {}\nfor badge in badges:\n    award[badge] = all([eval[key] == 1 for key in badges[badge]])\naward_list = list(award.values())\n\n# Write introduction\n# Get list of badges met (True/False) by category\naward_open = [v for k,v in award.items() if k.startswith('open_')]\naward_review = [v for k,v in award.items() if k.startswith('review_')]\naward_reproduce = [v for k,v in award.items() if k.startswith('reproduce_')]\n\n# Create and display text for introduction\ndisplay(Markdown(f'''\nIn total, the original study met the criteria for **{sum(award_list)} of the {len(award_list)} badges**. This included:\n\n* **{sum(award_open)} of the {len(award_open)}** “open objects” badges\n* **{sum(award_review)} of the {len(award_review)}** “object review” badges\n* **{sum(award_reproduce)} of the {len(award_reproduce)}** “reproduced” badges\n'''))\n\n# Make function that creates collapsible callouts for each badge\ndef create_badge_callout(award_dict):\n    '''\n    Displays Markdown callouts created for each badge in the dictionary, showing\n    whether the criteria for that badge was met.\n\n    Parameters:\n    -----------\n    award_dict : dict\n        Dictionary where key is badge (as variable name), and value is Boolean\n        (whether badge is awarded)\n    '''\n    callout_appearance = {True: 'tip',\n                          False: 'warning'}\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    callout_text = {True: 'Meets all criteria:',\n                    False: 'Does not meet all criteria:'}\n\n    for key, value in award_dict.items():\n        # Create Markdown list with...\n        criteria_list = ''.join([\n            '* ' +\n            callout_icon[eval[k]] + # Icon based on whether it met criteria\n            ' ' +\n            criteria[k] + # Full text description of criteria\n            '\\n' for k in badges[key]])\n        # Create the callout and display it\n        display(Markdown(f'''\n::: {{.callout-{callout_appearance[value]} appearance=\"minimal\" collapse=true}}\n\n## {callout_icon[value]} {badge_names[key]}\n\n{callout_text[value]}\n\n{criteria_list}\n:::\n'''))\n\n# Create badge functions with introductions and callouts\ndisplay(Markdown('''\n### \"Open objects\" badges\n\nThese badges relate to research artefacts being made openly available.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('open_')})\n\ndisplay(Markdown('''\n### \"Object review\" badges\n\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('review_')})\n\ndisplay(Markdown('''\n### \"Reproduced\" badges\n\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('reproduce_')})\n\n\nIn total, the original study met the criteria for 3 of the 12 badges. This included:\n\n0 of the 5 “open objects” badges\n0 of the 3 “object review” badges\n3 of the 4 “reproduced” badges\n\n\n\n“Open objects” badges\nThese badges relate to research artefacts being made openly available.\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects (ORO)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n\n\n\n\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects - All (ORO-A)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n\n\n\n\n\n\n\n\n\n\n\n\n❌ COS “Open Code”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n“Object review” badges\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Functional”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n✅ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n✅ Scripts can be successfully executed\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Reusable”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n✅ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n✅ Scripts can be successfully executed\n✅ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Reviewed”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n✅ Scripts can be successfully executed\n\n\n\n\n\n\n“Reproduced” badges\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n\n\n\n\n\n\n\n\n✅ NISO “Results Reproduced (ROR-R)”\n\n\n\n\n\nMeets all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n✅ ACM “Results Reproduced”\n\n\n\n\n\nMeets all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n✅ IEEE “Code Reproducible”\n\n\n\n\n\nMeets all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ Psychological Science “Computational Reproducibility”\n\n\n\n\n\nDoes not meet all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)\n✅ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript"
   },
   {
-    "objectID": "logbook/posts/2024_08_02/index.html#reproduction-timings",
-    "href": "logbook/posts/2024_08_02/index.html#reproduction-timings",
-    "title": "Day 6",
-    "section": "Reproduction timings",
-    "text": "Reproduction timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43'),\n    ('10.02', '10.38')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 70m, or 1h 10m\nTotal used to date: 875m, or 14h 35m\nTime remaining: 1525m, or 25h 25m\nUsed 36.5% of 40 hours max"
+    "objectID": "evaluation/badges.html#sources",
+    "href": "evaluation/badges.html#sources",
+    "title": "Journal badges",
+    "section": "Sources",
+    "text": "Sources\nNational Information Standards Organisation (NISO) (NISO Reproducibility Badging and Definitions Working Group (2021))\n\n“Open Research Objects (ORO)”\n“Open Research Objects - All (ORO-A)”\n“Results Reproduced (ROR-R)”\n\nAssociation for Computing Machinery (ACM) (Association for Computing Machinery (ACM) (2020))\n\n“Artifacts Available”\n“Artifacts Evaluated - Functional”\n“Artifacts Evaluated - Resuable”\n“Results Reproduced”\n\nCenter for Open Science (COS) (Blohowiak et al. (2023))\n\n“Open Code”\n\nInstitute of Electrical and Electronics Engineers (IEEE) (Institute of Electrical and Electronics Engineers (IEEE) (n.d.))\n\n“Code Available”\n“Code Reviewed”\n“Code Reproducible”\n\nPsychological Science (Hardwicke and Vazire (2023) and Association for Psychological Science (APS) (2023))\n\n“Computational Reproducibility”"
   },
   {
-    "objectID": "logbook/posts/2024_08_02/index.html#badges",
-    "href": "logbook/posts/2024_08_02/index.html#badges",
-    "title": "Day 6",
-    "section": "10.54-10.59: Badges",
-    "text": "10.54-10.59: Badges\nEvaluated repository as available at this time (so including the few commits since publication).\ndocumentation_sufficient - no as no package versions and as most instructions are within R scripts themselves (e.g. that need to run with source()) (and therefore not met the subsequent careful documentation)\ndocumentation_readme - although it directs to a good example file, it doesn’t include instructions for reproducing results from the article"
-  },
-  {
-    "objectID": "logbook/posts/2024_08_02/index.html#stars-framework",
-    "href": "logbook/posts/2024_08_02/index.html#stars-framework",
-    "title": "Day 6",
-    "section": "11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework",
-    "text": "11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework"
-  },
-  {
-    "objectID": "logbook/posts/2024_08_02/index.html#stress-des",
-    "href": "logbook/posts/2024_08_02/index.html#stress-des",
-    "title": "Day 6",
-    "section": "11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES",
-    "text": "11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES\nTo discuss (combined with ISPOR-SDM when overlap):\n\n2.1 Base model overview diagram / 3 Is the model structure described? - diagram is in prior study\n2.2 Base model logic - described in detail in prior study, only briefly alluded to in this one\n2.4 Algorithms - partially described in prior study\n2.5.2 Components - activities - provided moreso in prior study\n2.5.3 Components - resources - not clear in either study, unlesss there are none?\n2.5.4 Components - queues - not clear in either study, unless there are none?\n4.1 Initialisation - indicates its non-terminating in prior study\n5.3 Model execution - prior study mentions that you can run in parallel\n5.4 System specification - prior study mentions HPC"
-  },
-  {
-    "objectID": "logbook/posts/2024_08_02/index.html#ispor-sdm",
-    "href": "logbook/posts/2024_08_02/index.html#ispor-sdm",
-    "title": "Day 6",
-    "section": "13.48-14.18: ISPOR-SDM",
-    "text": "13.48-14.18: ISPOR-SDM"
-  },
-  {
-    "objectID": "logbook/posts/2024_08_02/index.html#evaluation-timings",
-    "href": "logbook/posts/2024_08_02/index.html#evaluation-timings",
-    "title": "Day 6",
-    "section": "Evaluation timings",
-    "text": "Evaluation timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('10.54', '10.59'),\n    ('11.00', '11.05'),\n    ('11.18', '11.23'),\n    ('11.29', '11.32'),\n    ('11.33', '12.10'),\n    ('12.55', '13.10'),\n    ('13.15', '13.30'),\n    ('13.48', '14.18')]\n\ncalculate_times(used_to_date, times, limit=False)\n\nTime spent today: 115m, or 1h 55m\nTotal used to date: 115m, or 1h 55m"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html",
-    "href": "quarto_site/reproduction_readme.html",
-    "title": "README for reproduction",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Reproducing Kim et al. 2021",
     "section": "",
-    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nWithin this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 6 hours 53 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)\n\n\n\n\n\nTBC\n\n\n\nTBC"
+    "text": "This book captures the reproduction of:\n\nKim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
   },
   {
-    "objectID": "quarto_site/reproduction_readme.html#model-summary",
-    "href": "quarto_site/reproduction_readme.html#model-summary",
-    "title": "README for reproduction",
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Reproducing Kim et al. 2021",
     "section": "",
-    "text": "TBC"
+    "text": "This book captures the reproduction of:\n\nKim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
   },
   {
-    "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
-    "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
+    "objectID": "index.html#project-team",
+    "href": "index.html#project-team",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "Project team",
+    "text": "Project team\n\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
   },
   {
-    "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
-    "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
+    "objectID": "index.html#protocol",
+    "href": "index.html#protocol",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "Protocol",
+    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
   },
   {
-    "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
-    "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "Within this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 6 hours 53 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)"
+    "objectID": "index.html#citation",
+    "href": "index.html#citation",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "Citation",
+    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Kim et al. 2021 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
   },
   {
-    "objectID": "quarto_site/reproduction_readme.html#citation",
-    "href": "quarto_site/reproduction_readme.html#citation",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#license",
-    "href": "quarto_site/reproduction_readme.html#license",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_26/index.html",
-    "href": "logbook/posts/2024_07_26/index.html",
-    "title": "Day 1",
-    "section": "",
-    "text": "Note\n\n\n\nSet-up repository and upload materials. Total time used: 0h 32m (1.3%)"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_26/index.html#set-up-repository",
-    "href": "logbook/posts/2024_07_26/index.html#set-up-repository",
-    "title": "Day 1",
-    "section": "15.58-16.03, 16.21-16.30: Set-up repository",
-    "text": "15.58-16.03, 16.21-16.30: Set-up repository\n\nCreate repository from template\nSet up environment\nModified template files:\n\nREADME.md\nquarto site index.qmd\nCITATION.cff\n_quarto.yml\n\nSet up site on GitHub pages (quarto publish gh-pages)"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_26/index.html#upload-code-and-update-license",
-    "href": "logbook/posts/2024_07_26/index.html#upload-code-and-update-license",
-    "title": "Day 1",
-    "section": "16.36-16.41: Upload code and update license",
-    "text": "16.36-16.41: Upload code and update license\nModel code is available at: https://github.com/mikesweeting/AAA_DES_model\nIt is available under an LGPL-3.0 license, so I updated this repository to use the same license (GNU LESSER GENERAL PUBLIC LICENSE Version 3). This license requires:\n\nCopy of full license and original copyright notice\nInclude source code when distribute derivative work\nLicense derivative work under same license"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_26/index.html#upload-journal-article",
-    "href": "logbook/posts/2024_07_26/index.html#upload-journal-article",
-    "title": "Day 1",
-    "section": "16.43-16.56: Upload journal article",
-    "text": "16.43-16.56: Upload journal article\nThe article is published with PLoS ONE and has a permissive copyright statement:\n\n“Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”\n\nhttps://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327\nHence, uploaded article, figures, tables and supplementary materials to original_study/. Converted .tif files to .png (e.g. convert sup3.tif sup3.png). Converted .docx to .pdf (libreoffice --headless --convert-to pdf sup1.docx --outdir sup1.pdf).\nAmended study_publication.qmd to display these.\nAdd the study to references.bib."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_26/index.html#timings",
-    "href": "logbook/posts/2024_07_26/index.html#timings",
-    "title": "Day 1",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('15.58', '16.03'),\n    ('16.21', '16.30'),\n    ('16.36', '16.41'),\n    ('16.43', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 32m, or 0h 32m\nTotal used to date: 32m, or 0h 32m\nTime remaining: 2368m, or 39h 28m\nUsed 1.3% of 40 hours max"
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Reproducing Kim et al. 2021",
+    "section": "License",
+    "text": "License\nSee License page."
   },
   {
     "objectID": "quarto_site/study_publication.html",
@@ -469,214 +385,298 @@
     "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6\n\n\n\n\n\n\nreproduce\n\n\nguidelines\n\n\n\n\n\n\n\n\n\nAug 2, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nAug 1, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nJul 31, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nJul 30, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nread\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nJul 29, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\n\n\n\n\n\n\n\nJul 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "evaluation/reproduction_report.html",
-    "href": "evaluation/reproduction_report.html",
-    "title": "Summary report",
+    "objectID": "logbook/posts/2024_07_26/index.html",
+    "href": "logbook/posts/2024_07_26/index.html",
+    "title": "Day 1",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
+    "text": "Note\n\n\n\nSet-up repository and upload materials. Total time used: 0h 32m (1.3%)"
   },
   {
-    "objectID": "evaluation/reproduction_report.html#study",
-    "href": "evaluation/reproduction_report.html#study",
-    "title": "Summary report",
-    "section": "Study",
-    "text": "Study\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\n[Paragraph summarising model]"
+    "objectID": "logbook/posts/2024_07_26/index.html#set-up-repository",
+    "href": "logbook/posts/2024_07_26/index.html#set-up-repository",
+    "title": "Day 1",
+    "section": "15.58-16.03, 16.21-16.30: Set-up repository",
+    "text": "15.58-16.03, 16.21-16.30: Set-up repository\n\nCreate repository from template\nSet up environment\nModified template files:\n\nREADME.md\nquarto site index.qmd\nCITATION.cff\n_quarto.yml\n\nSet up site on GitHub pages (quarto publish gh-pages)"
   },
   {
-    "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
-    "href": "evaluation/reproduction_report.html#computational-reproducibility",
-    "title": "Summary report",
-    "section": "Computational reproducibility",
-    "text": "Computational reproducibility\nSuccessfully reproduced X out of X (X%) of items from the scope in Xh Xm (X%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nItem XItem YFigure 4\n\n\n[One sentence description of item X]\n[Display side-by-side] \n\n\n[Set-up as for Item X]\n\n\n[Set-up as for Item X]"
+    "objectID": "logbook/posts/2024_07_26/index.html#upload-code-and-update-license",
+    "href": "logbook/posts/2024_07_26/index.html#upload-code-and-update-license",
+    "title": "Day 1",
+    "section": "16.36-16.41: Upload code and update license",
+    "text": "16.36-16.41: Upload code and update license\nModel code is available at: https://github.com/mikesweeting/AAA_DES_model\nIt is available under an LGPL-3.0 license, so I updated this repository to use the same license (GNU LESSER GENERAL PUBLIC LICENSE Version 3). This license requires:\n\nCopy of full license and original copyright notice\nInclude source code when distribute derivative work\nLicense derivative work under same license"
   },
   {
-    "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
-    "href": "evaluation/reproduction_report.html#evaluation-against-guidelines",
-    "title": "Summary report",
-    "section": "Evaluation against guidelines",
-    "text": "Evaluation against guidelines\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
+    "objectID": "logbook/posts/2024_07_26/index.html#upload-journal-article",
+    "href": "logbook/posts/2024_07_26/index.html#upload-journal-article",
+    "title": "Day 1",
+    "section": "16.43-16.56: Upload journal article",
+    "text": "16.43-16.56: Upload journal article\nThe article is published with PLoS ONE and has a permissive copyright statement:\n\n“Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”\n\nhttps://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327\nHence, uploaded article, figures, tables and supplementary materials to original_study/. Converted .tif files to .png (e.g. convert sup3.tif sup3.png). Converted .docx to .pdf (libreoffice --headless --convert-to pdf sup1.docx --outdir sup1.pdf).\nAmended study_publication.qmd to display these.\nAdd the study to references.bib."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Reproducing Kim et al. 2021",
-    "section": "",
-    "text": "This book captures the reproduction of:\n\nKim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Reproducing Kim et al. 2021",
-    "section": "",
-    "text": "This book captures the reproduction of:\n\nKim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic. PLoS ONE 16(6): e0253327 (2021). https://doi.org/10.1371/journal.pone.0253327.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
-  },
-  {
-    "objectID": "index.html#project-team",
-    "href": "index.html#project-team",
-    "title": "Reproducing Kim et al. 2021",
-    "section": "Project team",
-    "text": "Project team\n\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
-  },
-  {
-    "objectID": "index.html#protocol",
-    "href": "index.html#protocol",
-    "title": "Reproducing Kim et al. 2021",
-    "section": "Protocol",
-    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
-  },
-  {
-    "objectID": "index.html#citation",
-    "href": "index.html#citation",
-    "title": "Reproducing Kim et al. 2021",
-    "section": "Citation",
-    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Kim et al. 2021 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "Reproducing Kim et al. 2021",
-    "section": "License",
-    "text": "License\nSee License page."
-  },
-  {
-    "objectID": "evaluation/badges.html",
-    "href": "evaluation/badges.html",
-    "title": "Journal badges",
-    "section": "",
-    "text": "This page evaluates the extent to which the author-published research artefacts meet the criteria of badges related to reproducibility from various organisations and journals.\nCaveat: Please note that these criteria are based on available information about each badge online, and that we have likely differences in our procedure (e.g. allowed troubleshooting for execution and reproduction, not under tight time pressure to complete). Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals."
-  },
-  {
-    "objectID": "evaluation/badges.html#criteria",
-    "href": "evaluation/badges.html#criteria",
-    "title": "Journal badges",
-    "section": "Criteria",
-    "text": "Criteria\n\n\nCode\nfrom IPython.display import display, Markdown\nimport numpy as np\nimport pandas as pd\n\n# Criteria and their definitions\ncriteria = {\n    'archive': 'Stored in a permanent archive that is publicly and openly accessible',\n    'id': 'Has a persistent identifier',\n    'license': 'Includes an open license',\n    'relevant': '''Artefacts are relevant to and contribute to the article's results''',\n    'complete': 'Complete set of materials shared (as would be needed to fully reproduce article)',\n    'structure': 'Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)',\n    'documentation_sufficient': 'Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)',\n    'documentation_careful': 'Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)',\n    # This criteria is kept seperate to documentation_careful, as it specifically requires a README file\n    'documentation_readme': 'Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript',\n    'execute': 'Scripts can be successfully executed',\n    'regenerated': 'Independent party regenerated results using the authors research artefacts',\n    'hour': 'Reproduced within approximately one hour (excluding compute time)',\n}\n\n# Evaluation for this study\n# TODO: Complete evaluate for each criteria\neval = pd.Series({\n    'archive': 0,\n    'id': 0,\n    'license': 1,\n    'relevant': 1,\n    'complete': 0,\n    'structure': 1,\n    'documentation_sufficient': 0,\n    'documentation_careful': 0,\n    'documentation_readme': 0,\n    'execute': 1,\n    'regenerated': 1,\n    'hour': 0,\n})\n\n# Get list of criteria met (True/False) overall\neval_list = list(eval)\n\n# Define function for creating the markdown formatted list of criteria met\ndef create_criteria_list(criteria_dict):\n    '''\n    Creates a string which contains a Markdown formatted list with icons to\n    indicate whether each criteria was met\n\n    Parameters:\n    -----------\n    criteria_dict : dict\n        Dictionary where keys are the criteria (variable name) and values are\n        Boolean (True/False of whether this study met the criteria)\n\n    Returns:\n    --------\n    formatted_list : string\n        Markdown formatted list\n    '''\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    # Create list with...\n    formatted_list = ''.join([\n        '* ' +\n        callout_icon[eval[key]] + # Icon based on whether it met criteria\n        ' ' +\n        value + # Full text description of criteria\n        '\\n' for key, value in criteria_dict.items()])\n    return(formatted_list)\n\n# Define groups of criteria\ncriteria_share_how = ['archive', 'id', 'license']\ncriteria_share_what = ['relevant', 'complete']\ncriteria_doc_struc = ['structure', 'documentation_sufficient', 'documentation_careful', 'documentation_readme']\ncriteria_run = ['execute', 'regenerated', 'hour']\n\n# Create text section\ndisplay(Markdown(f'''\nTo assess whether the author's materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\n\nThis study met **{sum(eval_list)} of the {len(eval_list)}** unique criteria items. These were as follows:\n\nCriteria related to how artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_how})}\n\nCriteria related to what artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_what})}\n\nCriteria related to the structure and documentation of the artefacts -\n\n{create_criteria_list({k: criteria[k] for k in criteria_doc_struc})}\n\nCriteria related to running and reproducing results -\n\n{create_criteria_list({k: criteria[k] for k in criteria_run})}\n'''))\n\n\nTo assess whether the author’s materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\nThis study met 5 of the 12 unique criteria items. These were as follows:\nCriteria related to how artefacts are shared -\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n\nCriteria related to what artefacts are shared -\n\n✅ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\nCriteria related to the structure and documentation of the artefacts -\n\n✅ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript\n\nCriteria related to running and reproducing results -\n\n✅ Scripts can be successfully executed\n✅ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)"
-  },
-  {
-    "objectID": "evaluation/badges.html#badges",
-    "href": "evaluation/badges.html#badges",
-    "title": "Journal badges",
-    "section": "Badges",
-    "text": "Badges\n\n\nCode\n# Full badge names\nbadge_names = {\n    # Open objects\n    'open_niso': 'NISO \"Open Research Objects (ORO)\"',\n    'open_niso_all': 'NISO \"Open Research Objects - All (ORO-A)\"',\n    'open_acm': 'ACM \"Artifacts Available\"',\n    'open_cos': 'COS \"Open Code\"',\n    'open_ieee': 'IEEE \"Code Available\"',\n    # Object review\n    'review_acm_functional': 'ACM \"Artifacts Evaluated - Functional\"',\n    'review_acm_reusable': 'ACM \"Artifacts Evaluated - Reusable\"',\n    'review_ieee': 'IEEE \"Code Reviewed\"',\n    # Results reproduced\n    'reproduce_niso': 'NISO \"Results Reproduced (ROR-R)\"',\n    'reproduce_acm': 'ACM \"Results Reproduced\"',\n    'reproduce_ieee': 'IEEE \"Code Reproducible\"',\n    'reproduce_psy': 'Psychological Science \"Computational Reproducibility\"'\n}\n\n# Criteria required by each badge\nbadges = {\n    # Open objects\n    'open_niso': ['archive', 'id', 'license'],\n    'open_niso_all': ['archive', 'id', 'license', 'complete'],\n    'open_acm': ['archive', 'id'],\n    'open_cos': ['archive', 'id', 'license', 'complete', 'documentation_sufficient'],\n    'open_ieee': ['complete'],\n    # Object review\n    'review_acm_functional': ['documentation_sufficient', 'relevant', 'complete', 'execute'],\n    'review_acm_reusable': ['documentation_sufficient', 'documentation_careful', 'relevant', 'complete', 'execute', 'structure'],\n    'review_ieee': ['complete', 'execute'],\n    # Results reproduced\n    'reproduce_niso': ['regenerated'],\n    'reproduce_acm': ['regenerated'],\n    'reproduce_ieee': ['regenerated'],\n    'reproduce_psy': ['regenerated', 'hour', 'structure', 'documentation_readme'],\n}\n\n# Identify which badges would be awarded based on criteria\n# Get list of badges met (True/False) overall\naward = {}\nfor badge in badges:\n    award[badge] = all([eval[key] == 1 for key in badges[badge]])\naward_list = list(award.values())\n\n# Write introduction\n# Get list of badges met (True/False) by category\naward_open = [v for k,v in award.items() if k.startswith('open_')]\naward_review = [v for k,v in award.items() if k.startswith('review_')]\naward_reproduce = [v for k,v in award.items() if k.startswith('reproduce_')]\n\n# Create and display text for introduction\ndisplay(Markdown(f'''\nIn total, the original study met the criteria for **{sum(award_list)} of the {len(award_list)} badges**. This included:\n\n* **{sum(award_open)} of the {len(award_open)}** “open objects” badges\n* **{sum(award_review)} of the {len(award_review)}** “object review” badges\n* **{sum(award_reproduce)} of the {len(award_reproduce)}** “reproduced” badges\n'''))\n\n# Make function that creates collapsible callouts for each badge\ndef create_badge_callout(award_dict):\n    '''\n    Displays Markdown callouts created for each badge in the dictionary, showing\n    whether the criteria for that badge was met.\n\n    Parameters:\n    -----------\n    award_dict : dict\n        Dictionary where key is badge (as variable name), and value is Boolean\n        (whether badge is awarded)\n    '''\n    callout_appearance = {True: 'tip',\n                          False: 'warning'}\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    callout_text = {True: 'Meets all criteria:',\n                    False: 'Does not meet all criteria:'}\n\n    for key, value in award_dict.items():\n        # Create Markdown list with...\n        criteria_list = ''.join([\n            '* ' +\n            callout_icon[eval[k]] + # Icon based on whether it met criteria\n            ' ' +\n            criteria[k] + # Full text description of criteria\n            '\\n' for k in badges[key]])\n        # Create the callout and display it\n        display(Markdown(f'''\n::: {{.callout-{callout_appearance[value]} appearance=\"minimal\" collapse=true}}\n\n## {callout_icon[value]} {badge_names[key]}\n\n{callout_text[value]}\n\n{criteria_list}\n:::\n'''))\n\n# Create badge functions with introductions and callouts\ndisplay(Markdown('''\n### \"Open objects\" badges\n\nThese badges relate to research artefacts being made openly available.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('open_')})\n\ndisplay(Markdown('''\n### \"Object review\" badges\n\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('review_')})\n\ndisplay(Markdown('''\n### \"Reproduced\" badges\n\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('reproduce_')})\n\n\nIn total, the original study met the criteria for 3 of the 12 badges. This included:\n\n0 of the 5 “open objects” badges\n0 of the 3 “object review” badges\n3 of the 4 “reproduced” badges\n\n\n\n“Open objects” badges\nThese badges relate to research artefacts being made openly available.\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects (ORO)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n\n\n\n\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects - All (ORO-A)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n\n\n\n\n\n\n\n\n\n\n\n\n❌ COS “Open Code”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n✅ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n“Object review” badges\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Functional”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n✅ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n✅ Scripts can be successfully executed\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Reusable”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n✅ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n✅ Scripts can be successfully executed\n✅ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Reviewed”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n✅ Scripts can be successfully executed\n\n\n\n\n\n\n“Reproduced” badges\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n\n\n\n\n\n\n\n\n✅ NISO “Results Reproduced (ROR-R)”\n\n\n\n\n\nMeets all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n✅ ACM “Results Reproduced”\n\n\n\n\n\nMeets all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n✅ IEEE “Code Reproducible”\n\n\n\n\n\nMeets all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ Psychological Science “Computational Reproducibility”\n\n\n\n\n\nDoes not meet all criteria:\n\n✅ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)\n✅ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript"
-  },
-  {
-    "objectID": "evaluation/badges.html#sources",
-    "href": "evaluation/badges.html#sources",
-    "title": "Journal badges",
-    "section": "Sources",
-    "text": "Sources\nNational Information Standards Organisation (NISO) (NISO Reproducibility Badging and Definitions Working Group (2021))\n\n“Open Research Objects (ORO)”\n“Open Research Objects - All (ORO-A)”\n“Results Reproduced (ROR-R)”\n\nAssociation for Computing Machinery (ACM) (Association for Computing Machinery (ACM) (2020))\n\n“Artifacts Available”\n“Artifacts Evaluated - Functional”\n“Artifacts Evaluated - Resuable”\n“Results Reproduced”\n\nCenter for Open Science (COS) (Blohowiak et al. (2023))\n\n“Open Code”\n\nInstitute of Electrical and Electronics Engineers (IEEE) (Institute of Electrical and Electronics Engineers (IEEE) (n.d.))\n\n“Code Available”\n“Code Reviewed”\n“Code Reproducible”\n\nPsychological Science (Hardwicke and Vazire (2023) and Association for Psychological Science (APS) (2023))\n\n“Computational Reproducibility”"
-  },
-  {
-    "objectID": "quarto_site/license.html",
-    "href": "quarto_site/license.html",
-    "title": "Open Source License",
-    "section": "",
-    "text": "This repository is licensed under the GNU Lesser General Public License v3.0.\n\n\n\n\n\n\nView license\n\n\n\n\n\n               GNU LESSER GENERAL PUBLIC LICENSE\n                   Version 3, 29 June 2007\nCopyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\nThis version of the GNU Lesser General Public License incorporates the terms and conditions of version 3 of the GNU General Public License, supplemented by the additional permissions listed below.\n\nAdditional Definitions.\n\nAs used herein, “this License” refers to version 3 of the GNU Lesser General Public License, and the “GNU GPL” refers to version 3 of the GNU General Public License.\n“The Library” refers to a covered work governed by this License, other than an Application or a Combined Work as defined below.\nAn “Application” is any work that makes use of an interface provided by the Library, but which is not otherwise based on the Library. Defining a subclass of a class defined by the Library is deemed a mode of using an interface provided by the Library.\nA “Combined Work” is a work produced by combining or linking an Application with the Library. The particular version of the Library with which the Combined Work was made is also called the “Linked Version”.\nThe “Minimal Corresponding Source” for a Combined Work means the Corresponding Source for the Combined Work, excluding any source code for portions of the Combined Work that, considered in isolation, are based on the Application, and not on the Linked Version.\nThe “Corresponding Application Code” for a Combined Work means the object code and/or source code for the Application, including any data and utility programs needed for reproducing the Combined Work from the Application, but excluding the System Libraries of the Combined Work.\n\nException to Section 3 of the GNU GPL.\n\nYou may convey a covered work under sections 3 and 4 of this License without being bound by section 3 of the GNU GPL.\n\nConveying Modified Versions.\n\nIf you modify a copy of the Library, and, in your modifications, a facility refers to a function or data to be supplied by an Application that uses the facility (other than as an argument passed when the facility is invoked), then you may convey a copy of the modified version:\n\nunder this License, provided that you make a good faith effort to ensure that, in the event an Application does not supply the function or data, the facility still operates, and performs whatever part of its purpose remains meaningful, or\nunder the GNU GPL, with none of the additional permissions of this License applicable to that copy.\n\n\nObject Code Incorporating Material from Library Header Files.\n\nThe object code form of an Application may incorporate material from a header file that is part of the Library. You may convey such object code under terms of your choice, provided that, if the incorporated material is not limited to numerical parameters, data structure layouts and accessors, or small macros, inline functions and templates (ten or fewer lines in length), you do both of the following:\n\nGive prominent notice with each copy of the object code that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the object code with a copy of the GNU GPL and this license document.\n\n\nCombined Works.\n\nYou may convey a Combined Work under terms of your choice that, taken together, effectively do not restrict modification of the portions of the Library contained in the Combined Work and reverse engineering for debugging such modifications, if you also do each of the following:\n\nGive prominent notice with each copy of the Combined Work that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the Combined Work with a copy of the GNU GPL and this license document.\nFor a Combined Work that displays copyright notices during execution, include the copyright notice for the Library among these notices, as well as a reference directing the user to the copies of the GNU GPL and this license document.\nDo one of the following:\n\nConvey the Minimal Corresponding Source under the terms of this License, and the Corresponding Application Code in a form suitable for, and under terms that permit, the user to recombine or relink the Application with a modified version of the Linked Version to produce a modified Combined Work, in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.\nUse a suitable shared library mechanism for linking with the Library. A suitable mechanism is one that (a) uses at run time a copy of the Library already present on the user’s computer system, and (b) will operate properly with a modified version of the Library that is interface-compatible with the Linked Version.\n\nProvide Installation Information, but only if you would otherwise be required to provide such information under section 6 of the GNU GPL, and only to the extent that such information is necessary to install and execute a modified version of the Combined Work produced by recombining or relinking the Application with a modified version of the Linked Version. (If you use option 4d0, the Installation Information must accompany the Minimal Corresponding Source and Corresponding Application Code. If you use option 4d1, you must provide the Installation Information in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.)\n\n\nCombined Libraries.\n\nYou may place library facilities that are a work based on the Library side by side in a single library together with other library facilities that are not Applications and are not covered by this License, and convey such a combined library under terms of your choice, if you do both of the following:\n\nAccompany the combined library with a copy of the same work based on the Library, uncombined with any other library facilities, conveyed under the terms of this License.\nGive prominent notice with the combined library that part of it is a work based on the Library, and explaining where to find the accompanying uncombined form of the same work.\n\n\nRevised Versions of the GNU Lesser General Public License.\n\nThe Free Software Foundation may publish revised and/or new versions of the GNU Lesser General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.\nEach version is given a distinguishing version number. If the Library as you received it specifies that a certain numbered version of the GNU Lesser General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that published version or of any later version published by the Free Software Foundation. If the Library as you received it does not specify a version number of the GNU Lesser General Public License, you may choose any version of the GNU Lesser General Public License ever published by the Free Software Foundation.\nIf the Library as you received it specifies that a proxy can decide whether future versions of the GNU Lesser General Public License shall apply, that proxy’s public statement of acceptance of any version is permanent authorization for you to choose that version for the Library.\n\n\n\nThis is aligned with the original study, who shared their code under the GNU Lesser General Public License v3.0.\n\n\n\n\n\n\nView license\n\n\n\n\n\n               GNU LESSER GENERAL PUBLIC LICENSE\n                   Version 3, 29 June 2007\nCopyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\nThis version of the GNU Lesser General Public License incorporates the terms and conditions of version 3 of the GNU General Public License, supplemented by the additional permissions listed below.\n\nAdditional Definitions.\n\nAs used herein, “this License” refers to version 3 of the GNU Lesser General Public License, and the “GNU GPL” refers to version 3 of the GNU General Public License.\n“The Library” refers to a covered work governed by this License, other than an Application or a Combined Work as defined below.\nAn “Application” is any work that makes use of an interface provided by the Library, but which is not otherwise based on the Library. Defining a subclass of a class defined by the Library is deemed a mode of using an interface provided by the Library.\nA “Combined Work” is a work produced by combining or linking an Application with the Library. The particular version of the Library with which the Combined Work was made is also called the “Linked Version”.\nThe “Minimal Corresponding Source” for a Combined Work means the Corresponding Source for the Combined Work, excluding any source code for portions of the Combined Work that, considered in isolation, are based on the Application, and not on the Linked Version.\nThe “Corresponding Application Code” for a Combined Work means the object code and/or source code for the Application, including any data and utility programs needed for reproducing the Combined Work from the Application, but excluding the System Libraries of the Combined Work.\n\nException to Section 3 of the GNU GPL.\n\nYou may convey a covered work under sections 3 and 4 of this License without being bound by section 3 of the GNU GPL.\n\nConveying Modified Versions.\n\nIf you modify a copy of the Library, and, in your modifications, a facility refers to a function or data to be supplied by an Application that uses the facility (other than as an argument passed when the facility is invoked), then you may convey a copy of the modified version:\n\nunder this License, provided that you make a good faith effort to ensure that, in the event an Application does not supply the function or data, the facility still operates, and performs whatever part of its purpose remains meaningful, or\nunder the GNU GPL, with none of the additional permissions of this License applicable to that copy.\n\n\nObject Code Incorporating Material from Library Header Files.\n\nThe object code form of an Application may incorporate material from a header file that is part of the Library. You may convey such object code under terms of your choice, provided that, if the incorporated material is not limited to numerical parameters, data structure layouts and accessors, or small macros, inline functions and templates (ten or fewer lines in length), you do both of the following:\n\nGive prominent notice with each copy of the object code that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the object code with a copy of the GNU GPL and this license document.\n\n\nCombined Works.\n\nYou may convey a Combined Work under terms of your choice that, taken together, effectively do not restrict modification of the portions of the Library contained in the Combined Work and reverse engineering for debugging such modifications, if you also do each of the following:\n\nGive prominent notice with each copy of the Combined Work that the Library is used in it and that the Library and its use are covered by this License.\nAccompany the Combined Work with a copy of the GNU GPL and this license document.\nFor a Combined Work that displays copyright notices during execution, include the copyright notice for the Library among these notices, as well as a reference directing the user to the copies of the GNU GPL and this license document.\nDo one of the following:\n\nConvey the Minimal Corresponding Source under the terms of this License, and the Corresponding Application Code in a form suitable for, and under terms that permit, the user to recombine or relink the Application with a modified version of the Linked Version to produce a modified Combined Work, in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.\nUse a suitable shared library mechanism for linking with the Library. A suitable mechanism is one that (a) uses at run time a copy of the Library already present on the user’s computer system, and (b) will operate properly with a modified version of the Library that is interface-compatible with the Linked Version.\n\nProvide Installation Information, but only if you would otherwise be required to provide such information under section 6 of the GNU GPL, and only to the extent that such information is necessary to install and execute a modified version of the Combined Work produced by recombining or relinking the Application with a modified version of the Linked Version. (If you use option 4d0, the Installation Information must accompany the Minimal Corresponding Source and Corresponding Application Code. If you use option 4d1, you must provide the Installation Information in the manner specified by section 6 of the GNU GPL for conveying Corresponding Source.)\n\n\nCombined Libraries.\n\nYou may place library facilities that are a work based on the Library side by side in a single library together with other library facilities that are not Applications and are not covered by this License, and convey such a combined library under terms of your choice, if you do both of the following:\n\nAccompany the combined library with a copy of the same work based on the Library, uncombined with any other library facilities, conveyed under the terms of this License.\nGive prominent notice with the combined library that part of it is a work based on the Library, and explaining where to find the accompanying uncombined form of the same work.\n\n\nRevised Versions of the GNU Lesser General Public License.\n\nThe Free Software Foundation may publish revised and/or new versions of the GNU Lesser General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.\nEach version is given a distinguishing version number. If the Library as you received it specifies that a certain numbered version of the GNU Lesser General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that published version or of any later version published by the Free Software Foundation. If the Library as you received it does not specify a version number of the GNU Lesser General Public License, you may choose any version of the GNU Lesser General Public License ever published by the Free Software Foundation.\nIf the Library as you received it specifies that a proxy can decide whether future versions of the GNU Lesser General Public License shall apply, that proxy’s public statement of acceptance of any version is permanent authorization for you to choose that version for the Library.\n\n\n\nThe original study was published in the journal “PLoS ONE”. They distributed the article under the Creative Commons Attribution License.\n\n\n\n\n\n\nView copyright statement from journal\n\n\n\n\n\n“Copyright: © 2021 Kim et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”\nhttps://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html",
-    "href": "logbook/posts/2024_07_31/index.html",
-    "title": "Day 4",
-    "section": "",
-    "text": "Note\n\n\n\nReproduced Figures 2-4, subset of Table 3, and ran some of the other scenarios. Total time used: 12h 21m (30.9%)."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#run-surv-scenario-2",
-    "href": "logbook/posts/2024_07_31/index.html#run-surv-scenario-2",
-    "title": "Day 4",
-    "section": "09.12-09.16: Run surv scenario 2",
-    "text": "09.12-09.16: Run surv scenario 2\nUpdate renv on remote machine, and then set surv scen2 to run.\nTimings:\n\nFirst run: 14.850 minutes = 891 seconds = 14 minutes 51 seconds\nAll runs: 99.651 minutes = 5979 seconds = 1 hour 39 minutes 39 seconds"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#figure-2",
-    "href": "logbook/posts/2024_07_31/index.html#figure-2",
-    "title": "Day 4",
-    "section": "09.20-09.58: Figure 2",
-    "text": "09.20-09.58: Figure 2\nFixed dimensions of Figure 1 so it doesn’t change each time I re-run with different window widths. Then resumed work on Figure 2, adapting Figure 1 code to create functions that can be used to produce both plots.\nSatisfied this is reproduced at 09.58.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 42m, or 0h 42m\nTotal used to date: 581m, or 9h 41m\nTime remaining: 1819m, or 30h 19m\nUsed 24.2% of 40 hours max\n\n\n\n\n\n\n\n\nReflection\n\n\n\nNice simple output from the model makes it easier to work with, as well as it being simple and similar plots with fairly minimal manipulation."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
-    "href": "logbook/posts/2024_07_31/index.html#figure-3-and-table-3",
-    "title": "Day 4",
-    "section": "10.09-10.27: Figure 3 and Table 3",
-    "text": "10.09-10.27: Figure 3 and Table 3\nUsing surv scen 1 (as in figure legend and article), starting working on Figure 3 and part of Table 3, adapting my prior functions.\nI realised the output for scenario 1 doesn’t include a result from delay 0, so I will need the outputs from the base scenario scen0 to create this plot. I have not yet generated these.\nThis will also need different scaling. As in the Table 3 caption:\n\nNational surveillance cohort March 2020: n=15376\nExpected AAA deaths in status quo: n=2152\nExpected emergency operations in status quo: n=745"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#set-surv-scenario-0-to-run-on-remote-machine",
-    "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-0-to-run-on-remote-machine",
-    "title": "Day 4",
-    "section": "10.56-11.02: Set surv scenario 0 to run on remote machine",
-    "text": "10.56-11.02: Set surv scenario 0 to run on remote machine\nFirst had to push and pull changes, and then update surv scenario 0 R script (as we have done for others) (parallel, 1 million, csv, etc.)\nTimings:\n\n4.463 minutes = 268 seconds = 4 minutes 28 seconds"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
-    "href": "logbook/posts/2024_07_31/index.html#set-surv-scenario-3-to-run-on-remote-machine",
-    "title": "Day 4",
-    "section": "11.06-11.07: Set surv scenario 3 to run on remote machine",
-    "text": "11.06-11.07: Set surv scenario 3 to run on remote machine\nTimings:\n\nFirst run: 13.303 minutes = 798 seconds = 13 minutes 18 seconds\nFull run: 81.663 minutes = 4900 seconds = 81 minutes 40 seconds"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
-    "href": "logbook/posts/2024_07_31/index.html#returning-to-figure-3-and-a-subset-of-table-3",
-    "title": "Day 4",
-    "section": "11.11-11.24: Returning to Figure 3 and a subset of Table 3",
-    "text": "11.11-11.24: Returning to Figure 3 and a subset of Table 3\nWith scenario 0 results, I could finish making the subset for Table 3, and completed Figure 3.\nSatisfied Figure 3 is reproduced at 11.24.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 80m, or 1h 20m\nTotal used to date: 619m, or 10h 19m\nTime remaining: 1781m, or 29h 41m\nUsed 25.8% of 40 hours max"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#working-on-figure-4",
-    "href": "logbook/posts/2024_07_31/index.html#working-on-figure-4",
-    "title": "Day 4",
-    "section": "11.31-11.55, 12.43-13.00: Working on Figure 4",
-    "text": "11.31-11.55, 12.43-13.00: Working on Figure 4\nSurv_scen2 includes s2.1 and s2.2, as it varies the dropout rate for 1 year, or for 2 years. These are each in part of Table 3, and together in Figure 4."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#set-up-surv-scen-4a-to-run",
-    "href": "logbook/posts/2024_07_31/index.html#set-up-surv-scen-4a-to-run",
-    "title": "Day 4",
-    "section": "13.01-13.04: Set up surv scen 4a to run",
-    "text": "13.01-13.04: Set up surv scen 4a to run\nTimings:\n\nFirst run: forgot to note down\nAll runs: 35.390 min = 2123 seconds = 35 minutes 23 seconds"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#resuming-figure-4",
-    "href": "logbook/posts/2024_07_31/index.html#resuming-figure-4",
-    "title": "Day 4",
-    "section": "13.05-13.14: Resuming Figure 4",
-    "text": "13.05-13.14: Resuming Figure 4\nHad to combine with scenario 0 again to give result when dropout rate is 0.\nSatisfied this is reproduced at 13.14.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 133m, or 2h 13m\nTotal used to date: 672m, or 11h 12m\nTime remaining: 1728m, or 28h 48m\nUsed 28.0% of 40 hours max"
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#subset-of-table-3",
-    "href": "logbook/posts/2024_07_31/index.html#subset-of-table-3",
-    "title": "Day 4",
-    "section": "13.22-13.29: Subset of Table 3",
-    "text": "13.22-13.29: Subset of Table 3\nCreated the scenario 2 sections of table 3 using my prior functions.\n\n\n\n\n\n\nReflection\n\n\n\nGiven small size of these results dataframe, could have been handy to include them along with the code."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#in-text-result-1",
-    "href": "logbook/posts/2024_07_31/index.html#in-text-result-1",
-    "title": "Day 4",
-    "section": "13.32-13.40: In-text result 1",
-    "text": "13.32-13.40: In-text result 1\nThe output from the model for Figure 3/Table 3 (..._surv_scen1.R) just returns total AAA deaths and not which sub-groups these belonged to.\nI couldn’t spot any code in the repository that would extra this result by these sub-groups, so set about identifying how to do this."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#set-up-surv-scen4b-to-run",
-    "href": "logbook/posts/2024_07_31/index.html#set-up-surv-scen4b-to-run",
-    "title": "Day 4",
-    "section": "13.53-13.55: Set up surv scen4b to run",
-    "text": "13.53-13.55: Set up surv scen4b to run\nPush and pull, and set to run.\n\n\n\n\n\n\nReflection\n\n\n\nThe original study authors inclusion of seeds and parallel processing is great and really handy."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#return-to-in-text-result-1",
-    "href": "logbook/posts/2024_07_31/index.html#return-to-in-text-result-1",
-    "title": "Day 4",
-    "section": "13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1",
-    "text": "13.56-14.00, 14.10-14.49, 16.07-16.16: Return to in-text result 1\nI ran a simple version of the model on my machine (few people) so I could inspect the scen1.surv object returned.\nscen1.surv$eventHistories is a list where each item is a person from the simulation. We can get:\n\nWhether they died - if “aaaDeath” is in their events (scen1.surv$eventHistories[[i]]$screening$events)\nTheir aaorta size - scen1.surv$eventHistories[[i]]$screening$initialAortaSizeAsMeasured\n\nI wrote a function that extracts the sizes for people who have died and counts numbers in each category. I add this to ..._surv_scen1.R, initially test running with a small number of people. This worked fine, so I then set it to run on the remote machine.\nTimings:\n\nOne run: 13.346 minutes = 801 seconds = 13 minutes 21 seconds\nAll runs: 68.854 minutes = 4131 seconds = 1 hour 8 minutes 51 seconds\n\nI imported the results, and then realised I would also need to run this function with ..._surv_scen0.R."
-  },
-  {
-    "objectID": "logbook/posts/2024_07_31/index.html#timings",
-    "href": "logbook/posts/2024_07_31/index.html#timings",
-    "title": "Day 4",
+    "objectID": "logbook/posts/2024_07_26/index.html#timings",
+    "href": "logbook/posts/2024_07_26/index.html#timings",
+    "title": "Day 1",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 539\n\n# Times from today\ntimes = [\n    ('09.12', '09.16'),\n    ('09.20', '09.58'),\n    ('10.09', '10.27'),\n    ('10.56', '11.02'),\n    ('11.06', '11.07'),\n    ('11.11', '11.24'),\n    ('11.31', '11.55'),\n    ('12.43', '13.00'),\n    ('13.01', '13.04'),\n    ('13.05', '13.14'),\n    ('13.22', '13.29'),\n    ('13.32', '13.40'),\n    ('13.53', '13.55'),\n    ('13.56', '14.00'),\n    ('14.10', '14.49'),\n    ('16.07', '16.16')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 202m, or 3h 22m\nTotal used to date: 741m, or 12h 21m\nTime remaining: 1659m, or 27h 39m\nUsed 30.9% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('15.58', '16.03'),\n    ('16.21', '16.30'),\n    ('16.36', '16.41'),\n    ('16.43', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 32m, or 0h 32m\nTotal used to date: 32m, or 0h 32m\nTime remaining: 2368m, or 39h 28m\nUsed 1.3% of 40 hours max"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html",
+    "href": "quarto_site/reproduction_readme.html",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nWithin this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 6 hours 53 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)\n\n\n\n\n\nTBC\n\n\n\nTBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#model-summary",
+    "href": "quarto_site/reproduction_readme.html#model-summary",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
+    "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
+    "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
+    "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "Within this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 6 hours 53 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#citation",
+    "href": "quarto_site/reproduction_readme.html#citation",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#license",
+    "href": "quarto_site/reproduction_readme.html#license",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html",
+    "href": "logbook/posts/2024_08_02/index.html",
+    "title": "Day 6",
+    "section": "",
+    "text": "Note\n\n\n\nFinished reproduction (supplementary table 2 and figure). Completed evaluation against guidelines. Started on research compendium. Total reproduction time: 13h 59m (35.0%). Evaluation time: 1h 55m."
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#resuming-supplementary-table-2",
+    "href": "logbook/posts/2024_08_02/index.html#resuming-supplementary-table-2",
+    "title": "Day 6",
+    "section": "09.09-09.43: Resuming supplementary table 2",
+    "text": "09.09-09.43: Resuming supplementary table 2\nCombined each scenario with scenario 0, then adapted previous functions to generate the table.\nConsider this reproduced at 09.43.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 34m, or 0h 34m\nTotal used to date: 839m, or 13h 59m\nTime remaining: 1561m, or 26h 1m\nUsed 35.0% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#supplementary-figure-3",
+    "href": "logbook/posts/2024_08_02/index.html#supplementary-figure-3",
+    "title": "Day 6",
+    "section": "10.02-10.38: Supplementary figure 3",
+    "text": "10.02-10.38: Supplementary figure 3\nAmend prior functions to combine with scenario 0 using a function (as repeated lots, and need again for this figure). Could then use those dataframes in my figure functions.\nConsider this reproduced at 10.38."
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#reproduction-timings",
+    "href": "logbook/posts/2024_08_02/index.html#reproduction-timings",
+    "title": "Day 6",
+    "section": "Reproduction timings",
+    "text": "Reproduction timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 805\n\n# Times from today\ntimes = [\n    ('09.09', '09.43'),\n    ('10.02', '10.38')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 70m, or 1h 10m\nTotal used to date: 875m, or 14h 35m\nTime remaining: 1525m, or 25h 25m\nUsed 36.5% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#badges",
+    "href": "logbook/posts/2024_08_02/index.html#badges",
+    "title": "Day 6",
+    "section": "10.54-10.59: Badges",
+    "text": "10.54-10.59: Badges\nEvaluated repository as available at this time (so including the few commits since publication).\ndocumentation_sufficient - no as no package versions and as most instructions are within R scripts themselves (e.g. that need to run with source()) (and therefore not met the subsequent careful documentation)\ndocumentation_readme - although it directs to a good example file, it doesn’t include instructions for reproducing results from the article"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#stars-framework",
+    "href": "logbook/posts/2024_08_02/index.html#stars-framework",
+    "title": "Day 6",
+    "section": "11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework",
+    "text": "11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#stress-des",
+    "href": "logbook/posts/2024_08_02/index.html#stress-des",
+    "title": "Day 6",
+    "section": "11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES",
+    "text": "11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES\nTo discuss (combined with ISPOR-SDM when overlap):\n\n2.1 Base model overview diagram / 3 Is the model structure described? - diagram is in prior study\n2.2 Base model logic - described in detail in prior study, only briefly alluded to in this one\n2.4 Algorithms - partially described in prior study\n2.5.2 Components - activities - provided moreso in prior study\n2.5.3 Components - resources - not clear in either study, unlesss there are none?\n2.5.4 Components - queues - not clear in either study, unless there are none?\n4.1 Initialisation - indicates its non-terminating in prior study\n5.3 Model execution - prior study mentions that you can run in parallel\n5.4 System specification - prior study mentions HPC"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#ispor-sdm",
+    "href": "logbook/posts/2024_08_02/index.html#ispor-sdm",
+    "title": "Day 6",
+    "section": "13.48-14.18: ISPOR-SDM",
+    "text": "13.48-14.18: ISPOR-SDM"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_02/index.html#evaluation-timings",
+    "href": "logbook/posts/2024_08_02/index.html#evaluation-timings",
+    "title": "Day 6",
+    "section": "Evaluation timings",
+    "text": "Evaluation timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('10.54', '10.59'),\n    ('11.00', '11.05'),\n    ('11.18', '11.23'),\n    ('11.29', '11.32'),\n    ('11.33', '12.10'),\n    ('12.55', '13.10'),\n    ('13.15', '13.30'),\n    ('13.48', '14.18')]\n\ncalculate_times(used_to_date, times, limit=False)\n\nTime spent today: 115m, or 1h 55m\nTotal used to date: 115m, or 1h 55m"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html",
+    "href": "logbook/posts/2024_07_29/index.html",
+    "title": "Day 2",
+    "section": "",
+    "text": "Note\n\n\n\nRead article, decided on scope, then began running model. Total time used: 4h 3m (10.1%)."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
+    "href": "logbook/posts/2024_07_29/index.html#high-entropy-secret",
+    "title": "Day 2",
+    "section": "09.38-09.43: High entropy secret",
+    "text": "09.38-09.43: High entropy secret\nUpload of code to repository triggered a notification from GitGuardian for upload of a high entropy secret. Opening the GitGuardian dashboard, I found the source of this issue was an API key uploaded to original_study/AAA_DES_model/input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R on line 376:\n# SOURCE: Love-Koh 2015 (https://reader.elsevier.com/reader/sd/pii/S1098301515018471?token=AB11057F469D57EBE990778CCDC883E9D35D3CFD83AD143352F3AD497E822198F957DBCE2EA86AE6DC16F2F6CE350409)\nThis is not a concern - the link doesn’t work with that token for others.\nThe DOI for this article is https://doi.org/10.1016/j.jval.2015.03.1784."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#correct-file-paths",
+    "href": "logbook/posts/2024_07_29/index.html#correct-file-paths",
+    "title": "Day 2",
+    "section": "09.53-09.55: Correct file paths",
+    "text": "09.53-09.55: Correct file paths\nFor study_publication.qmd."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#read-journal-article",
+    "href": "logbook/posts/2024_07_29/index.html#read-journal-article",
+    "title": "Day 2",
+    "section": "10.05-10.15, 10.29-10.45: Read journal article",
+    "text": "10.05-10.15, 10.29-10.45: Read journal article\nUses a previously developed and validated model described in:\n\nGlover MJ, Jones E, Masconi KL, Sweeting MJ, Thompson SG. Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening. Med Decis Making. 2018; 38(4):439–51. https://doi.org/10.1177/0272989X17753380 PMID: 31665967\nThompson SG, Bown MJ, Glover MJ, Jones E, Masconi KL, Michaels JA, et al. Screening women aged 65 years or over for abdominal aortic aneurysm: a modelling study and health economic evaluation. Health Technol Assess. 2018; 22(43):1–142. https://doi.org/10.3310/hta22430 PMID: 30132754\n\nSome notes on scope (beyond obvious tables/figures):\n\nIn-text result for Surveillance cohort: Scan suspension (re: breakdown of deaths by type) are not captured in tables/figures\nSupplementary figure 1 and 2 are more like methods than results? Are referenced in methods.\nIn-text results for Surveillance cohort: Drop-out are captured in Table 3 and Figure 4\nAlso captured are Surveillance cohort: Threshold for surgery\nSupplementary figure 3 and supplementary table 2 are definitely in scope"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
+    "href": "logbook/posts/2024_07_29/index.html#define-scope-for-reproduction",
+    "title": "Day 2",
+    "section": "10.46-11.02: Define scope for reproduction",
+    "text": "10.46-11.02: Define scope for reproduction\nI described my interpretation of scope within scope.qmd."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
+    "href": "logbook/posts/2024_07_29/index.html#discussed-scope-with-tom",
+    "title": "Day 2",
+    "section": "11.09-11.13: Discussed scope with Tom",
+    "text": "11.09-11.13: Discussed scope with Tom\nLooked over and happy with scope. He then did another look over the paper, but confirmed no further items."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#archive-scope",
+    "href": "logbook/posts/2024_07_29/index.html#archive-scope",
+    "title": "Day 2",
+    "section": "11.26-11.32 : Archive scope",
+    "text": "11.26-11.32 : Archive scope\nUpdate CHANGELOG.md and CITATION.cff, set up sync on Zenodo, then created a Git release."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#look-over-code",
+    "href": "logbook/posts/2024_07_29/index.html#look-over-code",
+    "title": "Day 2",
+    "section": "12.50-12.56: Look over code",
+    "text": "12.50-12.56: Look over code\nREADME:\n\nDirects to NAASP_DES_Example_Script.R which provides walk through example for running model.\nNotes the repository contains code for two papers - we are interested in NAAASP_COVID (rather than SWAN)\n\nCopied the items relevant to NAAASP COVID into reproduction/. As README states results are saved to output/, create a placeholder output folder\nThe models/ folder seems to contain scripts to run each of the scenarios."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#set-up-environment",
+    "href": "logbook/posts/2024_07_29/index.html#set-up-environment",
+    "title": "Day 2",
+    "section": "12.57-13.04: Set up environment",
+    "text": "12.57-13.04: Set up environment\nBased on experience trying to backdate R and packages in my previous reproduction (Huang et al. 2019), I decided that this time I would start with the latest R and packages, and then backdate if its not working.\nThis means using R 4.4.1 (paper mentions 3.6.3).\nAt the start of each script, it lists the packages to be installed (though not versions). Created a DESCRIPTION file with these packages.\nTitle: Computational reproducibility assessment of Kim et al. 2019\nDepends: \n    R\nImports:\n    Rcpp,\n    expm,\n    msm,\n    foreach,\n    iterators,\n    doParallel\nRan:\nrenv::init(bare=TRUE)\nrenv::install()\nrenv::snapshot()"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
+    "href": "logbook/posts/2024_07_29/index.html#trying-to-run-model",
+    "title": "Day 2",
+    "section": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model",
+    "text": "13.05-13.13, 13.48-13.55, 14.07-14.21, 14.53-15.08: Trying to run model\nTried running run_aaamodel_65yo_scen0.R. Had error:\nthis.dir &lt;- dirname(parent.frame(2)$ofile)\nError in dirname(parent.frame(2)$ofile) : \n  a character vector argument expected\nRealised this has a comment above stating:\n# Set the working directory to the root directory of AAA_DES_model (can only run this if sourcing the file)\nSo instead tried running with Source - this worked, up until this line:\n&gt; v1other\npostSurgeryInitialPeriod = 0.08213552 \ntimeToMonitoringFollowingOpenSurgery = 0.1149897 \ntimeBetweenMonitoringFollowingEvarSurgery = 1 \nzeroGrowthDiameterThreshold = 2 \nbaselineDiameters = data.frame with 2 columns:\n  size = 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 ...\n  weight = 2.86e-06 5.71e-06 4.43e-05 0.000351429 0.001205714 0.005032857 0.017921429 0.045698572 ...\nprevalenceThreshold = 3 \naortaDiameterThresholds = list: =Error in cat(names(element)[i], \"=\", element[[i]], \" \", sep = \"\") : \n  argument 3 (type 'list') cannot be handled by 'cat'\nv1other was created when we called source(\"input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R\"). Looking at that script, aortaDiameterThresholds are set as v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). Viewing the object rather than printing it with View(v1other), I can see that the thresholds are stored, but its just a list within a list.\nI tried commenting the print statement in run_aaamodel... but this just led to a later error for the same variable when it is used. As such, I instead altered assignment of this variable in the sourced script to c(3.0, 4.5, 5.5) (removing list()).\nThis then ran without issue. As it ran, I can see it sets a random seed (set.seed(3210)). As per usual, paused timing while it ran.\nSpent a long while on processPersons() (scen0.invite &lt;- processPersons(v0, v1other, v2, personData.screen)). At 13.48 (with model running since 13.13), I could see these would likely be slow models to run, so logged into the remote computer, cloned the GitHub repository there, and ran the next script starting at 13.55, run_aaamodel_65yo_scen0.R. To do so, after cloning, I ran:\ncd stars-reproduce-kim-2021/reproduction\nRscript -e \"renv::restore()\"\nRscript -e \"source('models/NAAASP_COVID_modelling/run_aaamodel_65yo_scen1.R')\"\n\n\n\n\n\n\nReflection\n\n\n\nIncluding the expected run time would be handy, as I assume this is working fine, but that’s working on the assumption that these models take a long time to run (which I’m not sure yet whether that is the case or not).\nIn this case, as I later found out they used HPC, it would’ve been beneficial to mention that also!\n\n\nI checked the run_aaamodel... scripts and realised that in each, none were using parallel processing (as v0$method &lt;- \"serial\").\nLooking at the DES_Model code I can see the example of processPersons() allows three possible inputs:\n\n“serial”\n“parallel” (which uses parallel)\n“foreach” (which uses doParallel)\n\nThe function psa() is the same, but also includes “parallelBatches” alongside “foreach”. However, the consequence of those inputs is to return an error that the method has not been implemented for psa. Hence, psa can only run with “serial” or “parallel”. Likewise for psaAboveDiagnosisThreshold().\nAt 14.16 (so having let the model run since 13.55, for 21 minutes), I cancelled the run on the remote computer, and altered the scenario script to set v0$method &lt;- \"parallel\". Then set that running, starting at 14.21. At this moment, the first scenario was still running on my machine (since 13.13, so for apx. 1h 10m now).\nAt 14.39, I noticed the parallel model said Killed. In case I might have accidentally done this, I just set it to rerun again. However, at 14.52, it showed as Killed again. Upon Googling, I can see this message occurs when you run out of memory - which perhaps, might be why all were set to run sequentially, if its too intensive to run in parallel. I switched it back to “serial”.\nHowever, the model still running on my machine has now been going for 1h 42m. Having looked in the repository and article for any indication of runtime or requirement of HPC, I’ve yet to find anything. I tried looking now at the article first describing the model (https://doi.org/10.1177/0272989X17753380). In this article, they state the run time:\nHowever, the computational requirements of the DES were extensive, given the number of individuals needed to reduce sampling variation to an acceptable level and characterizing uncertainty through PSA. Run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered computer.\nIn this case, “each scenario model is run for 10 million hypothetical individuals randomly drawn with replacement from the distribution of the relevant population. The models are run for a period of 30 years”. However, as there is no mention of performing probabilistic sensitivity analysis iterations in the article, we could expect this to be quicker than that (although note it is 10m patients instead of 500k).\nDiscussed with Tom and agreed to:\n\n\nTry and just run it with very few people, just so we can see if the model is working, and whether we could get similar results with fewer people in the model\n\n\nTry and run it sequentially on the remote computer overnight"
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
+    "href": "logbook/posts/2024_07_29/index.html#running-the-model-with-fewer-people",
+    "title": "Day 2",
+    "section": "15.09-15.42: Running the model with fewer people",
+    "text": "15.09-15.42: Running the model with fewer people\nDES_Input_Definitions states that the number of people to run through the DES is defined by v0$numberOfPersons, default 1000. Can see in run_aaamodel_65yo_scen0.R that it has been set to v0$numberOfPersons &lt;- 1e7. I replaced this with v0$numberOfPersons &lt;- 1000. This finished almost immediately, then hit an error:\n&gt; TableOfCounts(scen0.invite, v1other)\nError in \"screen\" %in% eventHistory$events && !(\"nonvisualization\" %in%  : \n  'length = 3' in coercion to 'logical(1)'\nTableOfCounts() is from DES_Model.R. Working through each line of the function, I found that the error is occurring for scre_dropout=countDropouts(result, v1other).\nIn this function, personsInfo (result, ie. scen0.invite) is used. It loops through the EventHistories for each person: for (i in 1:length(personsInfo$eventHistories)). It checks whether their events:\n\nIncludes “screen” (\"screen\" %in% eventHistory$events)\nDoes not include “nonvisualization” (!(\"nonvisualization\" %in% eventHistory$events))\nIf the measured size for screen is greater than or equal to v1other$aortaDiameterThresholds[[1]]\n\nThe error occurs for that final comparison. That is the item we had to change earlier to be able to get the model to run. I tried setting that back to being a list within a list - v1other$aortaDiameterThresholds &lt;- list(c(3.0, 4.5, 5.5)). However, I realised that caused the issue, and that in fact, run_aaamodel_65yo_scen0.R is changing it to list() again before running the model:\n## Change v1other$aortaDiameterThresholds to be a list (new syntax)\nv1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nIf I comment out that line, an error occurs. Hence, it seems we require it to be in a list within a list for the model, but just a list for TableOfCounts(). Looking at all the repository code, the reason becomes apparent in models/NAASP_COVID_modelling/run_aaamodel_surv_scen3.R, when multiple aaortaDiameterThresholds are provided.\nAs such, I set about modifying the later processing functions so that they are able to use this list() format:\n\ninput/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R: returned back to list(c()), but then changed run_aaamodel_65yo_scen0.R to not add an additional list() over the top.\nDES_Model.R: countDropouts(): &gt;= v1other$aortaDiameterThresholds[[1]] to &gt;= v1other$aortaDiameterThresholds[[1]][1]\n\nThe whole script then ran successfully!\n\n\n\n\n\n\nReflection\n\n\n\nThese errors will likely be the result of having modified code but no re-run everything from scratch (unsurprising given the anticipated model run times)."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
+    "href": "logbook/posts/2024_07_29/index.html#inspecting-outcome-from-a-model-run",
+    "title": "Day 2",
+    "section": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run",
+    "text": "15.43-16.00, 16.03-16.43, 16.45-16.47, 16.53-16.56: Inspecting outcome from a model run\nThat R script ran the status quo (I0) scenario for invited 65 year olds. The parameters from Table 1 are below, along with their location in the data from DES_Input_Definitions.xlsx\n\nAttendance 75% - v2$probOfAttendScreen\nDrop-out rate/annum: 6% - v2$rateOfDropoutFromMonitoring\nThreshold for surgery: 5.5cm - v1other$aortaDiameterThresholds[[1]][3] (“These are the aortic cut-points where surveillance intervals change. Note, the first cut-point must always relate to the aortic size where individuals enter the AAA surveillance programme (e.g. 3.0cm). The last cut-point must always relate to the aortic size where surgery is to be considered (e.g. 5.5cm)”)\n\nLooking at the next R script, run_aaamodel_65yo_scen1.R, I can see that they repeat the model multiple times to get results from varying parameters of that scenario. That script is scenario 1 which, from Table 1, we can see delays invitation from 3 months to 5 years.\nI switched to trying that script, but again first setting:\n\n# v1other$aortaDiameterThresholds &lt;- list(v1other$aortaDiameterThresholds)\nv0$numberOfPersons &lt;- 1000\n\nThis ran eight “scenarios” within the script. The output dataframe scen1summaryi showed the results from each of those eight variants. I add a line to the script to save this to csv. However, I could see that the number dead was 7 or 8 across all scenarios, so we likely did need to up the number in the model a bit more to start getting some real results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n1000.csv')\nres[['delayscr', 'aaadead']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\n\n\n\n\n7\n0.00\n7\n\n\n0\n0.25\n7\n\n\n1\n0.50\n7\n\n\n2\n1.00\n7\n\n\n3\n2.00\n7\n\n\n4\n3.00\n7\n\n\n5\n4.00\n8\n\n\n6\n5.00\n8\n\n\n\n\n\n\n\nI increased it to 10,000 patients. For each of the eight runs in the script, it took about 27 seconds (so under four minutes in total). Here we start to see more change between each scenario, and it becomes more feasible to look at the results.\n\nimport pandas as pd\n\nres = pd.read_csv('output_65yo_scen1_n10000.csv')\nres[['delayscr', 'aaadead', 'emeropen']].sort_values(by='delayscr')\n\n\n\n\n\n\n\n\ndelayscr\naaadead\nemeropen\n\n\n\n\n7\n0.00\n96\n33\n\n\n0\n0.25\n96\n33\n\n\n1\n0.50\n98\n32\n\n\n2\n1.00\n96\n31\n\n\n3\n2.00\n98\n31\n\n\n4\n3.00\n98\n32\n\n\n5\n4.00\n101\n32\n\n\n6\n5.00\n103\n32\n\n\n\n\n\n\n\nEach result here relates to Table 2 (i.e. excess AAA deaths, and excess emergency operations). To calculate excess, given that the results appears to increment from the first 0 scenario, I’m assuming that this is the change in deaths from the 0 scenario.\nI created an .Rmd file to start processing the results. This required the addition of rmarkdown to the renv. I add dplyr for processing the results. Looking at excess deaths, we can see the anticipated pattern, although for emergency operations, the numbers are still too small that they fluctuate, and emergency operations goes in the wrong direction.\n\nimport pandas as pd\n\npd.read_csv('tab2.csv')\n\n\n\n\n\n\n\n\ndelayscr\nexcess_death\nexcess_op\n\n\n\n\n0\n0.00\n0\n0\n\n\n1\n0.25\n0\n0\n\n\n2\n0.50\n2\n-1\n\n\n3\n1.00\n0\n-2\n\n\n4\n2.00\n2\n-2\n\n\n5\n3.00\n2\n-1\n\n\n6\n4.00\n5\n-1\n\n\n7\n5.00\n7\n-1\n\n\n\n\n\n\n\nI tried upping it to 100,000 people, and recorded the time with different settings:\n\n“serial” - 5 minutes 7 seconds\n“parallel” - 2 minutes 12 seconds - so estimated 17 and a half minutes in total\n“foreach” - not possible, Error in processPersons(v0, v1other, v2, personData.screen) : v0$randomSeed does not yet work with v0$method=\"foreach\"\n\nFor each of these, about 45 seconds is results processing at the end (e.g. Eventsandcosts())\nWhilst these ran, I looked through the repository to try and spot whether they had functions to generate the plots from the article. I found plotting functions in DES_Model.R, shiny_output_functions.R and NAAASP_DES_Example_Script.R, though none relevant to the article, so it appears I’ll need to write the code to do that processing."
+  },
+  {
+    "objectID": "logbook/posts/2024_07_29/index.html#timings",
+    "href": "logbook/posts/2024_07_29/index.html#timings",
+    "title": "Day 2",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 32\n\n# Times from today\ntimes = [\n    ('09.38', '09.43'),\n    ('09.53', '09.55'),\n    ('10.05', '10.15'),\n    ('10.29', '10.45'),\n    ('10.46', '11.02'),\n    ('11.09', '11.13'),\n    ('11.26', '11.32'),\n    ('12.50', '12.56'),\n    ('12.57', '13.04'),\n    ('13.05', '13.13'), \n    ('13.48', '13.55'),\n    ('14.07', '14.21'),\n    ('14.53', '15.08'),\n    ('15.09', '15.42'),\n    ('15.43', '16.00'),\n    ('16.03', '16.43'),\n    ('16.45', '16.47'),\n    ('16.53', '16.56')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 211m, or 3h 31m\nTotal used to date: 243m, or 4h 3m\nTime remaining: 2157m, or 35h 57m\nUsed 10.1% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html",
+    "href": "logbook/posts/2024_08_01/index.html",
+    "title": "Day 5",
+    "section": "",
+    "text": "Note\n\n\n\nFinished runnning scenarios, and reproduced in-text result 1, figure 5 and table 3. Total time used: 13h 25m (33.5%)."
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0",
+    "href": "logbook/posts/2024_08_01/index.html#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0",
+    "title": "Day 5",
+    "section": "09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0",
+    "text": "09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0\nCreate a script functions/extra_functions.R and moved the function I created yesterday - get_aaa_death_aorta_sizes() - from run_aaamodel_surv_scen1.R to extra_functions.R. This is so that:\n\nIt sits alongside other model functions\nIt can be used in scenario 0 and scenario 1 without duplication\n\nI test ran it on a small sample before setting it to run on a remote machine.\nTimings:\n\nFull run (one scenario): 4.633 minutes = 278 seconds = 4 minutes 38 seconds"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#set-surv-scenario-4c-e-to-run",
+    "href": "logbook/posts/2024_08_01/index.html#set-surv-scenario-4c-e-to-run",
+    "title": "Day 5",
+    "section": "09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run",
+    "text": "09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run\nRunning on the remote machine…\nTimings for 4C:\n\nFirst run: 5.452 minutes = 327 seconds = 5 minutes 27 seconds\nAll runs: 35.234 minutes = 2114 seconds = 35 minutes 14 seconds\n\nTimings for 4D:\n\nFirst run: 5.429 minutes = 326 seconds = 5 minutes 26 seconds\nAll runs: 35.083 minutes= 2105 seconds = 35 minutes 5 seconds\n\nTimings for 4E:\n\nFirst run: 5.465 minutes = 328 seconds = 5 minutes 28 seconds\nAll runs: 34.994 minutes = 2096 seconds = 34 minutes 56 seconds\n\nAlso ran some others again on the remote machine that were missing run times:\n\n65yo scen 0: 3.528 min = 212 seconds = 3 minutes 32 seconds\n65yo scen 1: 29.230 min = 1754 seconds = 29 minutes 14 seconds\nSurv scen 4b: 34.955 min = 2097 seconds = 34 minutes 57 seconds\n\nReassuringly, for those re-run, no change in results observed (so seed control all working as anticipated)."
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#in-text-result-1",
+    "href": "logbook/posts/2024_08_01/index.html#in-text-result-1",
+    "title": "Day 5",
+    "section": "15.42-16.02: In-text result 1",
+    "text": "15.42-16.02: In-text result 1\nCombined results from my function added to surv scenario 0 and 1, to view deaths by aorta size. The numbers are pretty similar to the original - exacty the same for one year (0, 2 and 7 deaths in the small, medium and large groups repsectively). They differed a little more for the suspension over 2 years:\n\nSmall: Original 1, Mine 5\nMedium: Original 17, Mine 10\nLarge: Original 22, Mine 27\n\nHowever, given the reduced sample size we run, I would consider this reasonably reproduced (with a consistent pattern, and relatively similar numbers), although will see what others say when send for a consensus opinion.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 33m, or 0h 33m\nTotal used to date: 774m, or 12h 54m\nTime remaining: 1626m, or 27h 6m\nUsed 32.2% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#figure-5",
+    "href": "logbook/posts/2024_08_01/index.html#figure-5",
+    "title": "Day 5",
+    "section": "16.06-16.17: Figure 5",
+    "text": "16.06-16.17: Figure 5\nThe model output from surv scen 3 includes thres 5.5 period 0, and then thresh 7 for periods 0.5 +. This aligns with the description in Table 1 in the paper. Hence, I’m assuming that calculations are in comparison against 5.5 period 0 (and that there is not a thresh 7 period 0 anywhere, since thresh 5.5 is otherwise the default).\nFeel this is reproduced at 16.17.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 44m, or 0h 44m\nTotal used to date: 785m, or 13h 5m\nTime remaining: 1615m, or 26h 55m\nUsed 32.7% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#finishing-up-table-3",
+    "href": "logbook/posts/2024_08_01/index.html#finishing-up-table-3",
+    "title": "Day 5",
+    "section": "16.19-16.26: Finishing up Table 3",
+    "text": "16.19-16.26: Finishing up Table 3\nCreated the final section of table 3 from scenario 3, and then combined with prior sections to produced Table 3.\nFeel this is reproduced at 16.26.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.27')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 52m, or 0h 52m\nTotal used to date: 793m, or 13h 13m\nTime remaining: 1607m, or 26h 47m\nUsed 33.0% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#supplementary-table-2",
+    "href": "logbook/posts/2024_08_01/index.html#supplementary-table-2",
+    "title": "Day 5",
+    "section": "16.40-16.53: Supplementary table 2",
+    "text": "16.40-16.53: Supplementary table 2\nLooking through the code and results:\n\nScenario 4A has scan suspension + 10% dropout over 1 year\nScenario 4B has scan suspension + 10% dropout over 2 years\nScenario 4C has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years\nScenario 4D has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years + 2 lockdown (op suspension) periods\nScenario 4E has scan suspension + 10% dropout over 2 years + 7cm threshold for 3 months and 5.5cm threshold for 3 months\n\nSupplementary table 1 and supplementary figure 3 appears to include just 4A to 4C, plus a prior scenario that just had scan suspension. Hence, I removed their run times from the README.\nScan suspension is presented in Figure 3, which uses scenarios 0 and 1."
+  },
+  {
+    "objectID": "logbook/posts/2024_08_01/index.html#timings",
+    "href": "logbook/posts/2024_08_01/index.html#timings",
+    "title": "Day 5",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.26'),\n    ('16.40', '16.53')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 64m, or 1h 4m\nTotal used to date: 805m, or 13h 25m\nTime remaining: 1595m, or 26h 35m\nUsed 33.5% of 40 hours max"
   },
   {
     "objectID": "evaluation/reproduction_success.html",
