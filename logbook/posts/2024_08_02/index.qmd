@@ -33,6 +33,12 @@ times = [
 calculate_times(used_to_date, times)
 ```
 
+## 10.02-10.38: Supplementary figure 3
+
+Amend prior functions to combine with scenario 0 using a function (as repeated lots, and need again for this figure). Could then use those dataframes in my figure functions.
+
+Consider this reproduced at 10.38.
+
 ## Timings
 
 ```{python}
@@ -45,7 +51,8 @@ used_to_date = 805
 
 # Times from today
 times = [
-    ('09.09', '09.43')]
+    ('09.09', '09.43'),
+    ('10.02', '10.38')]
 
 calculate_times(used_to_date, times)
 ```
