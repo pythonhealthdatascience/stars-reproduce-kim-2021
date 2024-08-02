@@ -44,7 +44,7 @@ files <- list(
   fig4 = "fig4.png",
   fig5 = "fig5.png",
   intext1 = "intext1.csv",
-  suptab1 = "suptab1.csv",
+  suptab2 = "suptab2.csv",
   supfig3 = "supfig3.png"
 )
 
@@ -494,12 +494,12 @@ make_sup_tab <- function(df, colname){
 
 ```{r}
 # Create each of the columns of the table, adding the full column names
-suptab1_s1 <- make_sup_tab(surv_s1, "Scan suspension only (S1)")
-suptab1_s21 <- make_sup_tab(surv_s4a, "+10% dropout/ annum for 1y (S2.1)")
-suptab1_s22 <- make_sup_tab(surv_s4b, "+10% dropout/ annum for 2y (S2.2)")
-suptab1_s23 <- make_sup_tab(surv_s4c, "+7cm threshold for 2y (S3)")
+suptab2_s1 <- make_sup_tab(surv_s1, "Scan suspension only (S1)")
+suptab2_s21 <- make_sup_tab(surv_s4a, "+10% dropout/ annum for 1y (S2.1)")
+suptab2_s22 <- make_sup_tab(surv_s4b, "+10% dropout/ annum for 2y (S2.2)")
+suptab2_s23 <- make_sup_tab(surv_s4c, "+7cm threshold for 2y (S3)")
 # Combine into single table
-suptab1 <- mutate(suptab1_s1, suptab1_s21, suptab1_s22, suptab1_s23) %>%
+suptab2 <- mutate(suptab2_s1, suptab2_s21, suptab2_s22, suptab2_s23) %>%
   # Only keep 6 months +
   filter(period >= 0.5) %>%
   # Relabel
@@ -507,10 +507,10 @@ suptab1 <- mutate(suptab1_s1, suptab1_s21, suptab1_s22, suptab1_s23) %>%
   rename("Length of scan suspension" = period)
 
 # Save to csv
-write.csv(suptab1, paths$suptab1, row.names=FALSE)
+write.csv(suptab2, paths$suptab2, row.names=FALSE)
 
 # View dataframe
-suptab1
+suptab2
 ```
 
 ## Figure 1
