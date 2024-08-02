@@ -1,0 +1,51 @@
+---
+title: "Day 6"
+author: "Amy Heather"
+date: "2024-08-02"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+TBC. Total time used: TBCh TBCm (TBC%).
+
+:::
+
+## 09.09-09.43: Resuming supplementary table 2
+
+Combined each scenario with scenario 0, then adapted previous functions to generate the table.
+
+Consider this reproduced at 09.43.
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 805
+
+# Times from today
+times = [
+    ('09.09', '09.43')]
+
+calculate_times(used_to_date, times)
+```
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 805
+
+# Times from today
+times = [
+    ('09.09', '09.43')]
+
+calculate_times(used_to_date, times)
+```
