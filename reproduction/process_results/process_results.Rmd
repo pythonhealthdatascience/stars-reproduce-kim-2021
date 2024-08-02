@@ -180,7 +180,9 @@ prepare_fig_df <- function(df, pivotvar) {
 }
 
 
-plot_fig <- function(df, xvar, xlab, savepath, linetype=NULL, xbreaks=NULL,
+plot_fig <- function(df, xvar, xlab, savepath,
+                     ylab="Percentage change in outcome",
+                     legendtitle="Outcome", linetype=NULL, xbreaks=NULL,
                      scale_y=list(limits=c(-10, 10), breaks=seq(-10, 10, 2))) {
   #' Plot the figure using ggplot2
   #' 
@@ -188,6 +190,8 @@ plot_fig <- function(df, xvar, xlab, savepath, linetype=NULL, xbreaks=NULL,
   #' @param xvar String - column with data to plot along x axis
   #' @param xlab String - label for x axis
   #' @param savepath String - file path to save image
+  #' @param ylab String - label for y axis
+  #' @legendtitle String - title for figure legend
   #' @param linetype String - name of coloumn to change style by, or NULL
   #' @param xbreaks Numeric vector of positions for xbreaks, or NULL (which
   #' makes it keep the default xbreaks)
@@ -205,9 +209,7 @@ plot_fig <- function(df, xvar, xlab, savepath, linetype=NULL, xbreaks=NULL,
   p <- p +
     geom_line() +
     geom_point() +
-    labs(x=xlab,
-         y="Percentage change in outcome",
-         color="Outcome") +
+    labs(x=xlab, y=ylab, color=legendtitle) +
     {if(!is.null(scale_y)) do.call(scale_y_continuous, scale_y)} +
     {if(!is.null(xbreaks))scale_x_continuous(breaks = xbreaks)} +
     geom_hline(yintercept=0) +
@@ -218,6 +220,27 @@ plot_fig <- function(df, xvar, xlab, savepath, linetype=NULL, xbreaks=NULL,
 
   # Save plot
   ggsave(savepath, width=7, height=5)
+}
+
+
+combine_with_surv_s0 <- function(df, groupvar){
+  #' Combine your chosen scenario with results from surveillance scenario 0
+  #' 
+  #' @param df Dataframe with model results from a given scenario
+  #' @param groupvar Column you will want to group with later, so keep along
+  #' with outcome columns
+  #' @return df_comb Model results from surv scenario 0 + your scenario
+
+  # Define columns to keep (as don't all have same columns, so just filter to
+  # desired - and alternative would've been to filter to common cols)
+  cols = c(groupvar, "elecevar", "elecopen", "emerevar",
+           "emeropen", "aaadead", "rupt")
+
+  # Combine scenario 0 with your chosen scenario
+  df_comb <- rbind(surv_s0 %>% mutate("period" = 0, "dropoutrate" = 0) %>% select(any_of(cols)),
+                   df %>% select(any_of(cols)))
+
+  return (df_comb)
 }
 ```
 
@@ -363,16 +386,8 @@ res2m
 Scenario 1
 
 ```{r}
-# Define columns to keep (as don't all have same columns, so just filter to
-# desired - and alternative would've been to filter to common cols)
-cols = c("period", "elecevar", "elecopen", "emerevar", "emeropen",
-         "aaadead", "rupt")
-
-# Combine into single dataframe
-surv_s0_s1 <- rbind(
-  surv_s1 %>% select(any_of(cols)),
-  surv_s0 %>% mutate(period=0) %>% select(any_of(cols)))
-
+# Combine scenarios 0 and 1
+surv_s0_s1 <- combine_with_surv_s0(surv_s1, "period")
 surv_s0_s1
 ```
 
@@ -394,22 +409,11 @@ tab3_s1
 Scenario 2
 
 ```{r}
-# Define columns to keep (as don't all have same columns, so just filter to
-# desired - and alternative would've been to filter to common cols)
-cols = c("dropoutrate", "elecevar", "elecopen", "emerevar", "emeropen",
-         "aaadead", "rupt")
-
-# Combine scenario 0 and scenario 2.1
-surv_s0_s2_1y <- rbind(
-  surv_s2[surv_s2$dropoutperiod == 1,] %>% select(any_of(cols)),
-  surv_s0 %>% mutate(dropoutrate=0) %>% select(any_of(cols))
-)
-
-# Combine scenario 0 and scenario 2.2
-surv_s0_s2_2y <- rbind(
-  surv_s2[surv_s2$dropoutperiod == 2,] %>% select(any_of(cols)),
-  surv_s0 %>% mutate(dropoutrate=0) %>% select(any_of(cols))
-)
+# Combine scenarios 0 and 2.1 or 2.2
+surv_s0_s2_1y <- combine_with_surv_s0(
+  surv_s2[surv_s2$dropoutperiod == 1,], "dropoutrate")
+surv_s0_s2_2y <- combine_with_surv_s0(
+  surv_s2[surv_s2$dropoutperiod == 2,], "dropoutrate")
 
 # Calculate excess deaths and emergency operations
 tab_surv_s2_1y <- make_tab(
@@ -467,37 +471,23 @@ full_tab3
 ## Supplementary table 2
 
 ```{r}
-make_sup_tab <- function(df, colname){
-  #' Create components of supplementary table
-  #' 
-  #' Provided as function as there was a lot of repetition to create each of
-  #' these elements
-  #' @param df Dataframe with model results
-  #' @param colname Name of final column in supplementary table
+# Combine scenarios with scenario 0 (except scenario 1, which we did above)
+surv_s0_s4a <- combine_with_surv_s0(surv_s4a, "period")
+surv_s0_s4b <- combine_with_surv_s0(surv_s4b, "period")
+surv_s0_s4c <- combine_with_surv_s0(surv_s4c, "period")
 
-  # Define columns to keep (as don't all have same columns, so just filter to
-  # desired - and alternative would've been to filter to common cols)
-  cols = c("period", "elecevar", "elecopen", "emerevar", "emeropen",
-           "aaadead", "rupt")
-
-  # Combine scenario 0 (period=0) with the results from period 0.25+
-  df_comb <- rbind(surv_s0 %>% mutate("period" = 0) %>% select(any_of(cols)),
-                   df %>% select(any_of(cols)))
-
-  # Calculate scaled excess deaths and emergencies
-  sup_tab <- make_tab(df_comb, scale_to=15376, groupvar="period") %>%
-    rename(!!colname := excess_dead_emer) %>%
-
-  return (sup_tab)
-}
+# Calculate scaled excess deaths and emergencies
+suptab2_s1 <- make_tab(surv_s0_s1, scale_to=15376, groupvar="period") %>%
+    rename("Scan suspension only (S1)" := excess_dead_emer)
+suptab2_s21 <- make_tab(surv_s0_s4a, scale_to=15376, groupvar="period") %>%
+    rename("+10% dropout/ annum for 1y (S2.1)" := excess_dead_emer)
+suptab2_s22 <- make_tab(surv_s0_s4b, scale_to=15376, groupvar="period") %>%
+    rename("+10% dropout/ annum for 2y (S2.2)" := excess_dead_emer)
+suptab2_s23 <- make_tab(surv_s0_s4c, scale_to=15376, groupvar="period") %>%
+    rename("+7cm threshold for 2y (S3)" := excess_dead_emer)
 ```
 
 ```{r}
-# Create each of the columns of the table, adding the full column names
-suptab2_s1 <- make_sup_tab(surv_s1, "Scan suspension only (S1)")
-suptab2_s21 <- make_sup_tab(surv_s4a, "+10% dropout/ annum for 1y (S2.1)")
-suptab2_s22 <- make_sup_tab(surv_s4b, "+10% dropout/ annum for 2y (S2.2)")
-suptab2_s23 <- make_sup_tab(surv_s4c, "+7cm threshold for 2y (S3)")
 # Combine into single table
 suptab2 <- mutate(suptab2_s1, suptab2_s21, suptab2_s22, suptab2_s23) %>%
   # Only keep 6 months +
@@ -617,6 +607,42 @@ fig4_df <- prepare_fig_df(fig5_pct, pivotvar=c("period")) %>%
 # Create figure
 plot_fig(fig4_df, xvar="period", xlab="Time at 7cm threshold (years)",
          savepath=paths$fig5)
+```
+
+## Supplementary figure 3
+
+```{r}
+# Get percentage change for each scenario (have to calculate seperately)
+supfig3_s1_pct <- get_pct_change(surv_s0_s1, "period") %>%
+  mutate(scenario = "S1")
+supfig3_s21_pct <- get_pct_change(surv_s0_s4a, "period") %>%
+  mutate(scenario = "S1+S2.1")
+supfig3_s22_pct <- get_pct_change(surv_s0_s4b, "period") %>%
+  mutate(scenario = "S1+S2.2")
+supfig3_s3_pct <- get_pct_change(surv_s0_s4c, "period") %>%
+  mutate(scenario = "S1+S2.2+S3")
+
+# Combine into a single dataframe
+supfig3_pct <- rbind(
+  supfig3_s1_pct, supfig3_s21_pct, supfig3_s22_pct, supfig3_s3_pct) %>%
+  # Filter to relevant columns
+  select(period, scenario, pct_dead)
+
+# Melt and label dataframe
+supfig3_df <- prepare_fig_df(supfig3_pct, pivotvar=c("period", "scenario")) %>%
+  # Modify so scenarios are the label
+  select(-c("name", "label")) %>%
+  rename("label" = scenario) %>%
+  # Remove result from timepoint 0
+  filter(period != 0)
+
+# Create figure
+plot_fig(supfig3_df, xvar="period",
+         xlab="Surveillance scan suspension (years)",
+         ylab="Percentage change in AAA deaths",
+         savepath=paths$supfig3, legendtitle="Scenario",
+         scale_y=list(limits=c(0, 30), breaks=seq(0, 30, 5)))
+```
 ```
 
 ## In-text result 1
