@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-TBC. Total time used: TBCh TBCm (TBC%).
+Finished runnning scenarios, and reproduced in-text result 1, figure 5 and table 3. Total time used: 13h 25m (33.5%).
 
 :::
 
@@ -137,6 +137,20 @@ times = [
 calculate_times(used_to_date, times)
 ```
 
+## 16.40-16.53: Supplementary table 2
+
+Looking through the code and results:
+
+* Scenario 4A has scan suspension + 10% dropout over 1 year
+* Scenario 4B has scan suspension + 10% dropout over 2 years
+* Scenario 4C has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years
+* Scenario 4D has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years + 2 lockdown (op suspension) periods
+* Scenario 4E has scan suspension + 10% dropout over 2 years + 7cm threshold for 3 months and 5.5cm threshold for 3 months
+
+Supplementary table 1 and supplementary figure 3 appears to include just 4A to 4C, plus a prior scenario that just had scan suspension. Hence, I removed their run times from the README.
+
+Scan suspension is presented in Figure 3, which uses scenarios 0 and 1.
+
 ## Timings
 
 ```{python}
@@ -156,7 +170,8 @@ times = [
     ('11.05', '11.07'),
     ('15.42', '16.02'),
     ('16.06', '16.17'),
-    ('16.19', '16.27')]
+    ('16.19', '16.26'),
+    ('16.40', '16.53')]
 
 calculate_times(used_to_date, times)
 ```
