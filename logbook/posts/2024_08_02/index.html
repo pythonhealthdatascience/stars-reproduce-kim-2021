@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
-<meta name="dcterms.date" content="2024-08-01">
+<meta name="dcterms.date" content="2024-08-02">
 
-<title>Day 5 – Reproducing Kim et al.&nbsp;2021</title>
+<title>Day 6 – Reproducing Kim et al.&nbsp;2021</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 5</h1>
+      <h1 class="title">Day 6</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">reproduce</div>
               </div>
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 1, 2024</p>
+        <p class="date">August 2, 2024</p>
       </div>
     </div>
     
@@ -235,15 +235,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0" id="toc-get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0" class="nav-link active" data-scroll-target="#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0">09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0</a></li>
-  <li><a href="#set-surv-scenario-4c-e-to-run" id="toc-set-surv-scenario-4c-e-to-run" class="nav-link" data-scroll-target="#set-surv-scenario-4c-e-to-run">09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run</a></li>
-  <li><a href="#in-text-result-1" id="toc-in-text-result-1" class="nav-link" data-scroll-target="#in-text-result-1">15.42-16.02: In-text result 1</a></li>
-  <li><a href="#figure-5" id="toc-figure-5" class="nav-link" data-scroll-target="#figure-5">16.06-16.17: Figure 5</a></li>
-  <li><a href="#finishing-up-table-3" id="toc-finishing-up-table-3" class="nav-link" data-scroll-target="#finishing-up-table-3">16.19-16.26: Finishing up Table 3</a></li>
-  <li><a href="#supplementary-table-2" id="toc-supplementary-table-2" class="nav-link" data-scroll-target="#supplementary-table-2">16.40-16.53: Supplementary table 2</a></li>
+  <li><a href="#resuming-supplementary-table-2" id="toc-resuming-supplementary-table-2" class="nav-link active" data-scroll-target="#resuming-supplementary-table-2">09.09-09.43: Resuming supplementary table 2</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_01/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -262,187 +257,54 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Finished runnning scenarios, and reproduced in-text result 1, figure 5 and table 3. Total time used: 13h 25m (33.5%).</p>
+<p>TBC. Total time used: TBCh TBCm (TBC%).</p>
 </div>
 </div>
-<section id="get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0" class="level2">
-<h2 class="anchored" data-anchor-id="get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0">09.12-09.19, 09.22-09.24: Get aorta sizes from AAA deaths in surv scenario 0</h2>
-<p>Create a script <code>functions/extra_functions.R</code> and moved the function I created yesterday - <code>get_aaa_death_aorta_sizes()</code> - from <code>run_aaamodel_surv_scen1.R</code> to <code>extra_functions.R</code>. This is so that:</p>
-<ol type="1">
-<li>It sits alongside other model functions</li>
-<li>It can be used in scenario 0 and scenario 1 without duplication</li>
-</ol>
-<p>I test ran it on a small sample before setting it to run on a remote machine.</p>
-<p>Timings:</p>
-<ul>
-<li>Full run (one scenario): 4.633 minutes = 278 seconds = 4 minutes 38 seconds</li>
-</ul>
-</section>
-<section id="set-surv-scenario-4c-e-to-run" class="level2">
-<h2 class="anchored" data-anchor-id="set-surv-scenario-4c-e-to-run">09.34-09.35, 10.28-10.29, 11.05-11.07: Set surv scenario 4C-E to run</h2>
-<p>Running on the remote machine…</p>
-<p>Timings for 4C:</p>
-<ul>
-<li>First run: 5.452 minutes = 327 seconds = 5 minutes 27 seconds</li>
-<li>All runs: 35.234 minutes = 2114 seconds = 35 minutes 14 seconds</li>
-</ul>
-<p>Timings for 4D:</p>
-<ul>
-<li>First run: 5.429 minutes = 326 seconds = 5 minutes 26 seconds</li>
-<li>All runs: 35.083 minutes= 2105 seconds = 35 minutes 5 seconds</li>
-</ul>
-<p>Timings for 4E:</p>
-<ul>
-<li>First run: 5.465 minutes = 328 seconds = 5 minutes 28 seconds</li>
-<li>All runs: 34.994 minutes = 2096 seconds = 34 minutes 56 seconds</li>
-</ul>
-<p>Also ran some others again on the remote machine that were missing run times:</p>
-<ul>
-<li>65yo scen 0: 3.528 min = 212 seconds = 3 minutes 32 seconds</li>
-<li>65yo scen 1: 29.230 min = 1754 seconds = 29 minutes 14 seconds</li>
-<li>Surv scen 4b: 34.955 min = 2097 seconds = 34 minutes 57 seconds</li>
-</ul>
-<p>Reassuringly, for those re-run, no change in results observed (so seed control all working as anticipated).</p>
-</section>
-<section id="in-text-result-1" class="level2">
-<h2 class="anchored" data-anchor-id="in-text-result-1">15.42-16.02: In-text result 1</h2>
-<p>Combined results from my function added to surv scenario 0 and 1, to view deaths by aorta size. The numbers are pretty similar to the original - exacty the same for one year (0, 2 and 7 deaths in the small, medium and large groups repsectively). They differed a little more for the suspension over 2 years:</p>
-<ul>
-<li>Small: Original 1, Mine 5</li>
-<li>Medium: Original 17, Mine 10</li>
-<li>Large: Original 22, Mine 27</li>
-</ul>
-<p>However, given the reduced sample size we run, I would consider this reasonably reproduced (with a consistent pattern, and relatively similar numbers), although will see what others say when send for a consensus opinion.</p>
-<div id="02072d58" class="cell" data-execution_count="1">
+<section id="resuming-supplementary-table-2" class="level2">
+<h2 class="anchored" data-anchor-id="resuming-supplementary-table-2">09.09-09.43: Resuming supplementary table 2</h2>
+<p>Combined each scenario with scenario 0, then adapted previous functions to generate the table.</p>
+<p>Consider this reproduced at 09.43.</p>
+<div id="5029b284" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">741</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">805</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.19'</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.22'</span>, <span class="st">'09.24'</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.34'</span>, <span class="st">'09.35'</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.28'</span>, <span class="st">'10.29'</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.05'</span>, <span class="st">'11.07'</span>),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.42'</span>, <span class="st">'16.02'</span>)]</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.09'</span>, <span class="st">'09.43'</span>)]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 33m, or 0h 33m
-Total used to date: 774m, or 12h 54m
-Time remaining: 1626m, or 27h 6m
-Used 32.2% of 40 hours max</code></pre>
+<pre><code>Time spent today: 34m, or 0h 34m
+Total used to date: 839m, or 13h 59m
+Time remaining: 1561m, or 26h 1m
+Used 35.0% of 40 hours max</code></pre>
 </div>
 </div>
 </section>
-<section id="figure-5" class="level2">
-<h2 class="anchored" data-anchor-id="figure-5">16.06-16.17: Figure 5</h2>
-<p>The model output from surv scen 3 includes thres 5.5 period 0, and then thresh 7 for periods 0.5 +. This aligns with the description in Table 1 in the paper. Hence, I’m assuming that calculations are in comparison against 5.5 period 0 (and that there is not a thresh 7 period 0 anywhere, since thresh 5.5 is otherwise the default).</p>
-<p>Feel this is reproduced at 16.17.</p>
-<div id="47e3e135" class="cell" data-execution_count="2">
+<section id="timings" class="level2">
+<h2 class="anchored" data-anchor-id="timings">Timings</h2>
+<div id="0b210d5b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">741</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">805</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.19'</span>),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.22'</span>, <span class="st">'09.24'</span>),</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.34'</span>, <span class="st">'09.35'</span>),</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.28'</span>, <span class="st">'10.29'</span>),</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.05'</span>, <span class="st">'11.07'</span>),</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.42'</span>, <span class="st">'16.02'</span>),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.06'</span>, <span class="st">'16.17'</span>)]</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.09'</span>, <span class="st">'09.43'</span>)]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 44m, or 0h 44m
-Total used to date: 785m, or 13h 5m
-Time remaining: 1615m, or 26h 55m
-Used 32.7% of 40 hours max</code></pre>
-</div>
-</div>
-</section>
-<section id="finishing-up-table-3" class="level2">
-<h2 class="anchored" data-anchor-id="finishing-up-table-3">16.19-16.26: Finishing up Table 3</h2>
-<p>Created the final section of table 3 from scenario 3, and then combined with prior sections to produced Table 3.</p>
-<p>Feel this is reproduced at 16.26.</p>
-<div id="b9125659" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">741</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.19'</span>),</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.22'</span>, <span class="st">'09.24'</span>),</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.34'</span>, <span class="st">'09.35'</span>),</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.28'</span>, <span class="st">'10.29'</span>),</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.05'</span>, <span class="st">'11.07'</span>),</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.42'</span>, <span class="st">'16.02'</span>),</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.06'</span>, <span class="st">'16.17'</span>),</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.19'</span>, <span class="st">'16.27'</span>)]</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 52m, or 0h 52m
-Total used to date: 793m, or 13h 13m
-Time remaining: 1607m, or 26h 47m
-Used 33.0% of 40 hours max</code></pre>
-</div>
-</div>
-</section>
-<section id="supplementary-table-2" class="level2">
-<h2 class="anchored" data-anchor-id="supplementary-table-2">16.40-16.53: Supplementary table 2</h2>
-<p>Looking through the code and results:</p>
-<ul>
-<li>Scenario 4A has scan suspension + 10% dropout over 1 year</li>
-<li>Scenario 4B has scan suspension + 10% dropout over 2 years</li>
-<li>Scenario 4C has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years</li>
-<li>Scenario 4D has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years + 2 lockdown (op suspension) periods</li>
-<li>Scenario 4E has scan suspension + 10% dropout over 2 years + 7cm threshold for 3 months and 5.5cm threshold for 3 months</li>
-</ul>
-<p>Supplementary table 1 and supplementary figure 3 appears to include just 4A to 4C, plus a prior scenario that just had scan suspension. Hence, I removed their run times from the README.</p>
-<p>Scan suspension is presented in Figure 3, which uses scenarios 0 and 1.</p>
-</section>
-<section id="timings" class="level2">
-<h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="0b1434b7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">741</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.12'</span>, <span class="st">'09.19'</span>),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.22'</span>, <span class="st">'09.24'</span>),</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.34'</span>, <span class="st">'09.35'</span>),</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.28'</span>, <span class="st">'10.29'</span>),</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.05'</span>, <span class="st">'11.07'</span>),</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.42'</span>, <span class="st">'16.02'</span>),</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.06'</span>, <span class="st">'16.17'</span>),</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.19'</span>, <span class="st">'16.26'</span>),</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.40'</span>, <span class="st">'16.53'</span>)]</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 64m, or 1h 4m
-Total used to date: 805m, or 13h 25m
-Time remaining: 1595m, or 26h 35m
-Used 33.5% of 40 hours max</code></pre>
+<pre><code>Time spent today: 34m, or 0h 34m
+Total used to date: 839m, or 13h 59m
+Time remaining: 1561m, or 26h 1m
+Used 35.0% of 40 hours max</code></pre>
 </div>
 </div>
 
@@ -894,7 +756,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_01/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
