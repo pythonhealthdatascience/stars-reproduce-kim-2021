@@ -4,10 +4,7 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This page is in-progress and has not yet been completed**
-
-Of the 10 items in the scope, X% (X out of 10) were considered to be **successfully reproduced**.
+Of the 10 items in the scope, 100% (10 out of 10) were considered to be **successfully reproduced**.
 
 As cited throughout, images on this page are sourced from @kim_modelling_2021
 
@@ -31,7 +28,7 @@ time_list = [
     [672, 'Figure 4'],
     [785, 'Figure 5'],
     [793, 'Table 3'],
-    [np.nan, 'Supplementary figure 3'],
+    [875, 'Supplementary figure 3'],
     [839, 'Supplementary table 2']]
 times_df = process_times(time_list)
 ```
@@ -142,9 +139,10 @@ pd.read_csv('../reproduction/output/tab3.csv')
 Original (@kim_modelling_2021):
 
 ![](../original_study/sup_fig3_crop.png){width=80% fig-align="center" .lightbox}
+
 Reproduction:
 
-TBC
+![](../reproduction/output/supfig3.png){width=80% fig-align="center" .lightbox}
 
 ## Supplementary table 2
 
