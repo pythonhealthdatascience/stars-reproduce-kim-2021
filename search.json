@@ -74,7 +74,7 @@
     "href": "logbook/posts/2024_08_01/index.html",
     "title": "Day 5",
     "section": "",
-    "text": "Note\n\n\n\nTBC. Total time used: TBCh TBCm (TBC%)."
+    "text": "Note\n\n\n\nFinished runnning scenarios, and reproduced in-text result 1, figure 5 and table 3. Total time used: 13h 25m (33.5%)."
   },
   {
     "objectID": "logbook/posts/2024_08_01/index.html#get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0",
@@ -112,11 +112,18 @@
     "text": "16.19-16.26: Finishing up Table 3\nCreated the final section of table 3 from scenario 3, and then combined with prior sections to produced Table 3.\nFeel this is reproduced at 16.26.\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.27')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 52m, or 0h 52m\nTotal used to date: 793m, or 13h 13m\nTime remaining: 1607m, or 26h 47m\nUsed 33.0% of 40 hours max"
   },
   {
+    "objectID": "logbook/posts/2024_08_01/index.html#supplementary-table-2",
+    "href": "logbook/posts/2024_08_01/index.html#supplementary-table-2",
+    "title": "Day 5",
+    "section": "16.40-16.53: Supplementary table 2",
+    "text": "16.40-16.53: Supplementary table 2\nLooking through the code and results:\n\nScenario 4A has scan suspension + 10% dropout over 1 year\nScenario 4B has scan suspension + 10% dropout over 2 years\nScenario 4C has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years\nScenario 4D has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years + 2 lockdown (op suspension) periods\nScenario 4E has scan suspension + 10% dropout over 2 years + 7cm threshold for 3 months and 5.5cm threshold for 3 months\n\nSupplementary table 1 and supplementary figure 3 appears to include just 4A to 4C, plus a prior scenario that just had scan suspension. Hence, I removed their run times from the README.\nScan suspension is presented in Figure 3, which uses scenarios 0 and 1."
+  },
+  {
     "objectID": "logbook/posts/2024_08_01/index.html#timings",
     "href": "logbook/posts/2024_08_01/index.html#timings",
     "title": "Day 5",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.27')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 52m, or 0h 52m\nTotal used to date: 793m, or 13h 13m\nTime remaining: 1607m, or 26h 47m\nUsed 33.0% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 741\n\n# Times from today\ntimes = [\n    ('09.12', '09.19'),\n    ('09.22', '09.24'),\n    ('09.34', '09.35'),\n    ('10.28', '10.29'),\n    ('11.05', '11.07'),\n    ('15.42', '16.02'),\n    ('16.06', '16.17'),\n    ('16.19', '16.26'),\n    ('16.40', '16.53')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 64m, or 1h 4m\nTotal used to date: 805m, or 13h 25m\nTime remaining: 1595m, or 26h 35m\nUsed 33.5% of 40 hours max"
   },
   {
     "objectID": "logbook/posts/2024_07_29/index.html",
@@ -452,7 +459,7 @@
     "href": "quarto_site/reproduction_readme.html",
     "title": "README for reproduction",
     "section": "",
-    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nWithin this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 8 hours 3 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)\nSurveillance scenario 4d - 35 minutes 5 seconds (2105 seconds)\nSurveillance scenario 4e - 34 minutes 56 seconds (2096 seconds)\n\n\n\n\n\nTBC\n\n\n\nTBC"
+    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nWithin this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 6 hours 53 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)\n\n\n\n\n\nTBC\n\n\n\nTBC"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#model-summary",
@@ -480,7 +487,7 @@
     "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
     "title": "README for reproduction",
     "section": "",
-    "text": "Within this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 8 hours 3 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)\nSurveillance scenario 4d - 35 minutes 5 seconds (2105 seconds)\nSurveillance scenario 4e - 34 minutes 56 seconds (2096 seconds)"
+    "text": "Within this reproduction, due to long run times, the model was run on a remote machine. This was an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux. We also reduced the number of patients in the simulation from 10 million to 1 million, to improve run times. In total, it took 6 hours 53 minutes to run all the model scenarios. This included:\n\n65 year old scenario 0 - 3 minutes 32 seconds (212 seconds)\n65 year old scenario 1 - 29 minutes 14 seconds (1754 seconds)\n65 year old scenario 2 - 19 minutes 7 seconds (1147 seconds)\nSurveillance scenario 0 - 4 minutes 28 seconds (268 seconds)\nSurveillance scenario 1 - 1 hour 10 minutes 11 seconds (4211 seconds)\nSurveillance scenario 2 - 1 hour 39 minutes 39 seconds (5979 seconds)\nSurveillance scenario 3 - 1 hour 21 minutes 40 seconds (4900 seconds)\nSurveillance scenario 4a - 35 minutes 23 seconds (2123 seconds)\nSurveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)\nSurveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#citation",

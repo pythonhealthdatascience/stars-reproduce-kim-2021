@@ -240,6 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#in-text-result-1" id="toc-in-text-result-1" class="nav-link" data-scroll-target="#in-text-result-1">15.42-16.02: In-text result 1</a></li>
   <li><a href="#figure-5" id="toc-figure-5" class="nav-link" data-scroll-target="#figure-5">16.06-16.17: Figure 5</a></li>
   <li><a href="#finishing-up-table-3" id="toc-finishing-up-table-3" class="nav-link" data-scroll-target="#finishing-up-table-3">16.19-16.26: Finishing up Table 3</a></li>
+  <li><a href="#supplementary-table-2" id="toc-supplementary-table-2" class="nav-link" data-scroll-target="#supplementary-table-2">16.40-16.53: Supplementary table 2</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_01/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -261,7 +262,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TBC. Total time used: TBCh TBCm (TBC%).</p>
+<p>Finished runnning scenarios, and reproduced in-text result 1, figure 5 and table 3. Total time used: 13h 25m (33.5%).</p>
 </div>
 </div>
 <section id="get-aorta-sizes-from-aaa-deaths-in-surv-scenario-0" class="level2">
@@ -312,7 +313,7 @@ Note
 <li>Large: Original 22, Mine 27</li>
 </ul>
 <p>However, given the reduced sample size we run, I would consider this reasonably reproduced (with a consistent pattern, and relatively similar numbers), although will see what others say when send for a consensus opinion.</p>
-<div id="126a714e" class="cell" data-execution_count="1">
+<div id="14e78f0a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -342,7 +343,7 @@ Used 32.2% of 40 hours max</code></pre>
 <h2 class="anchored" data-anchor-id="figure-5">16.06-16.17: Figure 5</h2>
 <p>The model output from surv scen 3 includes thres 5.5 period 0, and then thresh 7 for periods 0.5 +. This aligns with the description in Table 1 in the paper. Hence, I’m assuming that calculations are in comparison against 5.5 period 0 (and that there is not a thresh 7 period 0 anywhere, since thresh 5.5 is otherwise the default).</p>
 <p>Feel this is reproduced at 16.17.</p>
-<div id="07c73ed3" class="cell" data-execution_count="2">
+<div id="1f572ff8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -373,7 +374,7 @@ Used 32.7% of 40 hours max</code></pre>
 <h2 class="anchored" data-anchor-id="finishing-up-table-3">16.19-16.26: Finishing up Table 3</h2>
 <p>Created the final section of table 3 from scenario 3, and then combined with prior sections to produced Table 3.</p>
 <p>Feel this is reproduced at 16.26.</p>
-<div id="5a36924b" class="cell" data-execution_count="3">
+<div id="926c5a7f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -401,9 +402,22 @@ Used 33.0% of 40 hours max</code></pre>
 </div>
 </div>
 </section>
+<section id="supplementary-table-2" class="level2">
+<h2 class="anchored" data-anchor-id="supplementary-table-2">16.40-16.53: Supplementary table 2</h2>
+<p>Looking through the code and results:</p>
+<ul>
+<li>Scenario 4A has scan suspension + 10% dropout over 1 year</li>
+<li>Scenario 4B has scan suspension + 10% dropout over 2 years</li>
+<li>Scenario 4C has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years</li>
+<li>Scenario 4D has scan suspension + 10% dropout over 2 years + 7cm threshold for 2 years + 2 lockdown (op suspension) periods</li>
+<li>Scenario 4E has scan suspension + 10% dropout over 2 years + 7cm threshold for 3 months and 5.5cm threshold for 3 months</li>
+</ul>
+<p>Supplementary table 1 and supplementary figure 3 appears to include just 4A to 4C, plus a prior scenario that just had scan suspension. Hence, I removed their run times from the README.</p>
+<p>Scan suspension is presented in Figure 3, which uses scenarios 0 and 1.</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="70c1db64" class="cell" data-execution_count="4">
+<div id="c44c4b7d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -420,14 +434,15 @@ Used 33.0% of 40 hours max</code></pre>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.05'</span>, <span class="st">'11.07'</span>),</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.42'</span>, <span class="st">'16.02'</span>),</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.06'</span>, <span class="st">'16.17'</span>),</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.19'</span>, <span class="st">'16.27'</span>)]</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.19'</span>, <span class="st">'16.26'</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.40'</span>, <span class="st">'16.53'</span>)]</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 52m, or 0h 52m
-Total used to date: 793m, or 13h 13m
-Time remaining: 1607m, or 26h 47m
-Used 33.0% of 40 hours max</code></pre>
+<pre><code>Time spent today: 64m, or 1h 4m
+Total used to date: 805m, or 13h 25m
+Time remaining: 1595m, or 26h 35m
+Used 33.5% of 40 hours max</code></pre>
 </div>
 </div>
 
