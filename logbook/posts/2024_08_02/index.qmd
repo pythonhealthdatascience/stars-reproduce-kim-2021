@@ -2,7 +2,7 @@
 title: "Day 6"
 author: "Amy Heather"
 date: "2024-08-02"
-categories: [reproduce, guidelines]
+categories: [reproduce, guidelines, report, reflections]
 bibliography: ../../../quarto_site/references.bib
 ---
 
@@ -106,3 +106,11 @@ times = [
 
 calculate_times(used_to_date, times, limit=False)
 ```
+
+## Untimed: Summary report
+
+Partially completed summary report (evaluation will need to be updated following second opinion, as there were several items I marked as TBC, as I wasn't certain whether they met criteria when the information was from a prior study).
+
+## Untimed: Reflections
+
+Detailed troubleshooting steps and add reflections.
