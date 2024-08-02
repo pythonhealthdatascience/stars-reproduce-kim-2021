@@ -2,13 +2,13 @@
 title: "Day 6"
 author: "Amy Heather"
 date: "2024-08-02"
-categories: [reproduce]
+categories: [reproduce, guidelines]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-TBC. Total time used: TBCh TBCm (TBC%).
+Finished reproduction (supplementary table 2 and figure). Completed evaluation against guidelines. Started on research compendium. Total reproduction time: 13h 59m (35.0%). Evaluation time: 1h 55m.
 
 :::
 
@@ -39,7 +39,7 @@ Amend prior functions to combine with scenario 0 using a function (as repeated l
 
 Consider this reproduced at 10.38.
 
-## Timings
+## Reproduction timings
 
 ```{python}
 import sys
@@ -55,4 +55,54 @@ times = [
     ('10.02', '10.38')]
 
 calculate_times(used_to_date, times)
+```
+
+## 10.54-10.59: Badges
+
+Evaluated repository as available at this time (so including the few commits since publication).
+
+`documentation_sufficient` - no as no package versions and as most instructions are within R scripts themselves (e.g. that need to run with source()) (and therefore not met the subsequent careful documentation)
+
+`documentation_readme` - although it directs to a good example file, it doesn't include instructions for reproducing results from the article
+
+## 11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework
+
+## 11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES
+
+To discuss (combined with ISPOR-SDM when overlap):
+
+* `2.1 Base model overview diagram` / `3 Is the model structure described?` - diagram is in prior study
+* `2.2 Base model logic` - described in detail in prior study, only briefly alluded to in this one
+* `2.4 Algorithms` - partially described in prior study
+* `2.5.2 Components - activities` - provided moreso in prior study
+* `2.5.3 Components - resources` - not clear in either study, unlesss there are none?
+* `2.5.4 Components - queues` - not clear in either study, unless there are none?
+* `4.1 Initialisation` - indicates its non-terminating in prior study
+* `5.3 Model execution` - prior study mentions that you can run in parallel
+* `5.4 System specification` - prior study mentions HPC
+
+## 13.48-14.18: ISPOR-SDM
+
+## Evaluation timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 0
+
+# Times from today
+times = [
+    ('10.54', '10.59'),
+    ('11.00', '11.05'),
+    ('11.18', '11.23'),
+    ('11.29', '11.32'),
+    ('11.33', '12.10'),
+    ('12.55', '13.10'),
+    ('13.15', '13.30'),
+    ('13.48', '14.18')]
+
+calculate_times(used_to_date, times, limit=False)
 ```
