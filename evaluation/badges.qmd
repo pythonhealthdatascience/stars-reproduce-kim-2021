@@ -42,15 +42,15 @@ criteria = {
 eval = pd.Series({
     'archive': 0,
     'id': 0,
-    'license': 0,
-    'relevant': 0,
+    'license': 1,
+    'relevant': 1,
     'complete': 0,
-    'structure': 0,
+    'structure': 1,
     'documentation_sufficient': 0,
     'documentation_careful': 0,
     'documentation_readme': 0,
-    'execute': 0,
-    'regenerated': 0,
+    'execute': 1,
+    'regenerated': 1,
     'hour': 0,
 })
 
