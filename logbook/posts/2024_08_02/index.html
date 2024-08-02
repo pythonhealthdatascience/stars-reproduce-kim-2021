@@ -202,6 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Day 6</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">reproduce</div>
+                <div class="quarto-category">guidelines</div>
               </div>
                   </div>
   </div>
@@ -237,7 +238,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#resuming-supplementary-table-2" id="toc-resuming-supplementary-table-2" class="nav-link active" data-scroll-target="#resuming-supplementary-table-2">09.09-09.43: Resuming supplementary table 2</a></li>
   <li><a href="#supplementary-figure-3" id="toc-supplementary-figure-3" class="nav-link" data-scroll-target="#supplementary-figure-3">10.02-10.38: Supplementary figure 3</a></li>
-  <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
+  <li><a href="#reproduction-timings" id="toc-reproduction-timings" class="nav-link" data-scroll-target="#reproduction-timings">Reproduction timings</a></li>
+  <li><a href="#badges" id="toc-badges" class="nav-link" data-scroll-target="#badges">10.54-10.59: Badges</a></li>
+  <li><a href="#stars-framework" id="toc-stars-framework" class="nav-link" data-scroll-target="#stars-framework">11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework</a></li>
+  <li><a href="#stress-des" id="toc-stress-des" class="nav-link" data-scroll-target="#stress-des">11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES</a></li>
+  <li><a href="#ispor-sdm" id="toc-ispor-sdm" class="nav-link" data-scroll-target="#ispor-sdm">13.48-14.18: ISPOR-SDM</a></li>
+  <li><a href="#evaluation-timings" id="toc-evaluation-timings" class="nav-link" data-scroll-target="#evaluation-timings">Evaluation timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -258,14 +264,14 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TBC. Total time used: TBCh TBCm (TBC%).</p>
+<p>Finished reproduction (supplementary table 2 and figure). Completed evaluation against guidelines. Started on research compendium. Total reproduction time: 13h 59m (35.0%). Evaluation time: 1h 55m.</p>
 </div>
 </div>
 <section id="resuming-supplementary-table-2" class="level2">
 <h2 class="anchored" data-anchor-id="resuming-supplementary-table-2">09.09-09.43: Resuming supplementary table 2</h2>
 <p>Combined each scenario with scenario 0, then adapted previous functions to generate the table.</p>
 <p>Consider this reproduced at 09.43.</p>
-<div id="ffe02b44" class="cell" data-execution_count="1">
+<div id="83492135" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -291,9 +297,9 @@ Used 35.0% of 40 hours max</code></pre>
 <p>Amend prior functions to combine with scenario 0 using a function (as repeated lots, and need again for this figure). Could then use those dataframes in my figure functions.</p>
 <p>Consider this reproduced at 10.38.</p>
 </section>
-<section id="timings" class="level2">
-<h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="f243847e" class="cell" data-execution_count="2">
+<section id="reproduction-timings" class="level2">
+<h2 class="anchored" data-anchor-id="reproduction-timings">Reproduction timings</h2>
+<div id="9591ba63" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -312,6 +318,61 @@ Used 35.0% of 40 hours max</code></pre>
 Total used to date: 875m, or 14h 35m
 Time remaining: 1525m, or 25h 25m
 Used 36.5% of 40 hours max</code></pre>
+</div>
+</div>
+</section>
+<section id="badges" class="level2">
+<h2 class="anchored" data-anchor-id="badges">10.54-10.59: Badges</h2>
+<p>Evaluated repository as available at this time (so including the few commits since publication).</p>
+<p><code>documentation_sufficient</code> - no as no package versions and as most instructions are within R scripts themselves (e.g.&nbsp;that need to run with source()) (and therefore not met the subsequent careful documentation)</p>
+<p><code>documentation_readme</code> - although it directs to a good example file, it doesn’t include instructions for reproducing results from the article</p>
+</section>
+<section id="stars-framework" class="level2">
+<h2 class="anchored" data-anchor-id="stars-framework">11.00-11.05, 11.18-11.23, 11.29-11.32: STARS framework</h2>
+</section>
+<section id="stress-des" class="level2">
+<h2 class="anchored" data-anchor-id="stress-des">11.33-12.10, 12.55-13.10, 13.15-13.30: STRESS-DES</h2>
+<p>To discuss (combined with ISPOR-SDM when overlap):</p>
+<ul>
+<li><code>2.1 Base model overview diagram</code> / <code>3 Is the model structure described?</code> - diagram is in prior study</li>
+<li><code>2.2 Base model logic</code> - described in detail in prior study, only briefly alluded to in this one</li>
+<li><code>2.4 Algorithms</code> - partially described in prior study</li>
+<li><code>2.5.2 Components - activities</code> - provided moreso in prior study</li>
+<li><code>2.5.3 Components - resources</code> - not clear in either study, unlesss there are none?</li>
+<li><code>2.5.4 Components - queues</code> - not clear in either study, unless there are none?</li>
+<li><code>4.1 Initialisation</code> - indicates its non-terminating in prior study</li>
+<li><code>5.3 Model execution</code> - prior study mentions that you can run in parallel</li>
+<li><code>5.4 System specification</code> - prior study mentions HPC</li>
+</ul>
+</section>
+<section id="ispor-sdm" class="level2">
+<h2 class="anchored" data-anchor-id="ispor-sdm">13.48-14.18: ISPOR-SDM</h2>
+</section>
+<section id="evaluation-timings" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-timings">Evaluation timings</h2>
+<div id="00f4d329" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.54'</span>, <span class="st">'10.59'</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.00'</span>, <span class="st">'11.05'</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.18'</span>, <span class="st">'11.23'</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.29'</span>, <span class="st">'11.32'</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.33'</span>, <span class="st">'12.10'</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.55'</span>, <span class="st">'13.10'</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.15'</span>, <span class="st">'13.30'</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.48'</span>, <span class="st">'14.18'</span>)]</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times, limit<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time spent today: 115m, or 1h 55m
+Total used to date: 115m, or 1h 55m</code></pre>
 </div>
 </div>
 
