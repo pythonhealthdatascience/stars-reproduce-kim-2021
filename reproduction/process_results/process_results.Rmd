@@ -464,7 +464,7 @@ write.csv(full_tab3, paths$tab3, row.names=FALSE)
 full_tab3
 ```
 
-## Supplementary table 1
+## Supplementary table 2
 
 ```{r}
 make_sup_tab <- function(df, colname){
