@@ -34,8 +34,6 @@ files <- list(
   surv_s4a = "output_surv_scen4a.csv",
   surv_s4b = "output_surv_scen4b.csv",
   surv_s4c = "output_surv_scen4c.csv",
-  surv_s4d = "output_surv_scen4d.csv",
-  surv_s4e = "output_surv_scen4e.csv",
   tab2 = "tab2.csv",
   tab3 = "tab3.csv",
   fig1 = "fig1.png",
@@ -71,8 +69,6 @@ surv_s3 <- read.csv(paths$surv_s3)
 surv_s4a <- read.csv(paths$surv_s4a)
 surv_s4b <- read.csv(paths$surv_s4b)
 surv_s4c <- read.csv(paths$surv_s4c)
-surv_s4d <- read.csv(paths$surv_s4d)
-surv_s4e <- read.csv(paths$surv_s4e)
 ```
 
 ## Functions
