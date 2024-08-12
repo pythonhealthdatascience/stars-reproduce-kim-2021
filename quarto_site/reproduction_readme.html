@@ -210,26 +210,69 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="reproduction-readme" class="level1">
 <h1>Reproduction README</h1>
-<!-- TODO: Remove this warning once filled out README -->
-<p><strong>Please note: This is a template README and has not yet been completed</strong></p>
-<!-- TODO: Fill out the README -->
+<!-- TODO: Finish filling out the README -->
 <section id="model-summary" class="level2">
 <h2 class="anchored" data-anchor-id="model-summary">Model summary</h2>
-<p>TBC</p>
+<p>This study adapts a previously developed discrete-event simulation model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission.</p>
 </section>
 <section id="scope-of-the-reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="scope-of-the-reproduction">Scope of the reproduction</h2>
-<p>TBC</p>
+<p>In this assessment, we attempted to reproduce 10 items: 6 figures, 3 tables and 1 in-text result.</p>
 </section>
 <section id="reproducing-these-results" class="level2">
 <h2 class="anchored" data-anchor-id="reproducing-these-results">Reproducing these results</h2>
 <section id="repository-overview" class="level3">
 <h3 class="anchored" data-anchor-id="repository-overview">Repository overview</h3>
-<p>TBC</p>
+<pre><code>├── docker
+│   └──  ...
+├── functions
+│   └──  ...
+├── input
+│   └──  ...
+├── models
+│   └──  ...
+├── output
+│   └──  ...
+├── process_results
+│   └──  ...
+├── renv
+│   └──  ...
+├── tests
+│   └──  ...
+├── .Rprofile
+├── DESCRIPTION
+├── README.md
+├── kim2021.Rproj
+└── renv.lock</code></pre>
+<ul>
+<li><code>docker/</code> - Instructions for creation of docker container.</li>
+<li><code>functions/</code> - Discrete-event simulation model code</li>
+<li><code>input/</code> - Input parameters for the model</li>
+<li><code>models/</code> - Scripts to run each scenario</li>
+<li><code>output/</code> - Output files from the scripts (e.g.&nbsp;<code>.csv</code>, <code>.png</code>)</li>
+<li><code>process_results/</code></li>
+<li><code>renv/</code> - Instructions for creation of R environment</li>
+<li><code>tests/</code> - Test to check that the model produces consistent results with our reproduction</li>
+<li><code>.Rprofile</code> - Activates R environment</li>
+<li><code>DESCRIPTION</code> - Lists packages that we installed into environment (their dependencies will have also been installed)</li>
+<li><code>README.md</code> - This file!</li>
+<li><code>kim2021.Rproj</code> - Project settings</li>
+<li><code>renv.lock</code> - Lists R version and all packages in the R environment</li>
+</ul>
 </section>
 <section id="step-1.-set-up-environment" class="level3">
 <h3 class="anchored" data-anchor-id="step-1.-set-up-environment">Step 1. Set up environment</h3>
-<p>TBC</p>
+<p>Before you can run the model, you will need to create an R environment with the correct version of R and the specified packages.</p>
+<section id="option-a.-renv" class="level4">
+<h4 class="anchored" data-anchor-id="option-a.-renv">Option A. Renv</h4>
+<p>An <code>renv</code> environment has been provided. To create this environment locally on your machine, you should open the R project with the R environment loaded, and then run:</p>
+<pre><code>renv::restore()</code></pre>
+<p>In <code>renv.lock</code>, you will see the version of R listed. However, <code>renv</code> will not install this for you, so you will need to switch to this yourself if you wish to also use the same version of R. This reproduction has been run in R 4.4.1. If you use a different version of R, there’s a chance that it might be incompatible, or that you may encounter difficulties installing the specified package versions in that version of R.</p>
+</section>
+<section id="option-b.-build-local-docker-image" class="level4">
+<h4 class="anchored" data-anchor-id="option-b.-build-local-docker-image">Option B. Build local docker image</h4>
+<!-- TODO: Add this once made docker -->
+</section>
 </section>
 <section id="step-2.-running-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="step-2.-running-the-model">Step 2. Running the model</h3>
@@ -259,11 +302,11 @@ Excluded these which I had run but which ended up not actually being needed for 
 </section>
 <section id="citation" class="level2">
 <h2 class="anchored" data-anchor-id="citation">Citation</h2>
-<p>TBC</p>
+<p>To cite the original study, please refer to the reference above. To cite this reproduction, please refer to the CITATION.cff file in the parent folder.</p>
 </section>
 <section id="license" class="level2">
 <h2 class="anchored" data-anchor-id="license">License</h2>
-<p>TBC</p>
+<p>This repository is licensed under the GNU Lesser General Public License v3.0.</p>
 
 
 </section>

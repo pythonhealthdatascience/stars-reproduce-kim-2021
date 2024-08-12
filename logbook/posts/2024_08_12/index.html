@@ -203,7 +203,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#untimed-summary-report" id="toc-untimed-summary-report" class="nav-link active" data-scroll-target="#untimed-summary-report">Untimed: Summary report</a></li>
-  <li><a href="#untimed-research-compendium" id="toc-untimed-research-compendium" class="nav-link" data-scroll-target="#untimed-research-compendium">Untimed: Research compendium</a></li>
+  <li><a href="#untimed-research-compendium" id="toc-untimed-research-compendium" class="nav-link" data-scroll-target="#untimed-research-compendium">Untimed: Research compendium</a>
+  <ul class="collapse">
+  <li><a href="#troubleshooting-tests" id="toc-troubleshooting-tests" class="nav-link" data-scroll-target="#troubleshooting-tests">Troubleshooting tests</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_12/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -214,14 +217,80 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Working on research compendium stage.</p>
+</div>
+</div>
 <section id="untimed-summary-report" class="level2">
 <h2 class="anchored" data-anchor-id="untimed-summary-report">Untimed: Summary report</h2>
 <p>Add required troubleshooting steps to summary report</p>
 </section>
 <section id="untimed-research-compendium" class="level2">
 <h2 class="anchored" data-anchor-id="untimed-research-compendium">Untimed: Research compendium</h2>
+<p><strong>Have seperate folders for data, methods and outputs</strong> - have decided there is no need to reorganise - although it is not exactly those three folder names, it does have those different files seperated out</p>
+<p><strong>README</strong> - filled out the README for the <code>reproduction/</code> folder (<em>currently partially complete</em>)</p>
+<p><strong>Tests</strong> - due to the high run time of these scenarios, I created a very minimal test example. This used 65 yo scenario 0 but with 1e3 people (instead of 1e6), and so the test runs in only 5 seconds. This serves as a basic indicator of whether someone’s model is running and producing results as expected on a new machine, but is in no way comprehensive.</p>
+<p><strong>Dockerfile</strong> - based on my file from <a href="https://github.com/pythonhealthdatascience/stars-reproduce-huang-2019/blob/main/reproduction/docker/Dockerfile">Huang et al.&nbsp;2019</a>. I create and launched a container by running: * <code>sudo docker build --tag kim2021 . -f ./reproduction/docker/Dockerfile</code> * <code>(sleep 2 &amp;&amp; xdg-open http://localhost:8888) &amp; sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker kim2021</code></p>
+<section id="troubleshooting-tests" class="level3">
+<h3 class="anchored" data-anchor-id="troubleshooting-tests">Troubleshooting tests</h3>
+<p>I then ran the test (<code>testthat::test_dir("tests/testthat")</code>) in the docker container. However, it returned an error:</p>
+<pre><code>Error in `1:v0$numberOfPersons`: argument of length 0
+Backtrace:
+    ▆
+ 1. └─global Eventsandcosts(scen0.invite) at test-model.R:50:3
+ 2.   ├─base::unlist(...) at functions/DES_Model.R:1684:5
+ 3.   └─base::sapply(...) at functions/DES_Model.R:1684:5
+ 4.     └─base::lapply(X = X, FUN = FUN, ...)</code></pre>
+<p>I tried changing the number of people (<code>1e4</code>), and then the seed (<code>3210</code> to <code>999</code>), but the issue persisted within the docker container.</p>
+<p>Looking at the variable v0, on the container it becomes:</p>
+<pre><code>generateCensoringTime = 
+function() { 30.000001 }
+&lt;bytecode: 0x59655b5310c8&gt;</code></pre>
+<p>However, when running tests on my machine, its value is:</p>
+<pre><code>generateCensoringTime = 
+function() { 30.000001 }
+&lt;bytecode: 0x652354295330&gt;
+treatmentGroups = screening 
+returnEventHistories = TRUE 
+returnAllPersonsQuantities = FALSE 
+method = serial 
+numberOfPersons = 1000 
+randomSeed = 3210 </code></pre>
+<p>I tried clearing the environment on my machine and re-running the test, and it returned the same issue - and so it seems the issue is unrelated to docker, but instead was unnoticed prior as I hadn’t cleared my environment.</p>
+<p>Printing <code>v0</code> during the test, I can see it is set up correctly. I add the original print statements from the scenario script and then found I got a different error:</p>
+<pre><code>&lt;subscriptOutOfBoundsError/error/condition&gt;
+Error in `result$eventHistories[[i]]`: subscript out of bounds
+Backtrace:
+    ▆
+ 1. └─global Eventsandcosts(scen0.invite) at test-model.R:58:3
+ 2.   ├─base::unlist(...) at functions/DES_Model.R:1684:5
+ 3.   └─base::sapply(...) at functions/DES_Model.R:1684:5
+ 4.     └─base::lapply(X = X, FUN = FUN, ...)
+ 5.       └─FUN(X[[i]], ...)</code></pre>
+<p>I checked the code matched the original, and tried tweaking little bits and bobs, but found the error persisted.</p>
+<p>I tried adding a print statement for components going into the formula, where the error is occuring, in <code>DES_Model.R</code> -</p>
+<pre><code>print(v0$numberOfPersons)
+noScreening.events&lt;-
+  unlist(sapply(1:v0$numberOfPersons,function(i){result$eventHistories[[i]]$noScreening$events}))</code></pre>
+<ul>
+<li>and I discovered that its value was set to <code>1e6</code> (when it should now be <code>1e3</code>). I struggled to identify why this had occurred, but tried changing <code>1:v0$numberOfPersons</code> to <code>1:length(result$eventHistories)</code> (as these should just be the same thing). This resolved the issue!</li>
+</ul>
+<p>To make sure this hadn’t inadvertently affected my normal scenario scripts in anyway, I re-ran surveillance scenario 0, confirming the output <code>.csv</code> had not changed.</p>
+<p>Dockerfile on GHCR</p>
+<p>Quarto site display README and notebook/s</p>
+<p>Run time for test</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
