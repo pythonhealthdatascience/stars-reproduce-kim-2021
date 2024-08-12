@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
-<meta name="dcterms.date" content="2024-07-26">
+<meta name="dcterms.date" content="2024-08-02">
 
-<title>Day 1 – Reproducing Kim et al.&nbsp;2021</title>
+<title>Day 7 – Reproducing Kim et al.&nbsp;2021</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -199,9 +165,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 1</h1>
+      <h1 class="title">Day 7</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">setup</div>
+                <div class="quarto-category">report</div>
+                <div class="quarto-category">compendium</div>
               </div>
                   </div>
   </div>
@@ -219,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 26, 2024</p>
+        <p class="date">August 2, 2024</p>
       </div>
     </div>
     
@@ -235,12 +202,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#set-up-repository" id="toc-set-up-repository" class="nav-link active" data-scroll-target="#set-up-repository">15.58-16.03, 16.21-16.30: Set-up repository</a></li>
-  <li><a href="#upload-code-and-update-license" id="toc-upload-code-and-update-license" class="nav-link" data-scroll-target="#upload-code-and-update-license">16.36-16.41: Upload code and update license</a></li>
-  <li><a href="#upload-journal-article" id="toc-upload-journal-article" class="nav-link" data-scroll-target="#upload-journal-article">16.43-16.56: Upload journal article</a></li>
-  <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
+  <li><a href="#untimed-summary-report" id="toc-untimed-summary-report" class="nav-link active" data-scroll-target="#untimed-summary-report">Untimed: Summary report</a></li>
+  <li><a href="#untimed-research-compendium" id="toc-untimed-research-compendium" class="nav-link" data-scroll-target="#untimed-research-compendium">Untimed: Research compendium</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_26/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_12/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -249,80 +214,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Set-up repository and upload materials. Total time used: 0h 32m (1.3%)</p>
-</div>
-</div>
-<section id="set-up-repository" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-repository">15.58-16.03, 16.21-16.30: Set-up repository</h2>
-<ul>
-<li>Create repository from template</li>
-<li>Set up environment</li>
-<li>Modified template files:
-<ul>
-<li><code>README.md</code></li>
-<li>quarto site <code>index.qmd</code></li>
-<li><code>CITATION.cff</code></li>
-<li><code>_quarto.yml</code></li>
-</ul></li>
-<li>Set up site on GitHub pages (<code>quarto publish gh-pages</code>)</li>
-</ul>
+<section id="untimed-summary-report" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-summary-report">Untimed: Summary report</h2>
+<p>Add required troubleshooting steps to summary report</p>
 </section>
-<section id="upload-code-and-update-license" class="level2">
-<h2 class="anchored" data-anchor-id="upload-code-and-update-license">16.36-16.41: Upload code and update license</h2>
-<p>Model code is available at: <a href="https://github.com/mikesweeting/AAA_DES_model" class="uri">https://github.com/mikesweeting/AAA_DES_model</a></p>
-<p>It is available under an LGPL-3.0 license, so I updated this repository to use the same license (GNU LESSER GENERAL PUBLIC LICENSE Version 3). <a href="https://fossa.com/blog/open-source-software-licenses-101-lgpl-license/">This license requires</a>:</p>
-<ul>
-<li>Copy of full license and original copyright notice</li>
-<li>Include source code when distribute derivative work</li>
-<li>License derivative work under same license</li>
-</ul>
-</section>
-<section id="upload-journal-article" class="level2">
-<h2 class="anchored" data-anchor-id="upload-journal-article">16.43-16.56: Upload journal article</h2>
-<p>The article is published with PLoS ONE and has a permissive copyright statement:</p>
-<blockquote class="blockquote">
-<p>“Copyright: © 2021 Kim et al.&nbsp;This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”</p>
-</blockquote>
-<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253327</a></p>
-<p>Hence, uploaded article, figures, tables and supplementary materials to <code>original_study/</code>. Converted <code>.tif</code> files to <code>.png</code> (e.g.&nbsp;<code>convert sup3.tif sup3.png</code>). Converted <code>.docx</code> to <code>.pdf</code> (<code>libreoffice --headless --convert-to pdf sup1.docx --outdir sup1.pdf</code>).</p>
-<p>Amended <code>study_publication.qmd</code> to display these.</p>
-<p>Add the study to <code>references.bib</code>.</p>
-</section>
-<section id="timings" class="level2">
-<h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="7c13d485" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.58'</span>, <span class="st">'16.03'</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.21'</span>, <span class="st">'16.30'</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.36'</span>, <span class="st">'16.41'</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.43'</span>, <span class="st">'16.56'</span>)]</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 32m, or 0h 32m
-Total used to date: 32m, or 0h 32m
-Time remaining: 2368m, or 39h 28m
-Used 1.3% of 40 hours max</code></pre>
-</div>
-</div>
+<section id="untimed-research-compendium" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-research-compendium">Untimed: Research compendium</h2>
 
 
 </section>
@@ -772,7 +669,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_07_26/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_12/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
