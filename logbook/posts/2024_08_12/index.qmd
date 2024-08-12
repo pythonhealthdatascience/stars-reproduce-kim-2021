@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-Working on research compendium stage.
+Working on research compendium stage (which inc. troubleshooting some issues with running the model which arose while working on tests).
 
 :::
 
@@ -17,6 +17,8 @@ Working on research compendium stage.
 Add required troubleshooting steps to summary report
 
 ## Untimed: Research compendium
+
+### Initial steps
 
 **Have seperate folders for data, methods and outputs** - have decided there is no need to reorganise - although it is not exactly those three folder names, it does have those different files seperated out
 
@@ -94,10 +96,36 @@ noScreening.events<-
 
 - and I discovered that its value was set to `1e6` (when it should now be `1e3`). I struggled to identify why this had occurred, but tried changing `1:v0$numberOfPersons` to `1:length(result$eventHistories)` (as these should just be the same thing). This resolved the issue!
 
-To make sure this hadn't inadvertently affected my normal scenario scripts in anyway, I re-ran surveillance scenario 0, confirming the output `.csv` had not changed.
+I rebuilt the docker image and launched a container and ran the test, but it failed again, this time with the error -
 
-Dockerfile on GHCR
+```
+Error in `x[[jj]][iseq] <- vjj`: replacement has length zero
+Backtrace:
+    ▆
+ 1. └─global Eventsandcosts(scen0.invite) at test-model.R:57:3
+ 2.   ├─base::`[<-`(`*tmp*`, i, "screening.prev", value = `<dbl>`) at functions/DES_Model.R:1695:9
+ 3.   └─base::`[<-.data.frame`(`*tmp*`, i, "screening.prev", value = `<dbl>`) at functions/DES_Model.R:1695:9
+```
 
-Quarto site display README and notebook/s
+Going to that line in `DES_Model.R`, I can see that the error is again related to `v0$numberOfPersons`:
 
-Run time for test
+```
+Eventsandcosts.df[i,"screening.prev"]<-
+          Eventsandcosts.df[i,"screening.n"]/v0$numberOfPersons
+```
+
+The value for `v0$numberOfPersons` is correct when printed from the test, but incorrect when running through the `Eventsandcosts()` function. The issue appears to be that `Eventsandcosts()` doesn't accept v0 as an input parameter, and instead uses it like a global parameter - but presumably, within a test, this is leading to issues.
+
+I attempted a wrap around solution, which was to calculate the number of persons from `length(result$eventHistories)` and use that in place of all `v0$numberOfPersons`. I cleared my environment and re-ran the test: it appeared to work fine.
+
+I rebuilt docker image and ran test in container - which passed!
+
+To make sure this hadn't inadvertently affected my normal scenario scripts in anyway, I re-ran surveillance scenario 0, confirming the output `.csv` had not changed. Of note, the run time on that on my machine (rather than the high spec remote machine) was 21 minutes 59 seconds (whilst on remote it was 4 minutes 28 seconds). The main model output was the same, but the AAA-related death aaorta sizes did change. I'm not sure why one remained the same and one changed. I ran this again on the remote machine this time (`Rscript -e "source('models/NAAASP_COVID_modelling/run_aaamodel_surv_scen0.R')"`). And there was no change in the file! Given the motivations of this reproduction and stage we are at, I will not troubleshoot further on this issue.
+
+### Final steps
+
+**GitHub Container Registry (GHCR)**: Activated GitHub action to push Docker image to GitHub container registry. Pulled this, open RStudio, and ran test which passed.
+
+**Run times**: This had largely been completed during reproduction, but I add times for the test, and the time from running surv scen 0 on a different machine (as above).
+
+**Quarto site**: Finally, I modified the GitHub action. So far, it had set to not build `.Rmd` files (to avoid errors encountered due to R environment). However, as I would like to include the notebook in the final Quarto site, I then modified the action as I did in Huang et al. to not run with every push, and instead manually updated the site from my local macine using `quarto publish`. This is a temporary fix, as I have not been able to get a GitHub action working to render this on pushes automatically for me, for R. When doing so, have to remember to delete `_freeze/`, `_site/` and `.quarto` before running, to ensure it runs everything properly.
