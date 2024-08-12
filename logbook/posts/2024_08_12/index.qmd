@@ -1,0 +1,13 @@
+---
+title: "Day 7"
+author: "Amy Heather"
+date: "2024-08-02"
+categories: [report, compendium]
+bibliography: ../../../quarto_site/references.bib
+---
+
+## Untimed: Summary report
+
+Add required troubleshooting steps to summary report
+
+## Untimed: Research compendium
