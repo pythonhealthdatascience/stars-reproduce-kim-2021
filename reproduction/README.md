@@ -1,7 +1,5 @@
 # Reproduction README
 
-<!-- TODO: Finish filling out the README -->
-
 ## Model summary
 
 This study adapts a previously developed discrete-event simulation model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission.
@@ -68,11 +66,63 @@ In `renv.lock`, you will see the version of R listed. However, `renv` will not i
 
 #### Option B. Build local docker image
 
-<!-- TODO: Add this once made docker -->
+A Dockerfile is provided, which you can use to build the Docker image. The docker image will include the correct version of R, the required packages and their versions, and an installation of RStudio which you can run from your browser. It will also include the scripts and outputs from this directory. For this option and option C, you'll need to ensure that `docker` is installed on your machine.
+
+To create the docker image and then open up RStudio:
+
+1. In the terminal, navigate to the parent directory of your `reproduction/` folder
+2. Build the image:
+
+```
+sudo docker build --tag kim2021 . -f ./reproduction/docker/Dockerfile
+```
+
+3. Create container and open RStudio in your browser:
+
+```
+(sleep 2 && xdg-open http://localhost:8888) & sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker kim2021
+```
+
+#### Option C. Pull pre-built docker image
+
+A pre-built image is available on the GitHub container registry. To use it:
+
+1. Create a Personal Access Token (Classic) for your GitHub account with `write:packages` and `delete:packages` access
+2. On terminal, run the following command and then enter your sudo password (if prompted), followed by the token just generated (which acts as your GitHub password)
+
+```
+sudo docker login ghcr.io -u githubusername
+```
+
+3. Download the image:
+
+```
+sudo docker pull ghcr.io/pythonhealthdatascience/kim2021
+```
+
+4. Create container and open RStudio:
+
+```
+(sleep 2 && xdg-open http://localhost:8888) & sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker ghcr.io/pythonhealthdatascience/kim2021:latest
+```
 
 ### Step 2. Running the model
 
-TBC
+#### Option A: Execute the R scripts and markdown file
+
+To run all the model scenarios, open and execute the provided `.R` files in `models/NAASP_COVID_modelling/`. You should run these using `source()`.
+
+To process the model outputs and produce the tables and figures from the paper, run the file `process_results/process_results.Rmd`.
+
+### Option B: Testthat
+
+A small version of one the model scenarios is provided as a test within `tests/testthat`. You can run this scenario by running the following command from your R console whilst in the `reproduction/` directory:
+
+```
+testthat::test_dir("tests/testthat")
+```
+
+The test should only take about 5 seconds.
 
 ## Reproduction specs and runtime
 
