@@ -1682,9 +1682,9 @@ Eventsandcosts<-function(result){
     }
   } else {
     noScreening.events<-
-      unlist(sapply(1:v0$numberOfPersons,function(i){result$eventHistories[[i]]$noScreening$events}))
+      unlist(sapply(1:length(result$eventHistories),function(i){result$eventHistories[[i]]$noScreening$events}))
     screening.events<-
-      unlist(sapply(1:v0$numberOfPersons,function(i){result$eventHistories[[i]]$screening$events}))
+      unlist(sapply(1:length(result$eventHistories),function(i){result$eventHistories[[i]]$screening$events}))
     i<-0
     for(event in ordered.events){
       i<-i+1

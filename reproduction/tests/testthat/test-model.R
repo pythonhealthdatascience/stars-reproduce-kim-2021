@@ -8,6 +8,7 @@ library(foreach)
 library(iterators)
 library(doParallel)
 
+rm(list=ls())
 
 test_that("AAA model 65yo scenario 0 small version", {
 
@@ -22,17 +23,21 @@ test_that("AAA model 65yo scenario 0 small version", {
   # Input parameters
   source("input/NAAASP_Men_2020-05-11/DES_Data_Input_NAAASP_Men_30years_time_horizon_2020-05-11.R")
 
-  ## Also allow monitoring after contraindication (currently discharged)
   v1other$monitoringIntervals[4] <- 0.25 ## 3 monthly monitoring for those contraindicated
   
   ## screening group only
   v0$treatmentGroups <- "screening"
 
+  ## List parameters
+  v0
+  v2
+  v1distributions
+
   ## Set other quantities
   v0$returnEventHistories <- T ## return individual event histories
   v0$returnAllPersonsQuantities <- F ## To save memory we will not return individual HE quantitites
   v0$method <- "serial"
-  
+
   v0$numberOfPersons <- 1e3
   
   ## Persons characteristics data.frame
@@ -44,9 +49,14 @@ test_that("AAA model 65yo scenario 0 small version", {
 
   ## SCENARIO 0: RESULTS FOR NEw 65YO COHORT (STATUS QUO)
   set.seed(3210)
-  v0$randomSeed <- 3210
+  v0$randomSeed<-3210
   scen0.invite <- processPersons(v0, v1other, v2, personData.screen)
-
+  scen0.invite$meanQuantities
+  
+  TableOfCounts(scen0.invite, v1other)
+  Eventsandcosts(scen0.invite)
+  
+  
   inv<-Eventsandcosts(scen0.invite)[1,2]
   scr<-Eventsandcosts(scen0.invite)[2,2]
   reinv<-Eventsandcosts(scen0.invite)[3,2]
@@ -67,7 +77,7 @@ test_that("AAA model 65yo scenario 0 small version", {
   result <- data.frame(
     inv,scr,reinv,nonatt,monitor,dropout,oppdet,consult,elecevar,elecopen,
     rupt,reintelecevar,reintemeropen,aaadead,nonaaadead)
-
+  
   # Import the expected results
   exp <- read.csv("tests/testthat/expected_results/output_65yo_scen0_1e3.csv")
   
