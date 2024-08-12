@@ -177,6 +177,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#repository-overview" id="toc-repository-overview" class="nav-link" data-scroll-target="#repository-overview">Repository overview</a></li>
   <li><a href="#step-1.-set-up-environment" id="toc-step-1.-set-up-environment" class="nav-link" data-scroll-target="#step-1.-set-up-environment">Step 1. Set up environment</a></li>
   <li><a href="#step-2.-running-the-model" id="toc-step-2.-running-the-model" class="nav-link" data-scroll-target="#step-2.-running-the-model">Step 2. Running the model</a></li>
+  <li><a href="#option-b-testthat" id="toc-option-b-testthat" class="nav-link" data-scroll-target="#option-b-testthat">Option B: Testthat</a></li>
   </ul></li>
   <li><a href="#reproduction-specs-and-runtime" id="toc-reproduction-specs-and-runtime" class="nav-link" data-scroll-target="#reproduction-specs-and-runtime">Reproduction specs and runtime</a></li>
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
@@ -210,7 +211,6 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="reproduction-readme" class="level1">
 <h1>Reproduction README</h1>
-<!-- TODO: Finish filling out the README -->
 <section id="model-summary" class="level2">
 <h2 class="anchored" data-anchor-id="model-summary">Model summary</h2>
 <p>This study adapts a previously developed discrete-event simulation model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission.</p>
@@ -271,12 +271,49 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="option-b.-build-local-docker-image" class="level4">
 <h4 class="anchored" data-anchor-id="option-b.-build-local-docker-image">Option B. Build local docker image</h4>
-<!-- TODO: Add this once made docker -->
+<p>A Dockerfile is provided, which you can use to build the Docker image. The docker image will include the correct version of R, the required packages and their versions, and an installation of RStudio which you can run from your browser. It will also include the scripts and outputs from this directory. For this option and option C, you’ll need to ensure that <code>docker</code> is installed on your machine.</p>
+<p>To create the docker image and then open up RStudio:</p>
+<ol type="1">
+<li>In the terminal, navigate to the parent directory of your <code>reproduction/</code> folder</li>
+<li>Build the image:</li>
+</ol>
+<pre><code>sudo docker build --tag kim2021 . -f ./reproduction/docker/Dockerfile</code></pre>
+<ol start="3" type="1">
+<li>Create container and open RStudio in your browser:</li>
+</ol>
+<pre><code>(sleep 2 &amp;&amp; xdg-open http://localhost:8888) &amp; sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker kim2021</code></pre>
+</section>
+<section id="option-c.-pull-pre-built-docker-image" class="level4">
+<h4 class="anchored" data-anchor-id="option-c.-pull-pre-built-docker-image">Option C. Pull pre-built docker image</h4>
+<p>A pre-built image is available on the GitHub container registry. To use it:</p>
+<ol type="1">
+<li>Create a Personal Access Token (Classic) for your GitHub account with <code>write:packages</code> and <code>delete:packages</code> access</li>
+<li>On terminal, run the following command and then enter your sudo password (if prompted), followed by the token just generated (which acts as your GitHub password)</li>
+</ol>
+<pre><code>sudo docker login ghcr.io -u githubusername</code></pre>
+<ol start="3" type="1">
+<li>Download the image:</li>
+</ol>
+<pre><code>sudo docker pull ghcr.io/pythonhealthdatascience/kim2021</code></pre>
+<ol start="4" type="1">
+<li>Create container and open RStudio:</li>
+</ol>
+<pre><code>(sleep 2 &amp;&amp; xdg-open http://localhost:8888) &amp; sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker ghcr.io/pythonhealthdatascience/kim2021:latest</code></pre>
 </section>
 </section>
 <section id="step-2.-running-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="step-2.-running-the-model">Step 2. Running the model</h3>
-<p>TBC</p>
+<section id="option-a-execute-the-r-scripts-and-markdown-file" class="level4">
+<h4 class="anchored" data-anchor-id="option-a-execute-the-r-scripts-and-markdown-file">Option A: Execute the R scripts and markdown file</h4>
+<p>To run all the model scenarios, open and execute the provided <code>.R</code> files in <code>models/NAASP_COVID_modelling/</code>. You should run these using <code>source()</code>.</p>
+<p>To process the model outputs and produce the tables and figures from the paper, run the file <code>process_results/process_results.Rmd</code>.</p>
+</section>
+</section>
+<section id="option-b-testthat" class="level3">
+<h3 class="anchored" data-anchor-id="option-b-testthat">Option B: Testthat</h3>
+<p>A small version of one the model scenarios is provided as a test within <code>tests/testthat</code>. You can run this scenario by running the following command from your R console whilst in the <code>reproduction/</code> directory:</p>
+<pre><code>testthat::test_dir("tests/testthat")</code></pre>
+<p>The test should only take about 5 seconds.</p>
 </section>
 </section>
 <section id="reproduction-specs-and-runtime" class="level2">
