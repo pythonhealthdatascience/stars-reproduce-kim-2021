@@ -18,7 +18,6 @@ import pandas as pd
 from time_to_complete import process_times, success_static, success_interactive
 
 # List of time to complete each item
-# TODO: Change to actual items and times for this project
 time_list = [
     [445, 'Figure 1'],
     [511, 'Table 2'],

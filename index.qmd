@@ -24,7 +24,6 @@ Use the navigation bar above to view:
 
 <!-- ORCID icon CC 1.0 from https://figshare.com/articles/figure/ORCID_iD_icon_graphics/5008697/4 -->
 
-<!-- TODO: Moved authors conducting and supporting reproduction out of the list and into the appropriate section -->
 Conducting this reproduction:
 
 * [Amy Heather](https://github.com/amyheather) [![ORCID icon](quarto_site/ORCIDiD_icon16x16.png)](https://orcid.org/0000-0002-6596-3479)
