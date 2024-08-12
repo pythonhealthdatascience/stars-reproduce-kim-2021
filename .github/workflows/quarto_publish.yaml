@@ -4,8 +4,9 @@ run-name: Render Quarto website and publish on GitHub pages
 # Source: https://quarto.org/docs/publishing/github-pages.html
 
 on:
-  push:
-    branches: main
+# Temporary disable
+#  push:
+#    branches: main
   workflow_dispatch:
 
 jobs:
