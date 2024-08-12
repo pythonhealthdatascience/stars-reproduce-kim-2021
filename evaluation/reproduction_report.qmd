@@ -20,7 +20,9 @@ Successfully reproduced **10 out of 10 (100%)** of items from the scope in **13h
 
 Required troubleshooting:
 
-* [List of required changes to code]
+* **Reduce run time** - reducing population size and setting to parallel to reduce runtime to a feasible level
+* **Fix error in script** - fixing a minor error from switching between nested and unnested lists to provide a parameter
+* **Write code to implement scenarios and generate outputs** - write code to find the aaorta sizes of people with abdominal aortic aneurysm related deaths, as well as code to produce all of the tables and figures from the model output
 
 ::: {.panel-tabset}
 
