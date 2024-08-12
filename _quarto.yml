@@ -2,9 +2,6 @@ project:
   type: website
   preview:
     browser: true
-  render:
-    - "*.qmd"
-    - "!process_results.Rmd"
 
 website:
   # Name of site in navbar
@@ -25,9 +22,8 @@ website:
         menu:
           - text: README
             href: quarto_site/reproduction_readme.qmd
-          # TODO: Add link to reproduction notebook (as in example below)
-          # - text: Notebook
-          #   href: reproduction/reproduction.ipynb
+          - text: Reproduction
+            href: reproduction/process_results/process_results.Rmd
       - text: Evaluation
         menu:
           - evaluation/scope.qmd
