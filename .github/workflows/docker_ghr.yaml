@@ -5,10 +5,8 @@ run-name: Publish Docker image on GitHub container registry (ghcr.io)
 # Source: https://dev.to/github/publishing-a-docker-image-to-githubs-container-repository-4n50
 
 on:
-# TODO: Uncomment these lines once have added Dockerfile
-# (Currently, they are ensuring that action can only be triggered manually)
-#   push:
-#     branches: main
+  push:
+    branches: main
   workflow_dispatch:
 
 jobs:
@@ -19,10 +17,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-
-    # TODO: Remove this line once have added Dockerfile
-    # (Currently, its ensuring a triggered action will skip this job)
-    if: false
 
     steps:
       - name: Checkout
@@ -35,8 +29,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # TODO: Update "envname" below to the correct name for your project's environment
       - name: Build the Docker image
         run: |
-          docker build . --file reproduction/docker/Dockerfile --tag ghcr.io/pythonhealthdatascience/envname:latest
-          docker push ghcr.io/pythonhealthdatascience/envname:latest
+          docker build . --file reproduction/docker/Dockerfile --tag ghcr.io/pythonhealthdatascience/kim2021:latest
+          docker push ghcr.io/pythonhealthdatascience/kim2021:latest
