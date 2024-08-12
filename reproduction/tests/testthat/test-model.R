@@ -8,9 +8,9 @@ library(foreach)
 library(iterators)
 library(doParallel)
 
-rm(list=ls())
-
 test_that("AAA model 65yo scenario 0 small version", {
+
+  rm(list=ls())
 
   # Have to set working directory as the sourced script providing the input
   # parameters has a hard coded file path that assumes we are based in the
@@ -52,11 +52,10 @@ test_that("AAA model 65yo scenario 0 small version", {
   v0$randomSeed<-3210
   scen0.invite <- processPersons(v0, v1other, v2, personData.screen)
   scen0.invite$meanQuantities
-  
+
   TableOfCounts(scen0.invite, v1other)
   Eventsandcosts(scen0.invite)
-  
-  
+
   inv<-Eventsandcosts(scen0.invite)[1,2]
   scr<-Eventsandcosts(scen0.invite)[2,2]
   reinv<-Eventsandcosts(scen0.invite)[3,2]

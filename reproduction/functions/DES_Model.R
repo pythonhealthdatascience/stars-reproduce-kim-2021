@@ -1643,7 +1643,12 @@ Eventsandcosts<-function(result){
                     "reinterventionAfterElectiveEvar", 
                     "reinterventionAfterEmergencyEvar", "reinterventionAfterEmergencyOpen",
                     "aaaDeath","nonAaaDeath","censored")
-  
+
+  # Fix: Get number of persons from the length of the result
+  # Required for tests/testthat as the function doesn't access the global v0
+  # with the parameter v0$numberOfPersons when running tests
+  nperson <- length(result$eventHistories)
+
   if(class(result)=="weighted processPersons"){
     n.under<-length(result$resultUnder$eventHistories)
     n.over<-length(result$resultOver$eventHistories)
@@ -1666,25 +1671,25 @@ Eventsandcosts<-function(result){
         Eventsandcosts.df[i,"screening.n"]<-
           max(0,table(screening.events.under)[names(table(screening.events.under))==event])/n.under*nstar.under+
           max(0,table(screening.events.over)[names(table(screening.events.over))==event])/n.over*nstar.over  
-        Eventsandcosts.df[i,"screening.prev"]<-Eventsandcosts.df[i,"screening.n"]/v0$numberOfPersons
+        Eventsandcosts.df[i,"screening.prev"]<-Eventsandcosts.df[i,"screening.n"]/nperson
         Eventsandcosts.df[i,"screening.cost"]<-v2$costs[event]*Eventsandcosts.df[i,"screening.n"]
-        Eventsandcosts.df[i,"screening.mean.cost"]<-Eventsandcosts.df[i,"screening.cost"]/v0$numberOfPersons
+        Eventsandcosts.df[i,"screening.mean.cost"]<-Eventsandcosts.df[i,"screening.cost"]/nperson
       }
       if(event %in% c(noScreening.events.under,noScreening.events.over)){
         Eventsandcosts.df[i,"event"]<-event
         Eventsandcosts.df[i,"noScreening.n"]<-
           max(0,table(noScreening.events.under)[names(table(noScreening.events.under))==event])/n.under*nstar.under+
           max(0,table(noScreening.events.over)[names(table(noScreening.events.over))==event])/n.over*nstar.over  
-        Eventsandcosts.df[i,"noScreening.prev"]<-Eventsandcosts.df[i,"noScreening.n"]/v0$numberOfPersons
+        Eventsandcosts.df[i,"noScreening.prev"]<-Eventsandcosts.df[i,"noScreening.n"]/nperson
         Eventsandcosts.df[i,"noScreening.cost"]<-v2$costs[event]*Eventsandcosts.df[i,"noScreening.n"]
-        Eventsandcosts.df[i,"noScreening.mean.cost"]<-Eventsandcosts.df[i,"noScreening.cost"]/v0$numberOfPersons
+        Eventsandcosts.df[i,"noScreening.mean.cost"]<-Eventsandcosts.df[i,"noScreening.cost"]/nperson
       }
     }
   } else {
     noScreening.events<-
-      unlist(sapply(1:length(result$eventHistories),function(i){result$eventHistories[[i]]$noScreening$events}))
+      unlist(sapply(1:nperson,function(i){result$eventHistories[[i]]$noScreening$events}))
     screening.events<-
-      unlist(sapply(1:length(result$eventHistories),function(i){result$eventHistories[[i]]$screening$events}))
+      unlist(sapply(1:nperson,function(i){result$eventHistories[[i]]$screening$events}))
     i<-0
     for(event in ordered.events){
       i<-i+1
@@ -1693,22 +1698,22 @@ Eventsandcosts<-function(result){
         Eventsandcosts.df[i,"screening.n"]<-
           table(screening.events)[names(table(screening.events))==event]
         Eventsandcosts.df[i,"screening.prev"]<-
-          Eventsandcosts.df[i,"screening.n"]/v0$numberOfPersons
+          Eventsandcosts.df[i,"screening.n"]/nperson
         Eventsandcosts.df[i,"screening.cost"]<-
           v2$costs[event]*Eventsandcosts.df[i,"screening.n"]
         Eventsandcosts.df[i,"screening.mean.cost"]<-
-          Eventsandcosts.df[i,"screening.cost"]/v0$numberOfPersons
+          Eventsandcosts.df[i,"screening.cost"]/nperson
       }
       if(event %in% noScreening.events){
         Eventsandcosts.df[i,"event"]<-event
         Eventsandcosts.df[i,"noScreening.n"]<-
           table(noScreening.events)[names(table(noScreening.events))==event]
         Eventsandcosts.df[i,"noScreening.prev"]<-
-          Eventsandcosts.df[i,"noScreening.n"]/v0$numberOfPersons
+          Eventsandcosts.df[i,"noScreening.n"]/nperson
         Eventsandcosts.df[i,"noScreening.cost"]<-
           v2$costs[event]*Eventsandcosts.df[i,"noScreening.n"]
         Eventsandcosts.df[i,"noScreening.mean.cost"]<-
-          Eventsandcosts.df[i,"noScreening.cost"]/v0$numberOfPersons
+          Eventsandcosts.df[i,"noScreening.cost"]/nperson
       }
     }
   }
