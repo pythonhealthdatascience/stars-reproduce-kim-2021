@@ -18,13 +18,86 @@ Add required troubleshooting steps to summary report
 
 ## Untimed: Research compendium
 
-* **Have seperate folders for data, methods and outputs** - have decided there is no need to reorganise - although it is not exactly those three folder names, it does have those different files seperated out
-* **Run times** - already recorded
-* **README** - filled out the README for the `reproduction/` folder (*currently partially complete*)
-* **Tests** - due to the high run time of these scenarios, I created a very minimal test example. This used 65 yo scenario 0 but with 1e3 people (instead of 1e6), and so the test runs in only 5 seconds. This serves as a basic indicator of whether someone's model is running and producing results as expected on a new machine, but is in no way comprehensive.
+**Have seperate folders for data, methods and outputs** - have decided there is no need to reorganise - although it is not exactly those three folder names, it does have those different files seperated out
 
-Dockerfile
+**README** - filled out the README for the `reproduction/` folder (*currently partially complete*)
+
+**Tests** - due to the high run time of these scenarios, I created a very minimal test example. This used 65 yo scenario 0 but with 1e3 people (instead of 1e6), and so the test runs in only 5 seconds. This serves as a basic indicator of whether someone's model is running and producing results as expected on a new machine, but is in no way comprehensive.
+
+**Dockerfile** - based on my file from [Huang et al. 2019](https://github.com/pythonhealthdatascience/stars-reproduce-huang-2019/blob/main/reproduction/docker/Dockerfile). I create and launched a container by running:
+  * `sudo docker build --tag kim2021 . -f ./reproduction/docker/Dockerfile`
+  * `(sleep 2 && xdg-open http://localhost:8888) & sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker kim2021`
+
+### Troubleshooting tests
+
+I then ran the test (`testthat::test_dir("tests/testthat")`) in the docker container. However, it returned an error:
+
+```
+Error in `1:v0$numberOfPersons`: argument of length 0
+Backtrace:
+    ▆
+ 1. └─global Eventsandcosts(scen0.invite) at test-model.R:50:3
+ 2.   ├─base::unlist(...) at functions/DES_Model.R:1684:5
+ 3.   └─base::sapply(...) at functions/DES_Model.R:1684:5
+ 4.     └─base::lapply(X = X, FUN = FUN, ...)
+```
+
+I tried changing the number of people (`1e4`), and then the seed (`3210` to `999`), but the issue persisted within the docker container.
+
+Looking at the variable v0, on the container it becomes:
+
+```
+generateCensoringTime = 
+function() { 30.000001 }
+<bytecode: 0x59655b5310c8>
+```
+
+However, when running tests on my machine, its value is:
+
+```
+generateCensoringTime = 
+function() { 30.000001 }
+<bytecode: 0x652354295330>
+treatmentGroups = screening 
+returnEventHistories = TRUE 
+returnAllPersonsQuantities = FALSE 
+method = serial 
+numberOfPersons = 1000 
+randomSeed = 3210 
+```
+
+I tried clearing the environment on my machine and re-running the test, and it returned the same issue - and so it seems the issue is unrelated to docker, but instead was unnoticed prior as I hadn't cleared my environment.
+
+Printing `v0` during the test, I can see it is set up correctly. I add the original print statements from the scenario script and then found I got a different error:
+
+```
+<subscriptOutOfBoundsError/error/condition>
+Error in `result$eventHistories[[i]]`: subscript out of bounds
+Backtrace:
+    ▆
+ 1. └─global Eventsandcosts(scen0.invite) at test-model.R:58:3
+ 2.   ├─base::unlist(...) at functions/DES_Model.R:1684:5
+ 3.   └─base::sapply(...) at functions/DES_Model.R:1684:5
+ 4.     └─base::lapply(X = X, FUN = FUN, ...)
+ 5.       └─FUN(X[[i]], ...)
+```
+
+I checked the code matched the original, and tried tweaking little bits and bobs, but found the error persisted.
+
+I tried adding a print statement for components going into the formula, where the error is occuring, in `DES_Model.R` -
+
+```
+print(v0$numberOfPersons)
+noScreening.events<-
+  unlist(sapply(1:v0$numberOfPersons,function(i){result$eventHistories[[i]]$noScreening$events}))
+```
+
+- and I discovered that its value was set to `1e6` (when it should now be `1e3`). I struggled to identify why this had occurred, but tried changing `1:v0$numberOfPersons` to `1:length(result$eventHistories)` (as these should just be the same thing). This resolved the issue!
+
+To make sure this hadn't inadvertently affected my normal scenario scripts in anyway, I re-ran surveillance scenario 0, confirming the output `.csv` had not changed.
 
 Dockerfile on GHCR
 
 Quarto site display README and notebook/s
+
+Run time for test
