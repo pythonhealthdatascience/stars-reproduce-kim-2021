@@ -6,8 +6,25 @@ categories: [report, compendium]
 bibliography: ../../../quarto_site/references.bib
 ---
 
+::: {.callout-note}
+
+Working on research compendium stage.
+
+:::
+
 ## Untimed: Summary report
 
 Add required troubleshooting steps to summary report
 
 ## Untimed: Research compendium
+
+* **Have seperate folders for data, methods and outputs** - have decided there is no need to reorganise - although it is not exactly those three folder names, it does have those different files seperated out
+* **Run times** - already recorded
+* **README** - filled out the README for the `reproduction/` folder (*currently partially complete*)
+* **Tests** - due to the high run time of these scenarios, I created a very minimal test example. This used 65 yo scenario 0 but with 1e3 people (instead of 1e6), and so the test runs in only 5 seconds. This serves as a basic indicator of whether someone's model is running and producing results as expected on a new machine, but is in no way comprehensive.
+
+Dockerfile
+
+Dockerfile on GHCR
+
+Quarto site display README and notebook/s
