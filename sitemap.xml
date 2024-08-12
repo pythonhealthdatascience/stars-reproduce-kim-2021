@@ -1,79 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_07_30/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reproduction_report.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/CONTRIBUTING.html</loc>
+    <lastmod>2024-07-26T15:24:05.043Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_07_31/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/quarto_site/license.html</loc>
-    <lastmod>2024-08-12T12:47:52.863Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/badges.html</loc>
-    <lastmod>2024-08-12T12:47:52.811Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/quarto_site/study_publication.html</loc>
-    <lastmod>2024-08-12T12:47:52.871Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/logbook.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reporting.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/artefacts.html</loc>
-    <lastmod>2024-08-12T12:47:52.811Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reflections.html</loc>
-    <lastmod>2024-08-12T12:47:52.811Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/scope.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_08_12/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_07_26/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/quarto_site/reproduction_readme.html</loc>
-    <lastmod>2024-08-12T12:47:52.863Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_08_02/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
+    <lastmod>2024-08-01T08:31:58.042Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_07_29/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
+    <lastmod>2024-07-30T08:55:18.310Z</lastmod>
   </url>
   <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_08_01/index.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_08_02/index.html</loc>
+    <lastmod>2024-08-02T15:14:34.147Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/logbook.html</loc>
+    <lastmod>2024-07-26T15:24:05.047Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reflections.html</loc>
+    <lastmod>2024-08-02T14:36:53.870Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/badges.html</loc>
+    <lastmod>2024-08-02T10:30:33.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reporting.html</loc>
+    <lastmod>2024-08-02T13:18:42.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/reproduction/process_results/process_results.html</loc>
+    <lastmod>2024-08-12T13:17:56.178Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/quarto_site/license.html</loc>
+    <lastmod>2024-08-01T14:43:06.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/index.html</loc>
+    <lastmod>2024-07-26T15:28:20.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/CHANGELOG.html</loc>
+    <lastmod>2024-07-29T10:26:36.454Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/quarto_site/reproduction_readme.html</loc>
+    <lastmod>2024-07-26T15:24:05.047Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/quarto_site/study_publication.html</loc>
+    <lastmod>2024-07-29T11:51:25.520Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/artefacts.html</loc>
+    <lastmod>2024-08-02T10:31:40.105Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reproduction_success.html</loc>
-    <lastmod>2024-08-12T12:47:52.815Z</lastmod>
+    <lastmod>2024-08-02T09:40:44.331Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/scope.html</loc>
+    <lastmod>2024-07-29T10:01:32.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/evaluation/reproduction_report.html</loc>
+    <lastmod>2024-08-12T09:03:23.463Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_07_26/index.html</loc>
+    <lastmod>2024-07-29T08:30:57.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_08_12/index.html</loc>
+    <lastmod>2024-08-12T13:22:12.190Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_08_01/index.html</loc>
+    <lastmod>2024-08-02T08:05:08.274Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-kim-2021/logbook/posts/2024_07_30/index.html</loc>
+    <lastmod>2024-07-31T09:01:00.982Z</lastmod>
   </url>
 </urlset>

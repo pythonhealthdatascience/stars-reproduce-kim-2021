@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
 <meta name="dcterms.date" content="2024-08-02">
 
-<title>Day 7 – Reproducing Kim et al.&nbsp;2021</title>
+<title>Reproducing Kim et al.&nbsp;2021 - Day 7</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Original study</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reproduction" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reproduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Reproduction</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-reproduction">    
@@ -106,10 +106,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../../quarto_site/reproduction_readme.html">
  <span class="dropdown-text">README</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../reproduction/process_results/process_results.html">
+ <span class="dropdown-text">Reproduction</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Evaluation</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-evaluation">    
@@ -156,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -205,7 +209,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#untimed-summary-report" id="toc-untimed-summary-report" class="nav-link active" data-scroll-target="#untimed-summary-report">Untimed: Summary report</a></li>
   <li><a href="#untimed-research-compendium" id="toc-untimed-research-compendium" class="nav-link" data-scroll-target="#untimed-research-compendium">Untimed: Research compendium</a>
   <ul class="collapse">
+  <li><a href="#initial-steps" id="toc-initial-steps" class="nav-link" data-scroll-target="#initial-steps">Initial steps</a></li>
   <li><a href="#troubleshooting-tests" id="toc-troubleshooting-tests" class="nav-link" data-scroll-target="#troubleshooting-tests">Troubleshooting tests</a></li>
+  <li><a href="#final-steps" id="toc-final-steps" class="nav-link" data-scroll-target="#final-steps">Final steps</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/edit/main/logbook/posts/2024_08_12/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-kim-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -227,7 +233,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Working on research compendium stage.</p>
+<p>Working on research compendium stage (which inc. troubleshooting some issues with running the model which arose while working on tests).</p>
 </div>
 </div>
 <section id="untimed-summary-report" class="level2">
@@ -236,10 +242,13 @@ Note
 </section>
 <section id="untimed-research-compendium" class="level2">
 <h2 class="anchored" data-anchor-id="untimed-research-compendium">Untimed: Research compendium</h2>
+<section id="initial-steps" class="level3">
+<h3 class="anchored" data-anchor-id="initial-steps">Initial steps</h3>
 <p><strong>Have seperate folders for data, methods and outputs</strong> - have decided there is no need to reorganise - although it is not exactly those three folder names, it does have those different files seperated out</p>
 <p><strong>README</strong> - filled out the README for the <code>reproduction/</code> folder (<em>currently partially complete</em>)</p>
 <p><strong>Tests</strong> - due to the high run time of these scenarios, I created a very minimal test example. This used 65 yo scenario 0 but with 1e3 people (instead of 1e6), and so the test runs in only 5 seconds. This serves as a basic indicator of whether someone’s model is running and producing results as expected on a new machine, but is in no way comprehensive.</p>
 <p><strong>Dockerfile</strong> - based on my file from <a href="https://github.com/pythonhealthdatascience/stars-reproduce-huang-2019/blob/main/reproduction/docker/Dockerfile">Huang et al.&nbsp;2019</a>. I create and launched a container by running: * <code>sudo docker build --tag kim2021 . -f ./reproduction/docker/Dockerfile</code> * <code>(sleep 2 &amp;&amp; xdg-open http://localhost:8888) &amp; sudo docker run -it -p 8888:8787 -e DISABLE_AUTH=true --name kim2021_docker kim2021</code></p>
+</section>
 <section id="troubleshooting-tests" class="level3">
 <h3 class="anchored" data-anchor-id="troubleshooting-tests">Troubleshooting tests</h3>
 <p>I then ran the test (<code>testthat::test_dir("tests/testthat")</code>) in the docker container. However, it returned an error:</p>
@@ -284,10 +293,26 @@ noScreening.events&lt;-
 <ul>
 <li>and I discovered that its value was set to <code>1e6</code> (when it should now be <code>1e3</code>). I struggled to identify why this had occurred, but tried changing <code>1:v0$numberOfPersons</code> to <code>1:length(result$eventHistories)</code> (as these should just be the same thing). This resolved the issue!</li>
 </ul>
-<p>To make sure this hadn’t inadvertently affected my normal scenario scripts in anyway, I re-ran surveillance scenario 0, confirming the output <code>.csv</code> had not changed.</p>
-<p>Dockerfile on GHCR</p>
-<p>Quarto site display README and notebook/s</p>
-<p>Run time for test</p>
+<p>I rebuilt the docker image and launched a container and ran the test, but it failed again, this time with the error -</p>
+<pre><code>Error in `x[[jj]][iseq] &lt;- vjj`: replacement has length zero
+Backtrace:
+    ▆
+ 1. └─global Eventsandcosts(scen0.invite) at test-model.R:57:3
+ 2.   ├─base::`[&lt;-`(`*tmp*`, i, "screening.prev", value = `&lt;dbl&gt;`) at functions/DES_Model.R:1695:9
+ 3.   └─base::`[&lt;-.data.frame`(`*tmp*`, i, "screening.prev", value = `&lt;dbl&gt;`) at functions/DES_Model.R:1695:9</code></pre>
+<p>Going to that line in <code>DES_Model.R</code>, I can see that the error is again related to <code>v0$numberOfPersons</code>:</p>
+<pre><code>Eventsandcosts.df[i,"screening.prev"]&lt;-
+          Eventsandcosts.df[i,"screening.n"]/v0$numberOfPersons</code></pre>
+<p>The value for <code>v0$numberOfPersons</code> is correct when printed from the test, but incorrect when running through the <code>Eventsandcosts()</code> function. The issue appears to be that <code>Eventsandcosts()</code> doesn’t accept v0 as an input parameter, and instead uses it like a global parameter - but presumably, within a test, this is leading to issues.</p>
+<p>I attempted a wrap around solution, which was to calculate the number of persons from <code>length(result$eventHistories)</code> and use that in place of all <code>v0$numberOfPersons</code>. I cleared my environment and re-ran the test: it appeared to work fine.</p>
+<p>I rebuilt docker image and ran test in container - which passed!</p>
+<p>To make sure this hadn’t inadvertently affected my normal scenario scripts in anyway, I re-ran surveillance scenario 0, confirming the output <code>.csv</code> had not changed. Of note, the run time on that on my machine (rather than the high spec remote machine) was 21 minutes 59 seconds (whilst on remote it was 4 minutes 28 seconds). The main model output was the same, but the AAA-related death aaorta sizes did change. I’m not sure why one remained the same and one changed. I ran this again on the remote machine this time (<code>Rscript -e "source('models/NAAASP_COVID_modelling/run_aaamodel_surv_scen0.R')"</code>). And there was no change in the file! Given the motivations of this reproduction and stage we are at, I will not troubleshoot further on this issue.</p>
+</section>
+<section id="final-steps" class="level3">
+<h3 class="anchored" data-anchor-id="final-steps">Final steps</h3>
+<p><strong>GitHub Container Registry (GHCR)</strong>: Activated GitHub action to push Docker image to GitHub container registry. Pulled this, open RStudio, and ran test which passed.</p>
+<p><strong>Run times</strong>: This had largely been completed during reproduction, but I add times for the test, and the time from running surv scen 0 on a different machine (as above).</p>
+<p><strong>Quarto site</strong>: Finally, I modified the GitHub action. So far, it had set to not build <code>.Rmd</code> files (to avoid errors encountered due to R environment). However, as I would like to include the notebook in the final Quarto site, I then modified the action as I did in Huang et al.&nbsp;to not run with every push, and instead manually updated the site from my local macine using <code>quarto publish</code>. This is a temporary fix, as I have not been able to get a GitHub action working to render this on pushes automatically for me, for R. When doing so, have to remember to delete <code>_freeze/</code>, <code>_site/</code> and <code>.quarto</code> before running, to ensure it runs everything properly.</p>
 
 
 </section>
@@ -329,7 +354,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -361,29 +397,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/pythonhealthdatascience\.github\.io\/stars-reproduce-kim-2021\/");
@@ -391,7 +405,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -723,7 +737,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../../CHANGELOG.md">
+    <a class="nav-link" href="../../../CHANGELOG.html">
 <p>Changelog</p>
 </a>
   </li>  
@@ -733,7 +747,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../CONTRIBUTING.md">
+    <a class="nav-link" href="../../../CONTRIBUTING.html">
 <p>Contributing</p>
 </a>
   </li>  
