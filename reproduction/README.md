@@ -47,7 +47,7 @@ In this assessment, we attempted to reproduce 10 items: 6 figures, 3 tables and 
 * `.Rprofile` - Activates R environment
 * `DESCRIPTION` - Lists packages that we installed into environment (their dependencies will have also been installed)
 * `README.md` - This file!
-* `kim2021.Rproj` - Project settings
+* `kim2021.Rproj` - Project settings, which specify the Python virtual environment to use when building pages from the Quarto site that include Python. If you choose to build the Quarto site (and not just run the reproduction files in this folder), you will want to update this to a path on your machine (which you can do easily by opening this file in RStudio)
 * `renv.lock` - Lists R version and all packages in the R environment
 
 ### Step 1. Set up environment
@@ -122,7 +122,7 @@ A small version of one the model scenarios is provided as a test within `tests/t
 testthat::test_dir("tests/testthat")
 ```
 
-The test should only take about 5 seconds.
+The test should only take about 5-10 seconds depending on your machine specs.
 
 ## Reproduction specs and runtime
 
@@ -139,6 +139,7 @@ Within this reproduction, due to long run times, the model was run on a remote m
 * Surveillance scenario 4b - 34 minutes 57 seconds (2097 seconds)
 * Surveillance scenario 4c - 35 minutes 14 seconds (2114 seconds)
 
+You can expect the runtime to be **notably longer** on machines with lower specs than this. For example, I ran surveillance scenario 0 on an Intel Core i7-12700H with 32GB RAM running Ubuntu 22.04.4 Linux. The runtime increased from **4 minutes 28 seconds** up to **21 minutes 59 seconds**.
 
 <!-- 212 + 1754 + 1147 + 268 + 4211 + 5979 + 4900 + 2123 + 2097 + 2114 = 24805 seconds = 413 minutes 25 seconds = 6 hours, 53 minutes, 26 seconds
 
