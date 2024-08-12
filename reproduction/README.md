@@ -1,26 +1,74 @@
 # Reproduction README
 
-<!-- TODO: Remove this warning once filled out README -->
-**Please note: This is a template README and has not yet been completed**
+<!-- TODO: Finish filling out the README -->
 
-<!-- TODO: Fill out the README -->
 ## Model summary
 
-TBC
+This study adapts a previously developed discrete-event simulation model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission.
 
 ## Scope of the reproduction
 
-TBC
+In this assessment, we attempted to reproduce 10 items: 6 figures, 3 tables and 1 in-text result.
 
 ## Reproducing these results
 
 ### Repository overview
 
-TBC
+```
+├── docker
+│   └──  ...
+├── functions
+│   └──  ...
+├── input
+│   └──  ...
+├── models
+│   └──  ...
+├── output
+│   └──  ...
+├── process_results
+│   └──  ...
+├── renv
+│   └──  ...
+├── tests
+│   └──  ...
+├── .Rprofile
+├── DESCRIPTION
+├── README.md
+├── kim2021.Rproj
+└── renv.lock
+```
+
+* `docker/` - Instructions for creation of docker container.
+* `functions/` - Discrete-event simulation model code
+* `input/` - Input parameters for the model
+* `models/` - Scripts to run each scenario
+* `output/` - Output files from the scripts (e.g. `.csv`, `.png`)
+* `process_results/`
+* `renv/` - Instructions for creation of R environment
+* `tests/` - Test to check that the model produces consistent results with our reproduction
+* `.Rprofile` - Activates R environment
+* `DESCRIPTION` - Lists packages that we installed into environment (their dependencies will have also been installed)
+* `README.md` - This file!
+* `kim2021.Rproj` - Project settings
+* `renv.lock` - Lists R version and all packages in the R environment
 
 ### Step 1. Set up environment
 
-TBC
+Before you can run the model, you will need to create an R environment with the correct version of R and the specified packages.
+
+#### Option A. Renv
+
+An `renv` environment has been provided. To create this environment locally on your machine, you should open the R project with the R environment loaded, and then run:
+
+```
+renv::restore()
+```
+
+In `renv.lock`, you will see the version of R listed. However, `renv` will not install this for you, so you will need to switch to this yourself if you wish to also use the same version of R. This reproduction has been run in R 4.4.1. If you use a different version of R, there's a chance that it might be incompatible, or that you may encounter difficulties installing the specified package versions in that version of R.
+
+#### Option B. Build local docker image
+
+<!-- TODO: Add this once made docker -->
 
 ### Step 2. Running the model
 
@@ -50,8 +98,8 @@ Excluded these which I had run but which ended up not actually being needed for 
 
 ## Citation
 
-TBC
+To cite the original study, please refer to the reference above. To cite this reproduction, please refer to the CITATION.cff file in the parent folder.
 
 ## License
 
-TBC
+This repository is licensed under the GNU Lesser General Public License v3.0.
