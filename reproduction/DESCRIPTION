@@ -11,4 +11,5 @@ Imports:
     rmarkdown,
     dplyr,
     ggplot2,
-    tidyr
+    tidyr,
+    testthat
