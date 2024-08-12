@@ -12,4 +12,8 @@ Encoding: UTF-8
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
+PythonType: virtualenv
+PythonVersion: 3.10.12
+PythonPath: ~/.virtualenvs/quarto_kim_2021/bin/python
+
 ProjectName: kim2021
