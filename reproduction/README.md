@@ -2,6 +2,8 @@
 
 ## Model summary
 
+> Kim LG, Sweeting MJ, Armer M, Jacomelli J, Nasim A, Harrison SC. **Modelling the impact of changes to abdominal aortic aneurysm screening and treatment services in England during the COVID-19 pandemic**. *PLoS ONE* 16(6): e0253327 (2021). <https://doi.org/10.1371/journal.pone.0253327>.
+
 This study adapts a previously developed discrete-event simulation model for abdominal aortic aneurysm (AAA) screening of men in England. It aims to explore different approaches to resuming screening and surgical repair for AAA, as these survives were paused or substantially reduced during COVID-19 due to concerns about virus transmission.
 
 ## Scope of the reproduction
