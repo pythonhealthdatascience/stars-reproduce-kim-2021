@@ -22,7 +22,7 @@ jobs:
           args: "--infile ./CITATION.cff --format bibtex --outfile citation_bibtex.bib"
 
       - name: Modify Bibtex entry
-        run: sed -i 's/@misc{YourReferenceHere,/@software{stars_reproduce_allen_2020,/' citation_bibtex.bib
+        run: sed -i 's/@misc{YourReferenceHere,/@software{stars_reproduce_kim_2021,/' citation_bibtex.bib
 
       - name: Convert CITATION.cff to APA
         uses: citation-file-format/cffconvert-github-action@2.0.0
