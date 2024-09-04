@@ -16,7 +16,7 @@ This study adapts a previously developed DES model for abdominal aortic aneurysm
 
 ## Computational reproducibility
 
-Successfully reproduced **10 out of 10 (100%)** of items from the scope in **13h 59m (35.0%)**.
+Successfully reproduced **10 out of 10 (100%)** of items from the scope in **14h 42m (36.8%)**.
 
 Required troubleshooting:
 

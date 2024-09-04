@@ -1,0 +1,38 @@
+---
+title: "Day 8"
+author: "Amy Heather"
+date: "2024-09-04"
+categories: [reproduction]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Got consensus on reproduction. Updated reproduction time: 14h 42m (36.8%). 
+
+:::
+
+## 10.05-10.12: Consensus on reproduction
+
+This was not done previously as Tom had three weeks annual leave (two weeks + one week where I was also). Checked each item today, and Tom confirmed he was happy these were reproduced.
+
+We spent a little while considering in-text result 1, as the percentages look a bit different, but decided this was a minor concern as the absolute values matched up, and looking at it as a whole, we aren't concerned by this and feel it is all reasonably close enough to be successfully reproduced.
+
+Note: Included in overall reproduction time, but not time to each item in scope, so time to final item in scope will be a little less than this overall recorded time.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 875
+
+# Times from today
+times = [
+    ('10.05', '10.12')]
+
+calculate_times(used_to_date, times)
+```

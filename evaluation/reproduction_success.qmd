@@ -46,8 +46,7 @@ success_interactive(times_df)
 
 ## Figure 1
 
-<!-- TODO: Add these
-**Consensus: Not reproduced / Successfully reproduced** -->
+**Consensus: Successfully reproduced**
 
 Original (@kim_modelling_2021):
 
@@ -58,6 +57,8 @@ Reproduction:
 ![](../reproduction/output/fig1.png){width=80% fig-align="center" .lightbox}
 
 ## Table 2
+
+**Consensus: Successfully reproduced**
 
 Original (@kim_modelling_2021):
 
@@ -71,6 +72,8 @@ pd.read_csv('../reproduction/output/tab2.csv')
 
 ## Figure 2
 
+**Consensus: Successfully reproduced**
+
 Original (@kim_modelling_2021):
 
 ![](../original_study/fig2.PNG){width=80% fig-align="center" .lightbox}
@@ -81,6 +84,8 @@ Reproduction:
 
 ## Figure 3
 
+**Consensus: Successfully reproduced**
+
 Original (@kim_modelling_2021):
 
 ![](../original_study/fig3.PNG){width=80% fig-align="center" .lightbox}
@@ -90,6 +95,8 @@ Reproduction:
 ![](../reproduction/output/fig3.png){width=80% fig-align="center" .lightbox}
 
 ## In-text result 1
+
+**Consensus: Successfully reproduced**
 
 In bold are the items not captured in Table 3 or Figure 3:
 
@@ -103,6 +110,8 @@ pd.read_csv('../reproduction/output/intext1.csv')
 
 ## Figure 4
 
+**Consensus: Successfully reproduced**
+
 Original (@kim_modelling_2021):
 
 ![](../original_study/fig4.PNG){width=80% fig-align="center" .lightbox}
@@ -113,6 +122,8 @@ Reproduction:
 
 ## Figure 5
 
+**Consensus: Successfully reproduced**
+
 Original (@kim_modelling_2021):
 
 ![](../original_study/fig5.PNG){width=80% fig-align="center" .lightbox}
@@ -122,6 +133,8 @@ Reproduction:
 ![](../reproduction/output/fig5.png){width=80% fig-align="center" .lightbox}
 
 ## Table 3
+
+**Consensus: Successfully reproduced**
 
 Original (@kim_modelling_2021):
 
@@ -135,6 +148,8 @@ pd.read_csv('../reproduction/output/tab3.csv')
 
 ## Supplementary figure 3
 
+**Consensus: Successfully reproduced**
+
 Original (@kim_modelling_2021):
 
 ![](../original_study/sup_fig3_crop.png){width=80% fig-align="center" .lightbox}
@@ -144,6 +159,8 @@ Reproduction:
 ![](../reproduction/output/supfig3.png){width=80% fig-align="center" .lightbox}
 
 ## Supplementary table 2
+
+**Consensus: Successfully reproduced**
 
 Original (@kim_modelling_2021):
 
