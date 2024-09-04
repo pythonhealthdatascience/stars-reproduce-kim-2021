@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-Finished reproduction (supplementary table 2 and figure). Completed evaluation against guidelines. Started on research compendium. Total reproduction time: 13h 59m (35.0%). Evaluation time: 1h 55m.
+Finished reproduction (supplementary table 2 and figure). Completed evaluation against guidelines. Started on research compendium. Total reproduction time: 14h 35m (36.5%). Evaluation time: 1h 55m.
 
 :::
 
