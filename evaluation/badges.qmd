@@ -35,7 +35,6 @@ criteria = {
 }
 
 # Evaluation for this study
-# TODO: Complete evaluate for each criteria
 eval = pd.Series({
     'archive': 0,
     'id': 0,
