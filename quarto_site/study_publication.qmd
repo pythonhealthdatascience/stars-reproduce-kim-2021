@@ -32,3 +32,12 @@ The article is published with PLoS ONE and has a permissive copyright statement:
 ![](../original_study/sup_fig2.png)
 
 ![](../original_study/sup_fig3.png)
+
+## Prior publications
+
+There have been two prior publications describing this model. These are @glover_discrete_2018 and @thompson_screening_2018
+
+### Glover et al. 2018
+
+
+<iframe width="100%" height="800" src="../quarto_site/glover_2018.pdf"></iframe>
