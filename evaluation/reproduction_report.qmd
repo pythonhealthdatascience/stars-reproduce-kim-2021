@@ -122,10 +122,6 @@ pd.read_csv('../reproduction/output/suptab2.csv')
 
 ## Evaluation against guidelines
 
-**Note: this section still needs to be completed**
-
-<!-- TODO: Add evaluation -->
-
 ```{python}
 import pandas as pd
 import plotly.express as px
@@ -133,12 +129,12 @@ import plotly.express as px
 # Create dataframe of results
 col = ['fully', 'partially', 'not', 'na']
 eval_dict = {
-  'STARS (essential)': [1, 1, 1, 1],
-  'STARS (optional)': [1, 1, 1, 1],
-  'Badges (criteria)': [1, 1, 1, 1],
-  'Badges (badges)': [1, 1, 1, 1],
-  'STRESS-DES': [1, 1, 1, 1],
-  'ISPOR-SDM': [1, 1, 1, 1]
+  'STARS (essential)': [4, 1, 3, 0],
+  'STARS (optional)': [0, 0, 5, 0],
+  'Badges (criteria)': [5, 0, 7, 0],
+  'Badges (badges)': [3, 0, 9, 0],
+  'STRESS-DES': [15, 5, 2, 2],
+  'ISPOR-SDM': [12, 0, 5, 1]
 }
 eval_wide = pd.DataFrame(eval_dict, index=col).T
 eval = (eval_wide
