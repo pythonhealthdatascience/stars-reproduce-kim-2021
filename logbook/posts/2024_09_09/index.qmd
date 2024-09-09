@@ -1,0 +1,55 @@
+---
+title: "Day 9"
+author: "Amy Heather"
+date: "2024-09-09"
+categories: [evaluation]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Addressed reporting evaluation uncertainities, and completed summary report. Updated evaluation time: 2h 30m. 
+
+:::
+
+On Tom's return to annual leave, asked about approach to the uncertainties from the evaluation. Most of these were uncertain as they were described in a previous paper but not in the current paper. He suggested that this could be considered as meeting the criteria - unless there were any changes from the original paper (in which case, these should have been described in the current paper).
+
+## 09.34-10.06: Returning to STRESS-DES
+
+Returned to each of these, which were all uncertain due to information being in a prior paper:
+
+* 2.1 Base model overview diagram
+* 2.2 Base model logic
+* 2.4 Algorithms
+* 2.5.2 Components - activities
+* 2.5.3 Components - resources
+* 2.5.4 Components - queues
+* 4.1 Initialisation
+* 5.3 Model execution
+* 5.4 System specification
+
+## 10.07-10.10: Returning to checklist derived from ISPOR-SDM
+
+As above, here just returning to:
+
+* 3 Is the model structure described?
+
+## Evaluation timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 115
+
+# Times from today
+times = [
+    ('09.34', '10.06'),
+    ('10.07', '10.10')]
+
+calculate_times(used_to_date, times, limit=False)
+```
+
+## Untimed: Completed evaluation section of summary page
