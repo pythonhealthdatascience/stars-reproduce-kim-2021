@@ -227,17 +227,20 @@ div.csl-indent {
 <li><span class="citation" data-cites="monks_strengthening_2019">Monks et al. (<a href="#ref-monks_strengthening_2019" role="doc-biblioref">2019</a>)</span> - STRESS-DES: Strengthening The Reporting of Empirical Simulation Studies (Discrete-Event Simulation) (Version 1.0).</li>
 <li><span class="citation" data-cites="zhang_reporting_2020">Zhang, Lhachimi, and Rogowski (<a href="#ref-zhang_reporting_2020" role="doc-biblioref">2020</a>)</span> - The generic reporting checklist for healthcare-related discrete event simulation studies derived from the the International Society for Pharmacoeconomics and Outcomes Research Society for Medical Decision Making (ISPOR-SDM) Modeling Good Research Practices Task Force reports.</li>
 </ul>
+<p><strong>Note:</strong> In completing this evaluation for <strong><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></strong>, we sometimes refer to prior publications the initially described the model. These are:</p>
+<ul>
+<li><strong><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span></strong> - “Discrete Event Simulation for Decision Modeling in Health Care: Lessons from Abdominal Aortic Aneurysm Screening”</li>
+<li><strong><span class="citation" data-cites="thompson_screening_2018">Thompson et al. (<a href="#ref-thompson_screening_2018" role="doc-biblioref">2018</a>)</span></strong> - “Screening Women Aged 65 Years or over for Abdominal Aortic Aneurysm: A Modelling Study and Health Economic Evaluation”</li>
+</ul>
 <section id="stress-des" class="level2">
 <h2 class="anchored" data-anchor-id="stress-des">STRESS-DES</h2>
 <p>Of the <strong>24</strong> items in the checklist:</p>
-<!-- TODO: Add counts from evaluation -->
 <ul>
-<li><strong>X</strong> were met fully (✅)</li>
-<li><strong>X</strong> were partially met (🟡)</li>
-<li><strong>X</strong> were not met (❌)</li>
-<li><strong>X</strong> were not applicable (N/A)</li>
+<li><strong>15</strong> were met fully (✅)</li>
+<li><strong>5</strong> were partially met (🟡)</li>
+<li><strong>2</strong> were not met (❌)</li>
+<li><strong>2</strong> were not applicable (N/A)</li>
 </ul>
-<!-- TODO: Fill in the table. Options are ✅ Fully, 🟡 Partially, ❌ Not met, or N/A -->
 <table class="table">
 <colgroup>
 <col style="width: 12%">
@@ -287,26 +290,26 @@ div.csl-indent {
 <tr class="even">
 <td>2.1 Base model overview diagram</td>
 <td>Describe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.</td>
-<td><strong>TBC</strong></td>
-<td>Not provided in this study, but states in <code>Methods: Model</code> that this is a model that “has previously been developed” and “the full pathway reflecting both the natural history and screening programme is described in detailed elsewhere”. It cites <a href="https://doi.org/10.1177/0272989X17753380">Glover et al.&nbsp;2018</a> and <a href="https://doi.org/10.3310/hta22430">Thompson et al.&nbsp;2018</a>. Glover et al.&nbsp;2018 includes a flow diagram (Figure 1).</td>
+<td>✅ Fully</td>
+<td><code>Methods: Model</code> - “The full pathway reflecting both the natural history and screening programme is described in detail elsewhere” (<span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>), citing <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="thompson_screening_2018">Thompson et al. (<a href="#ref-thompson_screening_2018" role="doc-biblioref">2018</a>)</span> <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> has a flow diagram (Figure 1).<br><a href="../quarto_site/glover_2018_fig1.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 1 from @glover_discrete_2018"><img src="../quarto_site/glover_2018_fig1.jpeg" class="img-fluid" alt="Figure 1 from Glover et al. (2018)"></a><br><br>Some modifications to the model are described in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>, but the figure from <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> is considered to still be reasonably applicable (due to the level of detail of the figure)</td>
 </tr>
 <tr class="odd">
 <td>2.2 Base model logic</td>
 <td>Give details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.</td>
-<td><strong>TBC</strong></td>
-<td><code>Methods: Model</code> does mention that this is described elsewhere, but “in brief… the original DES model simulated events for a new cohort at a given age (e.g.&nbsp;65) from the time of invitation to screening up to their date of death or age 95 (the time horizon). The repurposed DES model is extended here to allow events to be simulated from a cohort of individuals already under surveillance in the NAAASP, through simulation of key characteristics (age and aortic diameter) at the inception of the model (“time zero”), which is taken to be March 2020 when the initial UK national “lockdown” was imposed”. It cites <a href="https://doi.org/10.1177/0272989X17753380">Glover et al.&nbsp;2018</a> which provides a very detailed description of the base model logic.<br><br><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></td>
+<td>✅ Fully</td>
+<td><code>Methods: Model</code> - “The full pathway reflecting both the natural history and screening programme is described in detail elsewhere” (<span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>), citing <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="thompson_screening_2018">Thompson et al. (<a href="#ref-thompson_screening_2018" role="doc-biblioref">2018</a>)</span>. Then, it provides a simple description of the model, and how it differs from <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span>.</td>
 </tr>
 <tr class="even">
 <td>2.3 Scenario logic</td>
 <td>Give details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.</td>
 <td>✅ Fully</td>
-<td>Described in the text, and main scenarios clearly presented in <code>Table 1</code>.<br><br><a href="../original_study/tab1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Table 1"><img src="../original_study/tab1.PNG" class="img-fluid" alt="Table 1"></a><br><br><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></td>
+<td>Described in the text, and main scenarios clearly presented in <code>Table 1</code>.<br><br><a href="../original_study/tab1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Table 1"><img src="../original_study/tab1.PNG" class="img-fluid" alt="Table 1"></a><br><br><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>2.4 Algorithms</td>
 <td>Provide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e.&nbsp;scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.</td>
-<td><strong>TBC</strong></td>
-<td>Not provided in this study, but states in <code>Methods: Model</code> that this is a model that has previously been developed, with the cited <a href="https://doi.org/10.1177/0272989X17753380">Glover et al.&nbsp;2018</a> providing some (but not all) of the sampling distributions used… “The DES involves a large number of parameters. These can be classified into several sets: global fixed parameters, global uncertain parameters, and parameters that are specific to an individual or a pair of twins (“global” refers to population parameters and “uncertain” means that a parameter follows a random distribution). Like the functions, these sets form a hierarchy. For example, in a PSA, a beta distribution is used to generate the probability that an individual will die following emergency surgery, if they have emergency surgery. The parameters of the beta distribution are global fixed parameters, and the probability is a global uncertain parameter. In the main analysis, when a pair of twins is created, the probability is used as the parameter in a Bernoulli distribution to generate the indicator for the twins’ emergency surgery outcomes. The indicator is a variable specific to the pair of twins.”<br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span></td>
+<td>🟡 Partially</td>
+<td>Not described in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>. <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> provides some (but not all) of the sampling distributions used. An excerpt: “The DES involves a large number of parameters. These can be classified into several sets: global fixed parameters, global uncertain parameters, and parameters that are specific to an individual or a pair of twins (“global” refers to population parameters and “uncertain” means that a parameter follows a random distribution). Like the functions, these sets form a hierarchy. For example, in a PSA, a beta distribution is used to generate the probability that an individual will die following emergency surgery, if they have emergency surgery…“<br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span></td>
 </tr>
 <tr class="even">
 <td>2.5.1 Components - entities</td>
@@ -317,20 +320,20 @@ div.csl-indent {
 <tr class="odd">
 <td>2.5.2 Components - activities</td>
 <td>Describe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.</td>
-<td><strong>TBC</strong></td>
-<td>Not described in this paper, but cites <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> as providing further details. In their paper, they detail activities in the <code>Methods</code> or show them within Figure 1.</td>
+<td>✅ Fully</td>
+<td>Not described in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>. <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> provides a detailed description of the model in the <code>Methods</code> and with <code>Figure 1</code>, from which we can identify activities. For example, <code>Methods: Development of a Simulation Model</code> - “events (rupture, surgical consultations, elective and emergency AAA repair, death)”</td>
 </tr>
 <tr class="even">
 <td>2.5.3 Components - resources</td>
 <td>List all the resources included within the model and which activities make use of them.</td>
-<td><strong>TBC</strong></td>
-<td>-</td>
+<td>N/A</td>
+<td>No description in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span> or <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> but, from what I understand of the model, I don’t think there are “resources” as such.</td>
 </tr>
 <tr class="odd">
 <td>2.5.4 Components - queues</td>
 <td>Give details of the assumed queuing discipline used in the model (e.g.&nbsp;First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.</td>
-<td><strong>TBC</strong></td>
-<td>-</td>
+<td>N/A</td>
+<td>No description in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span> or <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> but, from what I understand of the model, I don’t think there are queues.</td>
 </tr>
 <tr class="even">
 <td>2.5.5 Components - entry/exit points</td>
@@ -377,8 +380,8 @@ div.csl-indent {
 <tr class="odd">
 <td>4.1 Initialisation</td>
 <td>Report if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.<br>State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.</td>
-<td><strong>TBC</strong></td>
-<td>Not mentioned in this paper, but prior paper mentions that events “occur as a continuous process over time” (i.e.&nbsp;non-terminating). <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span>. I did not feel I could clearly identify, from either paper, whether a warm-up or initialisation conditions were used.</td>
+<td>🟡 Partially</td>
+<td>Not described in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>. <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> mentions that events “occur as a continuous process over time” (i.e.&nbsp;non-terminating). <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> <br><br>I did not feel I could clearly identify, from either paper, whether a warm-up or initialisation conditions were used.</td>
 </tr>
 <tr class="even">
 <td>4.2 Run length</td>
@@ -413,14 +416,14 @@ div.csl-indent {
 <tr class="odd">
 <td>5.3 Model execution</td>
 <td>State the event processing mechanism used e.g.&nbsp;three phase, event, activity, process interaction.<br><em>Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.</em><br>State all priority rules included if entities/activities compete for resources.<br>If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)</td>
-<td><strong>TBC</strong></td>
-<td>Didn’t feel I could find the event processing mechanism. The prior study does mention though that the code is “written to run in parallel”.<br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span></td>
+<td>❌ Not met</td>
+<td>Could not identify event processing mechanism in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span> or <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span>. <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> mention that the code “written to run in parallel”, but not the technology used (hence, marked as not met).<br><br> From my understanding of the model, there are not queues so priority rules not relevant.</td>
 </tr>
 <tr class="even">
 <td>5.4 System specification</td>
 <td>State the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)</td>
-<td><strong>TBC</strong></td>
-<td>Not mentioned in this study, but prior study mentions that “run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered compute”.<br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span></td>
+<td>🟡 Partially</td>
+<td>Not described in <span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>. <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> mentions that “run time was in the region of 24 h to run the model with 500,000 patients and 1,000 PSA iterations, even with parallelization and the use of a high-powered compute”.</td>
 </tr>
 <tr class="odd">
 <td><strong>Code access</strong></td>
@@ -440,12 +443,11 @@ div.csl-indent {
 <section id="des-checklist-derived-from-ispor-sdm" class="level2">
 <h2 class="anchored" data-anchor-id="des-checklist-derived-from-ispor-sdm">DES checklist derived from ISPOR-SDM</h2>
 <p>Of the <strong>18</strong> items in the checklist:</p>
-<!-- TODO: Add counts from evaluation -->
 <ul>
-<li><strong>X</strong> were met fully (✅)</li>
-<li><strong>X</strong> were partially met (🟡)</li>
-<li><strong>X</strong> were not met (❌)</li>
-<li><strong>X</strong> were not applicable (N/A)</li>
+<li><strong>12</strong> were met fully (✅)</li>
+<li><strong>0</strong> were partially met (🟡)</li>
+<li><strong>5</strong> were not met (❌)</li>
+<li><strong>1</strong> were not applicable (N/A)</li>
 </ul>
 <table class="table">
 <colgroup>
@@ -484,8 +486,8 @@ div.csl-indent {
 <tr class="even">
 <td>3 Is the model structure described?</td>
 <td>…the model’s conceptual structure was described in the form of either graphical or text presentation.</td>
-<td><strong>TBC</strong></td>
-<td>Not provided in this study, but states in <code>Methods: Model</code> that this is a model that “has previously been developed” and “the full pathway reflecting both the natural history and screening programme is described in detailed elsewhere”. It cites <a href="https://doi.org/10.1177/0272989X17753380">Glover et al.&nbsp;2018</a> and <a href="https://doi.org/10.3310/hta22430">Thompson et al.&nbsp;2018</a>. Glover et al.&nbsp;2018 includes a flow diagram (Figure 1).</td>
+<td>✅ Fully</td>
+<td><code>Methods: Model</code> - “The full pathway reflecting both the natural history and screening programme is described in detail elsewhere” (<span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span>), citing <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="thompson_screening_2018">Thompson et al. (<a href="#ref-thompson_screening_2018" role="doc-biblioref">2018</a>)</span> <br><br><span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span> has a flow diagram (Figure 1).<br><a href="../quarto_site/glover_2018_fig1.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 1 from @glover_discrete_2018"><img src="../quarto_site/glover_2018_fig1.jpeg" class="img-fluid" alt="Figure 1 from Glover et al. (2018)"></a><br><br><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span> provides a simple description of the model, and how it differs from <span class="citation" data-cites="glover_discrete_2018">Glover et al. (<a href="#ref-glover_discrete_2018" role="doc-biblioref">2018</a>)</span>.</td>
 </tr>
 <tr class="odd">
 <td>4 Is the time horizon given?</td>
@@ -497,7 +499,7 @@ div.csl-indent {
 <td>5 Are all simulated strategies/scenarios specified?</td>
 <td>…the comparators under test were described in terms of their components, corresponding variations, etc</td>
 <td>✅ Fully</td>
-<td>Primary scenarios clearly described in <code>Table 1</code>.<br><br><a href="../original_study/tab1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Table 1"><img src="../original_study/tab1.PNG" class="img-fluid" alt="Table 1"></a><br><br>Supplementary scenarios not described as clearly, but can be easily understood from supplementary table 2, regardless.<br><br><a href="../original_study/sup_tab2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Supplementary table 2"><img src="../original_study/sup_tab2.png" class="img-fluid" alt="Supplementary table 2"></a><br><br><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></td>
+<td>Primary scenarios clearly described in <code>Table 1</code>.<br><br><a href="../original_study/tab1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Table 1"><img src="../original_study/tab1.PNG" class="img-fluid" alt="Table 1"></a><br><br>Supplementary scenarios not described as clearly, but can be easily understood from supplementary table 2, regardless.<br><br><a href="../original_study/sup_tab2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Supplementary table 2"><img src="../original_study/sup_tab2.png" class="img-fluid" alt="Supplementary table 2"></a><br><br><span class="citation" data-cites="kim_modelling_2021">Kim et al. (<a href="#ref-kim_modelling_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>6 Is the target population described?</td>
@@ -611,6 +613,9 @@ Kim, Lois G., Michael J. Sweeting, Morag Armer, Jo Jacomelli, Akhtar Nasim, and 
 </div>
 <div id="ref-monks_strengthening_2019" class="csl-entry" role="listitem">
 Monks, Thomas, Christine S. M. Currie, Bhakti Stephan Onggo, Stewart Robinson, Martin Kunc, and Simon J. E. Taylor. 2019. <span>“Strengthening the Reporting of Empirical Simulation Studies: <span>Introducing</span> the <span>STRESS</span> Guidelines.”</span> <em>Journal of Simulation</em> 13 (1): 55–67. <a href="https://doi.org/10.1080/17477778.2018.1442155">https://doi.org/10.1080/17477778.2018.1442155</a>.
+</div>
+<div id="ref-thompson_screening_2018" class="csl-entry" role="listitem">
+Thompson, Simon G, Matthew J Bown, Matthew J Glover, Edmund Jones, Katya L Masconi, Jonathan A Michaels, Janet T Powell, Pinar Ulug, and Michael J Sweeting. 2018. <span>“Screening Women Aged 65 Years or over for Abdominal Aortic Aneurysm: A Modelling Study and Health Economic Evaluation.”</span> <em>Health Technology Assessment</em> 22 (43): 1–142. <a href="https://doi.org/10.3310/hta22430">https://doi.org/10.3310/hta22430</a>.
 </div>
 <div id="ref-zhang_reporting_2020" class="csl-entry" role="listitem">
 Zhang, Xiange, Stefan K. Lhachimi, and Wolf H. Rogowski. 2020. <span>“Reporting <span>Quality</span> of <span>Discrete</span> <span>Event</span> <span>Simulations</span> in <span>Healthcare</span>—<span>Results</span> <span>From</span> a <span>Generic</span> <span>Reporting</span> <span>Checklist</span>.”</span> <em>Value in Health</em> 23 (4): 506–14. <a href="https://doi.org/10.1016/j.jval.2020.01.005">https://doi.org/10.1016/j.jval.2020.01.005</a>.
@@ -1062,7 +1067,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
