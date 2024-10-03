@@ -1,0 +1,25 @@
+---
+title: "Day 10"
+author: "Amy Heather"
+date: "2024-10-03"
+categories: [compendium]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Test-run and archiving.
+
+:::
+
+## Untimed: Test-run
+
+Tom performed a test-run on XPS13 with Ubuntu 22.04. He found that:
+
+* `renv`: built fine
+* `testthat`: ran correctly (instantly)
+* Tried running `run_aaamodel)_65yo_scen0.R` - initially didn't work as was doing `run()`, but when switched to `source()` it did work although took a while on his machine
+
+## Untimed: Wrapping up
+
+Now that is complete, I emailed the authors to let them know, and set a new release to send a new version of the repository to be archived on zenodo.
