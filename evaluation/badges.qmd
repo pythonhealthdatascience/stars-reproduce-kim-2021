@@ -8,7 +8,7 @@ bibliography: ../quarto_site/references.bib
 
 This page evaluates the extent to which the author-published research artefacts meet the criteria of badges related to reproducibility from various organisations and journals.
 
-*Caveat: Please note that these criteria are based on available information about each badge online, and that we have likely differences in our procedure (e.g. allowed troubleshooting for execution and reproduction, not under tight time pressure to complete). Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals.*
+*Caveat: Please note that these criteria are based on available information about each badge online. Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals.*
 
 ## Criteria
 
@@ -19,35 +19,34 @@ import pandas as pd
 
 # Criteria and their definitions
 criteria = {
-    'archive': 'Stored in a permanent archive that is publicly and openly accessible',
-    'id': 'Has a persistent identifier',
-    'license': 'Includes an open license',
-    'relevant': '''Artefacts are relevant to and contribute to the article's results''',
-    'complete': 'Complete set of materials shared (as would be needed to fully reproduce article)',
-    'structure': 'Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)',
-    'documentation_sufficient': 'Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)',
-    'documentation_careful': 'Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)',
-    # This criteria is kept seperate to documentation_careful, as it specifically requires a README file
-    'documentation_readme': 'Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript',
+    'archive': 'Artefacts are archived in a repository that is: (a) public (b) guarantees persistence (c) gives a unique identifier (e.g. DOI)',
+    'licence': 'Open licence',
+    'complete': 'Complete (all relevant artefacts available)',
+    'docs1': 'Documents (a) how code is used (b) how it relates to article (c) software, systems, packages and versions',
+    'docs2': 'Documents (a) inventory of artefacts (b) sufficient description for artefacts to be exercised',
+    'relevant': 'Artefacts relevant to paper',
     'execute': 'Scripts can be successfully executed',
-    'regenerated': 'Independent party regenerated results using the authors research artefacts',
-    'hour': 'Reproduced within approximately one hour (excluding compute time)',
+    'careful': 'Artefacts are carefully documented and well-structured to the extent that reuse and repurposing is facilitated, adhering to norms and standards',
+    'reproduce': 'Reproduced results (assuming (a) acceptably similar (b) reasonable time frame (c) only minor troubleshooting)',
+    'readme': 'README file with step-by-step instructions to run analysis',
+    'dependencies': 'Dependencies (e.g. package versions) stated',
+    'correspond': 'Clear how output of analysis corresponds to article'
 }
 
 # Evaluation for this study
 eval = pd.Series({
     'archive': 0,
-    'id': 0,
-    'license': 1,
-    'relevant': 1,
+    'licence': 1,
     'complete': 0,
-    'structure': 1,
-    'documentation_sufficient': 0,
-    'documentation_careful': 0,
-    'documentation_readme': 0,
+    'docs1': 0,
+    'docs2': 1,
+    'relevant': 1,
     'execute': 1,
-    'regenerated': 1,
-    'hour': 0,
+    'careful': 1,
+    'reproduce': 0,
+    'readme': 0,
+    'dependencies': 0,
+    'correspond': 0
 })
 
 # Get list of criteria met (True/False) overall
@@ -82,10 +81,10 @@ def create_criteria_list(criteria_dict):
     return(formatted_list)
 
 # Define groups of criteria
-criteria_share_how = ['archive', 'id', 'license']
-criteria_share_what = ['relevant', 'complete']
-criteria_doc_struc = ['structure', 'documentation_sufficient', 'documentation_careful', 'documentation_readme']
-criteria_run = ['execute', 'regenerated', 'hour']
+criteria_share_how = ['archive', 'licence']
+criteria_share_what = ['complete', 'relevant']
+criteria_doc_struc = ['docs1', 'docs2', 'careful', 'readme', 'dependencies', 'correspond']
+criteria_run = ['execute', 'reproduce']
 
 # Create text section
 display(Markdown(f'''
@@ -118,9 +117,9 @@ Criteria related to running and reproducing results -
 # Full badge names
 badge_names = {
     # Open objects
+    'open_acm': 'ACM "Artifacts Available"',
     'open_niso': 'NISO "Open Research Objects (ORO)"',
     'open_niso_all': 'NISO "Open Research Objects - All (ORO-A)"',
-    'open_acm': 'ACM "Artifacts Available"',
     'open_cos': 'COS "Open Code"',
     'open_ieee': 'IEEE "Code Available"',
     # Object review
@@ -128,8 +127,8 @@ badge_names = {
     'review_acm_reusable': 'ACM "Artifacts Evaluated - Reusable"',
     'review_ieee': 'IEEE "Code Reviewed"',
     # Results reproduced
-    'reproduce_niso': 'NISO "Results Reproduced (ROR-R)"',
     'reproduce_acm': 'ACM "Results Reproduced"',
+    'reproduce_niso': 'NISO "Results Reproduced (ROR-R)"',
     'reproduce_ieee': 'IEEE "Code Reproducible"',
     'reproduce_psy': 'Psychological Science "Computational Reproducibility"'
 }
@@ -137,20 +136,20 @@ badge_names = {
 # Criteria required by each badge
 badges = {
     # Open objects
-    'open_niso': ['archive', 'id', 'license'],
-    'open_niso_all': ['archive', 'id', 'license', 'complete'],
-    'open_acm': ['archive', 'id'],
-    'open_cos': ['archive', 'id', 'license', 'complete', 'documentation_sufficient'],
+    'open_acm': ['archive'],
+    'open_niso': ['archive', 'licence'],
+    'open_niso_all': ['archive', 'licence', 'complete'],
+    'open_cos': ['archive', 'licence', 'docs1'],
     'open_ieee': ['complete'],
     # Object review
-    'review_acm_functional': ['documentation_sufficient', 'relevant', 'complete', 'execute'],
-    'review_acm_reusable': ['documentation_sufficient', 'documentation_careful', 'relevant', 'complete', 'execute', 'structure'],
+    'review_acm_functional': ['docs2', 'relevant', 'complete', 'execute'],
+    'review_acm_reusable': ['docs2', 'relevant', 'complete', 'execute', 'careful'],
     'review_ieee': ['complete', 'execute'],
     # Results reproduced
-    'reproduce_niso': ['regenerated'],
-    'reproduce_acm': ['regenerated'],
-    'reproduce_ieee': ['regenerated'],
-    'reproduce_psy': ['regenerated', 'hour', 'structure', 'documentation_readme'],
+    'reproduce_acm': ['reproduce'],
+    'reproduce_niso': ['reproduce'],
+    'reproduce_ieee': ['reproduce'],
+    'reproduce_psy': ['reproduce', 'readme', 'dependencies', 'correspond']
 }
 
 # Identify which badges would be awarded based on criteria
@@ -256,12 +255,12 @@ create_badge_callout({k: v for (k, v) in award.items() if k.startswith('reproduc
 
 * "Open Code"
 
-**Institute of Electrical and Electronics Engineers (IEEE)** (@institute_of_electrical_and_electronics_engineers_ieee_about_nodate)
+**Institute of Electrical and Electronics Engineers (IEEE)** (@institute_of_electrical_and_electronics_engineers_ieee_about_2024)
 
 * "Code Available"
 * "Code Reviewed"
 * "Code Reproducible"
 
-**Psychological Science** (@hardwicke_transparency_2023 and @association_for_psychological_science_aps_psychological_2023)
+**Psychological Science** (@hardwicke_transparency_2024 and @association_for_psychological_science_aps_psychological_2024)
 
 * "Computational Reproducibility"

@@ -1,0 +1,27 @@
+---
+title: "Day 11"
+author: "Amy Heather"
+date: "2024-11-21"
+categories: [evaluation]
+---
+
+::: {.callout-note}
+
+Redid badge evaluation.
+
+:::
+
+## 10.40-10.44: Revisit evaluation
+
+Revisited and revised the badge criteria to (a) make them up-to-date, and (b) make sure they are *specific* to the descriptions from each badge. Hence, redoing evaluations for all eight studies.
+
+Notes:
+
+* Docs1 ("Documents (a) how code is used (b) how it relates to article (c) software, systems, packages and versions") - No - although it has links to articles, it doesn't link to specific outputs in article, or explain (a) or (c)
+* Careful: Yes - it is well organised by norms/standards, and supported by documentation explaining organisation, which would help facilitate reuse
+* Reproduce: No - as required extensive troubleshooting (i.e. writing code for scenarios and to make figures and so on) and large time commitment
+* Readme: No - as doesn't have step-by-step instructions for running model, just directory overview
+
+## Untimed: Update summary report
+
+With new badge evaluation results.

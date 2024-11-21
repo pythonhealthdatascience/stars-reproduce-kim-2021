@@ -2,7 +2,7 @@
 title: "Day 6"
 author: "Amy Heather"
 date: "2024-08-02"
-categories: [reproduce, guidelines, report, reflections]
+categories: [reproduce, evaluation, report, reflections]
 bibliography: ../../../quarto_site/references.bib
 ---
 
