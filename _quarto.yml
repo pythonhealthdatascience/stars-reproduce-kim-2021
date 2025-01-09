@@ -22,8 +22,6 @@ website:
         menu:
           - text: README
             href: quarto_site/reproduction_readme.qmd
-          - text: Reproduction
-            href: reproduction/process_results/process_results.Rmd
       - text: Evaluation
         menu:
           - evaluation/scope.qmd
