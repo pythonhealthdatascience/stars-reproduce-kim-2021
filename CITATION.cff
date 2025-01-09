@@ -2,7 +2,7 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: 'STARS: Computational reproducibility of Kim et al. 2021'
+title: 'Kim et al. 2021 computational reproducibility assessment'
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -35,5 +35,5 @@ abstract: >-
   https://doi.org/10.1371/journal.pone.0253327.
 license: LGPL-3.0
 # TODO: Manually update with each GitHub release (start with 0.1.0)
-version: '0.2.0'
-date-released: '2024-10-03'
+version: '1.0.0'
+date-released: '2025-01-09'
