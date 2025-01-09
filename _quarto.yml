@@ -5,6 +5,7 @@ project:
   # Include & exclude certain files when rendering
   render:
     - "*.qmd"
+    - "*.md"
     - "!*.Rmd"
 
 website:
